@@ -11,6 +11,8 @@
 		F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */; };
 		F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6321B2F684A00A8EAA5 /* Realm.framework */; };
 		F678F6351B2F689A00A8EAA5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6341B2F689A00A8EAA5 /* libc++.dylib */; };
+		F6B722821B2FBC32002FF6DF /* Paperwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B722801B2FBC32002FF6DF /* Paperwork.jpg */; };
+		F6B722831B2FBC32002FF6DF /* Storyboard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B722811B2FBC32002FF6DF /* Storyboard.jpg */; };
 		F6B9129D1B2F602A00245ED5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9129C1B2F602A00245ED5 /* main.m */; };
 		F6B912A01B2F602A00245ED5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9129F1B2F602A00245ED5 /* AppDelegate.m */; };
 		F6B912A31B2F602A00245ED5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B912A21B2F602A00245ED5 /* FirstViewController.m */; };
@@ -36,6 +38,8 @@
 		F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assessment.storyboard; sourceTree = "<group>"; };
 		F678F6321B2F684A00A8EAA5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		F678F6341B2F689A00A8EAA5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		F6B722801B2FBC32002FF6DF /* Paperwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Paperwork.jpg; sourceTree = "<group>"; };
+		F6B722811B2FBC32002FF6DF /* Storyboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Storyboard.jpg; sourceTree = "<group>"; };
 		F6B912971B2F602A00245ED5 /* DangerTreeAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DangerTreeAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B9129B1B2F602A00245ED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B9129C1B2F602A00245ED5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 				F6B912AC1B2F602A00245ED5 /* LaunchScreen.xib */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		F6B7227F1B2FBBA5002FF6DF /* README images */ = {
+			isa = PBXGroup;
+			children = (
+				F6B722801B2FBC32002FF6DF /* Paperwork.jpg */,
+				F6B722811B2FBC32002FF6DF /* Storyboard.jpg */,
+			);
+			name = "README images";
 			sourceTree = "<group>";
 		};
 		F6B9128E1B2F602A00245ED5 = {
@@ -173,6 +186,7 @@
 		F6B912C51B2F629E00245ED5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F6B7227F1B2FBBA5002FF6DF /* README images */,
 				F6B912AA1B2F602A00245ED5 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -262,7 +276,9 @@
 				F6B912AE1B2F602A00245ED5 /* LaunchScreen.xib in Resources */,
 				F678F62F1B2F671E00A8EAA5 /* Review.storyboard in Resources */,
 				F6B912AB1B2F602A00245ED5 /* Images.xcassets in Resources */,
+				F6B722831B2FBC32002FF6DF /* Storyboard.jpg in Resources */,
 				F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */,
+				F6B722821B2FBC32002FF6DF /* Paperwork.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
