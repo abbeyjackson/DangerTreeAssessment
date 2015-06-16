@@ -23,6 +23,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)viewExistingSite:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
+}
 
 /*
 #pragma mark - Navigation
