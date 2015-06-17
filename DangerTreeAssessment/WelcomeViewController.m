@@ -27,6 +27,10 @@
     [self.tabBarController setSelectedIndex:1];
 }
 
+- (IBAction)startNewSite:(id)sender {
+}
+
+
 /*
 #pragma mark - Navigation
 
