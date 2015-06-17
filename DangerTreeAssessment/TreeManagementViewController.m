@@ -19,7 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self configureCommentBox];
+}
+
+-(void)configureCommentBox{
+    [self.commentsTextView.layer setBorderColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [self.commentsTextView.layer setBorderWidth:.6];
+    self.commentsTextView.layer.cornerRadius = 5.0;
+    self.commentsTextView.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {

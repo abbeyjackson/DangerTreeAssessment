@@ -9,6 +9,7 @@
 #import "TreeLOD4ViewController.h"
 
 @interface TreeLOD4ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *ratingField;
 
 @end
 
@@ -22,6 +23,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)ratingActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+    [actionSheet showInView:self.view];
+}
+- (IBAction)saveTreeAssessmentButton:(id)sender {
 }
 
 /*
