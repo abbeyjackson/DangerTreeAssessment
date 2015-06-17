@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B51430DB1B30F2B600B9C141 /* SitePractice.m in Sources */ = {isa = PBXBuildFile; fileRef = B51430DA1B30F2B600B9C141 /* SitePractice.m */; };
 		F648E8501B30A053007ADB73 /* SiteInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */; };
 		F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8521B30A062007ADB73 /* TreeInfoViewController.m */; };
 		F648E8561B30A072007ADB73 /* TreeAssessmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8551B30A072007ADB73 /* TreeAssessmentViewController.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B51430D91B30F2B600B9C141 /* SitePractice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePractice.h; sourceTree = "<group>"; };
+		B51430DA1B30F2B600B9C141 /* SitePractice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePractice.m; sourceTree = "<group>"; };
 		F648E84E1B30A053007ADB73 /* SiteInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteInfoViewController.h; sourceTree = "<group>"; };
 		F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteInfoViewController.m; sourceTree = "<group>"; };
 		F648E8511B30A062007ADB73 /* TreeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeInfoViewController.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				F6B9129F1B2F602A00245ED5 /* AppDelegate.m */,
 				F648E86C1B30A258007ADB73 /* Tree.h */,
 				F648E86D1B30A258007ADB73 /* Tree.m */,
+				B51430D91B30F2B600B9C141 /* SitePractice.h */,
+				B51430DA1B30F2B600B9C141 /* SitePractice.m */,
 				F648E86F1B30A40D007ADB73 /* Site.h */,
 				F648E8701B30A40D007ADB73 /* Site.m */,
 			);
@@ -354,6 +359,7 @@
 				F648E8561B30A072007ADB73 /* TreeAssessmentViewController.m in Sources */,
 				F648E85C1B30A08B007ADB73 /* TreeReviewViewController.m in Sources */,
 				F6B9129D1B2F602A00245ED5 /* main.m in Sources */,
+				B51430DB1B30F2B600B9C141 /* SitePractice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,11 @@
 //
 
 #import "DataTableViewController.h"
+#import "SitePractice.h"
 
 @interface DataTableViewController ()
+
+@property (nonatomic) NSArray *sitesArray;
 
 @end
 
@@ -22,36 +25,32 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    
+    self.sitesArray = @[[[SitePractice alloc] initWithLocation:@"Prince George Fire"],
+                        [[SitePractice alloc] initWithLocation:@"Another place"]];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.sitesArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    SitePractice *object = self.sitesArray[indexPath.row];
+    
+    cell.textLabel.text = object.location;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
