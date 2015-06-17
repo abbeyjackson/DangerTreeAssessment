@@ -8,7 +8,13 @@
 
 #import "TreeInfoViewController.h"
 
-@interface TreeInfoViewController ()
+@interface TreeInfoViewController ()<UIActionSheetDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *latitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *speciesField;
+@property (weak, nonatomic) IBOutlet UITextField *classField;
+@property (weak, nonatomic) IBOutlet UITextField *wildlifeValueField;
 
 @end
 
@@ -22,6 +28,36 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)speciesActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+    [actionSheet showInView:self.view];
+}
+- (IBAction)classActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+    [actionSheet showInView:self.view];
+}
+- (IBAction)wildlifeValueActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+    [actionSheet showInView:self.view];
+}
+- (IBAction)saveNewTreeButton:(id)sender {
+
 }
 
 /*

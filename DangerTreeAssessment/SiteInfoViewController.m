@@ -12,12 +12,12 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
-@property (weak, nonatomic) IBOutlet UITextField *dtaUnit;
-@property (weak, nonatomic) IBOutlet UITextField *fuel;
+@property (weak, nonatomic) IBOutlet UITextField *dtaUnitField;
+@property (weak, nonatomic) IBOutlet UITextField *fuelField;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
-@property (weak, nonatomic) IBOutlet UITextField *bui;
-@property (weak, nonatomic) IBOutlet UITextField *lod;
-@property (weak, nonatomic) IBOutlet UITextField *activity;
+@property (weak, nonatomic) IBOutlet UITextField *buiField;
+@property (weak, nonatomic) IBOutlet UITextField *lodField;
+@property (weak, nonatomic) IBOutlet UITextField *activityField;
 
 @property (weak, nonatomic) IBOutlet UIButton *addTreeButton;
 
