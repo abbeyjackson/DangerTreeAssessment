@@ -1,5 +1,5 @@
 //
-//  TreeAssessmentViewController.h
+//  TreeLOD23ViewController.h
 //  DangerTreeAssessment
 //
 //  Created by Abegael Jackson on 2015-06-16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TreeAssessmentViewController : UIViewController
+@interface TreeLOD23ViewController : UIViewController
 
 @end

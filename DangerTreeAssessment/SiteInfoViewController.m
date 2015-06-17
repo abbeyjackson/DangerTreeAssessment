@@ -8,7 +8,18 @@
 
 #import "SiteInfoViewController.h"
 
-@interface SiteInfoViewController ()
+@interface SiteInfoViewController ()<UIActionSheetDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
+@property (weak, nonatomic) IBOutlet UITextField *dtaUnit;
+@property (weak, nonatomic) IBOutlet UITextField *fuel;
+@property (weak, nonatomic) IBOutlet UITextField *locationField;
+@property (weak, nonatomic) IBOutlet UITextField *bui;
+@property (weak, nonatomic) IBOutlet UITextField *lod;
+@property (weak, nonatomic) IBOutlet UITextField *activity;
+
+@property (weak, nonatomic) IBOutlet UIButton *addTreeButton;
 
 @end
 
@@ -22,6 +33,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)fuelActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+ [actionSheet showInView:self.view];
+}
+
+- (IBAction)lodActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Level Of Disturbance"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+    [actionSheet showInView:self.view];
 }
 
 /*

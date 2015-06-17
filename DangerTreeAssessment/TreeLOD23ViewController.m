@@ -1,18 +1,18 @@
 //
-//  TreeAssessmentViewController.m
+//  TreeLOD23ViewController.m
 //  DangerTreeAssessment
 //
 //  Created by Abegael Jackson on 2015-06-16.
 //  Copyright (c) 2015 Abbey Jackson & Alain Kahwaji. All rights reserved.
 //
 
-#import "TreeAssessmentViewController.h"
+#import "TreeLOD23ViewController.h"
 
-@interface TreeAssessmentViewController ()
+@interface TreeLOD23ViewController ()
 
 @end
 
-@implementation TreeAssessmentViewController
+@implementation TreeLOD23ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
