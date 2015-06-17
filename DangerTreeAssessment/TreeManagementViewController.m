@@ -34,11 +34,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)managementActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+                                                    cancelButtonTitle:@"Select Management Action"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Safe - No Action Required", @"Dangerous - Fall Tree", @"Dangerous - Install NWZ", @"Other - Remove Hazard", nil];
     
     [actionSheet showInView:self.view];
 }

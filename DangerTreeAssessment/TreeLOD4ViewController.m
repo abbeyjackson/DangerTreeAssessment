@@ -25,11 +25,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)ratingActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+                                                    cancelButtonTitle:@"Select Rating"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Dangerous", @"Class 1 Trees = S", @"Class 2 Trees With No Structural Defects = S", @"Class 2 Cedars With Low Failure Potential = S", @"Class 3 Conifers With No Structural Defects = S", nil];
     
     [actionSheet showInView:self.view];
 }
