@@ -9,6 +9,9 @@
 #import "TreeManagementViewController.h"
 
 @interface TreeManagementViewController ()
+@property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
+@property (weak, nonatomic) IBOutlet UITextField *managementField;
+@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
 
 @end
 
@@ -22,6 +25,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)managementActionSheet:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete it"
+                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+    
+    [actionSheet showInView:self.view];
+}
+- (IBAction)makeTreeReportButton:(id)sender {
 }
 
 /*
