@@ -36,23 +36,21 @@
 }
 
 - (IBAction)fuelActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
-    
- [actionSheet showInView:self.view];
+
 }
 
 - (IBAction)lodActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Level Of Disturbance"
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+                                                    cancelButtonTitle:@"Select Level Of Disturbance"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"LOD 1", @"LOD 2/3", @"LOD 4", nil];
     
     [actionSheet showInView:self.view];
+}
+
+
+- (IBAction)unwindToSiteInfo:(UIStoryboardSegue*)sender{
 }
 
 /*

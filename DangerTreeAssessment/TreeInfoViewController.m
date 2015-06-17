@@ -30,29 +30,17 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)speciesActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
-    
-    [actionSheet showInView:self.view];
+
 }
 - (IBAction)classActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
-    
-    [actionSheet showInView:self.view];
+
 }
 - (IBAction)wildlifeValueActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:@"Delete it"
-                                                    otherButtonTitles:@"Copy", @"Move", @"Duplicate", nil];
+                                                    cancelButtonTitle:@"Select Wildlife Value"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"HIGH", @"MEDIUM", @"LOW", nil];
     
     [actionSheet showInView:self.view];
 }

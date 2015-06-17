@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WRZ-zJ-DcY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qnn-sE-2l8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -139,6 +139,9 @@
                                 </state>
                                 <connections>
                                     <action selector="fuelActionSheet:" destination="Qnn-sE-2l8" eventType="touchUpInside" id="obj-jZ-Uww"/>
+                                    <segue destination="9cH-jh-INy" kind="popoverPresentation" popoverAnchorView="Xbg-Ed-Alw" id="WSV-pJ-k17">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9O-uw-00F">
@@ -256,6 +259,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zaT-fs-rfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1154" y="271"/>
+        </scene>
+        <!--Fuel Table View Controller-->
+        <scene sceneID="GWC-Mh-gTW">
+            <objects>
+                <tableViewController id="9cH-jh-INy" customClass="FuelTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="E76-nw-kn2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="N9i-wL-jh3">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Select Fuel Type" id="a6Q-cp-6B1">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cn1-aJ-84h">
+                                        <connections>
+                                            <segue destination="3la-bv-iP4" kind="unwind" unwindAction="unwindToSiteInfo:" id="HxG-xJ-MXh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" systemItem="save" id="88h-zs-Gur">
+                                        <connections>
+                                            <segue destination="3la-bv-iP4" kind="unwind" unwindAction="unwindToSiteInfo:" id="VE5-gJ-2PN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gtv-Qd-xbF" style="IBUITableViewCellStyleDefault" id="7Cx-6n-eJ4">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Cx-6n-eJ4" id="nNH-ir-KN7">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gtv-Qd-xbF">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9cH-jh-INy" id="y17-E4-e8h"/>
+                            <outlet property="delegate" destination="9cH-jh-INy" id="H9z-Ad-EIg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQU-tI-trp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3la-bv-iP4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="985"/>
         </scene>
         <!--LOD 4 Tree Assessment-->
         <scene sceneID="geO-OE-boh">
@@ -1144,6 +1200,9 @@
                                 <state key="normal" title="Wildlife Value Action Sheet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="wildlifeValueActionSheet:" destination="O6Y-4o-Q6H" eventType="touchUpInside" id="fY9-XS-TKW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-5V-Bxg">
                                 <rect key="frame" x="35" y="319" width="530" height="30"/>
