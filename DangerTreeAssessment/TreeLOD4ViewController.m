@@ -1,39 +1,30 @@
 //
-//  TreeManagementViewController.m
+//  TreeLOD4ViewController.m
 //  DangerTreeAssessment
 //
 //  Created by Abegael Jackson on 2015-06-16.
 //  Copyright (c) 2015 Abbey Jackson & Alain Kahwaji. All rights reserved.
 //
 
-#import "TreeManagementViewController.h"
+#import "TreeLOD4ViewController.h"
 
-@interface TreeManagementViewController ()
-@property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
-@property (weak, nonatomic) IBOutlet UITextField *managementField;
-@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
+@interface TreeLOD4ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *ratingField;
 
 @end
 
-@implementation TreeManagementViewController
+@implementation TreeLOD4ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureCommentBox];
-}
-
--(void)configureCommentBox{
-    [self.commentsTextView.layer setBorderColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] CGColor]];
-    [self.commentsTextView.layer setBorderWidth:.6];
-    self.commentsTextView.layer.cornerRadius = 5.0;
-    self.commentsTextView.clipsToBounds = YES;
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)managementActionSheet:(id)sender {
+- (IBAction)ratingActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Fuel"
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
@@ -42,7 +33,7 @@
     
     [actionSheet showInView:self.view];
 }
-- (IBAction)makeTreeReportButton:(id)sender {
+- (IBAction)saveTreeAssessmentButton:(id)sender {
 }
 
 /*
