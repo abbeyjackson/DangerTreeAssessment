@@ -10,6 +10,15 @@
 
 @interface SiteReviewViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dtaNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fuelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *buiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lodLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
+
 @end
 
 @implementation SiteReviewViewController

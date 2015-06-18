@@ -269,6 +269,16 @@
                             <constraint firstItem="Ewz-x3-cv0" firstAttribute="top" secondItem="p2t-yz-77M" secondAttribute="bottom" constant="8" id="wOk-0Z-TrH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityLabel" destination="Ewz-x3-cv0" id="lxO-kW-pqM"/>
+                        <outlet property="buiLabel" destination="22p-71-3io" id="Spq-zV-Uh7"/>
+                        <outlet property="dtaNameLabel" destination="hZD-Bj-bv4" id="mV6-1a-VYB"/>
+                        <outlet property="fireNumberLabel" destination="hyp-cP-SkI" id="4OO-Zh-f2j"/>
+                        <outlet property="fuelLabel" destination="uLS-MD-uUm" id="0Sz-r7-EdP"/>
+                        <outlet property="locationLabel" destination="aS9-Mu-jdx" id="cBf-4b-6y4"/>
+                        <outlet property="lodLabel" destination="p2t-yz-77M" id="Ue5-Oq-mK4"/>
+                        <outlet property="unitLabel" destination="4Sn-h6-jMp" id="AqW-Up-y4e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWZ-RO-VA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
