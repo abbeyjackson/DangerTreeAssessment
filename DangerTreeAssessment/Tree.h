@@ -7,6 +7,7 @@
 //
 
 #import <Realm/Realm.h>
+@class Site;
 
 typedef enum : int {
     L,
@@ -15,6 +16,8 @@ typedef enum : int {
 } WildLifeValue;
 
 @interface Tree : RLMObject
+
+@property Site *site;
 
 @property double lat;
 @property double lon;
