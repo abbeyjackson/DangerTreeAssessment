@@ -1,5 +1,5 @@
 //
-//  TreeClassTableViewController.h
+//  TreeClassCollectionViewCell.h
 //  DangerTreeAssessment
 //
 //  Created by Abegael Jackson on 2015-06-17.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TreeClass;
 
-@interface TreeClassTableViewController : UITableViewController
+@interface TreeClassCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) TreeClass *object;
 
 @end
