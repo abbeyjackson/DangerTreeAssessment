@@ -127,7 +127,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTI-01-9hF">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTI-01-9hF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Site Review" id="xpu-mz-jJt"/>
@@ -244,6 +244,7 @@
                             <constraint firstItem="xjZ-MJ-EJS" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="E1R-yW-Y5h"/>
                             <constraint firstAttribute="trailing" secondItem="uLS-MD-uUm" secondAttribute="trailing" constant="35" id="G7U-K0-yJ9"/>
                             <constraint firstItem="hyp-cP-SkI" firstAttribute="top" secondItem="cgk-hx-P3x" secondAttribute="bottom" constant="50" id="GHj-aU-aTq"/>
+                            <constraint firstItem="gTI-01-9hF" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" id="GNR-gd-rYt"/>
                             <constraint firstItem="pFm-WQ-kcl" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="HIm-Vg-lnh"/>
                             <constraint firstItem="sZ9-ZH-toc" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="HZM-NQ-3bU"/>
                             <constraint firstItem="P7s-mZ-8Z3" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="Int-Te-gXy"/>
@@ -252,6 +253,7 @@
                             <constraint firstItem="mSB-e6-ypj" firstAttribute="top" secondItem="sZ9-ZH-toc" secondAttribute="bottom" constant="8" id="UuA-YZ-GZV"/>
                             <constraint firstItem="uLS-MD-uUm" firstAttribute="top" secondItem="4Sn-h6-jMp" secondAttribute="bottom" constant="8" id="Xg4-XH-Duz"/>
                             <constraint firstItem="pFm-WQ-kcl" firstAttribute="top" secondItem="vBG-2B-0ib" secondAttribute="bottom" constant="8" id="ax4-kB-bPb"/>
+                            <constraint firstAttribute="trailing" secondItem="gTI-01-9hF" secondAttribute="trailing" id="dNX-Av-n9b"/>
                             <constraint firstItem="4Sn-h6-jMp" firstAttribute="top" secondItem="hZD-Bj-bv4" secondAttribute="bottom" constant="8" id="dPG-5h-48J"/>
                             <constraint firstAttribute="trailing" secondItem="aS9-Mu-jdx" secondAttribute="trailing" constant="35" id="dbF-dx-fMm"/>
                             <constraint firstItem="P7s-mZ-8Z3" firstAttribute="top" secondItem="pFm-WQ-kcl" secondAttribute="bottom" constant="8" id="eY3-Dz-3ZZ"/>
