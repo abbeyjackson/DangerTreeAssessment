@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fire2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-Kt-dOh">
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fire2" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-Kt-dOh">
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-95-mQS">
@@ -131,7 +131,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fire2.jpg" width="800" height="600"/>
+        <image name="fire2" width="800" height="600"/>
         <image name="first" width="30" height="30"/>
     </resources>
 </document>
