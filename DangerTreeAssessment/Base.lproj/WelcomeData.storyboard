@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Welcome-->
@@ -16,18 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-95-mQS">
-                                <rect key="frame" x="236" y="261" width="129" height="30"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fire2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-Kt-dOh">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-95-mQS">
+                                <rect key="frame" x="225" y="268" width="152" height="34"/>
                                 <state key="normal" title="View Existing Sites">
+                                    <color key="titleColor" red="0.83224826389999995" green="0.0" blue="0.0083653599910000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="viewExistingSite:" destination="Bti-3F-71K" eventType="touchUpInside" id="bDB-lr-962"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFA-qZ-i5P">
-                                <rect key="frame" x="251" y="336" width="99" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFA-qZ-i5P">
+                                <rect key="frame" x="251" y="384" width="99" height="30"/>
                                 <state key="normal" title="Start New Site">
+                                    <color key="titleColor" red="0.83224826389999995" green="0.0" blue="0.0083653599910000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -35,20 +41,24 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbW-Bj-HfB">
-                                <rect key="frame" x="248" y="95" width="105" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="184" y="71" width="234" height="57"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <color key="textColor" red="0.83224826389999995" green="0.0" blue="0.0083653599910000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CbW-Bj-HfB" firstAttribute="top" secondItem="voS-px-gzK" secondAttribute="bottom" constant="75" id="4Ex-w0-wxh"/>
+                            <constraint firstItem="5Hr-Kt-dOh" firstAttribute="centerX" secondItem="ffz-d2-e25" secondAttribute="centerX" constant="-55" id="1f7-WL-2tB"/>
                             <constraint firstAttribute="centerX" secondItem="RNS-95-mQS" secondAttribute="centerX" id="9l6-v4-uBA"/>
-                            <constraint firstAttribute="centerX" secondItem="CbW-Bj-HfB" secondAttribute="centerX" id="SNs-oS-arW"/>
+                            <constraint firstItem="CbW-Bj-HfB" firstAttribute="top" secondItem="5Hr-Kt-dOh" secondAttribute="centerY" multiplier="1/4" id="Z2j-M5-F3P"/>
                             <constraint firstItem="KFA-qZ-i5P" firstAttribute="top" secondItem="RNS-95-mQS" secondAttribute="bottom" constant="45" id="aEG-Fa-iOS"/>
+                            <constraint firstItem="5Hr-Kt-dOh" firstAttribute="top" secondItem="voS-px-gzK" secondAttribute="top" id="i7C-uE-PeK"/>
                             <constraint firstItem="RNS-95-mQS" firstAttribute="top" secondItem="CbW-Bj-HfB" secondAttribute="bottom" constant="140" id="pHh-dz-IVk"/>
+                            <constraint firstItem="5Hr-Kt-dOh" firstAttribute="bottom" secondItem="J5I-4R-39g" secondAttribute="top" id="sah-hV-BOx"/>
                             <constraint firstAttribute="centerX" secondItem="KFA-qZ-i5P" secondAttribute="centerX" constant="-0.5" id="tBv-P0-puo"/>
+                            <constraint firstAttribute="centerX" secondItem="CbW-Bj-HfB" secondAttribute="centerX" constant="-0.5" id="xS4-HC-IaW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Welcome" image="first" id="R2q-5j-Xv3"/>
@@ -121,6 +131,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fire2.jpg" width="800" height="600"/>
         <image name="first" width="30" height="30"/>
     </resources>
 </document>

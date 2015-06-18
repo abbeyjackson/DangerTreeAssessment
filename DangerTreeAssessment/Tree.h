@@ -53,7 +53,7 @@ typedef enum : int {
 @property BOOL splitTrunk;
 @property BOOL stemDamage;
 @property BOOL sloughingBark;
-@property BOOL cankersLabel;
+@property BOOL cankers;
 @property BOOL conksMushrooms;
 @property BOOL treenLean;
 @property BOOL rootInspection;
