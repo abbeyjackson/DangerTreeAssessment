@@ -596,7 +596,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insecurely lodged or hung up tree limbs/tops" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkC-XF-AYm">
-                                <rect key="frame" x="35" y="174.5" width="440" height="40"/>
+                                <rect key="frame" x="35" y="174.5" width="430" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="O8q-CS-v0q"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Qe0-tB-khE"/>
@@ -606,7 +606,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highly unstable tree" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aix-kF-twM">
-                                <rect key="frame" x="35" y="251.5" width="440" height="40"/>
+                                <rect key="frame" x="35" y="251.5" width="430" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="YUj-Zy-ANO"/>
                                     <constraint firstAttribute="height" constant="40" id="mTB-ae-hAT"/>
@@ -616,7 +616,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent lean with unstable roots" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCm-hf-cd9">
-                                <rect key="frame" x="35" y="328.5" width="440" height="40"/>
+                                <rect key="frame" x="35" y="328.5" width="430" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XqO-Yr-OXj"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fMp-XD-9WN"/>
@@ -684,35 +684,38 @@
                                 </state>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EVw-gm-WEW">
-                                <rect key="frame" x="485" y="174.5" width="80" height="41"/>
+                                <rect key="frame" x="475" y="174.5" width="90" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NeK-ks-R6T"/>
-                                    <constraint firstAttribute="width" constant="80" id="ngO-Wd-fCj"/>
+                                    <constraint firstAttribute="width" constant="90" id="ngO-Wd-fCj"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8ez-A3-72b">
-                                <rect key="frame" x="485" y="251.5" width="80" height="41"/>
+                                <rect key="frame" x="475" y="251.5" width="90" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Mc2-c8-eF0"/>
-                                    <constraint firstAttribute="width" constant="80" id="TzI-Kg-7IV"/>
+                                    <constraint firstAttribute="width" constant="90" id="TzI-Kg-7IV"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="44H-ta-VjJ">
-                                <rect key="frame" x="485" y="328.5" width="80" height="41"/>
+                                <rect key="frame" x="475" y="328.5" width="90" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="hnn-wd-BrD"/>
+                                    <constraint firstAttribute="width" constant="90" id="hnn-wd-BrD"/>
                                     <constraint firstAttribute="height" constant="40" id="wHz-h1-C6B"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
@@ -818,7 +821,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hazardous Top (HT)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-1U-2Ei">
-                                <rect key="frame" x="35" y="84" width="440" height="31"/>
+                                <rect key="frame" x="35" y="84" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="I4Z-OR-T3y"/>
                                 </constraints>
@@ -827,7 +830,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dead Limbs (DL)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-tf-E6p">
-                                <rect key="frame" x="35" y="125" width="440" height="31"/>
+                                <rect key="frame" x="35" y="125" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="dEM-WD-tYm"/>
                                 </constraints>
@@ -836,7 +839,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Witches Broom (WB)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHj-o4-m6H">
-                                <rect key="frame" x="35" y="166" width="440" height="31"/>
+                                <rect key="frame" x="35" y="166" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="LiF-Y1-JhG"/>
                                 </constraints>
@@ -845,7 +848,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split Trunk (ST)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKC-wl-5jb">
-                                <rect key="frame" x="35" y="207" width="440" height="31"/>
+                                <rect key="frame" x="35" y="207" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="0zq-rs-uTX"/>
                                 </constraints>
@@ -854,7 +857,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stem Damage (SD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-L9-WoF">
-                                <rect key="frame" x="35" y="248" width="440" height="31"/>
+                                <rect key="frame" x="35" y="248" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="2XR-1r-RCw"/>
                                 </constraints>
@@ -863,7 +866,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sloughing Bark or Sapwood (SB)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwf-lw-pJw">
-                                <rect key="frame" x="35" y="290" width="440" height="31"/>
+                                <rect key="frame" x="35" y="290" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="Cub-GU-uFn"/>
                                 </constraints>
@@ -872,7 +875,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Butt and Stem Cankers (CA)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnT-rv-Qks">
-                                <rect key="frame" x="35" y="331" width="440" height="31"/>
+                                <rect key="frame" x="35" y="331" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="5r9-mB-6f0"/>
                                 </constraints>
@@ -881,7 +884,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conks and Mushrooms (CM)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awg-Ty-g4w">
-                                <rect key="frame" x="35" y="372" width="440" height="31"/>
+                                <rect key="frame" x="35" y="372" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="9mJ-HX-HuQ"/>
                                 </constraints>
@@ -890,7 +893,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tree Lean (TL)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEr-mp-Gom">
-                                <rect key="frame" x="35" y="413" width="440" height="31"/>
+                                <rect key="frame" x="35" y="413" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="aga-16-vN1"/>
                                 </constraints>
@@ -899,7 +902,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Root Inspection (RI)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBX-XN-dUt">
-                                <rect key="frame" x="35" y="454" width="440" height="31"/>
+                                <rect key="frame" x="35" y="454" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="Ffk-Cl-UES"/>
                                 </constraints>
@@ -977,112 +980,122 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lqi-2N-9PJ">
-                                <rect key="frame" x="485" y="84" width="80" height="31"/>
+                                <rect key="frame" x="475" y="84" width="90" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="A7y-aW-6JU"/>
+                                    <constraint firstAttribute="width" constant="90" id="A7y-aW-6JU"/>
                                     <constraint firstAttribute="height" constant="30" id="g6Y-h4-fYi"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HeO-L4-eCB">
-                                <rect key="frame" x="485" y="125" width="80" height="31"/>
+                                <rect key="frame" x="475" y="125" width="90" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="4Sz-2W-d3p"/>
+                                    <constraint firstAttribute="width" constant="90" id="4Sz-2W-d3p"/>
                                     <constraint firstAttribute="height" constant="30" id="HLa-cZ-OhG"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-1h-YER">
-                                <rect key="frame" x="485" y="166" width="80" height="31"/>
+                                <rect key="frame" x="475" y="166" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ual-fJ-Zzm"/>
-                                    <constraint firstAttribute="width" constant="80" id="wiH-sd-aPe"/>
+                                    <constraint firstAttribute="width" constant="90" id="wiH-sd-aPe"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iea-xV-le6">
-                                <rect key="frame" x="485" y="207" width="80" height="31"/>
+                                <rect key="frame" x="475" y="207" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ljw-dc-VZz"/>
-                                    <constraint firstAttribute="width" constant="80" id="uxB-Yg-Kxx"/>
+                                    <constraint firstAttribute="width" constant="90" id="uxB-Yg-Kxx"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hpn-mF-ip0">
-                                <rect key="frame" x="485" y="249" width="80" height="31"/>
+                                <rect key="frame" x="475" y="249" width="90" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="V4g-nC-94k"/>
+                                    <constraint firstAttribute="width" constant="90" id="V4g-nC-94k"/>
                                     <constraint firstAttribute="height" constant="30" id="t43-Y5-5pv"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-Rd-k06">
-                                <rect key="frame" x="485" y="290" width="80" height="31"/>
+                                <rect key="frame" x="475" y="290" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="nci-jA-8GL"/>
-                                    <constraint firstAttribute="width" constant="80" id="w3J-hk-EFg"/>
+                                    <constraint firstAttribute="width" constant="90" id="w3J-hk-EFg"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZIJ-hr-o8j">
-                                <rect key="frame" x="485" y="331" width="80" height="31"/>
+                                <rect key="frame" x="475" y="331" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="26v-KN-e29"/>
-                                    <constraint firstAttribute="width" constant="80" id="tun-H6-wW4"/>
+                                    <constraint firstAttribute="width" constant="90" id="tun-H6-wW4"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mT4-7T-qao">
-                                <rect key="frame" x="485" y="372" width="80" height="31"/>
+                                <rect key="frame" x="475" y="372" width="90" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="D2j-9t-IXf"/>
+                                    <constraint firstAttribute="width" constant="90" id="D2j-9t-IXf"/>
                                     <constraint firstAttribute="height" constant="30" id="wLp-a0-tfU"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PVZ-gy-lnx">
-                                <rect key="frame" x="485" y="414" width="80" height="31"/>
+                                <rect key="frame" x="475" y="414" width="90" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="1tJ-x2-Mwo"/>
+                                    <constraint firstAttribute="width" constant="90" id="1tJ-x2-Mwo"/>
                                     <constraint firstAttribute="height" constant="30" id="njw-Cc-2hT"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="u7z-Wq-8Nd">
-                                <rect key="frame" x="485" y="455" width="80" height="31"/>
+                                <rect key="frame" x="475" y="455" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kWm-qN-uNg"/>
-                                    <constraint firstAttribute="width" constant="80" id="l4s-uc-soo"/>
+                                    <constraint firstAttribute="width" constant="90" id="l4s-uc-soo"/>
                                 </constraints>
                                 <segments>
                                     <segment title="S"/>
+                                    <segment title=""/>
                                     <segment title="D"/>
                                 </segments>
                             </segmentedControl>
