@@ -127,8 +127,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTI-01-9hF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTI-01-9hF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Site Review" id="xpu-mz-jJt"/>
                                 </items>
@@ -249,6 +249,7 @@
                             <constraint firstItem="sZ9-ZH-toc" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="HZM-NQ-3bU"/>
                             <constraint firstItem="P7s-mZ-8Z3" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="Int-Te-gXy"/>
                             <constraint firstItem="vBG-2B-0ib" firstAttribute="top" secondItem="xjZ-MJ-EJS" secondAttribute="bottom" constant="8" id="MHa-tw-rAg"/>
+                            <constraint firstItem="gTI-01-9hF" firstAttribute="top" secondItem="cgk-hx-P3x" secondAttribute="bottom" id="MbC-yj-gRD"/>
                             <constraint firstItem="vBG-2B-0ib" firstAttribute="leading" secondItem="HSB-RT-A62" secondAttribute="leading" constant="35" id="Pme-l7-OsK"/>
                             <constraint firstItem="mSB-e6-ypj" firstAttribute="top" secondItem="sZ9-ZH-toc" secondAttribute="bottom" constant="8" id="UuA-YZ-GZV"/>
                             <constraint firstItem="uLS-MD-uUm" firstAttribute="top" secondItem="4Sn-h6-jMp" secondAttribute="bottom" constant="8" id="Xg4-XH-Duz"/>
