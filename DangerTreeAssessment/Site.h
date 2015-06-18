@@ -7,8 +7,31 @@
 //
 
 #import <Realm/Realm.h>
+#import "Tree.h"
+
+typedef enum : NSUInteger {
+    FuelTypeDiesel,
+    FuelTypeGas,
+    FuelTypeMethanol,
+} FuelType;
+
+typedef enum: NSUInteger {
+    LOD1,
+    LOD23,
+    LOD4,
+} LOD;
 
 @interface Site : RLMObject
+@property NSInteger* fireNumber;
+@property NSString* dtaName;
+@property NSString* dtaUnit;
+@property FuelType fuel;
+@property NSString* location;
+@property NSString* bui; // not sure what BUI is
+@property LOD lod;
+@property NSString* activity;
+
+@property RLMArray<Tree> *trees;
 
 
 

@@ -10,6 +10,13 @@
 
 @interface TreeReviewViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speciesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *treeClassLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wildlifeValueLabel;
+
+
 @end
 
 @implementation TreeReviewViewController
