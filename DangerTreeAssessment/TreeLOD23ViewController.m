@@ -9,27 +9,17 @@
 #import "TreeLOD23ViewController.h"
 
 @interface TreeLOD23ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *hazardousTopLabel;
-@property (weak, nonatomic) IBOutlet UILabel *deadLimbsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *witchesBroomLabel;
-@property (weak, nonatomic) IBOutlet UILabel *splitTrunkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stemDamageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sloughingBarkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cankersLabel;
-@property (weak, nonatomic) IBOutlet UILabel *conksMushroomsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *treeLeanLabel;
-@property (weak, nonatomic) IBOutlet UILabel *rootInspectionLabel;
 
-@property (weak, nonatomic) IBOutlet UISwitch *hazardousTopSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *deadLimbsSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *witchesBroomSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *splitTrunkSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *stemDamageSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *sloughingBarkSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *cankersSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *conksMushroomsSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *treeLeanSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *rootInspectionSwitch;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *hazardousTopControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *deadLimbsControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *witchesBroomControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *splitTrunkControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *stemDamageControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sloughingBarkControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *cankersControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *conksMushroomsControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *treeLeanControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *rootInspectionControl;
 
 @end
 

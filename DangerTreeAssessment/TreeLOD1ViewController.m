@@ -9,30 +9,24 @@
 #import "TreeLOD1ViewController.h"
 
 @interface TreeLOD1ViewController ()
+@property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *unstableControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *recentLeanControl;
 
-@property (weak, nonatomic) IBOutlet UILabel *insecureLabel;
-@property (weak, nonatomic) IBOutlet UILabel *unstableLabel;
-@property (weak, nonatomic) IBOutlet UILabel *leaningLabel;
-
-@property (weak, nonatomic) IBOutlet UISwitch *insecureSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *unstableSwitch;
-@property (weak, nonatomic) IBOutlet UISwitch *leaningSwitch;
 @end
 
 @implementation TreeLOD1ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)saveTreeAssessmentButton:(id)sender {
-}
 
 /*
 #pragma mark - Navigation

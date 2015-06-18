@@ -20,7 +20,6 @@
 		F648E8711B30A40D007ADB73 /* Site.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8701B30A40D007ADB73 /* Site.m */; };
 		F648E8741B30C5E2007ADB73 /* TreeLOD23ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8731B30C5E2007ADB73 /* TreeLOD23ViewController.m */; };
 		F648E8771B30C5EF007ADB73 /* TreeLOD4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8761B30C5EF007ADB73 /* TreeLOD4ViewController.m */; };
-		F648E8871B321665007ADB73 /* FuelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8861B321665007ADB73 /* FuelTableViewController.m */; };
 		F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E88C1B32380D007ADB73 /* TreeClass.m */; };
 		F648E8901B327C5E007ADB73 /* TreeClassCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E88F1B327C5E007ADB73 /* TreeClassCollectionViewController.m */; };
 		F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */; };
@@ -36,6 +35,12 @@
 		F6B912AB1B2F602A00245ED5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B912AA1B2F602A00245ED5 /* Images.xcassets */; };
 		F6B912AE1B2F602A00245ED5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B912AC1B2F602A00245ED5 /* LaunchScreen.xib */; };
 		F6B912BA1B2F602A00245ED5 /* DangerTreeAssessmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B912B91B2F602A00245ED5 /* DangerTreeAssessmentTests.m */; };
+		F6DF60661B33565D00339B57 /* TreeSpeciesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF60651B33565D00339B57 /* TreeSpeciesCollectionViewController.m */; };
+		F6DF60691B33571300339B57 /* TreeSpeciesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF60681B33571300339B57 /* TreeSpeciesCollectionViewCell.m */; };
+		F6DF606C1B3357A500339B57 /* TreeSpecies.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF606B1B3357A500339B57 /* TreeSpecies.m */; };
+		F6DF606F1B3379EA00339B57 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF606E1B3379EA00339B57 /* Fuel.m */; };
+		F6DF60751B337A2D00339B57 /* FuelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF60741B337A2D00339B57 /* FuelCollectionViewCell.m */; };
+		F6DF60781B337AA100339B57 /* FuelCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF60771B337AA100339B57 /* FuelCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +80,6 @@
 		F648E8731B30C5E2007ADB73 /* TreeLOD23ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeLOD23ViewController.m; sourceTree = "<group>"; };
 		F648E8751B30C5EF007ADB73 /* TreeLOD4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeLOD4ViewController.h; sourceTree = "<group>"; };
 		F648E8761B30C5EF007ADB73 /* TreeLOD4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeLOD4ViewController.m; sourceTree = "<group>"; };
-		F648E8851B321665007ADB73 /* FuelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelTableViewController.h; sourceTree = "<group>"; };
-		F648E8861B321665007ADB73 /* FuelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelTableViewController.m; sourceTree = "<group>"; };
 		F648E88B1B32380D007ADB73 /* TreeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeClass.h; sourceTree = "<group>"; };
 		F648E88C1B32380D007ADB73 /* TreeClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClass.m; sourceTree = "<group>"; };
 		F648E88E1B327C5E007ADB73 /* TreeClassCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeClassCollectionViewController.h; sourceTree = "<group>"; };
@@ -100,6 +103,18 @@
 		F6B912B31B2F602A00245ED5 /* DangerTreeAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangerTreeAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B912B81B2F602A00245ED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B912B91B2F602A00245ED5 /* DangerTreeAssessmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DangerTreeAssessmentTests.m; sourceTree = "<group>"; };
+		F6DF60641B33565D00339B57 /* TreeSpeciesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeSpeciesCollectionViewController.h; sourceTree = "<group>"; };
+		F6DF60651B33565D00339B57 /* TreeSpeciesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeSpeciesCollectionViewController.m; sourceTree = "<group>"; };
+		F6DF60671B33571300339B57 /* TreeSpeciesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeSpeciesCollectionViewCell.h; sourceTree = "<group>"; };
+		F6DF60681B33571300339B57 /* TreeSpeciesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeSpeciesCollectionViewCell.m; sourceTree = "<group>"; };
+		F6DF606A1B3357A500339B57 /* TreeSpecies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeSpecies.h; sourceTree = "<group>"; };
+		F6DF606B1B3357A500339B57 /* TreeSpecies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeSpecies.m; sourceTree = "<group>"; };
+		F6DF606D1B3379EA00339B57 /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuel.h; sourceTree = "<group>"; };
+		F6DF606E1B3379EA00339B57 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fuel.m; sourceTree = "<group>"; };
+		F6DF60731B337A2D00339B57 /* FuelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelCollectionViewCell.h; sourceTree = "<group>"; };
+		F6DF60741B337A2D00339B57 /* FuelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelCollectionViewCell.m; sourceTree = "<group>"; };
+		F6DF60761B337AA100339B57 /* FuelCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelCollectionViewController.h; sourceTree = "<group>"; };
+		F6DF60771B337AA100339B57 /* FuelCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +144,10 @@
 				F648E8671B30A165007ADB73 /* SiteReportCell.m */,
 				F648E8911B327E43007ADB73 /* TreeClassCollectionViewCell.h */,
 				F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */,
+				F6DF60671B33571300339B57 /* TreeSpeciesCollectionViewCell.h */,
+				F6DF60681B33571300339B57 /* TreeSpeciesCollectionViewCell.m */,
+				F6DF60731B337A2D00339B57 /* FuelCollectionViewCell.h */,
+				F6DF60741B337A2D00339B57 /* FuelCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -215,18 +234,20 @@
 		F6B912C31B2F625E00245ED5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F648E8851B321665007ADB73 /* FuelTableViewController.h */,
-				F648E8861B321665007ADB73 /* FuelTableViewController.m */,
 				F648E8601B30A09F007ADB73 /* WelcomeViewController.h */,
 				F648E8611B30A09F007ADB73 /* WelcomeViewController.m */,
 				F648E8631B30A0BD007ADB73 /* DataTableViewController.h */,
 				F648E8641B30A0BD007ADB73 /* DataTableViewController.m */,
 				F648E84E1B30A053007ADB73 /* SiteInfoViewController.h */,
 				F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */,
+				F6DF60761B337AA100339B57 /* FuelCollectionViewController.h */,
+				F6DF60771B337AA100339B57 /* FuelCollectionViewController.m */,
 				F648E8511B30A062007ADB73 /* TreeInfoViewController.h */,
 				F648E8521B30A062007ADB73 /* TreeInfoViewController.m */,
 				F648E88E1B327C5E007ADB73 /* TreeClassCollectionViewController.h */,
 				F648E88F1B327C5E007ADB73 /* TreeClassCollectionViewController.m */,
+				F6DF60641B33565D00339B57 /* TreeSpeciesCollectionViewController.h */,
+				F6DF60651B33565D00339B57 /* TreeSpeciesCollectionViewController.m */,
 				F648E8541B30A072007ADB73 /* TreeLOD1ViewController.h */,
 				F648E8551B30A072007ADB73 /* TreeLOD1ViewController.m */,
 				F648E8721B30C5E2007ADB73 /* TreeLOD23ViewController.h */,
@@ -254,6 +275,10 @@
 				F648E8701B30A40D007ADB73 /* Site.m */,
 				F648E88B1B32380D007ADB73 /* TreeClass.h */,
 				F648E88C1B32380D007ADB73 /* TreeClass.m */,
+				F6DF606A1B3357A500339B57 /* TreeSpecies.h */,
+				F6DF606B1B3357A500339B57 /* TreeSpecies.m */,
+				F6DF606D1B3379EA00339B57 /* Fuel.h */,
+				F6DF606E1B3379EA00339B57 /* Fuel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -373,13 +398,16 @@
 			files = (
 				F648E8711B30A40D007ADB73 /* Site.m in Sources */,
 				F648E86E1B30A258007ADB73 /* Tree.m in Sources */,
-				F648E8871B321665007ADB73 /* FuelTableViewController.m in Sources */,
+				F6DF60661B33565D00339B57 /* TreeSpeciesCollectionViewController.m in Sources */,
 				F648E8771B30C5EF007ADB73 /* TreeLOD4ViewController.m in Sources */,
 				F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */,
+				F6DF606C1B3357A500339B57 /* TreeSpecies.m in Sources */,
 				F648E8501B30A053007ADB73 /* SiteInfoViewController.m in Sources */,
 				F648E8651B30A0BD007ADB73 /* DataTableViewController.m in Sources */,
+				F6DF60781B337AA100339B57 /* FuelCollectionViewController.m in Sources */,
 				F6B912A01B2F602A00245ED5 /* AppDelegate.m in Sources */,
 				F648E8621B30A09F007ADB73 /* WelcomeViewController.m in Sources */,
+				F6DF606F1B3379EA00339B57 /* Fuel.m in Sources */,
 				F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */,
 				F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */,
 				F648E8741B30C5E2007ADB73 /* TreeLOD23ViewController.m in Sources */,
@@ -388,7 +416,9 @@
 				F648E8591B30A07D007ADB73 /* TreeManagementViewController.m in Sources */,
 				F648E8561B30A072007ADB73 /* TreeLOD1ViewController.m in Sources */,
 				F648E85C1B30A08B007ADB73 /* TreeReviewViewController.m in Sources */,
+				F6DF60691B33571300339B57 /* TreeSpeciesCollectionViewCell.m in Sources */,
 				F6B9129D1B2F602A00245ED5 /* main.m in Sources */,
+				F6DF60751B337A2D00339B57 /* FuelCollectionViewCell.m in Sources */,
 				F648E8901B327C5E007ADB73 /* TreeClassCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
