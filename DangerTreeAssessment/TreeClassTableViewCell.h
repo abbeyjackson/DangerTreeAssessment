@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TreeClass;
 
 @interface TreeClassTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) TreeClass *object;
+
 
 @end

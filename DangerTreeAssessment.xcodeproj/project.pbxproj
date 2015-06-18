@@ -22,6 +22,8 @@
 		F648E8771B30C5EF007ADB73 /* TreeLOD4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8761B30C5EF007ADB73 /* TreeLOD4ViewController.m */; };
 		F648E8811B3214C7007ADB73 /* TreeClassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8801B3214C7007ADB73 /* TreeClassTableViewController.m */; };
 		F648E8871B321665007ADB73 /* FuelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8861B321665007ADB73 /* FuelTableViewController.m */; };
+		F648E88A1B3216A3007ADB73 /* TreeClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8891B3216A3007ADB73 /* TreeClassTableViewCell.m */; };
+		F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E88C1B32380D007ADB73 /* TreeClass.m */; };
 		F678F62F1B2F671E00A8EAA5 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F62E1B2F671E00A8EAA5 /* Review.storyboard */; };
 		F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */; };
 		F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6321B2F684A00A8EAA5 /* Realm.framework */; };
@@ -77,6 +79,10 @@
 		F648E8801B3214C7007ADB73 /* TreeClassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClassTableViewController.m; sourceTree = "<group>"; };
 		F648E8851B321665007ADB73 /* FuelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelTableViewController.h; sourceTree = "<group>"; };
 		F648E8861B321665007ADB73 /* FuelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelTableViewController.m; sourceTree = "<group>"; };
+		F648E8881B3216A3007ADB73 /* TreeClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeClassTableViewCell.h; sourceTree = "<group>"; };
+		F648E8891B3216A3007ADB73 /* TreeClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClassTableViewCell.m; sourceTree = "<group>"; };
+		F648E88B1B32380D007ADB73 /* TreeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeClass.h; sourceTree = "<group>"; };
+		F648E88C1B32380D007ADB73 /* TreeClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClass.m; sourceTree = "<group>"; };
 		F678F62E1B2F671E00A8EAA5 /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assessment.storyboard; sourceTree = "<group>"; };
 		F678F6321B2F684A00A8EAA5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 			children = (
 				F648E8661B30A165007ADB73 /* SiteReportCell.h */,
 				F648E8671B30A165007ADB73 /* SiteReportCell.m */,
+				F648E8881B3216A3007ADB73 /* TreeClassTableViewCell.h */,
+				F648E8891B3216A3007ADB73 /* TreeClassTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -244,6 +252,8 @@
 				F648E86D1B30A258007ADB73 /* Tree.m */,
 				F648E86F1B30A40D007ADB73 /* Site.h */,
 				F648E8701B30A40D007ADB73 /* Site.m */,
+				F648E88B1B32380D007ADB73 /* TreeClass.h */,
+				F648E88C1B32380D007ADB73 /* TreeClass.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -366,6 +376,7 @@
 				F648E86E1B30A258007ADB73 /* Tree.m in Sources */,
 				F648E8871B321665007ADB73 /* FuelTableViewController.m in Sources */,
 				F648E8771B30C5EF007ADB73 /* TreeLOD4ViewController.m in Sources */,
+				F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */,
 				F648E8501B30A053007ADB73 /* SiteInfoViewController.m in Sources */,
 				F648E8651B30A0BD007ADB73 /* DataTableViewController.m in Sources */,
 				F6B912A01B2F602A00245ED5 /* AppDelegate.m in Sources */,
@@ -377,6 +388,7 @@
 				F648E8591B30A07D007ADB73 /* TreeManagementViewController.m in Sources */,
 				F648E8561B30A072007ADB73 /* TreeLOD1ViewController.m in Sources */,
 				F648E85C1B30A08B007ADB73 /* TreeReviewViewController.m in Sources */,
+				F648E88A1B3216A3007ADB73 /* TreeClassTableViewCell.m in Sources */,
 				F6B9129D1B2F602A00245ED5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
