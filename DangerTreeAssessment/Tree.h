@@ -8,9 +8,19 @@
 
 #import <Realm/Realm.h>
 
+typedef enum : int {
+    L,
+    M,
+    H,
+} WildLifeValue;
+
 @interface Tree : RLMObject
 
-
+@property double lat;
+@property double lon;
+@property NSString* species;
+@property NSString* treeClass;
+@property WildLifeValue wildLifeValue;
 
 
 @end
