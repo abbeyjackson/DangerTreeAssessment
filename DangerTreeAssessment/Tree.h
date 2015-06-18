@@ -23,6 +23,13 @@ typedef enum : int {
     Class3NoDefects,
 } Rating;
 
+typedef enum : int {
+    NoAction,
+    FallTree,
+    InstallNWZ,
+    RemoveHazard
+} ActionRequired;
+
 @interface Tree : RLMObject
 
 @property Site *site;
@@ -54,7 +61,9 @@ typedef enum : int {
 // tree properties for LOD4 trees:
 @property Rating rating;
 
-// left out Management properties at the moment
+// tree properties for management (all trees)
+@property BOOL safeOrDangerous;
+@property ActionRequired action;
 
 
 @end
