@@ -65,6 +65,7 @@ NSString* const kOther = @"Other, Remove Hazard";
 
 @implementation Tree
 
+
 // Specify default values for properties
 
 //+ (NSDictionary *)defaultPropertyValues

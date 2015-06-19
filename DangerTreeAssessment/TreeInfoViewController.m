@@ -33,10 +33,6 @@
     
 }
 
--(void)setDetailItem:(id)detailItem{
-    
-    
-}
 
 -(Tree*)createTree{
     
