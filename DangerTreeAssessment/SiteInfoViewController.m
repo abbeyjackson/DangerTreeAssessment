@@ -103,6 +103,8 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
+    [self createSite];
+    [self performSegueWithIdentifier:@"showTreeInfo" sender:self];
 }
 
 -(Site*)createSite{
@@ -110,10 +112,10 @@
     site.fireNumber = self.fireNumberField.text;
     site.dtaName = self.dtaNameField.text;
     site.dtaUnit = self.dtaUnitField.text;
-//    site.fuel = self.fuelField; //   ENUM
+    site.fuel = self.fuelField.text;
     site.location = self.locationField.text;
     site.bui = self.buiField.text;
-    site.lod = self.lodField.text; // ENUM
+    site.lod = self.lodField.text;
     site.activity = self.activityField.text;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
