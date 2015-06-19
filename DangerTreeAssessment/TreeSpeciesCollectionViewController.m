@@ -9,6 +9,7 @@
 #import "TreeSpeciesCollectionViewController.h"
 #import "TreeSpecies.h"
 #import "TreeSpeciesCollectionViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface TreeSpeciesCollectionViewController ()
@@ -84,6 +85,10 @@ static NSString * const reuseIdentifier = @"Cell";
     TreeSpeciesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     cell.object = self.array[indexPath.item];
+    
+    cell.layer.borderWidth = 1.0f;
+    cell.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
     
     return cell;
 }
