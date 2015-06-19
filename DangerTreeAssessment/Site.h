@@ -9,7 +9,7 @@
 #import <Realm/Realm.h>
 #import "Tree.h"
 
-typedef enum : NSUInteger {
+typedef enum : int {
     C1,
     C2,
     C3,
@@ -29,11 +29,10 @@ typedef enum : NSUInteger {
     O1b,
 } FuelType;
 
-typedef enum: NSUInteger {
-    LOD1,
-    LOD23,
-    LOD4,
-} LOD;
+
+extern NSString* const kLODType1;
+extern NSString* const kLODType23;
+extern NSString* const kLODType4;
 
 @interface Site : RLMObject
 @property NSString* fireNumber;
@@ -42,7 +41,7 @@ typedef enum: NSUInteger {
 @property FuelType fuel;
 @property NSString* location;
 @property NSString* bui; 
-@property LOD lod;
+@property NSString* lod;
 @property NSString* activity;
 
 @property RLMArray<Tree> *trees;

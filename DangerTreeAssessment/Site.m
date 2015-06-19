@@ -8,6 +8,11 @@
 
 #import "Site.h"
 
+NSString* const kLODType1 = @"LOD 1";
+NSString* const kLODType23 = @"LOD 23";
+NSString* const kLODType4 = @"LOD 4";
+
+
 @implementation Site
 
 // Specify default values for properties
