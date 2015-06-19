@@ -107,7 +107,7 @@
 }
 
 -(Site*)createSite{
-    Site *site = [[Site alloc]init];
+    Site *site = [[Site alloc] init];
     site.fireNumber = self.fireNumberField.text;
     site.dtaName = self.dtaNameField.text;
     site.dtaUnit = self.dtaUnitField.text;
