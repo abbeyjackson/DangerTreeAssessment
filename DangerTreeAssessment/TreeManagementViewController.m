@@ -19,7 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureCommentBox];
+    [self configureTextFields];
+}
+
+-(void)configureTextFields{
+    [self textFieldShouldBeginEditing:self.managementField];
+}
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return NO;
 }
 
 -(void)configureCommentBox{
@@ -33,6 +42,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)safeDangerousControlAction:(id)sender{
+    if(self.safeDangerousControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.safeDangerousControl.selectedSegmentIndex == 1){
+        // nil
+    }
+}
+
 - (IBAction)managementActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self

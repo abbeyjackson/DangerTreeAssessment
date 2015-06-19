@@ -8,7 +8,7 @@
 
 #import "SiteInfoViewController.h"
 
-@interface SiteInfoViewController ()<UIActionSheetDelegate>
+@interface SiteInfoViewController ()<UIActionSheetDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
@@ -27,12 +27,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self configureTextFields];
 }
+
+-(void)configureTextFields{
+    [self textFieldShouldBeginEditing:self.fuelField];
+    [self textFieldShouldBeginEditing:self.lodField];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return NO;
 }
 
 - (IBAction)fuelActionSheet:(id)sender {

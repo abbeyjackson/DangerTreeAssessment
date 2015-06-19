@@ -22,13 +22,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self configureTextFields];
+}
+
+-(void)configureTextFields{
+    [self textFieldShouldBeginEditing:self.speciesField];
+    [self textFieldShouldBeginEditing:self.classField];
+    [self textFieldShouldBeginEditing:self.wildlifeValueField];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return NO;
+}
+
 - (IBAction)speciesActionSheet:(id)sender {
 
 }

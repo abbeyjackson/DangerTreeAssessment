@@ -35,6 +35,126 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)hazardousTopControlAction:(id)sender{
+    if(self.hazardousTopControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.hazardousTopControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.hazardousTopControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)deadLimbsControlAction:(id)sender{
+    if(self.deadLimbsControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.deadLimbsControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.deadLimbsControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)witchesBroomControlAction:(id)sender{
+    if(self.witchesBroomControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.witchesBroomControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.witchesBroomControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)splitTrunkControlAction:(id)sender{
+    if(self.splitTrunkControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.splitTrunkControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.splitTrunkControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)stemDamageControlAction:(id)sender{
+    if(self.stemDamageControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.stemDamageControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.stemDamageControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)sloughingBarkControlAction:(id)sender{
+    if(self.sloughingBarkControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.sloughingBarkControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.sloughingBarkControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)cankersControlAction:(id)sender{
+    if(self.cankersControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.cankersControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.cankersControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)conksMushroomsControlAction:(id)sender{
+    if(self.conksMushroomsControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.conksMushroomsControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.conksMushroomsControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)treeLeanControlAction:(id)sender{
+    if(self.treeLeanControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.treeLeanControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.treeLeanControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
+- (IBAction)rootInspectionControlAction:(id)sender{
+    if(self.rootInspectionControl.selectedSegmentIndex == 0){
+        // Safe
+    }
+    else if(self.rootInspectionControl.selectedSegmentIndex == 1){
+        // nil
+    }
+    else if(self.rootInspectionControl.selectedSegmentIndex == 2){
+        // Dangerous
+    }
+}
+
 - (IBAction)saveTreeAssessmentButton:(id)sender {
     
 }
