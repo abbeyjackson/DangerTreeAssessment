@@ -86,7 +86,7 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Level Of Disturbance"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"LOD 1", @"LOD 2/3", @"LOD 4", nil];
+                                                    otherButtonTitles:kLODType1, kLODType23, kLODType4, nil];
     
     [actionSheet showInView:self.view];
 }
@@ -96,15 +96,15 @@
         self.lodField.text = kLODType1;
     }
     if (buttonIndex == 1) {
-        self.lodField.text = @"LOD 2/3";
+        self.lodField.text = kLODType23;
     }
     if (buttonIndex == 2) {
-        self.lodField.text = @"LOD 4";
+        self.lodField.text = kLODType4;
     }
 }
 
 -(void)selectFuelType:(Fuel *)fuel{
-    self.fuelField.text = fuel.abbreviation;
+    self.fuelField.text = [NSString stringWithFormat:@"%@ - %@", fuel.abbreviation, fuel.name];
 }
 
 - (IBAction)addNewTree:(id)sender {
@@ -116,7 +116,7 @@
     site.fireNumber = self.fireNumberField.text;
     site.dtaName = self.dtaNameField.text;
     site.dtaUnit = self.dtaUnitField.text;
-    site.fuel = self.fuelField.text;
+    site.fuel = [self.fuelField.text substringToIndex:3];
     site.location = self.locationField.text;
     site.bui = self.buiField.text;
     site.lod = self.lodField.text;

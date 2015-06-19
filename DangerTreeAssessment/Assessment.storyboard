@@ -714,6 +714,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="insecureControlAction:" destination="HCD-sI-n76" eventType="valueChanged" id="YWs-EU-nHW"/>
+                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="PKF-Cq-D2d"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8ez-A3-72b">
@@ -728,6 +729,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
+                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="3pk-Rp-ouK"/>
                                     <action selector="unstableControlAction:" destination="HCD-sI-n76" eventType="valueChanged" id="bhr-x4-Nkd"/>
                                 </connections>
                             </segmentedControl>
@@ -744,6 +746,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="leaningControlAction:" destination="HCD-sI-n76" eventType="valueChanged" id="DvX-t6-Kmx"/>
+                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="bIt-Lk-ruj"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -1021,6 +1024,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="hazardousTopControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="ZSh-c3-THX"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="ehG-RV-Qkq"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HeO-L4-eCB">
@@ -1036,6 +1040,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="deadLimbsControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="npn-fU-t5S"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="uzV-ta-8ol"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-1h-YER">
@@ -1050,6 +1055,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="QgM-IJ-cOU"/>
                                     <action selector="witchesBroomControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="lUq-fb-3El"/>
                                 </connections>
                             </segmentedControl>
@@ -1065,6 +1071,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="F71-oB-zQ1"/>
                                     <action selector="splitTrunkControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="pfN-vl-BO2"/>
                                 </connections>
                             </segmentedControl>
@@ -1080,6 +1087,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="FWy-Ss-jg3"/>
                                     <action selector="stemDamageControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="1tw-D7-BsF"/>
                                 </connections>
                             </segmentedControl>
@@ -1095,6 +1103,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="0VR-0c-6Aw"/>
                                     <action selector="sloughingBarkControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="O8B-Uw-0Gx"/>
                                 </connections>
                             </segmentedControl>
@@ -1111,6 +1120,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="cankersControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="h4b-hC-9RK"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="rqm-Nz-AbG"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mT4-7T-qao">
@@ -1126,6 +1136,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="conksMushroomsControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="8Bb-it-lXY"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="v2D-ft-PO8"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PVZ-gy-lnx">
@@ -1140,6 +1151,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="Xtd-Ao-VyE"/>
                                     <action selector="treeLeanControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="haQ-ad-4Mp"/>
                                 </connections>
                             </segmentedControl>
@@ -1156,6 +1168,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="rootInspectionControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="C34-PL-wp8"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="lZL-r3-X1Q"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -1432,7 +1445,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="arX-Xu-6Vl" kind="show" identifier="showTreeClass" id="Nmz-Tf-e3W"/>
+                                    <segue destination="arX-Xu-6Vl" kind="show" identifier="showClass" id="Nmz-Tf-e3W"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEa-2V-YwT">
@@ -1712,6 +1725,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Bdo-lp-jKd"/>
+        <segue reference="OQJ-ht-cIL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,62 +33,36 @@
     self.leaningControl.selectedSegmentIndex = 1;
 }
 
-- (IBAction)insecureControlAction:(id)sender{
-    if(self.insecureControl.selectedSegmentIndex == 0){
-        // Safe
-        self.tree.insecure = NO;
+-(IBAction)segmentControlValueChanged:(id)sender {
+    UISegmentedControl* control = (UISegmentedControl*)sender;
+    NSString *result;
+    if(control.selectedSegmentIndex == 0){
+        result = @"Safe";
     }
-    else if(self.insecureControl.selectedSegmentIndex == 1){
-        // nil
-        self.tree.insecure = nil;
+    else if(control.selectedSegmentIndex == 1){
+        result = nil;
     }
-    else if(self.insecureControl.selectedSegmentIndex == 2){
-        // Dangerous
-        self.tree.insecure = YES;
+    else if(control.selectedSegmentIndex == 2){
+        result = @"Dangerous";
     }
     else {
-        self.tree.insecure = nil;
+        result = nil;
+    }
+    [self setResult:result forSegmentControl:control];
+}
+
+-(void)setResult:(NSString*)result forSegmentControl:(UISegmentedControl*)control {
+    if (control == self.insecureControl) {
+        self.tree.insecure = result;
+    }
+    else if (control == self.unstableControl){
+        self.tree.unstable = result;
+    }
+    else if (control == self.leaningControl){
+        self.tree.leaning = result;
     }
 }
 
-- (IBAction)unstableControlAction:(id)sender{
-    if(self.unstableControl.selectedSegmentIndex == 0){
-        // Safe
-        self.tree.unstable = NO;
-    }
-    else if(self.unstableControl.selectedSegmentIndex == 1){
-        // nil
-        self.tree.unstable = nil;
-    }
-    else if(self.unstableControl.selectedSegmentIndex == 2){
-        // Dangerous
-        self.tree.unstable = YES;
-    }
-    else {
-        self.tree.unstable = nil;
-    }
-}
-
-- (IBAction)leaningControlAction:(id)sender{
-    if(self.leaningControl.selectedSegmentIndex == 0){
-        // Safe
-        self.tree.leaning = NO;
-    }
-    else if(self.leaningControl.selectedSegmentIndex == 1){
-        // nil
-        self.tree.leaning = nil;
-    }
-    else if(self.leaningControl.selectedSegmentIndex == 2){
-        // Dangerous
-        self.tree.leaning = YES;
-    }
-    else {
-        self.tree.leaning = nil;
-    }
-}
-
--(void)saveLOD1{
-}
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
     [self performSegueWithIdentifier:@"showTreeMgt" sender: self];

@@ -37,7 +37,7 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Rating"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Dangerous", @"Class 1 Trees = S", @"Class 2 Trees With No Structural Defects = S", @"Class 2 Cedars With Low Failure Potential = S", @"Class 3 Conifers With No Structural Defects = S", nil];
+                                                    otherButtonTitles: kDangerous, kClass1, kClass2NoDefects, kClass2LowFailure, kClass3NoDefects, nil];
     
     [actionSheet showInView:self.view];
     
@@ -45,19 +45,19 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        self.ratingField.text = @"Dangerous";
+        self.ratingField.text = kDangerous;
     }
     if (buttonIndex == 1) {
-        self.ratingField.text = @"Class 1 = S";
+        self.ratingField.text = kClass1;
     }
     if (buttonIndex == 2) {
-        self.ratingField.text = @"Class 2 No Defects = S";
+        self.ratingField.text = kClass2NoDefects;
     }
     if (buttonIndex == 1) {
-        self.ratingField.text = @"Class 2 Cedars Low Failure = S";
+        self.ratingField.text = kClass2LowFailure;
     }
     if (buttonIndex == 2) {
-        self.ratingField.text = @"Class 2 Conifers No Defects = S";
+        self.ratingField.text = kClass3NoDefects;
     }
 }
 

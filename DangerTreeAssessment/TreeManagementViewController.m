@@ -89,24 +89,25 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Management Action"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Safe - No Action Required", @"Dangerous - Fall Tree", @"Dangerous - Install NWZ", @"Other - Remove Hazard", nil];
+                                                    otherButtonTitles:kNoAction, kFallTree, kInstallNWZ, kOther, nil];
     
     [actionSheet showInView:self.view];
+    
     
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        self.managementField.text = @"Safe - No Action Required";
+        self.managementField.text = kNoAction;
     }
     if (buttonIndex == 1) {
-        self.managementField.text = @"Dangerous - Fall Tree";
+        self.managementField.text = kFallTree;
     }
     if (buttonIndex == 2) {
-        self.managementField.text = @"Dangerous - Install NWZ";
+        self.managementField.text = kInstallNWZ;
     }
     if (buttonIndex == 3) {
-        self.managementField.text = @"Other - Remove Hazard";
+        self.managementField.text = kOther;
     }
 }
 

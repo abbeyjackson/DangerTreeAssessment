@@ -44,8 +44,8 @@
     tree.site = self.site;
     tree.lat = [self.latitudeField.text doubleValue];
     tree.lon = [self.longitudeField.text doubleValue];
-//    tree.species = self.speciesField.text; ENUM
-//    tree.class = self.classField.text; ENUM
+    tree.species = [self.speciesField.text substringToIndex:3];
+    tree.treeClass = [self.classField.text substringToIndex:3];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -81,20 +81,20 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Wildlife Value"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"HIGH", @"MEDIUM", @"LOW", nil];
+                                                    otherButtonTitles:kH, kM, kL, nil];
     
     [actionSheet showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        self.wildlifeValueField.text = @"HIGH";
+        self.wildlifeValueField.text = kH;
     }
     if (buttonIndex == 1) {
-        self.wildlifeValueField.text = @"MEDIUM";
+        self.wildlifeValueField.text = kM;
     }
     if (buttonIndex == 2) {
-        self.wildlifeValueField.text = @"LOW";
+        self.wildlifeValueField.text = kL;
     }
 }
 
@@ -103,7 +103,7 @@
 }
 
 -(void)selectSpecies:(TreeSpecies *)species{
-    self.speciesField.text = species.abbreviation;
+    self.speciesField.text = [NSString stringWithFormat:@"%@ - %@", species.abbreviation, species.name];
 }
 
 
