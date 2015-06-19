@@ -8,6 +8,7 @@
 
 #import "SiteInfoViewController.h"
 #import "Site.h"
+#import "TreeInfoViewController.h"
 
 @interface SiteInfoViewController ()<UIActionSheetDelegate, UITextFieldDelegate>
 
@@ -89,6 +90,7 @@
     [actionSheet showInView:self.view];
 }
 
+
 - (IBAction)addNewTree:(id)sender {
 }
 
@@ -120,7 +122,8 @@
     if ([[segue identifier] isEqualToString:@"showTreeInfo"]) {
         
         Site *site = [self createSite];
-        [[segue destinationViewController] setDetailItem:site];
+//        TreeInfoViewController *dest = [segue destinationViewController];
+        [[segue destinationViewController] setSite:site];
     }
     
 }

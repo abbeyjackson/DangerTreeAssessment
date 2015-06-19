@@ -58,7 +58,6 @@
     }
     else if(self.unstableControl.selectedSegmentIndex == 1){
         // nil
-        
         self.tree.unstable = nil;
     }
     else if(self.unstableControl.selectedSegmentIndex == 2){
@@ -101,7 +100,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
-        [[segue destinationViewController] setDetailItem:self.tree];
+        [[segue destinationViewController] setTree:self.tree];
     }
 }
 

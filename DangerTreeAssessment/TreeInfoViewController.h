@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Site.h"
+#import "Tree.h"
 
 @interface TreeInfoViewController : UIViewController
 
-@property (nonatomic,strong) Site *site;
+@property (nonatomic, strong) Site *site;
+@property (nonatomic, strong) Tree *tree;
 
-@property (strong, nonatomic) id detailItem;
 
 @end

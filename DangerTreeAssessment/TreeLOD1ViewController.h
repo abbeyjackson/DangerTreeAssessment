@@ -13,6 +13,5 @@
 
 @property (nonatomic,strong) Tree *tree;
 
-@property (strong, nonatomic) id detailItem;
 
 @end

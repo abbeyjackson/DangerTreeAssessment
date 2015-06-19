@@ -7,6 +7,7 @@
 //
 
 #import "TreeManagementViewController.h"
+#import "TreeReviewViewController.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
@@ -75,7 +76,7 @@
         self.tree.isDangerous = NO;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
-        // nil
+        // Dangerous
         self.tree.isDangerous = YES;
     }
     else {
@@ -109,8 +110,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier] isEqualToString:@"showTreeReport"]) {
-        [[segue destinationViewController] setDetailItem:self.tree];
+    if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
+        
+//        TreeReviewViewController *dest = [segue destinationViewController];
+        [[segue destinationViewController] setTree:self.tree];
     }
 }
 

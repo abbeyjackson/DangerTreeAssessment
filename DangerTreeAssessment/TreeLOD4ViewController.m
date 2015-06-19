@@ -52,7 +52,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
-        [[segue destinationViewController] setDetailItem:self.tree];
+        [[segue destinationViewController] setTree:self.tree];
     }
 }
 

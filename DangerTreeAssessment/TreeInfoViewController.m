@@ -8,6 +8,9 @@
 
 #import "TreeInfoViewController.h"
 #import "Tree.h"
+#import "TreeLOD1ViewController.h"
+#import "TreeLOD23ViewController.h"
+#import "TreeLOD4ViewController.h"
 
 @interface TreeInfoViewController ()<UIActionSheetDelegate>
 
@@ -24,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTextFields];
+    
+    
+}
+
+-(void)setDetailItem:(id)detailItem{
     
     
 }
@@ -98,16 +106,19 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
-        Tree *tree = [self createTree];
-        [[segue destinationViewController] setDetailItem:tree];
+        self.tree = [self createTree];
+//        TreeLOD1ViewController *dest = [segue destinationViewController];
+        [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
-        Tree *tree = [self createTree];
-        [[segue destinationViewController] setDetailItem:tree];
+        self.tree = [self createTree];
+//        TreeLOD23ViewController *dest = [segue destinationViewController];
+        [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
-        Tree *tree = [self createTree];
-        [[segue destinationViewController] setDetailItem:tree];
+        self.tree = [self createTree];
+//        TreeLOD4ViewController *dest = [segue destinationViewController];
+        [[segue destinationViewController] setTree:self.tree];
     }
 }
 
