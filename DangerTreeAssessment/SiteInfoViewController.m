@@ -90,6 +90,20 @@
     [actionSheet showInView:self.view];
 }
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        self.lodField.text = @"LOD 1";
+//        self.site.lod = self.lodField; ENUM
+    }
+    if (buttonIndex == 1) {
+        self.lodField.text = @"LOD 2/3";
+//        self.site.lod = self.lodField; ENUM
+    }
+    if (buttonIndex == 2) {
+        self.lodField.text = @"LOD 4";
+//        self.site.lod = self.lodField; ENUM
+    }
+}
 
 - (IBAction)addNewTree:(id)sender {
 }
@@ -102,7 +116,6 @@
 //    site.fuel = self.fuelField.text;  ENUM
     site.location = self.locationField.text;
     site.bui = self.buiField.text;
-//    site.lod = self.lodField.text;  ENUM
     site.activity = self.activityField.text;
     
     RLMRealm *realm = [RLMRealm defaultRealm];

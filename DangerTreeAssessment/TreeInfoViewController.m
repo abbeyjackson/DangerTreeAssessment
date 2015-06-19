@@ -44,7 +44,6 @@
     tree.lon = [self.longitudeField.text doubleValue];
 //    tree.species = self.speciesField.text; ENUM
 //    tree.class = self.classField.text; ENUM
-//    tree.wildLifeValue = self.wildlifeValueField.text; ENUM
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -83,6 +82,21 @@
                                                     otherButtonTitles:@"HIGH", @"MEDIUM", @"LOW", nil];
     
     [actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        self.wildlifeValueField.text = @"HIGH";
+//        self.tree.wildLifeValue = self.wildlifeValueField;  ENUM
+    }
+    if (buttonIndex == 1) {
+        self.wildlifeValueField.text = @"MEDIUM";
+//        self.tree.wildLifeValue = self.wildlifeValueField;  ENUM
+    }
+    if (buttonIndex == 2) {
+        self.wildlifeValueField.text = @"LOW";
+//        self.tree.wildLifeValue = self.wildlifeValueField;  ENUM
+    }
 }
 
 - (IBAction)saveNewTreeButton:(id)sender {

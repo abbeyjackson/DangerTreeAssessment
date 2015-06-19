@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Site.h"
 
 @interface SiteInfoViewController : UIViewController
+
+@property (nonatomic, strong) Site *site;
 
 @end
