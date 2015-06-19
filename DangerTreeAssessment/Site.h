@@ -9,40 +9,38 @@
 #import <Realm/Realm.h>
 #import "Tree.h"
 
-typedef enum : NSUInteger {
-    C1,
-    C2,
-    C3,
-    C4,
-    C5,
-    C6,
-    C7,
-    D1,
-    M1,
-    M2,
-    M3,
-    M4,
-    S1,
-    S2,
-    S3,
-    O1a,
-    O1b,
-} FuelType;
+// fuel types
+extern NSString* const kC1;
+extern NSString* const kC2;
+extern NSString* const kC3;
+extern NSString* const kC4;
+extern NSString* const kC5;
+extern NSString* const kC6;
+extern NSString* const kC7;
+extern NSString* const kD1;
+extern NSString* const kM1;
+extern NSString* const kM2;
+extern NSString* const kM3;
+extern NSString* const kM4;
+extern NSString* const kS1;
+extern NSString* const kS2;
+extern NSString* const kS3;
+extern NSString* const kO1a;
+extern NSString* const kO1b;
 
-typedef enum: NSUInteger {
-    LOD1,
-    LOD23,
-    LOD4,
-} LOD;
+// lod types
+extern NSString* const kLODType1;
+extern NSString* const kLODType23;
+extern NSString* const kLODType4;
 
 @interface Site : RLMObject
 @property NSString* fireNumber;
 @property NSString* dtaName;
 @property NSString* dtaUnit;
-@property FuelType fuel;
+@property NSString* fuel;
 @property NSString* location;
 @property NSString* bui; 
-@property LOD lod;
+@property NSString* lod;
 @property NSString* activity;
 
 @property RLMArray<Tree> *trees;

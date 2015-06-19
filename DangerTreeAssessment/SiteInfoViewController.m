@@ -93,7 +93,7 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        self.lodField.text = @"LOD 1";
+        self.lodField.text = kLODType1;
     }
     if (buttonIndex == 1) {
         self.lodField.text = @"LOD 2/3";
@@ -108,17 +108,18 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
+    [self performSegueWithIdentifier:@"showTreeInfo" sender:self];
 }
 
 -(Site*)createSite{
-    Site *site = [[Site alloc]init];
+    Site *site = [[Site alloc] init];
     site.fireNumber = self.fireNumberField.text;
     site.dtaName = self.dtaNameField.text;
     site.dtaUnit = self.dtaUnitField.text;
-//    site.fuel = self.fuelField.text;  ENUM
+    site.fuel = self.fuelField.text;
     site.location = self.locationField.text;
     site.bui = self.buiField.text;
-//    site.lod = self.lodField.text;  ENUM
+    site.lod = self.lodField.text;
     site.activity = self.activityField.text;
     
     RLMRealm *realm = [RLMRealm defaultRealm];

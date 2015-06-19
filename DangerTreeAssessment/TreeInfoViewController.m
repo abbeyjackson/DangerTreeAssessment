@@ -109,13 +109,13 @@
 
 - (IBAction)saveNewTreeButton:(id)sender {
     
-    if (self.site.lod == LOD1) {
+    if (self.site.lod == kLODType1) {
         [self performSegueWithIdentifier:@"showTreeLOD1" sender: self];
     }
-    if (self.site.lod == LOD23) {
+    if (self.site.lod == kLODType23) {
         [self performSegueWithIdentifier:@"showTreeLOD23" sender: self];
     }
-    if (self.site.lod == LOD4) {
+    if (self.site.lod == kLODType4) {
         [self performSegueWithIdentifier:@"showTreeLOD4" sender: self];
     }
     
