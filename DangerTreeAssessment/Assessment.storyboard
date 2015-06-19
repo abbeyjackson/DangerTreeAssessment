@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tPa-XO-DTm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qnn-sE-2l8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -142,7 +142,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="fuelActionSheet:" destination="Qnn-sE-2l8" eventType="touchUpInside" id="obj-jZ-Uww"/>
                                     <segue destination="tPa-XO-DTm" kind="presentation" identifier="showFuel" id="hrT-WN-8Za"/>
                                 </connections>
                             </button>
@@ -365,7 +364,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="saveTreeAssessmentButton:" destination="WRZ-zJ-DcY" eventType="touchUpInside" id="u6e-zO-yY7"/>
-                                    <segue destination="kMz-Dp-I8A" kind="show" id="Bdo-lp-jKd"/>
+                                    <segue destination="kMz-Dp-I8A" kind="show" identifier="showTreeMgt" id="Bdo-lp-jKd"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPw-5G-Otf">
@@ -691,7 +690,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveTreeAssessmentButton:" destination="HCD-sI-n76" eventType="touchUpInside" id="zO9-YI-51Z"/>
-                                    <segue destination="kMz-Dp-I8A" kind="show" id="OQJ-ht-cIL"/>
+                                    <segue destination="kMz-Dp-I8A" kind="show" identifier="showTreeMgt" id="OQJ-ht-cIL"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EVw-gm-WEW">
@@ -877,7 +876,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stem Damage (SD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-L9-WoF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stem Damage (SD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-L9-WoF">
                                 <rect key="frame" x="35" y="248" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="2XR-1r-RCw"/>
@@ -936,7 +935,7 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIT-zA-0wm">
-                                <rect key="frame" x="35" y="74" width="530" height="10"/>
+                                <rect key="frame" x="35" y="74" width="530" height="10.5"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cq-Oc-taL">
@@ -952,11 +951,11 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3f-qv-9nU">
-                                <rect key="frame" x="35" y="238" width="530" height="11"/>
+                                <rect key="frame" x="35" y="238" width="530" height="10.5"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DaR-cG-G4a">
-                                <rect key="frame" x="35" y="279" width="530" height="11"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaR-cG-G4a">
+                                <rect key="frame" x="35" y="280" width="530" height="10"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAB-eQ-9Mv">
@@ -964,7 +963,7 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gha-1l-dRX">
-                                <rect key="frame" x="35" y="362" width="530" height="10"/>
+                                <rect key="frame" x="35" y="362" width="530" height="10.5"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og0-ZT-Rt6">
@@ -980,7 +979,7 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yc2-vu-rJu">
-                                <rect key="frame" x="35" y="535" width="530" height="11"/>
+                                <rect key="frame" x="35" y="535" width="530" height="10.5"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySL-rK-CjL">
@@ -998,7 +997,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveTreeAssessmentButton:" destination="amz-Ja-pAd" eventType="touchUpInside" id="mmZ-Qf-Pbh"/>
-                                    <segue destination="kMz-Dp-I8A" kind="show" id="4zw-uz-uKI"/>
+                                    <segue destination="kMz-Dp-I8A" kind="show" identifier="showTreeMgt" id="4zw-uz-uKI"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lqi-2N-9PJ">
@@ -1061,7 +1060,7 @@
                                     <action selector="splitTrunkControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="pfN-vl-BO2"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hpn-mF-ip0">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hpn-mF-ip0">
                                 <rect key="frame" x="475" y="249" width="90" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="V4g-nC-94k"/>
@@ -1663,25 +1662,6 @@
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h0i-QN-Igi">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhm-YM-qEE">
-                                    <rect key="frame" x="0.0" y="-2" width="600" height="44"/>
-                                    <items>
-                                        <navigationItem title="Tree Classes" id="uPl-yF-B9x">
-                                            <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="PmE-O8-z8q">
-                                                <connections>
-                                                    <segue destination="7kB-Sd-oB1" kind="unwind" unwindAction="unwindToTreeInfo:" id="Opx-xe-5rv"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="Xsw-Sg-WcX">
-                                                <connections>
-                                                    <segue destination="7kB-Sd-oB1" kind="unwind" unwindAction="unwindToTreeInfo:" id="Oeg-Fz-Sfv"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </navigationItem>
-                                    </items>
-                                </navigationBar>
-                            </subviews>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="arX-Xu-6Vl" id="2th-QX-7Xf"/>
@@ -1690,7 +1670,6 @@
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccF-A1-E8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="7kB-Sd-oB1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2151" y="1039"/>
         </scene>

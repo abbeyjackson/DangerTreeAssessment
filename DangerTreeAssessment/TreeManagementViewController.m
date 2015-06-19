@@ -72,9 +72,14 @@
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
         // Safe
+        self.tree.isDangerous = NO;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
         // nil
+        self.tree.isDangerous = YES;
+    }
+    else {
+        self.tree.isDangerous = NO;
     }
 }
 
@@ -86,18 +91,27 @@
                                                     otherButtonTitles:@"Safe - No Action Required", @"Dangerous - Fall Tree", @"Dangerous - Install NWZ", @"Other - Remove Hazard", nil];
     
     [actionSheet showInView:self.view];
-}
-- (IBAction)makeTreeReportButton:(id)sender {
+    
+//    self.tree.management = self.managementField; ENUM
 }
 
-/*
+-(void)saveTreeMgt{
+    self.tree.comments = self.commentsTextView.text;
+}
+
+- (IBAction)makeTreeReportButton:(id)sender {
+    [self saveTreeMgt];
+    [self performSegueWithIdentifier:@"showTreeReport" sender: self];
+    
+}
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"showTreeReport"]) {
+        [[segue destinationViewController] setDetailItem:self.tree];
+    }
 }
-*/
 
 @end

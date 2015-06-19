@@ -7,6 +7,7 @@
 //
 
 #import "TreeInfoViewController.h"
+#import "Tree.h"
 
 @interface TreeInfoViewController ()<UIActionSheetDelegate>
 
@@ -23,6 +24,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTextFields];
+    
+    
+}
+
+-(Tree*)createTree{
+    
+    Tree *tree = [[Tree alloc]init];
+    tree.site = self.site;
+    tree.lat = [self.latitudeField.text doubleValue];
+    tree.lon = [self.longitudeField.text doubleValue];
+//    tree.species = self.speciesField.text; ENUM
+//    tree.class = self.classField.text; ENUM
+//    tree.wildLifeValue = self.wildlifeValueField.text; ENUM
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:tree];
+    [realm commitWriteTransaction];
+    
+    return tree;
 }
 
 -(void)configureTextFields{
@@ -54,21 +76,43 @@
     
     [actionSheet showInView:self.view];
 }
-- (IBAction)saveNewTreeButton:(id)sender {
 
+- (IBAction)saveNewTreeButton:(id)sender {
+    
+    if (self.site.lod == LOD1) {
+        [self performSegueWithIdentifier:@"showTreeLOD1" sender: self];
+    }
+    if (self.site.lod == LOD23) {
+        [self performSegueWithIdentifier:@"showTreeLOD23" sender: self];
+    }
+    if (self.site.lod == LOD4) {
+        [self performSegueWithIdentifier:@"showTreeLOD4" sender: self];
+    }
+    
 }
+
+
+
+#pragma mark - Navigation
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
+        Tree *tree = [self createTree];
+        [[segue destinationViewController] setDetailItem:tree];
+    }
+    if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
+        Tree *tree = [self createTree];
+        [[segue destinationViewController] setDetailItem:tree];
+    }
+    if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
+        Tree *tree = [self createTree];
+        [[segue destinationViewController] setDetailItem:tree];
+    }
+}
+
 
 - (IBAction)unwindToTreeInfo:(UIStoryboardSegue*)sender{
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Site.h"
 
 @interface TreeInfoViewController : UIViewController
+
+@property (nonatomic,strong) Site *site;
+
+@property (strong, nonatomic) id detailItem;
 
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tree.h"
 
 @interface TreeReviewViewController : UIViewController
+
+@property (nonatomic,strong) Tree *tree;
+
+@property (strong, nonatomic) id detailItem;
+
 
 @end

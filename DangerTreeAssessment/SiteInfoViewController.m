@@ -7,6 +7,7 @@
 //
 
 #import "SiteInfoViewController.h"
+#import "Site.h"
 
 @interface SiteInfoViewController ()<UIActionSheetDelegate, UITextFieldDelegate>
 
@@ -78,10 +79,6 @@
 }
 
 
-- (IBAction)fuelActionSheet:(id)sender {
-
-}
-
 - (IBAction)lodActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
@@ -95,18 +92,42 @@
 - (IBAction)addNewTree:(id)sender {
 }
 
+-(Site*)createSite{
+    Site *site = [[Site alloc]init];
+    site.fireNumber = self.fireNumberField.text;
+    site.dtaName = self.dtaNameField.text;
+    site.dtaUnit = self.dtaUnitField.text;
+//    site.fuel = self.fuelField.text;  ENUM
+    site.location = self.locationField.text;
+    site.bui = self.buiField.text;
+//    site.lod = self.lodField.text;  ENUM
+    site.activity = self.activityField.text;
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:site];
+    [realm commitWriteTransaction];
+    
+    return site;
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showTreeInfo"]) {
+        
+        Site *site = [self createSite];
+        [[segue destinationViewController] setDetailItem:site];
+    }
+    
+}
+
 
 - (IBAction)unwindToSiteInfo:(UIStoryboardSegue*)sender{
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

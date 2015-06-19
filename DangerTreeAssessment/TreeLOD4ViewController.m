@@ -40,18 +40,20 @@
                                                     otherButtonTitles:@"Dangerous", @"Class 1 Trees = S", @"Class 2 Trees With No Structural Defects = S", @"Class 2 Cedars With Low Failure Potential = S", @"Class 3 Conifers With No Structural Defects = S", nil];
     
     [actionSheet showInView:self.view];
+    
+//    self.tree.rating = self.ratingField; ENUM
 }
 - (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
+        [[segue destinationViewController] setDetailItem:self.tree];
+    }
 }
-*/
 
 @end

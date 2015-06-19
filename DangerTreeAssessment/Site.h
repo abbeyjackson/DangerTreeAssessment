@@ -36,12 +36,12 @@ typedef enum: NSUInteger {
 } LOD;
 
 @interface Site : RLMObject
-@property NSInteger* fireNumber;
+@property NSString* fireNumber;
 @property NSString* dtaName;
 @property NSString* dtaUnit;
 @property FuelType fuel;
 @property NSString* location;
-@property NSString* bui; // not sure what BUI is
+@property NSString* bui; 
 @property LOD lod;
 @property NSString* activity;
 

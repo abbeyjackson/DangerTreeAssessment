@@ -36,51 +36,74 @@
 - (IBAction)insecureControlAction:(id)sender{
     if(self.insecureControl.selectedSegmentIndex == 0){
         // Safe
+        self.tree.insecure = NO;
     }
     else if(self.insecureControl.selectedSegmentIndex == 1){
         // nil
+        self.tree.insecure = nil;
     }
     else if(self.insecureControl.selectedSegmentIndex == 2){
         // Dangerous
+        self.tree.insecure = YES;
+    }
+    else {
+        self.tree.insecure = nil;
     }
 }
 
 - (IBAction)unstableControlAction:(id)sender{
     if(self.unstableControl.selectedSegmentIndex == 0){
         // Safe
+        self.tree.unstable = NO;
     }
     else if(self.unstableControl.selectedSegmentIndex == 1){
         // nil
+        
+        self.tree.unstable = nil;
     }
     else if(self.unstableControl.selectedSegmentIndex == 2){
         // Dangerous
+        self.tree.unstable = YES;
+    }
+    else {
+        self.tree.unstable = nil;
     }
 }
 
 - (IBAction)leaningControlAction:(id)sender{
     if(self.leaningControl.selectedSegmentIndex == 0){
         // Safe
+        self.tree.leaning = NO;
     }
     else if(self.leaningControl.selectedSegmentIndex == 1){
         // nil
+        self.tree.leaning = nil;
     }
     else if(self.leaningControl.selectedSegmentIndex == 2){
         // Dangerous
+        self.tree.leaning = YES;
+    }
+    else {
+        self.tree.leaning = nil;
     }
 }
 
-- (IBAction)saveTreeAssessmentButton:(id)sender {
-    
+-(void)saveLOD1{
 }
 
-/*
+- (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
+        [[segue destinationViewController] setDetailItem:self.tree];
+    }
 }
-*/
+
 
 @end
