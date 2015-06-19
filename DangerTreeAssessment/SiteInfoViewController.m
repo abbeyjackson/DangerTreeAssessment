@@ -31,8 +31,9 @@
 }
 
 -(void)configureTextFields{
-    [self textFieldShouldBeginEditing:self.fuelField];
-    [self textFieldShouldBeginEditing:self.lodField];
+    self.locationField.delegate = self;
+    self.buiField.delegate = self;
+    self.activityField.delegate = self;
 }
 
 
@@ -41,9 +42,42 @@
 
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return NO;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
+
+#pragma TextField Delegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.2 animations:^{
+        if (textField == self.locationField || textField == self.buiField) {
+            CGRect frameUp = self.view.frame;
+            frameUp.origin.y -=120;
+            self.view.frame = frameUp;
+        }
+        if (textField == self.activityField) {
+            CGRect frameUp = self.view.frame;
+            frameUp.origin.y -=240;
+            self.view.frame = frameUp;
+        }
+    }];
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.frame = [[UIScreen mainScreen] bounds];
+    }];
+    
+    [textField resignFirstResponder];
+}
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 - (IBAction)fuelActionSheet:(id)sender {
 

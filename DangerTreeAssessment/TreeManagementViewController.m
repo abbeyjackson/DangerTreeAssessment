@@ -8,7 +8,7 @@
 
 #import "TreeManagementViewController.h"
 
-@interface TreeManagementViewController ()
+@interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
 @property (weak, nonatomic) IBOutlet UITextField *managementField;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
@@ -28,13 +28,34 @@
 }
     
 -(void)configureTextFields{
-    [self textFieldShouldBeginEditing:self.managementField];
+    self.commentsTextView.delegate = self;
 }
 
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return NO;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
+
+#pragma TextField Delegate
+
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    [UIView animateWithDuration:0.2 animations:^{
+            CGRect frameUp = self.view.frame;
+            frameUp.origin.y -=240;
+            self.view.frame = frameUp;
+    }];
+}
+
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.frame = [[UIScreen mainScreen] bounds];
+    }];
+    
+    [textView resignFirstResponder];
+}
+
 
 -(void)configureCommentBox{
     [self.commentsTextView.layer setBorderColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] CGColor]];
