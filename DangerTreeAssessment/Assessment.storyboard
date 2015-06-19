@@ -448,6 +448,7 @@
                                     <segment title="Dangerous"/>
                                 </segments>
                                 <connections>
+                                    <action selector="safeDangerousControl:" destination="kMz-Dp-I8A" eventType="valueChanged" id="Tkh-kq-Nda"/>
                                     <action selector="safeDangerousControlAction:" destination="kMz-Dp-I8A" eventType="valueChanged" id="foy-T3-8Qi"/>
                                 </connections>
                             </segmentedControl>
