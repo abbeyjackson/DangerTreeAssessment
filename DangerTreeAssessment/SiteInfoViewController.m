@@ -103,7 +103,6 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    [self createSite];
     [self performSegueWithIdentifier:@"showTreeInfo" sender:self];
 }
 
