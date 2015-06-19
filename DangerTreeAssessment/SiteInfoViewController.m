@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *lodField;
 @property (weak, nonatomic) IBOutlet UITextField *activityField;
 
-@property (weak, nonatomic) IBOutlet UIButton *addTreeButton;
 
 @end
 
@@ -91,6 +90,9 @@
                                                     otherButtonTitles:@"LOD 1", @"LOD 2/3", @"LOD 4", nil];
     
     [actionSheet showInView:self.view];
+}
+
+- (IBAction)addNewTree:(id)sender {
 }
 
 

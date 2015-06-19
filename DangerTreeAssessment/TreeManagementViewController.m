@@ -69,7 +69,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)safeDangerousControlAction:(id)sender{
+- (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
         // Safe
     }

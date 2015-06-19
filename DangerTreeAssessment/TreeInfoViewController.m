@@ -44,12 +44,7 @@
     return NO;
 }
 
-- (IBAction)speciesActionSheet:(id)sender {
 
-}
-- (IBAction)classActionSheet:(id)sender {
-
-}
 - (IBAction)wildlifeValueActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
