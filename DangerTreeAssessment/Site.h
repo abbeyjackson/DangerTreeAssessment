@@ -10,9 +10,23 @@
 #import "Tree.h"
 
 typedef enum : NSUInteger {
-    FuelTypeDiesel,
-    FuelTypeGas,
-    FuelTypeMethanol,
+    C1,
+    C2,
+    C3,
+    C4,
+    C5,
+    C6,
+    C7,
+    D1,
+    M1,
+    M2,
+    M3,
+    M4,
+    S1,
+    S2,
+    S3,
+    O1a,
+    O1b,
 } FuelType;
 
 typedef enum: NSUInteger {

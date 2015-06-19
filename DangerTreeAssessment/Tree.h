@@ -30,6 +30,47 @@ typedef enum : int {
     RemoveHazard
 } ActionRequired;
 
+typedef enum : int{
+    Fd,
+    Lw,
+    Pl,
+    Py,
+    Pw,
+    Sw,
+    Se,
+    Ss,
+    Bl,
+    Ba,
+    Bg,
+    Hw,
+    Cw,
+    Cy,
+    Ac,
+    At,
+    Ep,
+    Dr,
+    Mb,
+}TreeSpecies;
+
+typedef enum : int{
+    c1,
+    c2,
+    c3,
+    c4,
+    c5,
+    c6,
+    c7,
+    c8,
+    c9,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+}TreeClass;
+
+
 @interface Tree : RLMObject
 
 @property Site *site;
@@ -37,8 +78,8 @@ typedef enum : int {
 // tree properties for all trees:
 @property double lat;
 @property double lon;
-@property NSString* species;
-@property NSString* treeClass;
+@property TreeSpecies species;
+@property TreeClass treeClass;
 @property WildLifeValue wildLifeValue;
 
 // tree properties for LOD1 trees:
