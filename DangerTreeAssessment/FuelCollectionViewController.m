@@ -9,6 +9,7 @@
 #import "FuelCollectionViewController.h"
 #import "Fuel.h"
 #import "FuelCollectionViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FuelCollectionViewController ()
 
@@ -80,6 +81,9 @@ static NSString * const reuseIdentifier = @"Cell";
     FuelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.object = self.array[indexPath.item];
+    
+    cell.layer.borderWidth = 1.0f;
+    cell.layer.borderColor = [UIColor darkGrayColor].CGColor;
 
     
     return cell;
