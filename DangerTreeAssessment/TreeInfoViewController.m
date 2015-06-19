@@ -11,6 +11,8 @@
 #import "TreeLOD1ViewController.h"
 #import "TreeLOD23ViewController.h"
 #import "TreeLOD4ViewController.h"
+#import "TreeClass.h"
+#import "TreeSpecies.h"
 
 @interface TreeInfoViewController ()<UIActionSheetDelegate>
 
@@ -96,6 +98,15 @@
     }
 }
 
+-(void)selectClass:(TreeClass *)class{
+    self.classField.text = class.numAndInfo;
+}
+
+-(void)selectSpecies:(TreeSpecies *)species{
+    self.speciesField.text = species.abbreviation;
+}
+
+
 - (IBAction)saveNewTreeButton:(id)sender {
     
     if (self.site.lod == LOD1) {
@@ -127,6 +138,12 @@
     if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
         self.tree = [self createTree];
         [[segue destinationViewController] setTree:self.tree];
+    }
+    if ([[segue identifier] isEqualToString:@"showSpecies"]) {
+        [[segue destinationViewController] setDelegate:self];
+    }
+    if ([[segue identifier] isEqualToString:@"showClass"]) {
+        [[segue destinationViewController] setDelegate:self];
     }
 }
 

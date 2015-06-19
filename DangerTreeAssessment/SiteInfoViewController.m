@@ -9,6 +9,7 @@
 #import "SiteInfoViewController.h"
 #import "Site.h"
 #import "TreeInfoViewController.h"
+#import "Fuel.h"
 
 @interface SiteInfoViewController ()<UIActionSheetDelegate, UITextFieldDelegate>
 
@@ -102,6 +103,10 @@
     }
 }
 
+-(void)selectFuelType:(Fuel *)fuel{
+    self.fuelField.text = fuel.abbreviation;
+}
+
 - (IBAction)addNewTree:(id)sender {
 }
 
@@ -131,9 +136,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showTreeInfo"]) {
-        
         Site *site = [self createSite];
         [[segue destinationViewController] setSite:site];
+    }
+    if ([[segue identifier] isEqualToString:@"showFuel"]) {
+        [[segue destinationViewController] setDelegate:self];
     }
     
 }

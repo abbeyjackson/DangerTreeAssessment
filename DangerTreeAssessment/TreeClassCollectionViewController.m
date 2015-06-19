@@ -7,8 +7,8 @@
 //
 
 #import "TreeClassCollectionViewController.h"
-#import "TreeClass.h"
 #import "TreeClassCollectionViewCell.h"
+#import "Tree.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TreeClassCollectionViewController ()
@@ -94,6 +94,11 @@ static NSString * const reuseIdentifier = @"Cell";
     return UIEdgeInsetsMake(5, 15, 15, 5);
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    TreeClass *class = self.array[indexPath.item];
+    [self.delegate selectClass:class];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 // Uncomment this method to specify if the specified item should be selected

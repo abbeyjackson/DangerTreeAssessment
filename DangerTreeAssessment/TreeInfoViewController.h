@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Site.h"
 #import "Tree.h"
+#import "TreeClassCollectionViewController.h"
+#import "TreeSpeciesCollectionViewController.h"
 
-@interface TreeInfoViewController : UIViewController
+@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate>
 
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Tree *tree;
