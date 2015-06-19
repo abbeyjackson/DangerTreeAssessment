@@ -27,7 +27,7 @@ typedef enum : int {
     NoAction,
     FallTree,
     InstallNWZ,
-    RemoveHazard
+    OtherRemoveHazard
 } ActionRequired;
 
 @interface Tree : RLMObject
@@ -42,27 +42,27 @@ typedef enum : int {
 @property WildLifeValue wildLifeValue;
 
 // tree properties for LOD1 trees:
-@property BOOL insecure;
-@property BOOL unstable;
-@property BOOL leaning;
+@property BOOL lod1Insecure;
+@property BOOL lod1Unstable;
+@property BOOL lod1Leaning;
 
 // tree properties for LOD23 trees:
-@property BOOL hazardousTop;
-@property BOOL deadLimbs;
-@property BOOL witchesBroom;
-@property BOOL splitTrunk;
-@property BOOL stemDamage;
-@property BOOL sloughingBark;
-@property BOOL cankers;
-@property BOOL conksMushrooms;
-@property BOOL treenLean;
-@property BOOL rootInspection;
+@property BOOL lod23HazardousTop;
+@property BOOL lod23DeadLimbs;
+@property BOOL lod23WitchesBroom;
+@property BOOL lod23SplitTrunk;
+@property BOOL lod23StemDamage;
+@property BOOL lod23SloughingBark;
+@property BOOL lod23Cankers;
+@property BOOL lod23ConksMushrooms;
+@property BOOL lod23TreenLean;
+@property BOOL lod23RootInspection;
 
 // tree properties for LOD4 trees:
-@property Rating rating;
+@property Rating lod4Rating;
 
 // tree properties for management (all trees)
-@property BOOL safeOrDangerous;
+@property BOOL isDangerous;
 @property ActionRequired action;
 
 
