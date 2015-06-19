@@ -20,11 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    [self setupSegmentedControls];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)setupSegmentedControls{
+    self.insecureControl.selectedSegmentIndex = 1;
+    self.unstableControl.selectedSegmentIndex = 1;
+    self.leaningControl.selectedSegmentIndex = 1;
 }
 
 - (IBAction)insecureControlAction:(id)sender{

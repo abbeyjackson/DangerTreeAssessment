@@ -20,8 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTextFields];
+    [self setupSegmentedControls];
 }
 
+-(void)setupSegmentedControls{
+    self.safeDangerousControl.selectedSegmentIndex = 1;
+}
+    
 -(void)configureTextFields{
     [self textFieldShouldBeginEditing:self.managementField];
 }

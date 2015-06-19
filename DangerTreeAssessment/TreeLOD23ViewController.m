@@ -27,7 +27,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupSegmentedControls];
+}
+
+-(void)setupSegmentedControls{
+    self.hazardousTopControl.selectedSegmentIndex = 1;
+    self.deadLimbsControl.selectedSegmentIndex = 1;
+    self.witchesBroomControl.selectedSegmentIndex = 1;
+    self.splitTrunkControl.selectedSegmentIndex = 1;
+    self.stemDamageControl.selectedSegmentIndex = 1;
+    self.sloughingBarkControl.selectedSegmentIndex = 1;
+    self.cankersControl.selectedSegmentIndex = 1;
+    self.conksMushroomsControl.selectedSegmentIndex = 1;
+    self.treeLeanControl.selectedSegmentIndex = 1;
+    self.rootInspectionControl.selectedSegmentIndex = 1;
+
 }
 
 - (void)didReceiveMemoryWarning {
