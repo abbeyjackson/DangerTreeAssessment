@@ -46,23 +46,18 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
         self.ratingField.text = @"Dangerous";
-//        self.tree.rating = self.ratingField; ENUM
     }
     if (buttonIndex == 1) {
         self.ratingField.text = @"Class 1 = S";
-//        self.tree.rating = self.ratingField; ENUM
     }
     if (buttonIndex == 2) {
         self.ratingField.text = @"Class 2 No Defects = S";
-//        self.tree.rating = self.ratingField; ENUM
     }
     if (buttonIndex == 1) {
         self.ratingField.text = @"Class 2 Cedars Low Failure = S";
-//        self.tree.rating = self.ratingField; ENUM
     }
     if (buttonIndex == 2) {
         self.ratingField.text = @"Class 2 Conifers No Defects = S";
-//        self.tree.rating = self.ratingField; ENUM
     }
 }
 

@@ -98,19 +98,15 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
         self.managementField.text = @"Safe - No Action Required";
-        //    self.tree.management = self.managementField; ENUM
     }
     if (buttonIndex == 1) {
         self.managementField.text = @"Dangerous - Fall Tree";
-        //    self.tree.management = self.managementField; ENUM
     }
     if (buttonIndex == 2) {
         self.managementField.text = @"Dangerous - Install NWZ";
-        //    self.tree.management = self.managementField; ENUM
     }
     if (buttonIndex == 3) {
         self.managementField.text = @"Other - Remove Hazard";
-        //    self.tree.management = self.managementField; ENUM
     }
 }
 
@@ -130,7 +126,6 @@
     
     if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
         
-//        TreeReviewViewController *dest = [segue destinationViewController];
         [[segue destinationViewController] setTree:self.tree];
     }
 }

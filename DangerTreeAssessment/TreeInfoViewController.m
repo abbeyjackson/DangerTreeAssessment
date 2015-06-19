@@ -87,15 +87,12 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
         self.wildlifeValueField.text = @"HIGH";
-//        self.tree.wildLifeValue = self.wildlifeValueField;  ENUM
     }
     if (buttonIndex == 1) {
         self.wildlifeValueField.text = @"MEDIUM";
-//        self.tree.wildLifeValue = self.wildlifeValueField;  ENUM
     }
     if (buttonIndex == 2) {
         self.wildlifeValueField.text = @"LOW";
-//        self.tree.wildLifeValue = self.wildlifeValueField;  ENUM
     }
 }
 
@@ -121,17 +118,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
         self.tree = [self createTree];
-//        TreeLOD1ViewController *dest = [segue destinationViewController];
         [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
         self.tree = [self createTree];
-//        TreeLOD23ViewController *dest = [segue destinationViewController];
         [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
         self.tree = [self createTree];
-//        TreeLOD4ViewController *dest = [segue destinationViewController];
         [[segue destinationViewController] setTree:self.tree];
     }
 }
