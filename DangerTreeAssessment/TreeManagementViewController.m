@@ -126,7 +126,8 @@
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
     UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
-    
+    TreeReviewViewController *destination = [navigationController.viewControllers firstObject];
+    [destination setTree:self.tree];
     [self showViewController:navigationController sender:self];
 }
 

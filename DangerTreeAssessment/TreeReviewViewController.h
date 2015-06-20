@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Tree.h"
+@class Tree;
 
 @interface TreeReviewViewController : UIViewController
 
