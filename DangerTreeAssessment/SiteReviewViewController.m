@@ -7,6 +7,8 @@
 //
 
 #import "SiteReviewViewController.h"
+#import "SiteInfoViewController.h"
+#import "Site.h"
 
 @interface SiteReviewViewController ()
 
@@ -26,11 +28,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self displayLabels];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)displayLabels{
+    RLMResults *results = [Site allObjects];
+//    NSLog(@"All objects in Realm are:%@", results);
+
+    Site *site = [results objectAtIndex:1];
+//    NSLog(@"FireNumber: %@", site.fireNumber);
+    
+    self.fireNumberLabel.text = site.fireNumber;
+    self.dtaNameLabel.text = site.dtaName;
+    self.unitLabel.text = site.fuel;
+    self.locationLabel.text = site.location;
+    self.buiLabel.text = site.bui;
+    self.lodLabel.text = site.lod;
+    self.activityLabel.text = site.activity;
 }
 
 /*
