@@ -34,6 +34,7 @@
 }
 
 - (IBAction)goToSiteReview:(id)sender {
+    [self performSegueWithIdentifier:@"showSiteReview" sender:self];
 }
 
 #pragma mark - Navigation
