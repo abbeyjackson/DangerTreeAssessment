@@ -27,4 +27,6 @@
 @property NSString* treeLean;
 @property NSString* rootInspection;
 
+@property BOOL isDangerous;
+
 @end

@@ -35,7 +35,6 @@
 
 
 -(Tree*)createTree{
-    
     Tree *tree = [[Tree alloc]init];
     tree.site = self.site;
     tree.lat = [self.latitudeField.text doubleValue];

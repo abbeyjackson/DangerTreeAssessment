@@ -8,6 +8,8 @@
 
 #import "TreeManagementViewController.h"
 #import "TreeReviewViewController.h"
+#import "Tree.h"
+#import "Placeholder.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
@@ -73,14 +75,14 @@
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
         // Safe
-        self.tree.isDangerous = NO;
+        self.placeholder.isDangerous = NO;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
         // Dangerous
-        self.tree.isDangerous = YES;
+        self.placeholder.isDangerous = YES;
     }
     else {
-        self.tree.isDangerous = NO;
+        self.placeholder.isDangerous = NO;
     }
 }
 
@@ -112,7 +114,13 @@
 }
 
 -(void)saveTreeMgt{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    self.tree.isDangerous = self.placeholder.isDangerous;
+    self.tree.management = self.managementField.text;
     self.tree.comments = self.commentsTextView.text;
+    [realm commitWriteTransaction];
 }
 
 - (IBAction)makeTreeReportButton:(id)sender {

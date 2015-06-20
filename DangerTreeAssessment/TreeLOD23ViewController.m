@@ -7,6 +7,8 @@
 //
 
 #import "TreeLOD23ViewController.h"
+#import "Tree.h"
+#import "Placeholder.h"
 
 @interface TreeLOD23ViewController ()
 
@@ -69,39 +71,57 @@
 
 -(void)setResult:(NSString*)result forSegmentControl:(UISegmentedControl*)control {
     if (control == self.hazardousTopControl) {
-        self.tree.hazardousTop = result;
+        self.placeholder.hazardousTop = result;
     }
     else if (control == self.deadLimbsControl){
-        self.tree.deadLimbs = result;
+        self.placeholder.deadLimbs = result;
     }
     else if (control == self.witchesBroomControl){
-        self.tree.witchesBroom = result;
+        self.placeholder.witchesBroom = result;
     }
     else if (control == self.splitTrunkControl){
-        self.tree.splitTrunk = result;
+        self.placeholder.splitTrunk = result;
     }
     else if (control == self.stemDamageControl){
-        self.tree.stemDamage = result;
+        self.placeholder.stemDamage = result;
     }
     else if (control == self.sloughingBarkControl){
-        self.tree.sloughingBark = result;
+        self.placeholder.sloughingBark = result;
     }
     else if (control == self.cankersControl){
-        self.tree.cankers = result;
+        self.placeholder.cankers = result;
     }
     else if (control == self.conksMushroomsControl){
-        self.tree.conksMushrooms = result;
+        self.placeholder.conksMushrooms = result;
     }
     else if (control == self.treeLeanControl){
-        self.tree.treeLean = result;
+        self.placeholder.treeLean = result;
     }
     else if (control == self.rootInspectionControl){
-        self.tree.rootInspection = result;
+        self.placeholder.rootInspection = result;
     }
+}
+
+-(void)saveLOD23{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    self.tree.hazardousTop = self.placeholder.hazardousTop;
+    self.tree.deadLimbs = self.placeholder.deadLimbs;
+    self.tree.witchesBroom = self.placeholder.witchesBroom;
+    self.tree.splitTrunk = self.placeholder.splitTrunk;
+    self.tree.stemDamage = self.placeholder.stemDamage;
+    self.tree.sloughingBark = self.placeholder.sloughingBark;
+    self.tree.cankers = self.placeholder.cankers;
+    self.tree.conksMushrooms = self.placeholder.conksMushrooms;
+    self.tree.treeLean = self.placeholder.treeLean;
+    self.tree.rootInspection = self.placeholder.rootInspection;
+    [realm commitWriteTransaction];
 }
 
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self saveLOD23];
     [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
 }
 

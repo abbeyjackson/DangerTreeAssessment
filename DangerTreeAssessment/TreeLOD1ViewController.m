@@ -66,7 +66,6 @@
 }
 
 -(void)saveLOD1{
-    
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
@@ -77,6 +76,7 @@
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self saveLOD1];
     [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
 }
 
