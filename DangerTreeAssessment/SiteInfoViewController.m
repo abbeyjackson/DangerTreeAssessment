@@ -30,6 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTextFields];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
     self.navigationItem.hidesBackButton = YES;
 }
 

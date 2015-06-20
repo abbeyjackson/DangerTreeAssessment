@@ -23,6 +23,8 @@
     [super viewDidLoad];
 
     [self setupSegmentedControls];
+    
+    self.placeholder = [[Placeholder alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +44,7 @@
         result = @"Safe";
     }
     else if(control.selectedSegmentIndex == 1){
-        result = nil;
+        result = @"-";
     }
     else if(control.selectedSegmentIndex == 2){
         result = @"Dangerous";

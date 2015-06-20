@@ -30,19 +30,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupSegmentedControls];
+    self.placeholder = [[Placeholder alloc]init];
 }
 
 -(void)setupSegmentedControls{
     self.hazardousTopControl.selectedSegmentIndex = 1;
+    self.tree.hazardousTop = @"--";
     self.deadLimbsControl.selectedSegmentIndex = 1;
+    self.tree.deadLimbs = @"--";
     self.witchesBroomControl.selectedSegmentIndex = 1;
+    self.tree.witchesBroom = @"--";
     self.splitTrunkControl.selectedSegmentIndex = 1;
+    self.tree.splitTrunk = @"--";
     self.stemDamageControl.selectedSegmentIndex = 1;
+    self.tree.stemDamage = @"--";
     self.sloughingBarkControl.selectedSegmentIndex = 1;
+    self.tree.sloughingBark = @"--";
     self.cankersControl.selectedSegmentIndex = 1;
+    self.tree.cankers = @"--";
     self.conksMushroomsControl.selectedSegmentIndex = 1;
+    self.tree.conksMushrooms = @"--";
     self.treeLeanControl.selectedSegmentIndex = 1;
+    self.tree.treeLean = @"--";
     self.rootInspectionControl.selectedSegmentIndex = 1;
+    self.tree.rootInspection = @"--";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +68,7 @@
         result = @"Safe";
     }
     else if(control.selectedSegmentIndex == 1){
-        result = nil;
+        result = @"-";
     }
     else if(control.selectedSegmentIndex == 2){
         result = @"Dangerous";

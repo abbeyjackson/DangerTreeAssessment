@@ -9,43 +9,6 @@
 #import <Realm/Realm.h>
 @class Site;
 
-// tree species values
-//extern NSString* const kFd;
-//extern NSString* const kLw;
-//extern NSString* const kPl;
-//extern NSString* const kPy;
-//extern NSString* const kPw;
-//extern NSString* const kSw;
-//extern NSString* const kSe;
-//extern NSString* const kSs;
-//extern NSString* const kBl;
-//extern NSString* const kBa;
-//extern NSString* const kBg;
-//extern NSString* const kHw;
-//extern NSString* const kCw;
-//extern NSString* const kCy;
-//extern NSString* const kAc;
-//extern NSString* const kAt;
-//extern NSString* const kEp;
-//extern NSString* const kDr;
-//extern NSString* const kMb;
-
-// tree class values
-//extern NSString* const kc1;
-//extern NSString* const kc2;
-//extern NSString* const kc3;
-//extern NSString* const kc4;
-//extern NSString* const kc5;
-//extern NSString* const kc6;
-//extern NSString* const kc7;
-//extern NSString* const kc8;
-//extern NSString* const kc9;
-//extern NSString* const kh1;
-//extern NSString* const kh2;
-//extern NSString* const kh3;
-//extern NSString* const kh4;
-//extern NSString* const kh5;
-//extern NSString* const kh6;
 
 // wildlife tree value
 extern NSString* const kL;
