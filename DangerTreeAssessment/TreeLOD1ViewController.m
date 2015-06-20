@@ -71,7 +71,7 @@
     [realm beginWriteTransaction];
     self.tree.insecure = self.placeholder.insecure;
     self.tree.unstable = self.placeholder.unstable;
-    self.tree.leaning = sel.placeholder.leaning;
+    self.tree.leaning = self.placeholder.leaning;
     [realm commitWriteTransaction];
 }
 

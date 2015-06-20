@@ -28,6 +28,11 @@
 }
 
 - (IBAction)startNewSite:(id)sender {
+    
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Assessment" bundle:nil] instantiateInitialViewController];
+    [self showViewController:navigationController sender:self];
+    
+    
 }
 
 

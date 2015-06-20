@@ -125,8 +125,9 @@
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
-    [self performSegueWithIdentifier:@"showTreeReport" sender: self];
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
     
+    [self showViewController:navigationController sender:self];
 }
 
 #pragma mark - Navigation
