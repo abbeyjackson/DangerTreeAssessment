@@ -43,11 +43,11 @@
     tree.treeClass = [self.classField.text substringToIndex:3];
     tree.wildLifeValue = self.wildlifeValueField.text;
     
-
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
     [realm addObject:tree];
+    [self.site.trees insertObject:tree atIndex:0];
     [realm commitWriteTransaction];
     
     return tree;

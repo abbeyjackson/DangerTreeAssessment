@@ -24,6 +24,7 @@
     [super viewDidLoad];
     [self configureTextFields];
     [self setupSegmentedControls];
+    self.placeholder = [[Placeholder alloc]init];
 }
 
 -(void)setupSegmentedControls{
