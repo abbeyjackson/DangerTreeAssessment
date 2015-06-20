@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Site.h"
+#import "FuelCollectionViewController.h"
 
-@interface SiteInfoViewController : UIViewController
+@interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) Site *site;
 

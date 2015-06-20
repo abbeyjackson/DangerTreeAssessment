@@ -11,8 +11,10 @@
 #import "TreeLOD1ViewController.h"
 #import "TreeLOD23ViewController.h"
 #import "TreeLOD4ViewController.h"
+#import "TreeClass.h"
+#import "TreeSpecies.h"
 
-@interface TreeInfoViewController ()<UIActionSheetDelegate>
+@interface TreeInfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *latitudeField;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeField;
@@ -31,20 +33,17 @@
     
 }
 
--(void)setDetailItem:(id)detailItem{
-    
-    
-}
 
 -(Tree*)createTree{
-    
     Tree *tree = [[Tree alloc]init];
     tree.site = self.site;
     tree.lat = [self.latitudeField.text doubleValue];
     tree.lon = [self.longitudeField.text doubleValue];
-//    tree.species = self.speciesField.text; ENUM
-//    tree.class = self.classField.text; ENUM
+    tree.species = [self.speciesField.text substringToIndex:3];
+    tree.treeClass = [self.classField.text substringToIndex:3];
+    tree.wildLifeValue = self.wildlifeValueField.text;
     
+
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
@@ -79,32 +78,41 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Wildlife Value"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"HIGH", @"MEDIUM", @"LOW", nil];
+                                                    otherButtonTitles:kH, kM, kL, nil];
     
     [actionSheet showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        self.wildlifeValueField.text = @"HIGH";
+        self.wildlifeValueField.text = kH;
     }
     if (buttonIndex == 1) {
-        self.wildlifeValueField.text = @"MEDIUM";
+        self.wildlifeValueField.text = kM;
     }
     if (buttonIndex == 2) {
-        self.wildlifeValueField.text = @"LOW";
+        self.wildlifeValueField.text = kL;
     }
 }
 
+-(void)selectClass:(TreeClass *)class{
+    self.classField.text = class.numAndInfo;
+}
+
+-(void)selectSpecies:(TreeSpecies *)species{
+    self.speciesField.text = [NSString stringWithFormat:@"%@ - %@", species.abbreviation, species.name];
+}
+
+
 - (IBAction)saveNewTreeButton:(id)sender {
     
-    if (self.site.lod == kLODType1) {
+    if ([self.site.lod isEqualToString: kLODType1]) {
         [self performSegueWithIdentifier:@"showTreeLOD1" sender: self];
     }
-    if (self.site.lod == kLODType23) {
+    if ([self.site.lod isEqualToString: kLODType23]) {
         [self performSegueWithIdentifier:@"showTreeLOD23" sender: self];
     }
-    if (self.site.lod == kLODType4) {
+    if ([self.site.lod isEqualToString: kLODType4]) {
         [self performSegueWithIdentifier:@"showTreeLOD4" sender: self];
     }
     
@@ -128,7 +136,14 @@
         self.tree = [self createTree];
         [[segue destinationViewController] setTree:self.tree];
     }
+    if ([[segue identifier] isEqualToString:@"showSpecies"]) {
+        [[segue destinationViewController] setDelegate:self];
+    }
+    if ([[segue identifier] isEqualToString:@"showClass"]) {
+        [[segue destinationViewController] setDelegate:self];
+    }
 }
+
 
 
 - (IBAction)unwindToTreeInfo:(UIStoryboardSegue*)sender{

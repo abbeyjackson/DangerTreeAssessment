@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Fuel;
+
+@protocol FuelDelegate <NSObject>
+
+-(void)selectFuelType:(Fuel*)fuel;
+
+@end
 
 @interface FuelCollectionViewController : UICollectionViewController
+
+@property (nonatomic, weak) id<FuelDelegate> delegate;
+
+
 
 @end

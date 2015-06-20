@@ -7,8 +7,8 @@
 //
 
 #import "TreeClassCollectionViewController.h"
-#import "TreeClass.h"
 #import "TreeClassCollectionViewCell.h"
+#import "Tree.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TreeClassCollectionViewController ()
@@ -34,21 +34,21 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(NSArray*)makeArray{
     
-    TreeClass *c1 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer1.png"] numAndInfo:@"1 - Live" andDetails:@"Healthy: no decay or structural damage"];
-    TreeClass *c2 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer2.png"] numAndInfo:@"2 - Live" andDetails:@"Unhealthy: internal decay or growth deformities or other structural damage; dying tree"];
-    TreeClass *c3 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer3.png"] numAndInfo:@"3 - Dead - Hard" andDetails:@"Recently dead, needles or fine twigs present"];
-    TreeClass *c4 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer4.png"] numAndInfo:@"4 - Dead - Hard" andDetails:@"No needles / twigs; 50% of branches lost; only larger limbs remain, often loose bark."];
-    TreeClass *c5 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer5.png"] numAndInfo:@"5 - Dead - Hard" andDetails:@"Most branches / bark absent, some internal decay"];
-    TreeClass *c6 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer6.png"] numAndInfo:@"6 - Dead - Spongy" andDetails:@"Very little branches or bark, sapwood/heartwood may be sloughing from upper bole, decay more advanced, lateral roots of larger trees usually softening"];
-    TreeClass *c7 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer7.png"] numAndInfo:@"7 - Dead - Soft" andDetails:@"Extensive internal decay, outer shell may be hard, lateral roots usually completely decomposed, hollow or nearly hollow shells"];
-    TreeClass *c8 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer8.png"] numAndInfo:@"8 - Dead - Soft" andDetails:@"Extensive internal decay, outer shell may be hard, lateral roots usually completely decomposed, hollow or nearly hollow shells"];
-    TreeClass *c9 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer9.png"] numAndInfo:@"9 - Dead Fallen" andDetails:@"Downed trees or stumps"];
-    TreeClass *h1 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood1.png"] numAndInfo:@"1 - Live" andDetails:nil];
-    TreeClass *h2 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood2.png"] numAndInfo:@"2 - Live" andDetails:nil];
-    TreeClass *h3 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood3.png"] numAndInfo:@"3 - Dead" andDetails:nil];
-    TreeClass *h4 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood4.png"] numAndInfo:@"4 - Dead" andDetails:nil];
-    TreeClass *h5 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood5.png"] numAndInfo:@"5 - Dead" andDetails:nil];
-    TreeClass *h6 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood6.png"] numAndInfo:@"6 - Dead Fallen" andDetails:nil];
+    TreeClass *c1 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer1.png"] numAndInfo:@"C1 - Live"];
+    TreeClass *c2 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer2.png"] numAndInfo:@"C2 - Live"];
+    TreeClass *c3 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer3.png"] numAndInfo:@"C3 - Dead - Hard"];
+    TreeClass *c4 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer4.png"] numAndInfo:@"C4 - Dead - Hard"];
+    TreeClass *c5 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer5.png"] numAndInfo:@"C5 - Dead - Hard"];
+    TreeClass *c6 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer6.png"] numAndInfo:@"C6 - Dead - Spongy"];
+    TreeClass *c7 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer7.png"] numAndInfo:@"C7 - Dead - Soft"];
+    TreeClass *c8 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer8.png"] numAndInfo:@"C8 - Dead - Soft"];
+    TreeClass *c9 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"conifer9.png"] numAndInfo:@"C9 - Dead Fallen"];
+    TreeClass *h1 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood1.png"] numAndInfo:@"H1 - Live"];
+    TreeClass *h2 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood2.png"] numAndInfo:@"H2 - Live"];
+    TreeClass *h3 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood3.png"] numAndInfo:@"H3 - Dead"];
+    TreeClass *h4 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood4.png"] numAndInfo:@"H4 - Dead"];
+    TreeClass *h5 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood5.png"] numAndInfo:@"H5 - Dead"];
+    TreeClass *h6 = [[TreeClass alloc] initWithImage:[UIImage imageNamed:@"hardwood6.png"] numAndInfo:@"H6 - Dead Fallen"];
     
     NSArray *array = [[NSArray alloc]initWithObjects:c1, c2, c3, c4, c5, c6, c7, c8, c9, h1, h2, h3, h4, h5, h6, nil];
     
@@ -94,6 +94,11 @@ static NSString * const reuseIdentifier = @"Cell";
     return UIEdgeInsetsMake(5, 15, 15, 5);
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    TreeClass *class = self.array[indexPath.item];
+    [self.delegate selectClass:class];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 // Uncomment this method to specify if the specified item should be selected

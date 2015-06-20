@@ -7,6 +7,8 @@
 //
 
 #import "TreeLOD1ViewController.h"
+#import "Placeholder.h"
+#import "Tree.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
@@ -33,64 +35,48 @@
     self.leaningControl.selectedSegmentIndex = 1;
 }
 
-- (IBAction)insecureControlAction:(id)sender{
-    if(self.insecureControl.selectedSegmentIndex == 0){
-        // Safe
-        self.tree.insecure = NO;
+-(IBAction)segmentControlValueChanged:(id)sender {
+    UISegmentedControl* control = (UISegmentedControl*)sender;
+    NSString *result;
+    if(control.selectedSegmentIndex == 0){
+        result = @"Safe";
     }
-    else if(self.insecureControl.selectedSegmentIndex == 1){
-        // nil
-        self.tree.insecure = nil;
+    else if(control.selectedSegmentIndex == 1){
+        result = nil;
     }
-    else if(self.insecureControl.selectedSegmentIndex == 2){
-        // Dangerous
-        self.tree.insecure = YES;
+    else if(control.selectedSegmentIndex == 2){
+        result = @"Dangerous";
     }
     else {
-        self.tree.insecure = nil;
+        result = nil;
     }
+    [self setResult:result forSegmentControl:control];
 }
 
-- (IBAction)unstableControlAction:(id)sender{
-    if(self.unstableControl.selectedSegmentIndex == 0){
-        // Safe
-        self.tree.unstable = NO;
+-(void)setResult:(NSString*)result forSegmentControl:(UISegmentedControl*)control {
+    if (control == self.insecureControl) {
+        self.placeholder.insecure = result;
     }
-    else if(self.unstableControl.selectedSegmentIndex == 1){
-        // nil
-        self.tree.unstable = nil;
+    else if (control == self.unstableControl){
+        self.placeholder.unstable = result;
     }
-    else if(self.unstableControl.selectedSegmentIndex == 2){
-        // Dangerous
-        self.tree.unstable = YES;
-    }
-    else {
-        self.tree.unstable = nil;
-    }
-}
-
-- (IBAction)leaningControlAction:(id)sender{
-    if(self.leaningControl.selectedSegmentIndex == 0){
-        // Safe
-        self.tree.leaning = NO;
-    }
-    else if(self.leaningControl.selectedSegmentIndex == 1){
-        // nil
-        self.tree.leaning = nil;
-    }
-    else if(self.leaningControl.selectedSegmentIndex == 2){
-        // Dangerous
-        self.tree.leaning = YES;
-    }
-    else {
-        self.tree.leaning = nil;
+    else if (control == self.leaningControl){
+        self.placeholder.leaning = result;
     }
 }
 
 -(void)saveLOD1{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    self.tree.insecure = self.placeholder.insecure;
+    self.tree.unstable = self.placeholder.unstable;
+    self.tree.leaning = self.placeholder.leaning;
+    [realm commitWriteTransaction];
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self saveLOD1];
     [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
 }
 

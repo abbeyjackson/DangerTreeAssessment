@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TreeClass.h"
+
+@protocol ClassDelegate <NSObject>
+
+-(void)selectClass:(TreeClass*)class;
+
+@end
 
 @interface TreeClassCollectionViewController : UICollectionViewController
+
+@property (nonatomic, weak) id<ClassDelegate> delegate;
 
 @end

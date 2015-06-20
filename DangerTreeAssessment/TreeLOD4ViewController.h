@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Tree.h"
 
-@interface TreeLOD4ViewController : UIViewController
+@interface TreeLOD4ViewController : UIViewController<UIActionSheetDelegate>
 
 @property (nonatomic,strong) Tree *tree;
 

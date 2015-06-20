@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString *numAndInfo;
 @property (nonatomic, strong) NSString *details;
 
--(instancetype)initWithImage:(UIImage *)image numAndInfo:(NSString*)numAndInfo andDetails:(NSString*)details;
+-(instancetype)initWithImage:(UIImage *)image numAndInfo:(NSString*)numAndInfo;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "TreeManagementViewController.h"
 #import "TreeReviewViewController.h"
+#import "Tree.h"
+#import "Placeholder.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
@@ -25,7 +27,7 @@
 }
 
 -(void)setupSegmentedControls{
-    self.safeDangerousControl.selectedSegmentIndex = 1;
+    self.safeDangerousControl.selectedSegmentIndex = 0;
 }
     
 -(void)configureTextFields{
@@ -73,14 +75,14 @@
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
         // Safe
-        self.tree.isDangerous = NO;
+        self.placeholder.isDangerous = NO;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
         // Dangerous
-        self.tree.isDangerous = YES;
+        self.placeholder.isDangerous = YES;
     }
     else {
-        self.tree.isDangerous = NO;
+        self.placeholder.isDangerous = NO;
     }
 }
 
@@ -89,35 +91,43 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Management Action"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Safe - No Action Required", @"Dangerous - Fall Tree", @"Dangerous - Install NWZ", @"Other - Remove Hazard", nil];
+                                                    otherButtonTitles:kNoAction, kFallTree, kInstallNWZ, kOther, nil];
     
     [actionSheet showInView:self.view];
+    
     
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
-        self.managementField.text = @"Safe - No Action Required";
+        self.managementField.text = kNoAction;
     }
     if (buttonIndex == 1) {
-        self.managementField.text = @"Dangerous - Fall Tree";
+        self.managementField.text = kFallTree;
     }
     if (buttonIndex == 2) {
-        self.managementField.text = @"Dangerous - Install NWZ";
+        self.managementField.text = kInstallNWZ;
     }
     if (buttonIndex == 3) {
-        self.managementField.text = @"Other - Remove Hazard";
+        self.managementField.text = kOther;
     }
 }
 
 -(void)saveTreeMgt{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    self.tree.isDangerous = self.placeholder.isDangerous;
+    self.tree.management = self.managementField.text;
     self.tree.comments = self.commentsTextView.text;
+    [realm commitWriteTransaction];
 }
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
-    [self performSegueWithIdentifier:@"showTreeReport" sender: self];
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
     
+    [self showViewController:navigationController sender:self];
 }
 
 #pragma mark - Navigation

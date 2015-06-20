@@ -15,12 +15,11 @@
 
 @implementation TreeClass
 
--(instancetype)initWithImage:(UIImage *)image numAndInfo:(NSString*)numAndInfo andDetails:(NSString*)details{
+-(instancetype)initWithImage:(UIImage *)image numAndInfo:(NSString*)numAndInfo{
     self = [super init];
     if (self) {
         _image = image;
         _numAndInfo = numAndInfo;
-        _details = details;
     }
     return self;
 }

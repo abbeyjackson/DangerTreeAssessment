@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TreeSpecies.h"
+
+@protocol SpeciesDelegate <NSObject>
+
+-(void)selectSpecies:(TreeSpecies*)species;
+
+@end
 
 @interface TreeSpeciesCollectionViewController : UICollectionViewController
+
+@property (nonatomic, weak) id<SpeciesDelegate> delegate;
 
 @end

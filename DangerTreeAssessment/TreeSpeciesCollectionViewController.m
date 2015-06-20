@@ -7,7 +7,6 @@
 //
 
 #import "TreeSpeciesCollectionViewController.h"
-#import "TreeSpecies.h"
 #import "TreeSpeciesCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -100,6 +99,11 @@ static NSString * const reuseIdentifier = @"Cell";
     return UIEdgeInsetsMake(5, 15, 15, 5);
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    TreeSpecies *species = self.array[indexPath.item];
+    [self.delegate selectSpecies:species];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
  // Uncomment this method to specify if the specified item should be selected
