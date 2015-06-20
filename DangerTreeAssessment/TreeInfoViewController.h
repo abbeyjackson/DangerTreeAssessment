@@ -12,7 +12,7 @@
 #import "TreeClassCollectionViewController.h"
 #import "TreeSpeciesCollectionViewController.h"
 
-@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate>
+@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Tree *tree;

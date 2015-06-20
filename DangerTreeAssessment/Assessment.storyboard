@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="crS-53-OSL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HCD-sI-n76">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -455,8 +455,7 @@
                                     <segment title="Dangerous"/>
                                 </segments>
                                 <connections>
-                                    <action selector="safeDangerousControl:" destination="kMz-Dp-I8A" eventType="valueChanged" id="Tkh-kq-Nda"/>
-                                    <action selector="safeDangerousControlAction:" destination="kMz-Dp-I8A" eventType="valueChanged" id="foy-T3-8Qi"/>
+                                    <action selector="safeDangerousControl:" destination="kMz-Dp-I8A" eventType="valueChanged" id="gZa-4w-I0M"/>
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Management Action" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBw-SL-KDD">
@@ -713,8 +712,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="insecureControlAction:" destination="HCD-sI-n76" eventType="valueChanged" id="YWs-EU-nHW"/>
-                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="PKF-Cq-D2d"/>
+                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="Ci5-0R-cRA"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8ez-A3-72b">
@@ -729,8 +727,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="3pk-Rp-ouK"/>
-                                    <action selector="unstableControlAction:" destination="HCD-sI-n76" eventType="valueChanged" id="bhr-x4-Nkd"/>
+                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="kim-i8-ff6"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="44H-ta-VjJ">
@@ -745,8 +742,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="leaningControlAction:" destination="HCD-sI-n76" eventType="valueChanged" id="DvX-t6-Kmx"/>
-                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="bIt-Lk-ruj"/>
+                                    <action selector="segmentControlValueChanged:" destination="HCD-sI-n76" eventType="valueChanged" id="pgc-F9-3X1"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -830,8 +826,7 @@
                     <navigationItem key="navigationItem" title="LOD 1 Tree Assessment" id="vhS-h8-rb4"/>
                     <connections>
                         <outlet property="insecureControl" destination="EVw-gm-WEW" id="0HF-Jx-gHk"/>
-                        <outlet property="leaningControl" destination="44H-ta-VjJ" id="g9N-eY-6WP"/>
-                        <outlet property="recentLeanControl" destination="44H-ta-VjJ" id="NBF-We-fOS"/>
+                        <outlet property="leaningControl" destination="44H-ta-VjJ" id="nmq-16-98A"/>
                         <outlet property="unstableControl" destination="8ez-A3-72b" id="jsn-VI-BJQ"/>
                     </connections>
                 </viewController>
@@ -891,15 +886,6 @@
                                 <rect key="frame" x="35" y="248" width="430" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="2XR-1r-RCw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sloughing Bark or Sapwood (SB)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwf-lw-pJw">
-                                <rect key="frame" x="35" y="290" width="430" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="Cub-GU-uFn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1023,8 +1009,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="hazardousTopControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="ZSh-c3-THX"/>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="ehG-RV-Qkq"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="zNm-vd-Ha9"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HeO-L4-eCB">
@@ -1039,8 +1024,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="deadLimbsControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="npn-fU-t5S"/>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="uzV-ta-8ol"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="213-mk-zOC"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-1h-YER">
@@ -1055,8 +1039,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="QgM-IJ-cOU"/>
-                                    <action selector="witchesBroomControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="lUq-fb-3El"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="duN-yk-ntn"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iea-xV-le6">
@@ -1071,8 +1054,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="F71-oB-zQ1"/>
-                                    <action selector="splitTrunkControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="pfN-vl-BO2"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="5VZ-lM-OrY"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hpn-mF-ip0">
@@ -1087,8 +1069,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="FWy-Ss-jg3"/>
-                                    <action selector="stemDamageControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="1tw-D7-BsF"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="HBH-Ey-xTT"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c9B-Rd-k06">
@@ -1103,8 +1084,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="0VR-0c-6Aw"/>
-                                    <action selector="sloughingBarkControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="O8B-Uw-0Gx"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="wVY-BC-I9w"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZIJ-hr-o8j">
@@ -1119,8 +1099,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="cankersControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="h4b-hC-9RK"/>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="rqm-Nz-AbG"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="fZb-5B-hnw"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mT4-7T-qao">
@@ -1135,8 +1114,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="conksMushroomsControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="8Bb-it-lXY"/>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="v2D-ft-PO8"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="HC7-XT-MTJ"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PVZ-gy-lnx">
@@ -1151,8 +1129,7 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="Xtd-Ao-VyE"/>
-                                    <action selector="treeLeanControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="haQ-ad-4Mp"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="H5p-nW-3Db"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="u7z-Wq-8Nd">
@@ -1167,10 +1144,18 @@
                                     <segment title="D"/>
                                 </segments>
                                 <connections>
-                                    <action selector="rootInspectionControlAction:" destination="amz-Ja-pAd" eventType="valueChanged" id="C34-PL-wp8"/>
-                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="lZL-r3-X1Q"/>
+                                    <action selector="segmentControlValueChanged:" destination="amz-Ja-pAd" eventType="valueChanged" id="K2X-if-eRL"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sloughing Bark or Sapwood (SB)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwf-lw-pJw">
+                                <rect key="frame" x="35" y="290" width="430" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Cub-GU-uFn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1318,9 +1303,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="LOD 2 / 3 Tree Assessment" id="RdG-MB-hcA"/>
                     <connections>
-                        <outlet property="buttCankerControl" destination="ZIJ-hr-o8j" id="kbD-vn-UbO"/>
                         <outlet property="cankersControl" destination="ZIJ-hr-o8j" id="SrG-rn-Syx"/>
-                        <outlet property="conksMushrooms" destination="mT4-7T-qao" id="b2K-bu-Xnf"/>
                         <outlet property="conksMushroomsControl" destination="mT4-7T-qao" id="YiU-zm-lXG"/>
                         <outlet property="deadLimbsControl" destination="HeO-L4-eCB" id="T2g-bf-mrC"/>
                         <outlet property="hazardousTopControl" destination="lqi-2N-9PJ" id="rBr-e3-eVN"/>
@@ -1725,6 +1708,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OQJ-ht-cIL"/>
+        <segue reference="4zw-uz-uKI"/>
     </inferredMetricsTieBreakers>
 </document>

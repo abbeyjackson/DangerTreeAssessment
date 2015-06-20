@@ -14,7 +14,7 @@
 #import "TreeClass.h"
 #import "TreeSpecies.h"
 
-@interface TreeInfoViewController ()<UIActionSheetDelegate>
+@interface TreeInfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *latitudeField;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeField;
@@ -42,7 +42,9 @@
     tree.lon = [self.longitudeField.text doubleValue];
     tree.species = [self.speciesField.text substringToIndex:3];
     tree.treeClass = [self.classField.text substringToIndex:3];
+    tree.wildLifeValue = self.wildlifeValueField.text;
     
+
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
@@ -105,13 +107,13 @@
 
 - (IBAction)saveNewTreeButton:(id)sender {
     
-    if (self.site.lod == kLODType1) {
+    if ([self.site.lod isEqualToString: kLODType1]) {
         [self performSegueWithIdentifier:@"showTreeLOD1" sender: self];
     }
-    if (self.site.lod == kLODType23) {
+    if ([self.site.lod isEqualToString: kLODType23]) {
         [self performSegueWithIdentifier:@"showTreeLOD23" sender: self];
     }
-    if (self.site.lod == kLODType4) {
+    if ([self.site.lod isEqualToString: kLODType4]) {
         [self performSegueWithIdentifier:@"showTreeLOD4" sender: self];
     }
     
@@ -142,6 +144,7 @@
         [[segue destinationViewController] setDelegate:self];
     }
 }
+
 
 
 - (IBAction)unwindToTreeInfo:(UIStoryboardSegue*)sender{

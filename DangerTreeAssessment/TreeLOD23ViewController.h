@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Tree.h"
+@class Tree;
+@class Placeholder;
 
 @interface TreeLOD23ViewController : UIViewController
 

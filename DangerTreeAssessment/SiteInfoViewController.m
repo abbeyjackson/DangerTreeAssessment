@@ -11,7 +11,7 @@
 #import "TreeInfoViewController.h"
 #import "Fuel.h"
 
-@interface SiteInfoViewController ()<UIActionSheetDelegate, UITextFieldDelegate>
+@interface SiteInfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;

@@ -25,7 +25,7 @@
 }
 
 -(void)setupSegmentedControls{
-    self.safeDangerousControl.selectedSegmentIndex = 1;
+    self.safeDangerousControl.selectedSegmentIndex = 0;
 }
     
 -(void)configureTextFields{

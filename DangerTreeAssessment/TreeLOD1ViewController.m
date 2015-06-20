@@ -7,6 +7,8 @@
 //
 
 #import "TreeLOD1ViewController.h"
+#import "Placeholder.h"
+#import "Tree.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
@@ -53,17 +55,25 @@
 
 -(void)setResult:(NSString*)result forSegmentControl:(UISegmentedControl*)control {
     if (control == self.insecureControl) {
-        self.tree.insecure = result;
+        self.placeholder.insecure = result;
     }
     else if (control == self.unstableControl){
-        self.tree.unstable = result;
+        self.placeholder.unstable = result;
     }
     else if (control == self.leaningControl){
-        self.tree.leaning = result;
+        self.placeholder.leaning = result;
     }
 }
 
 -(void)saveLOD1{
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    self.tree.insecure = self.placeholder.insecure;
+    self.tree.unstable = self.placeholder.unstable;
+    self.tree.leaning = sel.placeholder.leaning;
+    [realm commitWriteTransaction];
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
