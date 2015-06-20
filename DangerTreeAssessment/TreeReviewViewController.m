@@ -33,6 +33,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)goToSiteReview:(id)sender {
+}
 
 #pragma mark - Navigation
 
