@@ -52,12 +52,13 @@
     tree.wildLifeValue = self.wildlifeValueField.text;
     tree.id = [self setPrimaryID];
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
     [realm addObject:tree];
     [self.site.trees insertObject:tree atIndex:0];
     [realm commitWriteTransaction];
+    
     
     return tree;
 }

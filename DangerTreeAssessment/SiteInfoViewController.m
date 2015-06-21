@@ -33,8 +33,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-  
-self.navigationController.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationItem.hidesBackButton = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{

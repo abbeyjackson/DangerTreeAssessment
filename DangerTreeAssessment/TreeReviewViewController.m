@@ -37,8 +37,8 @@
 }
 
 - (IBAction)goToSiteReview:(id)sender {
-
-    [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+    [self submitReportAlert];
+//    [self performSegueWithIdentifier:@"showSiteReview" sender:self];
 }
 
 -(void)updateLabels{
@@ -51,8 +51,6 @@
     self.speciesLabel.text = tree.species;
     self.treeClassLabel.text = tree.treeClass;
     self.wildlifeValueLabel.text = tree.wildLifeValue;
-
-    [self submitReportAlert];
     //    [self performSegueWithIdentifier:@"showSiteReview" sender: self];
 }
 
@@ -70,6 +68,7 @@
     if (buttonIndex == 1) {
         UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
         TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+        [destination setSite:self.tree.site];
         [self showViewController:destination sender:self];
     }
     if (buttonIndex == 2) {

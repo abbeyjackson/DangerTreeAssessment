@@ -9,6 +9,7 @@
 #import "TreeLOD1ViewController.h"
 #import "Placeholder.h"
 #import "Tree.h"
+#import "Site.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
@@ -68,7 +69,7 @@
 }
 
 -(void)saveLOD1{
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = self.tree.realm;
     
     [realm beginWriteTransaction];
     self.tree.insecure = self.placeholder.insecure;
