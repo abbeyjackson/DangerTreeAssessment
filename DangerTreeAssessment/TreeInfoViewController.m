@@ -33,6 +33,11 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.navigationItem.hidesBackButton = YES;
+}
+
 -(int)setPrimaryID{
     return (arc4random() % 9000 + 1000);
 }

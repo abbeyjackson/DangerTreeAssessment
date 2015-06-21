@@ -65,7 +65,7 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
-    self.tree.rating = self.ratingField;
+    self.tree.rating = self.ratingField.text;
     [realm commitWriteTransaction];
     
 }

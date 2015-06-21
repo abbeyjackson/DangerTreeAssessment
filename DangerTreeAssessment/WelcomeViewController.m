@@ -7,6 +7,7 @@
 //
 
 #import "WelcomeViewController.h"
+#import "SiteInfoViewController.h"
 
 @interface WelcomeViewController ()
 
@@ -29,10 +30,9 @@
 
 - (IBAction)startNewSite:(id)sender {
     
-    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Assessment" bundle:nil] instantiateInitialViewController];
-    [self showViewController:navigationController sender:self];
-    
-    
+    UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
+    SiteInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"SiteInformation"];
+    [self showViewController:destination sender:self];
 }
 
 
