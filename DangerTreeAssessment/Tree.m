@@ -34,8 +34,11 @@ NSString* const kOther = @"Other, Remove Hazard";
 
 + (NSDictionary *)defaultPropertyValues
 {
-    return @{@"insecure" : @"", @"unstable": @"", @"leaning" : @"", @"hazardousTop" : @"", @"deadLimbs" : @"", @"witchesBroom" : @"", @"splitTrunk" : @"", @"stemDamage" : @"", @"sloughingBark" : @"", @"cankers" : @"", @"conksMushrooms" : @"", @"treeLean" : @"", @"rootInspection" : @"", @"rating" : @"", @"isDangerous" : @0, @"management" : @"", @"comments" : @""};
+    return @{@"insecure" : @"", @"unstable": @"", @"leaning" : @"", @"hazardousTop" : @"", @"deadLimbs" : @"", @"witchesBroom" : @"", @"splitTrunk" : @"", @"stemDamage" : @"", @"sloughingBark" : @"", @"cankers" : @"", @"conksMushrooms" : @"", @"treeLean" : @"", @"rootInspection" : @"", @"rating" : @"", @"isDangerous" : @"NO", @"management" : @"", @"comments" : @"", @"isReportComplete" : @"NO"};
 }
 
++ (NSString *)primaryKey {
+    return @"id";
+}
 
 @end

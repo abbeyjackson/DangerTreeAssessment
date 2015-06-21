@@ -32,8 +32,12 @@
     [self configureTextFields];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+  
+self.navigationController.navigationItem.hidesBackButton = YES;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
-    
     self.navigationItem.hidesBackButton = YES;
 }
 
@@ -113,7 +117,17 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    [self performSegueWithIdentifier:@"showTreeInfo" sender:self];
+    
+    UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
+    TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+    Site *site = [self createSite];
+    [destination setSite:site];
+    [self showViewController:destination sender:self];
+}
+
+-(int)setPrimaryID{
+
+    return (arc4random() % 9000 + 1000);
 }
 
 -(Site*)createSite{
@@ -126,6 +140,7 @@
     site.bui = self.buiField.text;
     site.lod = self.lodField.text;
     site.activity = self.activityField.text;
+    site.id = [self setPrimaryID];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -140,11 +155,6 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"showTreeInfo"]) {
-        Site *site = [self createSite];
-        [[segue destinationViewController] setSite:site];
-    }
     if ([[segue identifier] isEqualToString:@"showFuel"]) {
         [[segue destinationViewController] setDelegate:self];
     }
