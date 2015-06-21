@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *speciesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *treeClassLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wildlifeValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
 
 
 @end
@@ -26,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self updateLabels];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +37,18 @@
 
 - (IBAction)goToSiteReview:(id)sender {
     [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+}
+
+-(void)updateLabels{
+    
+    RLMResults *results = [Tree allObjects];
+    Tree *tree = [results lastObject];
+    
+    self.latitudeLabel.text = tree.lat;
+    self.longitudeLabel.text = tree.lon;
+    self.speciesLabel.text = tree.species;
+    self.treeClassLabel.text = tree.treeClass;
+    self.wildlifeValueLabel.text = tree.wildLifeValue;
 }
 
 #pragma mark - Navigation

@@ -40,7 +40,7 @@
     RLMResults *results = [Site allObjects];
 //    NSLog(@"All objects in Realm are:%@", results);
 
-    Site *site = [results objectAtIndex:0];
+    Site *site = [results lastObject];
 //    NSLog(@"FireNumber: %@", site.fireNumber);
     
     self.fireNumberLabel.text = site.fireNumber;
