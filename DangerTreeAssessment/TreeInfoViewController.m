@@ -37,8 +37,8 @@
 -(Tree*)createTree{
     Tree *tree = [[Tree alloc]init];
     tree.site = self.site;
-    tree.lat = [self.latitudeField.text doubleValue];
-    tree.lon = [self.longitudeField.text doubleValue];
+    tree.lat = self.latitudeField.text;
+    tree.lon = self.longitudeField.text;
     tree.species = [self.speciesField.text substringToIndex:3];
     tree.treeClass = [self.classField.text substringToIndex:3];
     tree.wildLifeValue = self.wildlifeValueField.text;

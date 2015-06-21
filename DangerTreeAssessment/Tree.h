@@ -34,8 +34,8 @@ extern NSString* const kOther;
 @property Site *site;
 
 // tree properties for all trees:
-@property double lat;
-@property double lon;
+@property NSString* lat;
+@property NSString* lon;
 @property NSString* species;
 @property NSString* treeClass;
 @property NSString* wildLifeValue;
