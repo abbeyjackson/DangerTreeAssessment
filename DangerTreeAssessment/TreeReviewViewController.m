@@ -9,6 +9,7 @@
 #import "TreeReviewViewController.h"
 #import "SiteReviewViewController.h"
 #import "Tree.h"
+#import "TreeInfoViewController.h"
 
 @interface TreeReviewViewController ()
 
@@ -34,6 +35,29 @@
 }
 
 - (IBAction)goToSiteReview:(id)sender {
+    [self submitReportAlert];
+    //    [self performSegueWithIdentifier:@"showSiteReview" sender: self];
+}
+
+
+-(void)submitReportAlert{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tree Report Complete" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"New Tree", @"Submit Report", nil];
+    // optional - add more buttons:
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // dismiss alert
+    }
+    if (buttonIndex == 1) {
+        UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
+        TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+        [self showViewController:destination sender:self];
+    }
+    if (buttonIndex == 2) {
+        [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+    }
 }
 
 #pragma mark - Navigation

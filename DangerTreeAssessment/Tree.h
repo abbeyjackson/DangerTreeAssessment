@@ -31,7 +31,11 @@ extern NSString* const kOther;
 
 @interface Tree : RLMObject
 
+// internal properties
 @property Site *site;
+@property BOOL isReportComplete;
+@property NSInteger id;
+
 
 // tree properties for all trees:
 @property double lat;

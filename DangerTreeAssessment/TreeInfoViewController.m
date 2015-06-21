@@ -33,6 +33,9 @@
     
 }
 
+-(int)setPrimaryID{
+    return (arc4random() % 9000 + 1000);
+}
 
 -(Tree*)createTree{
     Tree *tree = [[Tree alloc]init];
@@ -42,6 +45,7 @@
     tree.species = [self.speciesField.text substringToIndex:3];
     tree.treeClass = [self.classField.text substringToIndex:3];
     tree.wildLifeValue = self.wildlifeValueField.text;
+    tree.id = [self setPrimaryID];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     

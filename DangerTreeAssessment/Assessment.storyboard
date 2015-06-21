@@ -8,7 +8,7 @@
         <!--Site Information-->
         <scene sceneID="U6z-q9-zZu">
             <objects>
-                <viewController id="Qnn-sE-2l8" customClass="SiteInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SiteInformation" id="Qnn-sE-2l8" customClass="SiteInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5m2-r2-XMt"/>
                         <viewControllerLayoutGuide type="bottom" id="PZA-nd-PRS"/>
@@ -1322,7 +1322,7 @@
         <!--Tree Information-->
         <scene sceneID="mXy-gr-jzV">
             <objects>
-                <viewController id="O6Y-4o-Q6H" customClass="TreeInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TreeInformation" id="O6Y-4o-Q6H" customClass="TreeInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h7A-uy-Iet"/>
                         <viewControllerLayoutGuide type="bottom" id="1i4-pn-slz"/>

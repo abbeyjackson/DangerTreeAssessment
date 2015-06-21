@@ -34,6 +34,14 @@ extern NSString* const kLODType23;
 extern NSString* const kLODType4;
 
 @interface Site : RLMObject
+
+// internal properties
+@property BOOL isReportComplete;
+@property RLMArray<Tree> *trees;
+@property NSInteger id;
+
+
+// Site properties
 @property NSString* fireNumber;
 @property NSString* dtaName;
 @property NSString* dtaUnit;
@@ -43,7 +51,6 @@ extern NSString* const kLODType4;
 @property NSString* lod;
 @property NSString* activity;
 
-@property RLMArray<Tree> *trees;
 
 
 

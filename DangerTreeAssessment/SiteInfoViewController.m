@@ -116,6 +116,11 @@
     [self performSegueWithIdentifier:@"showTreeInfo" sender:self];
 }
 
+-(int)setPrimaryID{
+
+    return (arc4random() % 9000 + 1000);
+}
+
 -(Site*)createSite{
     Site *site = [[Site alloc] init];
     site.fireNumber = self.fireNumberField.text;
@@ -126,6 +131,7 @@
     site.bui = self.buiField.text;
     site.lod = self.lodField.text;
     site.activity = self.activityField.text;
+    site.id = [self setPrimaryID];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     

@@ -32,18 +32,13 @@ NSString* const kO1b = @"k01b";
 
 @implementation Site
 
-// Specify default values for properties
++ (NSDictionary *)defaultPropertyValues
+{
+    return @{@"isReportComplete" : @"NO"};
+}
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
-
-// Specify properties to ignore (Realm won't persist these)
-
-//+ (NSArray *)ignoredProperties
-//{
-//    return @[];
-//}
++ (NSString *)primaryKey {
+    return @"id";
+}
 
 @end
