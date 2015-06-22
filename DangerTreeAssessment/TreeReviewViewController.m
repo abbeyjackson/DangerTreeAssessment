@@ -203,6 +203,7 @@
         self.leaningLabel.text = self.tree.leaning;
         self.leaningLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.leaningLabel];
+        self.leaningLabel.translatesAutoresizingMaskIntoConstraints = NO;
         
         
         
@@ -339,6 +340,7 @@
     
     self.isDangerousLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.isDangerousLabel];
+    self.isDangerousLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     UILabel *managementPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 20)];
     managementPlaceholder.text = @"Management";
