@@ -349,23 +349,26 @@
     self.managementPlaceholder.text = @"Management";
     self.managementPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:self.managementPlaceholder];
-    self.isDangerousLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.managementPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.managementLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 50)];
     self.managementLabel.text = self.tree.management;
     self.managementLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.managementLabel];
+    self.managementLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.commentsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 20)];
     self.commentsPlaceholder.text = @"Comments";
     self.commentsPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:self.commentsPlaceholder];
+    self.commentsPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 632, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
     self.commentsLabel.numberOfLines = 0;
     self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
+    self.commentsLabel.translatesAutoresizingMaskIntoConstraints = NO;
 
     
 }
