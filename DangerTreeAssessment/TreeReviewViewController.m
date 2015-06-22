@@ -76,7 +76,7 @@
         self.scrollView.scrollEnabled=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
 }
 
 -(void)updateLabels{
@@ -86,89 +86,91 @@
     
     // all trees:
     
+    UILabel *latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 110, 200, 20)];
+    
     self.latitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 50)];
     self.latitudeLabel.text = tree.lat;
-    [self.view addSubview:self.latitudeLabel];
+    [self.scrollView addSubview:self.latitudeLabel];
     
     self.longitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 150, 200, 50)];
     self.longitudeLabel.text = tree.lon;
-    [self.view addSubview:self.longitudeLabel];
+    [self.scrollView addSubview:self.longitudeLabel];
     
     self.speciesLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 180, 200, 50)];
     self.speciesLabel.text = tree.species;
-    [self.view addSubview:self.speciesLabel];
+    [self.scrollView addSubview:self.speciesLabel];
 
     self.treeClassLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 210, 200, 50)];
     self.treeClassLabel.text = tree.treeClass;
-    [self.view addSubview:self.treeClassLabel];
+    [self.scrollView addSubview:self.treeClassLabel];
     
     self.wildlifeValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 240, 200, 50)];
     self.wildlifeValueLabel.text = tree.wildLifeValue;
-    [self.view addSubview:self.wildlifeValueLabel];
+    [self.scrollView addSubview:self.wildlifeValueLabel];
 
 
     if ([tree.site.lod isEqualToString:kLODType1]){
         
         self.insecureLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 50)];
         self.insecureLabel.text = tree.insecure;
-        [self.view addSubview:self.insecureLabel];
+        [self.scrollView addSubview:self.insecureLabel];
         
         self.unstableLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 300, 200, 50)];
         self.unstableLabel.text = tree.unstable;
-        [self.view addSubview:self.unstableLabel];
+        [self.scrollView addSubview:self.unstableLabel];
         
         self.leaningLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 330, 200, 50)];
         self.leaningLabel.text = tree.leaning;
-        [self.view addSubview:self.leaningLabel];
+        [self.scrollView addSubview:self.leaningLabel];
         
         
     }else if ([tree.site.lod isEqualToString:kLODType23]){
 
         self.hazardousTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 50)];
         self.hazardousTopLabel.text = tree.hazardousTop;
-        [self.view addSubview:self.hazardousTopLabel];
+        [self.scrollView addSubview:self.hazardousTopLabel];
         
         self.deadLimbsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 300, 200, 50)];
         self.deadLimbsLabel.text = tree.deadLimbs;
-        [self.view addSubview:self.deadLimbsLabel];
+        [self.scrollView addSubview:self.deadLimbsLabel];
         
         self.witchesBroomLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 330, 200, 50)];
         self.witchesBroomLabel.text = tree.witchesBroom;
-        [self.view addSubview:self.witchesBroomLabel];
+        [self.scrollView addSubview:self.witchesBroomLabel];
         
         self.splitTrunkLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 360, 200, 50)];
         self.splitTrunkLabel.text = tree.splitTrunk;
-        [self.view addSubview:self.splitTrunkLabel];
+        [self.scrollView addSubview:self.splitTrunkLabel];
         
         self.stemDamageLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 390, 200, 50)];
         self.stemDamageLabel.text = tree.stemDamage;
-        [self.view addSubview:self.stemDamageLabel];
+        [self.scrollView addSubview:self.stemDamageLabel];
         
         self.sloughingBarkLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 420, 200, 50)];
         self.sloughingBarkLabel.text = tree.sloughingBark;
-        [self.view addSubview:self.sloughingBarkLabel];
+        [self.scrollView addSubview:self.sloughingBarkLabel];
         
         self.cankersLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 450, 200, 50)];
         self.cankersLabel.text = tree.cankers;
-        [self.view addSubview:self.cankersLabel];
+        [self.scrollView addSubview:self.cankersLabel];
         
         self.conksMushroomsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 480, 200, 50)];
         self.conksMushroomsLabel.text = tree.conksMushrooms;
-        [self.view addSubview:self.conksMushroomsLabel];
+        [self.scrollView addSubview:self.conksMushroomsLabel];
         
         self.treeLeanLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 510, 200, 50)];
         self.treeLeanLabel.text = tree.treeLean;
-        [self.view addSubview:self.treeLeanLabel];
+        [self.scrollView addSubview:self.treeLeanLabel];
         
         self.rootInspectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 540, 200, 50)];
         self.rootInspectionLabel.text = tree.rootInspection;
-        [self.view addSubview:self.rootInspectionLabel];
+        [self.scrollView addSubview:self.rootInspectionLabel];
 
         
     }else if ([tree.site.lod isEqualToString:kLODType4]){
         self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 50)];
         self.ratingLabel.text = tree.rating;
-        [self.view addSubview:self.ratingLabel];
+        [self.scrollView addSubview:self.ratingLabel];
     }
     
 }
