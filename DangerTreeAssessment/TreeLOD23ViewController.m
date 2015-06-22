@@ -8,6 +8,7 @@
 
 #import "TreeLOD23ViewController.h"
 #import "Tree.h"
+#import "Site.h"
 #import "Placeholder.h"
 
 @interface TreeLOD23ViewController ()
@@ -114,7 +115,7 @@
 }
 
 -(void)saveLOD23{
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
     self.tree.hazardousTop = self.placeholder.hazardousTop;
@@ -141,6 +142,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 

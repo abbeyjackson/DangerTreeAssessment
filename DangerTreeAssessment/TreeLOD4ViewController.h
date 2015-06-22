@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Tree.h"
+@class Tree;
+@class Site;
 
 @interface TreeLOD4ViewController : UIViewController<UIActionSheetDelegate>
 
 @property (nonatomic,strong) Tree *tree;
+@property (nonatomic, strong) Site *site;
 
 
 

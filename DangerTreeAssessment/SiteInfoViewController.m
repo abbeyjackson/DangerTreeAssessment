@@ -116,7 +116,6 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    
     UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
     TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
     Site *site = [self createSite];

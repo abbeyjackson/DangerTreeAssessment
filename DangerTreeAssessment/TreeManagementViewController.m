@@ -9,6 +9,7 @@
 #import "TreeManagementViewController.h"
 #import "TreeReviewViewController.h"
 #import "Tree.h"
+#import "Site.h"
 #import "Placeholder.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
@@ -115,7 +116,7 @@
 }
 
 -(void)saveTreeMgt{
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
     self.tree.isDangerous = self.placeholder.isDangerous;
@@ -135,10 +136,9 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
-        
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 

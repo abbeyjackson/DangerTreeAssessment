@@ -69,7 +69,7 @@
 }
 
 -(void)saveLOD1{
-    RLMRealm *realm = self.tree.realm;
+    RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
     self.tree.insecure = self.placeholder.insecure;
@@ -90,6 +90,7 @@
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 

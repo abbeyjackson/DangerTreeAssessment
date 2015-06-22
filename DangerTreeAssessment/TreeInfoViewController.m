@@ -7,12 +7,13 @@
 //
 
 #import "TreeInfoViewController.h"
-#import "Tree.h"
 #import "TreeLOD1ViewController.h"
 #import "TreeLOD23ViewController.h"
 #import "TreeLOD4ViewController.h"
 #import "TreeClass.h"
 #import "TreeSpecies.h"
+#import "Tree.h"
+#import "Site.h"
 
 @interface TreeInfoViewController ()
 
@@ -43,24 +44,26 @@
 }
 
 -(Tree*)createTree{
-    Tree *tree = [[Tree alloc]init];
-    tree.site = self.site;
-    tree.lat = self.latitudeField.text;
-    tree.lon = self.longitudeField.text;
-    tree.species = [self.speciesField.text substringToIndex:3];
-    tree.treeClass = [self.classField.text substringToIndex:3];
-    tree.wildLifeValue = self.wildlifeValueField.text;
-    tree.id = [self setPrimaryID];
+    
+   
+    self.tree = [[Tree alloc]init];
+    self.tree.site = self.site;
+    self.tree.lat = self.latitudeField.text;
+    self.tree.lon = self.longitudeField.text;
+    self.tree.species = [self.speciesField.text substringToIndex:3];
+    self.tree.treeClass = [self.classField.text substringToIndex:3];
+    self.tree.wildLifeValue = self.wildlifeValueField.text;
+    self.tree.id = [self setPrimaryID];
     
     RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
-    [realm addObject:tree];
-    [self.site.trees insertObject:tree atIndex:0];
+    [realm addObject:self.tree];
+    [self.site.trees insertObject:self.tree atIndex:0];
     [realm commitWriteTransaction];
     
     
-    return tree;
+    return self.tree;
 }
 
 -(void)configureTextFields{
@@ -137,14 +140,17 @@
     if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
         self.tree = [self createTree];
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
         self.tree = [self createTree];
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
         self.tree = [self createTree];
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
     if ([[segue identifier] isEqualToString:@"showSpecies"]) {
         [[segue destinationViewController] setDelegate:self];

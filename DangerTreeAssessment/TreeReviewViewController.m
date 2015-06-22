@@ -9,6 +9,7 @@
 #import "TreeReviewViewController.h"
 #import "SiteReviewViewController.h"
 #import "Tree.h"
+#import "Site.h"
 #import "TreeInfoViewController.h"
 
 @interface TreeReviewViewController ()
@@ -68,7 +69,7 @@
     if (buttonIndex == 1) {
         UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
         TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
-        [destination setSite:self.tree.site];
+        [destination setSite:self.site];
         [self showViewController:destination sender:self];
     }
     if (buttonIndex == 2) {
@@ -82,8 +83,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showSiteReview"]) {
-        
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 
