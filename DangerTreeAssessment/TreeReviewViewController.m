@@ -417,7 +417,7 @@
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
                                         constant:0]];
-        // isDangerousLabel contraints
+        // isDangerousLabel constraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
                                         constraintWithItem:self.isDangerousLabel
@@ -436,6 +436,26 @@
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
                                         constant:-3]];
+        
+        // managememntPlaceholder constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementPlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementPlaceholder
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:0]];
         
     }
 }
