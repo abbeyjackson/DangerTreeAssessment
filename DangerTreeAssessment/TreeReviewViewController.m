@@ -14,6 +14,8 @@
 
 @interface TreeReviewViewController ()
 
+@property (nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speciesLabel;
@@ -29,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createScrollView];
+    
     [self updateLabels];
 }
 
@@ -39,6 +43,16 @@
 
 - (IBAction)goToSiteReview:(id)sender {
     [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+}
+
+-(void)createScrollView{
+        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.scrollView.showsVerticalScrollIndicator=YES;
+        self.scrollView.scrollEnabled=YES;
+        self.scrollView.userInteractionEnabled=YES;
+        [self.view addSubview:self.scrollView];
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
+
 }
 
 -(void)updateLabels{
