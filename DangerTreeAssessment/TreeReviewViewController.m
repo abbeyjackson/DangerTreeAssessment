@@ -113,10 +113,9 @@
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
 }
 
+#pragma mark - Update Labels
+
 -(void)updateLabels{
-    
-    RLMResults *results = [Tree allObjects];
-    Tree *tree = [results lastObject];
     
     // all trees:
     
@@ -171,7 +170,7 @@
     [self.scrollView addSubview:self.wildlifeValueLabel];
 
 
-    if ([tree.site.lod isEqualToString:kLODType1]){
+    if ([self.tree.site.lod isEqualToString:kLODType1]){
         
         UILabel *insecurePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         insecurePlaceholder.text = @"Insecure";
@@ -204,7 +203,7 @@
         [self.scrollView addSubview:self.leaningLabel];
         
         
-    }else if ([tree.site.lod isEqualToString:kLODType23]){
+    }else if ([self.tree.site.lod isEqualToString:kLODType23]){
         
         UILabel *hazardousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         hazardousPlaceholder.text = @"Hazardous Top";
@@ -307,7 +306,7 @@
         [self.scrollView addSubview:self.rootInspectionLabel];
 
         
-    }else if ([tree.site.lod isEqualToString:kLODType4]){
+    }else if ([self.tree.site.lod isEqualToString:kLODType4]){
         
         UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         ratingPlaceholder.text = @"Rating";
