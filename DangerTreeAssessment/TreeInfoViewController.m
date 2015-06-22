@@ -129,15 +129,26 @@
 
 
 - (IBAction)saveNewTreeButton:(id)sender {
-    
+    NSLog(@"button pressed");
+    self.tree = [self createTree];
     if ([self.site.lod isEqualToString: kLODType1]) {
-        [self performSegueWithIdentifier:@"showTreeLOD1" sender: self];
+        TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
+        [destination setTree:self.tree];
+        [destination setSite:self.site];
+        [self.navigationController pushViewController:destination animated:YES];
     }
     if ([self.site.lod isEqualToString: kLODType23]) {
-        [self performSegueWithIdentifier:@"showTreeLOD23" sender: self];
+       
+        TreeLOD23ViewController *destination =  [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD23"];
+        [destination setTree:self.tree];
+        [destination setSite:self.site];
+        [self.navigationController pushViewController:destination animated:YES];
     }
     if ([self.site.lod isEqualToString: kLODType4]) {
-        [self performSegueWithIdentifier:@"showTreeLOD4" sender: self];
+        TreeLOD4ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD4"];
+        [destination setTree:self.tree];
+        [destination setSite:self.site];
+        [self.navigationController pushViewController:destination animated:YES];
     }
     
 }
@@ -149,19 +160,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
-        self.tree = [self createTree];
-        [[segue destinationViewController] setTree:self.tree];
-        [[segue destinationViewController] setSite:self.site];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
-        self.tree = [self createTree];
-        [[segue destinationViewController] setTree:self.tree];
-        [[segue destinationViewController] setSite:self.site];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
-        self.tree = [self createTree];
-        [[segue destinationViewController] setTree:self.tree];
-        [[segue destinationViewController] setSite:self.site];
     }
     if ([[segue identifier] isEqualToString:@"showSpecies"]) {
         [[segue destinationViewController] setDelegate:self];
