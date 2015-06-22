@@ -86,7 +86,7 @@
     
     // all trees:
     
-    UILabel *latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 110, 200, 20)];
+    UILabel *latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 20)];
     latitudePlaceholder.text = @"Latitude";
     latitudePlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:latitudePlaceholder];
@@ -96,7 +96,7 @@
     self.latitudeLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.latitudeLabel];
     
-    UILabel *longitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 140, 200, 20)];
+    UILabel *longitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 150, 200, 20)];
     longitudePlaceholder.text = @"Longitude";
     longitudePlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:longitudePlaceholder];
@@ -106,7 +106,7 @@
     self.longitudeLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.longitudeLabel];
     
-    UILabel *speciesPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 170, 200, 20)];
+    UILabel *speciesPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 180, 200, 20)];
     speciesPlaceholder.text = @"Species";
     speciesPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:speciesPlaceholder];
@@ -116,7 +116,7 @@
     self.speciesLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.speciesLabel];
     
-    UILabel *treeClassPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 200, 200, 20)];
+    UILabel *treeClassPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 210, 200, 20)];
     treeClassPlaceholder.text = @"Tree Class";
     treeClassPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:treeClassPlaceholder];
@@ -126,7 +126,7 @@
     self.treeClassLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.treeClassLabel];
     
-    UILabel *wildLifePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 20)];
+    UILabel *wildLifePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 240, 200, 20)];
     wildLifePlaceholder.text = @"Wildlife Value";
     wildLifePlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:wildLifePlaceholder];
@@ -139,7 +139,7 @@
 
     if ([tree.site.lod isEqualToString:kLODType1]){
         
-        UILabel *insecurePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 260, 200, 20)];
+        UILabel *insecurePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         insecurePlaceholder.text = @"Insecure";
         insecurePlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:insecurePlaceholder];
@@ -149,7 +149,7 @@
         self.insecureLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.insecureLabel];
         
-        UILabel *unstablePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 290, 200, 20)];
+        UILabel *unstablePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 300, 200, 20)];
         unstablePlaceholder.text = @"Unstable";
         unstablePlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:unstablePlaceholder];
@@ -159,7 +159,7 @@
         self.unstableLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.unstableLabel];
         
-        UILabel *leaningPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 320, 200, 20)];
+        UILabel *leaningPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 330, 200, 20)];
         leaningPlaceholder.text = @"Leaning";
         leaningPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:leaningPlaceholder];
@@ -172,7 +172,7 @@
         
     }else if ([tree.site.lod isEqualToString:kLODType23]){
         
-        UILabel *hazardousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 260, 200, 20)];
+        UILabel *hazardousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         hazardousPlaceholder.text = @"Hazardous Top";
         hazardousPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:hazardousPlaceholder];
@@ -182,7 +182,7 @@
         self.hazardousTopLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.hazardousTopLabel];
         
-        UILabel *deadLimbsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 290, 200, 20)];
+        UILabel *deadLimbsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 300, 200, 20)];
         deadLimbsPlaceholder.text = @"Dead Limbs";
         deadLimbsPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:deadLimbsPlaceholder];
@@ -192,7 +192,7 @@
         self.deadLimbsLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.deadLimbsLabel];
         
-        UILabel *witchesPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 320, 200, 20)];
+        UILabel *witchesPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 330, 200, 20)];
         witchesPlaceholder.text = @"Witches Broom";
         witchesPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:witchesPlaceholder];
@@ -202,7 +202,7 @@
         self.witchesBroomLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.witchesBroomLabel];
         
-        UILabel *splitPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 350, 200, 20)];
+        UILabel *splitPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 360, 200, 20)];
         splitPlaceholder.text = @"Split Trunk";
         splitPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:splitPlaceholder];
@@ -212,7 +212,7 @@
         self.splitTrunkLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.splitTrunkLabel];
         
-        UILabel *stemPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 380, 200, 20)];
+        UILabel *stemPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 390, 200, 20)];
         stemPlaceholder.text = @"Stem Damage";
         stemPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:stemPlaceholder];
@@ -222,7 +222,7 @@
         self.stemDamageLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.stemDamageLabel];
         
-        UILabel *sloughingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 410, 200, 20)];
+        UILabel *sloughingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 420, 200, 20)];
         sloughingPlaceholder.text = @"Sloughing Bark";
         sloughingPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:sloughingPlaceholder];
@@ -232,7 +232,7 @@
         self.sloughingBarkLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.sloughingBarkLabel];
         
-        UILabel *cankersPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 440, 200, 20)];
+        UILabel *cankersPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 450, 200, 20)];
         cankersPlaceholder.text = @"Cankers";
         cankersPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:cankersPlaceholder];
@@ -242,7 +242,7 @@
         self.cankersLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.cankersLabel];
         
-        UILabel *conksPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 470, 200, 20)];
+        UILabel *conksPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 480, 200, 20)];
         conksPlaceholder.text = @"Conks Mushrooms";
         conksPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:conksPlaceholder];
@@ -252,7 +252,7 @@
         self.conksMushroomsLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.conksMushroomsLabel];
         
-        UILabel *treeLeanPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 500, 200, 20)];
+        UILabel *treeLeanPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 510, 200, 20)];
         treeLeanPlaceholder.text = @"Tree Lean";
         treeLeanPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:treeLeanPlaceholder];
@@ -262,7 +262,7 @@
         self.treeLeanLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.treeLeanLabel];
         
-        UILabel *rootPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 530, 200, 20)];
+        UILabel *rootPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 540, 200, 20)];
         rootPlaceholder.text = @"Root Inspection";
         rootPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:rootPlaceholder];
@@ -275,7 +275,7 @@
         
     }else if ([tree.site.lod isEqualToString:kLODType4]){
         
-        UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 110, 200, 20)];
+        UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         ratingPlaceholder.text = @"Rating";
         ratingPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:ratingPlaceholder];
