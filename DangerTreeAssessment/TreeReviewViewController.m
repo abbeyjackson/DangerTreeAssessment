@@ -16,7 +16,7 @@
 
 @property (nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+@property (nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speciesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *treeClassLabel;
@@ -47,12 +47,11 @@
 
 -(void)createScrollView{
         self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.scrollView.showsVerticalScrollIndicator=YES;
+        self.scrollView.showsVerticalScrollIndicator=YES;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
-
 }
 
 -(void)updateLabels{
@@ -62,7 +61,21 @@
     
     // all trees:
     
-    self.latitudeLabel.text = tree.lat;
+    self.latitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 50)];
+    self.latitudeLabel.text = @"Yo dawg";
+    self.latitudeLabel.userInteractionEnabled = YES;
+//    self.latitudeLabel.textColor = [UIColor blackColor];
+//    self.latitudeLabel.backgroundColor = [UIColor purpleColor];
+    [self.view addSubview:self.latitudeLabel];
+    
+//    UIButton *squareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [squareButton setTitle:@"Square" forState:UIControlStateNormal];
+//    [squareButton addTarget:self action:@selector(resizeFramingView:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:squareButton];
+//    squareButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.squareButton = squareButton;
+    
+//    self.latitudeLabel.text = tree.lat;
     self.longitudeLabel.text = tree.lon;
     self.speciesLabel.text = tree.species;
     self.treeClassLabel.text = tree.treeClass;
