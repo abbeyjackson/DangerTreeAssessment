@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) Site *site;
 
+@property (weak, nonatomic) IBOutlet UITextField *lodField;
+
 @end

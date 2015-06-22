@@ -9,6 +9,8 @@
 #import "TreeReviewViewController.h"
 #import "SiteReviewViewController.h"
 #import "Tree.h"
+#import "Site.h"
+#import "SiteInfoViewController.h"
 
 @interface TreeReviewViewController ()
 
@@ -44,12 +46,48 @@
     RLMResults *results = [Tree allObjects];
     Tree *tree = [results lastObject];
     
+    // all trees:
+    
     self.latitudeLabel.text = tree.lat;
     self.longitudeLabel.text = tree.lon;
     self.speciesLabel.text = tree.species;
     self.treeClassLabel.text = tree.treeClass;
     self.wildlifeValueLabel.text = tree.wildLifeValue;
+    
+    SiteInfoViewController *site = [[SiteInfoViewController alloc] init];
+    
+    if ([site.lodField.text isEqualToString:@"LOD 1"]){
+        NSLog(@"It works");
+    }
+    
 }
+    
+//    // LOD1 trees:
+//    
+//    tree.insecure;
+//    tree.unstable;
+//    tree.leaning;
+//    
+//    // tree properties for LOD23 trees:
+//    tree.hazardousTop;
+//    tree.deadLimbs;
+//    tree.witchesBroom;
+//    tree.splitTrunk;
+//    tree.stemDamage;
+//    tree.sloughingBark;
+//    tree.cankers;
+//    tree.conksMushrooms;
+//    tree.treeLean;
+//    tree.rootInspection;
+//    
+//    // tree properties for LOD4 trees:
+//    tree.rating;
+//    
+//    // all trees:
+//    tree.isDangerous;
+//    tree.management;
+//    tree.comments;
+//}
 
 #pragma mark - Navigation
 
