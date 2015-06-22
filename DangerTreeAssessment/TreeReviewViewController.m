@@ -437,7 +437,7 @@
                                         multiplier:1.0
                                         constant:-3]];
         
-        // managememntPlaceholder constraints
+        // managementPlaceholder constraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
                                         constraintWithItem:self.managementPlaceholder
@@ -456,6 +456,64 @@
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
                                         constant:0]];
+        // managementLabel constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.managementPlaceholder
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-3]];
+        
+        // commentsPlaceholder constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsPlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsPlaceholder
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.managementLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:0]];
+        // commentsLabel constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.commentsPlaceholder
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-3]];
         
     }
 }
