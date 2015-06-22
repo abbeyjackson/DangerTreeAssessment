@@ -22,10 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self setupSegmentedControls];
-    
     self.placeholder = [[Placeholder alloc]init];
+    [self setupSegmentedControls];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,8 +32,11 @@
 
 -(void)setupSegmentedControls{
     self.insecureControl.selectedSegmentIndex = 1;
+    self.placeholder.insecure = @"--";
     self.unstableControl.selectedSegmentIndex = 1;
+    self.placeholder.unstable = @"--";
     self.leaningControl.selectedSegmentIndex = 1;
+    self.placeholder.leaning = @"--";
 }
 
 -(IBAction)segmentControlValueChanged:(id)sender {

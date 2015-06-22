@@ -30,31 +30,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupSegmentedControls];
     self.placeholder = [[Placeholder alloc]init];
+    [self setupSegmentedControls];
 }
 
 -(void)setupSegmentedControls{
     self.hazardousTopControl.selectedSegmentIndex = 1;
-    self.tree.hazardousTop = @"--";
+    self.placeholder.hazardousTop = @"--";
     self.deadLimbsControl.selectedSegmentIndex = 1;
-    self.tree.deadLimbs = @"--";
+    self.placeholder.deadLimbs = @"--";
     self.witchesBroomControl.selectedSegmentIndex = 1;
-    self.tree.witchesBroom = @"--";
+    self.placeholder.witchesBroom = @"--";
     self.splitTrunkControl.selectedSegmentIndex = 1;
-    self.tree.splitTrunk = @"--";
+    self.placeholder.splitTrunk = @"--";
     self.stemDamageControl.selectedSegmentIndex = 1;
-    self.tree.stemDamage = @"--";
+    self.placeholder.stemDamage = @"--";
     self.sloughingBarkControl.selectedSegmentIndex = 1;
-    self.tree.sloughingBark = @"--";
+    self.placeholder.sloughingBark = @"--";
     self.cankersControl.selectedSegmentIndex = 1;
-    self.tree.cankers = @"--";
+    self.placeholder.cankers = @"--";
     self.conksMushroomsControl.selectedSegmentIndex = 1;
-    self.tree.conksMushrooms = @"--";
+    self.placeholder.conksMushrooms = @"--";
     self.treeLeanControl.selectedSegmentIndex = 1;
-    self.tree.treeLean = @"--";
+    self.placeholder.treeLean = @"--";
     self.rootInspectionControl.selectedSegmentIndex = 1;
-    self.tree.rootInspection = @"--";
+    self.placeholder.rootInspection = @"--";
 }
 
 - (void)didReceiveMemoryWarning {
