@@ -50,6 +50,10 @@
 @property (nonatomic) IBOutlet UILabel *managementLabel;
 @property (nonatomic) IBOutlet UILabel *commentsLabel;
 
+@property (nonatomic) IBOutlet UILabel *isDangerousPlaceholder;
+@property (nonatomic) IBOutlet UILabel *managementPlaceholder;
+@property (nonatomic) IBOutlet UILabel *commentsPlaceholder;
+
 
 @end
 
@@ -325,10 +329,10 @@
     }
     
     
-    UILabel *isDangerousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 20)];
-    isDangerousPlaceholder.text = @"Is Dangerous";
-    isDangerousPlaceholder.font = [UIFont systemFontOfSize:10];
-    [self.scrollView addSubview:isDangerousPlaceholder];
+    self.isDangerousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 20)];
+    self.isDangerousPlaceholder.text = @"Is Dangerous";
+    self.isDangerousPlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:self.isDangerousPlaceholder];
     
     self.isDangerousLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 50)];
     
@@ -342,20 +346,20 @@
     [self.scrollView addSubview:self.isDangerousLabel];
     self.isDangerousLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    UILabel *managementPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 20)];
-    managementPlaceholder.text = @"Management";
-    managementPlaceholder.font = [UIFont systemFontOfSize:10];
-    [self.scrollView addSubview:managementPlaceholder];
+    self.managementPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 20)];
+    self.managementPlaceholder.text = @"Management";
+    self.managementPlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:self.managementPlaceholder];
     
     self.managementLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 50)];
     self.managementLabel.text = self.tree.management;
     self.managementLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.managementLabel];
     
-    UILabel *commentsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 20)];
-    commentsPlaceholder.text = @"Comments";
-    commentsPlaceholder.font = [UIFont systemFontOfSize:10];
-    [self.scrollView addSubview:commentsPlaceholder];
+    self.commentsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 20)];
+    self.commentsPlaceholder.text = @"Comments";
+    self.commentsPlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:self.commentsPlaceholder];
     
     self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 632, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
@@ -378,6 +382,33 @@
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
                                         constant:30]];
+    
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.leaningLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.leaningLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:360]];
     }
 }
 
