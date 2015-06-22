@@ -7,6 +7,8 @@
 //
 
 #import "TreeLOD4ViewController.h"
+#import "Tree.h"
+#import "Site.h"
 
 @interface TreeLOD4ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *ratingField;
@@ -21,7 +23,7 @@
 }
 
 -(void)configureTextFields{
-    [self textFieldShouldBeginEditing:self.ratingField];
+    [self textFieldShouldBeginEditing:self.ratingField.text];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,12 +64,7 @@
 }
 
 -(void)saveLOD4{
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
-    self.tree.rating = self.ratingField.text;
-    [realm commitWriteTransaction];
-    
+    self.tree.rating = self.ratingField.text;    
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
@@ -81,6 +78,7 @@
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 

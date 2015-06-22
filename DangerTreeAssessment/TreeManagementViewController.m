@@ -9,6 +9,7 @@
 #import "TreeManagementViewController.h"
 #import "TreeReviewViewController.h"
 #import "Tree.h"
+#import "Site.h"
 #import "Placeholder.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
@@ -115,31 +116,24 @@
 }
 
 -(void)saveTreeMgt{
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
     self.tree.isDangerous = self.placeholder.isDangerous;
     self.tree.management = self.managementField.text;
-    self.tree.comments = self.commentsTextView.text;
-    [realm commitWriteTransaction];
-}
+    self.tree.comments = self.commentsTextView.text;}
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
     UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
     TreeReviewViewController *destination = [navigationController.viewControllers firstObject];
     [destination setTree:self.tree];
+    [destination setSite:self.site];
+
     [self showViewController:navigationController sender:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
-        
-        [[segue destinationViewController] setTree:self.tree];
-    }
+
 }
 
 @end

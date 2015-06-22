@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Site.h"
-#import "Tree.h"
 #import "TreeClassCollectionViewController.h"
 #import "TreeSpeciesCollectionViewController.h"
+@class Tree;
+@class Site;
+
 
 @interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate, UIActionSheetDelegate>
 

@@ -9,6 +9,7 @@
 #import "TreeLOD1ViewController.h"
 #import "Placeholder.h"
 #import "Tree.h"
+#import "Site.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
@@ -21,10 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self setupSegmentedControls];
-    
     self.placeholder = [[Placeholder alloc]init];
+    [self setupSegmentedControls];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,8 +32,11 @@
 
 -(void)setupSegmentedControls{
     self.insecureControl.selectedSegmentIndex = 1;
+    self.placeholder.insecure = @"--";
     self.unstableControl.selectedSegmentIndex = 1;
+    self.placeholder.unstable = @"--";
     self.leaningControl.selectedSegmentIndex = 1;
+    self.placeholder.leaning = @"--";
 }
 
 -(IBAction)segmentControlValueChanged:(id)sender {
@@ -68,13 +70,9 @@
 }
 
 -(void)saveLOD1{
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
     self.tree.insecure = self.placeholder.insecure;
     self.tree.unstable = self.placeholder.unstable;
     self.tree.leaning = self.placeholder.leaning;
-    [realm commitWriteTransaction];
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
@@ -89,6 +87,7 @@
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "TreeReviewViewController.h"
 #import "SiteReviewViewController.h"
 #import "Tree.h"
+#import "Site.h"
 #import "TreeInfoViewController.h"
 #import "Site.h"
 #import "SiteInfoViewController.h"
@@ -64,15 +65,21 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)goToSiteReview:(id)sender {
-
-    [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+    [self saveTree];
     [self submitReportAlert];
 }
 
+-(void)saveTree{
+    RLMRealm *realm = self.site.realm;
+    
+    [realm beginWriteTransaction];
+    [realm addObject:self.tree];
+    [self.site.trees addObject:self.tree];
+    [realm commitWriteTransaction];
+}
 
 
 -(void)submitReportAlert{
@@ -88,6 +95,7 @@
     if (buttonIndex == 1) {
         UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
         TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+        [destination setSite:self.site];
         [self showViewController:destination sender:self];
     }
     if (buttonIndex == 2) {
@@ -322,8 +330,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showSiteReview"]) {
-        
         [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
     }
 }
 

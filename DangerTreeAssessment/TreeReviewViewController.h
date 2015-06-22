@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class Tree;
+@class Site;
 
 @interface TreeReviewViewController : UIViewController
 
 @property (nonatomic,strong) Tree *tree;
+@property (nonatomic, strong) Site *site;
 
 
 

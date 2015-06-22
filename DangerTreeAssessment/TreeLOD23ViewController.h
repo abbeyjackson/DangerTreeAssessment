@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class Tree;
+@class Site;
 @class Placeholder;
 
 @interface TreeLOD23ViewController : UIViewController
 
 @property (nonatomic,strong) Tree *tree;
+@property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Placeholder *placeholder;
 
 

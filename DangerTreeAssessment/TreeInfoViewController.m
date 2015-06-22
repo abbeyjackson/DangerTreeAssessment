@@ -7,12 +7,13 @@
 //
 
 #import "TreeInfoViewController.h"
-#import "Tree.h"
 #import "TreeLOD1ViewController.h"
 #import "TreeLOD23ViewController.h"
 #import "TreeLOD4ViewController.h"
 #import "TreeClass.h"
 #import "TreeSpecies.h"
+#import "Tree.h"
+#import "Site.h"
 
 @interface TreeInfoViewController ()
 
@@ -30,6 +31,8 @@
     [super viewDidLoad];
     [self configureTextFields];
     
+    self.tree = [[Tree alloc]init];
+
     
 }
 
@@ -38,28 +41,32 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
--(int)setPrimaryID{
-    return (arc4random() % 9000 + 1000);
+-(NSString*)setTreeNum{
+    RLMResults *results = [Tree allObjects];
+    Tree *tree = [results lastObject];
+    NSString *newTreeNum = @"001";
+    if (results.count > 0) {
+        if ([tree.site.siteID isEqualToString:self.site.siteID]) {
+            int newTreeNumber = [[tree.treeID substringFromIndex:[tree.treeID length] -3] intValue] + 1;
+            newTreeNum = [NSString stringWithFormat:@"%03d", newTreeNumber];
+        }
+        // else newTreeID should be 001
+    }
+    return newTreeNum;
 }
 
 -(Tree*)createTree{
-    Tree *tree = [[Tree alloc]init];
-    tree.site = self.site;
-    tree.lat = self.latitudeField.text;
-    tree.lon = self.longitudeField.text;
-    tree.species = [self.speciesField.text substringToIndex:3];
-    tree.treeClass = [self.classField.text substringToIndex:3];
-    tree.wildLifeValue = self.wildlifeValueField.text;
-    tree.id = [self setPrimaryID];
     
-    RLMRealm *realm = self.site.realm;
-    
-    [realm beginWriteTransaction];
-    [realm addObject:tree];
-    [self.site.trees insertObject:tree atIndex:0];
-    [realm commitWriteTransaction];
-    
-    return tree;
+    self.tree.site = self.site;
+    self.tree.lat = self.latitudeField.text;
+    self.tree.lon = self.longitudeField.text;
+    self.tree.species = [self.speciesField.text substringToIndex:3];
+    self.tree.treeClass = [self.classField.text substringToIndex:3];
+    self.tree.wildLifeValue = self.wildlifeValueField.text;
+    self.tree.treeNumber = [self setTreeNum];
+    self.tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,self.tree.treeNumber];
+
+    return self.tree;
 }
 
 -(void)configureTextFields{
@@ -114,15 +121,26 @@
 
 
 - (IBAction)saveNewTreeButton:(id)sender {
-    
+    NSLog(@"button pressed");
+    self.tree = [self createTree];
     if ([self.site.lod isEqualToString: kLODType1]) {
-        [self performSegueWithIdentifier:@"showTreeLOD1" sender: self];
+        TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
+        [destination setTree:self.tree];
+        [destination setSite:self.site];
+        [self.navigationController pushViewController:destination animated:YES];
     }
     if ([self.site.lod isEqualToString: kLODType23]) {
-        [self performSegueWithIdentifier:@"showTreeLOD23" sender: self];
+       
+        TreeLOD23ViewController *destination =  [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD23"];
+        [destination setTree:self.tree];
+        [destination setSite:self.site];
+        [self.navigationController pushViewController:destination animated:YES];
     }
     if ([self.site.lod isEqualToString: kLODType4]) {
-        [self performSegueWithIdentifier:@"showTreeLOD4" sender: self];
+        TreeLOD4ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD4"];
+        [destination setTree:self.tree];
+        [destination setSite:self.site];
+        [self.navigationController pushViewController:destination animated:YES];
     }
     
 }
@@ -134,16 +152,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
-        self.tree = [self createTree];
-        [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
-        self.tree = [self createTree];
-        [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
-        self.tree = [self createTree];
-        [[segue destinationViewController] setTree:self.tree];
     }
     if ([[segue identifier] isEqualToString:@"showSpecies"]) {
         [[segue destinationViewController] setDelegate:self];

@@ -37,8 +37,8 @@ NSString* const kO1b = @"k01b";
     return @{@"isReportComplete" : @"NO"};
 }
 
-+ (NSString *)primaryKey {
-    return @"id";
-}
+//+ (NSString *)primaryKey {
+//    return @"id";
+//}
 
 @end

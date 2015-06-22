@@ -33,8 +33,8 @@ extern NSString* const kOther;
 
 // internal properties
 @property Site *site;
-@property BOOL isReportComplete;
-@property NSInteger id;
+@property NSString *treeNumber;
+@property NSString *treeID;
 
 
 // tree properties for all trees:

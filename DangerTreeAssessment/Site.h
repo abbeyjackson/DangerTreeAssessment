@@ -38,7 +38,8 @@ extern NSString* const kLODType4;
 // internal properties
 @property BOOL isReportComplete;
 @property RLMArray<Tree> *trees;
-@property NSInteger id;
+@property NSString *siteID;
+@property NSString *formattedDtaID;
 
 
 // Site properties

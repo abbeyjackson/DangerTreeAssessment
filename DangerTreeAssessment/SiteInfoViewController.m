@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *buiField;
 @property (weak, nonatomic) IBOutlet UITextField *activityField;
 
+@property (strong, nonatomic) NSDateFormatter *dateFormat;
+@property (strong, nonatomic) NSString *dtaID;
 
 @end
 
@@ -29,11 +31,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTextFields];
+    self.dateFormat = [[NSDateFormatter alloc] init];
+    [self.dateFormat setDateFormat:@"yyMMdd"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-  
-self.navigationController.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationItem.hidesBackButton = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -116,7 +119,6 @@ self.navigationController.navigationItem.hidesBackButton = YES;
 }
 
 - (IBAction)addNewTree:(id)sender {
-    
     UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
     TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
     Site *site = [self createSite];
@@ -124,9 +126,58 @@ self.navigationController.navigationItem.hidesBackButton = YES;
     [self showViewController:destination sender:self];
 }
 
--(int)setPrimaryID{
-
-    return (arc4random() % 9000 + 1000);
+-(NSString*)setSiteID{
+    
+    NSString *dateString = [self.dateFormat stringFromDate:[NSDate date]];
+    self.dtaID = [[NSString stringWithFormat:@"%@%@", [self.dtaNameField.text substringWithRange:NSMakeRange(0, 3)] , [self.dtaNameField.text substringFromIndex: [self.dtaNameField.text length]- 3]] uppercaseString];
+    NSString *newSiteID = [NSString stringWithFormat:@"%@%@01", dateString, self.dtaID];
+    NSString *currentDateAndDtaID = [NSString stringWithFormat:@"%@%@",dateString, self.dtaID];
+    
+    RLMResults *results = [Site allObjects];
+    
+    if (results.count > 0) {
+        Site *site = [results lastObject];
+        NSString *lastSiteID = [NSString stringWithFormat:@"%@",site.siteID];
+        NSString *lastDateAndDtaID = [lastSiteID substringWithRange:NSMakeRange(0, 12)];
+        
+        // Check date and DTA to begin new day and count or continue count if same day
+        if ([lastDateAndDtaID isEqualToString:currentDateAndDtaID]) {
+            NSString *lastIDNum = [lastSiteID substringFromIndex:[lastSiteID length] - 2];
+            int newID = [lastIDNum intValue] + 1;
+            if (newID < 10) {
+                newSiteID = [NSString stringWithFormat:@"%@%@%02d", dateString, self.dtaID, newID];
+            }
+            else {
+                newSiteID = [NSString stringWithFormat:@"%@%@%d", dateString, self.dtaID, newID];
+            }
+        }
+        else { // If a different date or DTA find last report by DTA
+            NSString *pred = [NSString stringWithFormat:@"formattedDtaID = '%@'",self.dtaID];
+            RLMResults *newDtaResults = [Site objectsWhere:pred];
+            site = [newDtaResults lastObject];
+            
+            if (newDtaResults.count > 0) {
+                lastSiteID = [NSString stringWithFormat:@"%@",site.siteID];
+                NSString *lastDate = [lastSiteID substringWithRange:NSMakeRange(0, 6)];
+                
+                // Check date to begin new day and count or continue count if same day
+                if ([lastDate isEqualToString:dateString]) {
+                    NSString *lastIDNum = [lastSiteID substringFromIndex:[lastSiteID length] - 2];
+                    int newID = [lastIDNum intValue] + 1;
+                    if (newID < 10) {
+                        newSiteID = [NSString stringWithFormat:@"%@%@%02d", dateString, self.dtaID, newID];
+                    }
+                    else {
+                        newSiteID = [NSString stringWithFormat:@"%@%@%d", dateString, self.dtaID, newID];
+                    }
+                }
+            }
+            // else no previous report by DTA, first instance with site number 01 will be used
+        }
+    }
+    
+    
+    return newSiteID;
 }
 
 -(Site*)createSite{
@@ -139,7 +190,8 @@ self.navigationController.navigationItem.hidesBackButton = YES;
     site.bui = self.buiField.text;
     site.lod = self.lodField.text;
     site.activity = self.activityField.text;
-    site.id = [self setPrimaryID];
+    site.siteID = [self setSiteID];
+    site.formattedDtaID = self.dtaID;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
