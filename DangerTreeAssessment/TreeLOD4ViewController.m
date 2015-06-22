@@ -23,7 +23,7 @@
 }
 
 -(void)configureTextFields{
-    [self textFieldShouldBeginEditing:self.ratingField];
+    [self textFieldShouldBeginEditing:self.ratingField.text];
 }
 
 - (void)didReceiveMemoryWarning {
