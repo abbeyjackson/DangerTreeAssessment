@@ -9,6 +9,7 @@
 #import "DataTableViewController.h"
 #import "SitePractice.h"
 #import "DataListCell.h"
+#import "SiteReviewViewController.h"
 
 @interface DataTableViewController ()
 
@@ -38,8 +39,11 @@
     
     cell.object = [self.sitesArray objectAtIndex:indexPath.row];
     
-    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
 }
 
 

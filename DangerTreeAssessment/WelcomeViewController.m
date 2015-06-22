@@ -25,7 +25,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)viewExistingSite:(id)sender {
+- (IBAction)goToDataList:(id)sender {
     [self.tabBarController setSelectedIndex:1];
 }
 
