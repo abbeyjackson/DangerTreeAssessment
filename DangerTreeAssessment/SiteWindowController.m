@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateViewControllerWithIdentifier:@"SiteReview"];
     [self addChildViewController:navigationController];
     [navigationController didMoveToParentViewController:self];
     navigationController.view.frame = self.view.bounds;
