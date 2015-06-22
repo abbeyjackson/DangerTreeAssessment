@@ -55,7 +55,11 @@
     self.wildlifeValueLabel.text = tree.wildLifeValue;
     
     if ([tree.site.lod isEqualToString:kLODType1]){
-        NSLog(@"It works");
+        NSLog(@"LOD is 1");
+    }else if ([tree.site.lod isEqualToString:kLODType23]){
+        NSLog(@"LOD is 23");
+    }else if ([tree.site.lod isEqualToString:kLODType4]){
+        NSLog(@"LOD is 4");
     }
     
 }
