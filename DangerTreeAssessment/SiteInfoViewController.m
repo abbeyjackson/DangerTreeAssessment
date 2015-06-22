@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *fuelField;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
 @property (weak, nonatomic) IBOutlet UITextField *buiField;
-@property (weak, nonatomic) IBOutlet UITextField *lodField;
 @property (weak, nonatomic) IBOutlet UITextField *activityField;
 
 
