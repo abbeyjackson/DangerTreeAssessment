@@ -60,6 +60,7 @@
     // Do any additional setup after loading the view.
     [self createScrollView];
     [self updateLabels];
+    [self updateContraints];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -202,6 +203,8 @@
         self.leaningLabel.text = self.tree.leaning;
         self.leaningLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.leaningLabel];
+        
+        
         
         
     }else if ([self.tree.site.lod isEqualToString:kLODType23]){
@@ -352,18 +355,29 @@
     commentsPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:commentsPlaceholder];
     
-    self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 633, 300, 50)];
+    self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 632, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
     self.commentsLabel.numberOfLines = 0;
     self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
 
-
-
     
 }
 
+#pragma mark - Constraints
 
+-(void)updateContraints{
+    if ([self.tree.site.lod isEqualToString:kLODType1]){
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.leaningLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:30]];
+    }
+}
 
 
 #pragma mark - Navigation
