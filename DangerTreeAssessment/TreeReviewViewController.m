@@ -54,9 +54,7 @@
     self.treeClassLabel.text = tree.treeClass;
     self.wildlifeValueLabel.text = tree.wildLifeValue;
     
-    SiteInfoViewController *site = [[SiteInfoViewController alloc] init];
-    
-    if ([site.lodField.text isEqualToString:@"LOD 1"]){
+    if ([tree.site.lod isEqualToString:kLODType1]){
         NSLog(@"It works");
     }
     
