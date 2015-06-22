@@ -17,11 +17,11 @@
 @property (nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic) IBOutlet UILabel *latitudeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *speciesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *treeClassLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wildlifeValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
+@property (nonatomic) IBOutlet UILabel *longitudeLabel;
+@property (nonatomic) IBOutlet UILabel *speciesLabel;
+@property (nonatomic) IBOutlet UILabel *treeClassLabel;
+@property (nonatomic) IBOutlet UILabel *wildlifeValueLabel;
+@property (nonatomic) IBOutlet UILabel *commentsLabel;
 
 
 @end
@@ -62,25 +62,26 @@
     // all trees:
     
     self.latitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 50)];
-    self.latitudeLabel.text = @"Yo dawg";
-    self.latitudeLabel.userInteractionEnabled = YES;
-//    self.latitudeLabel.textColor = [UIColor blackColor];
-//    self.latitudeLabel.backgroundColor = [UIColor purpleColor];
+    self.latitudeLabel.text = tree.lat;
     [self.view addSubview:self.latitudeLabel];
     
-//    UIButton *squareButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    [squareButton setTitle:@"Square" forState:UIControlStateNormal];
-//    [squareButton addTarget:self action:@selector(resizeFramingView:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:squareButton];
-//    squareButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.squareButton = squareButton;
-    
-//    self.latitudeLabel.text = tree.lat;
+    self.longitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 150, 200, 50)];
     self.longitudeLabel.text = tree.lon;
-    self.speciesLabel.text = tree.species;
-    self.treeClassLabel.text = tree.treeClass;
-    self.wildlifeValueLabel.text = tree.wildLifeValue;
+    [self.view addSubview:self.longitudeLabel];
     
+    self.speciesLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 180, 200, 50)];
+    self.speciesLabel.text = tree.species;
+    [self.view addSubview:self.speciesLabel];
+
+    self.treeClassLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 210, 200, 50)];
+    self.treeClassLabel.text = tree.treeClass;
+    [self.view addSubview:self.treeClassLabel];
+    
+    self.wildlifeValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 240, 200, 50)];
+    self.wildlifeValueLabel.text = tree.wildLifeValue;
+    [self.view addSubview:self.wildlifeValueLabel];
+
+
     if ([tree.site.lod isEqualToString:kLODType1]){
         NSLog(@"LOD is 1");
     }else if ([tree.site.lod isEqualToString:kLODType23]){

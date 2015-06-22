@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWT-cY-18v">
-                                <rect key="frame" x="242" y="480" width="118" height="30"/>
-                                <state key="normal" title="Save Tree Report">
+                                <rect key="frame" x="242" y="480" width="67" height="30"/>
+                                <state key="normal" title="Save Tree">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
