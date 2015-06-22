@@ -463,7 +463,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comments" translatesAutoresizingMaskIntoConstraints="NO" id="UkM-yw-2Tn">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkM-yw-2Tn">
                                 <rect key="frame" x="35" y="285" width="530" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Gn4-IA-pO0"/>

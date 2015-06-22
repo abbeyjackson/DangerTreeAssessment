@@ -31,6 +31,8 @@
     [super viewDidLoad];
     [self configureTextFields];
     
+    self.tree = [[Tree alloc]init];
+
     
 }
 
@@ -55,23 +57,14 @@
 
 -(Tree*)createTree{
     
-   
-    Tree *tree = [[Tree alloc]init];
-    tree.site = self.site;
-    tree.lat = self.latitudeField.text;
-    tree.lon = self.longitudeField.text;
-    tree.species = [self.speciesField.text substringToIndex:3];
-    tree.treeClass = [self.classField.text substringToIndex:3];
-    tree.wildLifeValue = self.wildlifeValueField.text;
-    tree.treeNumber = [self setTreeNum];
-    tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,tree.treeNumber];
-    
-    RLMRealm *realm = self.site.realm;
-    
-    [realm beginWriteTransaction];
-    [realm addObject:tree];
-    [self.site.trees insertObject:tree atIndex:0];
-    [realm commitWriteTransaction];
+    self.tree.site = self.site;
+    self.tree.lat = self.latitudeField.text;
+    self.tree.lon = self.longitudeField.text;
+    self.tree.species = [self.speciesField.text substringToIndex:3];
+    self.tree.treeClass = [self.classField.text substringToIndex:3];
+    self.tree.wildLifeValue = self.wildlifeValueField.text;
+    self.tree.treeNumber = [self setTreeNum];
+    self.tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,self.tree.treeNumber];
     
     
     return self.tree;

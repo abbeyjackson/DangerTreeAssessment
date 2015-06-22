@@ -64,12 +64,7 @@
 }
 
 -(void)saveLOD4{
-    RLMRealm *realm = self.site.realm;
-    
-    [realm beginWriteTransaction];
-    self.tree.rating = self.ratingField.text;
-    [realm commitWriteTransaction];
-    
+    self.tree.rating = self.ratingField.text;    
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {

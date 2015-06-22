@@ -115,9 +115,6 @@
 }
 
 -(void)saveLOD23{
-    RLMRealm *realm = self.site.realm;
-    
-    [realm beginWriteTransaction];
     self.tree.hazardousTop = self.placeholder.hazardousTop;
     self.tree.deadLimbs = self.placeholder.deadLimbs;
     self.tree.witchesBroom = self.placeholder.witchesBroom;
@@ -128,7 +125,6 @@
     self.tree.conksMushrooms = self.placeholder.conksMushrooms;
     self.tree.treeLean = self.placeholder.treeLean;
     self.tree.rootInspection = self.placeholder.rootInspection;
-    [realm commitWriteTransaction];
 }
 
 

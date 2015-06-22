@@ -70,13 +70,9 @@
 }
 
 -(void)saveLOD1{
-    RLMRealm *realm = self.site.realm;
-    
-    [realm beginWriteTransaction];
     self.tree.insecure = self.placeholder.insecure;
     self.tree.unstable = self.placeholder.unstable;
     self.tree.leaning = self.placeholder.leaning;
-    [realm commitWriteTransaction];
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {

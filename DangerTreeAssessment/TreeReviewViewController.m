@@ -28,31 +28,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self updateLabels];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)goToSiteReview:(id)sender {
+    [self saveTree];
     [self submitReportAlert];
-//    [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+}
+
+-(void)saveTree{
+    RLMRealm *realm = self.site.realm;
+    
+    [realm beginWriteTransaction];
+    [realm addObject:self.tree];
+    [self.site.trees addObject:self.tree];
+    [realm commitWriteTransaction];
 }
 
 -(void)updateLabels{
     
-    RLMResults *results = [Tree allObjects];
-    Tree *tree = [results lastObject];
-    
-    self.latitudeLabel.text = tree.lat;
-    self.longitudeLabel.text = tree.lon;
-    self.speciesLabel.text = tree.species;
-    self.treeClassLabel.text = tree.treeClass;
-    self.wildlifeValueLabel.text = tree.wildLifeValue;
-    //    [self performSegueWithIdentifier:@"showSiteReview" sender: self];
+    self.latitudeLabel.text = self.tree.lat;
+    self.longitudeLabel.text = self.tree.lon;
+    self.speciesLabel.text = self.tree.species;
+    self.treeClassLabel.text = self.tree.treeClass;
+    self.wildlifeValueLabel.text = self.tree.wildLifeValue;
 }
 
 

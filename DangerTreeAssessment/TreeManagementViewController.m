@@ -116,14 +116,9 @@
 }
 
 -(void)saveTreeMgt{
-    RLMRealm *realm = self.site.realm;
-    
-    [realm beginWriteTransaction];
     self.tree.isDangerous = self.placeholder.isDangerous;
     self.tree.management = self.managementField.text;
-    self.tree.comments = self.commentsTextView.text;
-    [realm commitWriteTransaction];
-}
+    self.tree.comments = self.commentsTextView.text;}
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
