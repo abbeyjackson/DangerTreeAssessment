@@ -333,15 +333,14 @@
     self.isDangerousPlaceholder.text = @"Is Dangerous";
     self.isDangerousPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:self.isDangerousPlaceholder];
+    self.isDangerousPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.isDangerousLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 50)];
-    
     if (self.tree.isDangerous){
         self.isDangerousLabel.text = @"YES";
     } else if (!self.tree.isDangerous){
         self.isDangerousLabel.text = @"NO";
     }
-    
     self.isDangerousLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.isDangerousLabel];
     self.isDangerousLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -376,39 +375,10 @@
 -(void)updateContraints{
     if ([self.tree.site.lod isEqualToString:kLODType1]){
         
-        // isDangerousLabel contraints
-
-        [self.scrollView addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.isDangerousLabel
-                                        attribute:NSLayoutAttributeTop
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:self.isDangerousPlaceholder
-                                        attribute:NSLayoutAttributeBottom
-                                        multiplier:1.0
-                                        constant:-5]];
-    
-        [self.scrollView addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.isDangerousLabel
-                                        attribute:NSLayoutAttributeLeading
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:self.scrollView
-                                        attribute:NSLayoutAttributeLeading
-                                        multiplier:1.0
-                                        constant:35]];
-        
         // leaning label constraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
                                         constraintWithItem:self.leaningLabel
-                                        attribute:NSLayoutAttributeTop
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:self.scrollView
-                                        attribute:NSLayoutAttributeTop
-                                        multiplier:1.0
-                                        constant:160]];
-        
-        [self.scrollView addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.leaningLabel
                                         attribute:NSLayoutAttributeLeading
                                         relatedBy:NSLayoutRelationEqual
                                         toItem:self.scrollView
@@ -416,7 +386,25 @@
                                         multiplier:1.0
                                         constant:35]];
         
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.leaningLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeTop
+                                        multiplier:1.0
+                                        constant:345]];
+    
         // isDangerousPlaceholderLabel contraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousPlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
         
         [self.scrollView addConstraint:[NSLayoutConstraint
                                         constraintWithItem:self.isDangerousPlaceholder
@@ -425,16 +413,27 @@
                                         toItem:self.leaningLabel
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
-                                        constant:10]];
+                                        constant:0]];
+        // isDangerousLabel contraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.isDangerousPlaceholder
+                                        constraintWithItem:self.isDangerousLabel
                                         attribute:NSLayoutAttributeLeading
                                         relatedBy:NSLayoutRelationEqual
                                         toItem:self.scrollView
                                         attribute:NSLayoutAttributeLeading
                                         multiplier:1.0
                                         constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.isDangerousPlaceholder
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-3]];
+        
     }
 }
 
