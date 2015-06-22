@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *activityField;
 
 @property (strong, nonatomic) NSDateFormatter *dateFormat;
+@property (strong, nonatomic) NSDateFormatter *reportDateFormat;
 @property (strong, nonatomic) NSString *dtaID;
 
 @end
@@ -31,8 +32,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTextFields];
+    [self configureDateFormats];
+}
+
+-(void)configureDateFormats{
+    
     self.dateFormat = [[NSDateFormatter alloc] init];
     [self.dateFormat setDateFormat:@"yyMMdd"];
+    
+    
+    self.reportDateFormat = [[NSDateFormatter alloc] init];
+    [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -192,6 +202,7 @@
     site.activity = self.activityField.text;
     site.siteID = [self setSiteID];
     site.formattedDtaID = self.dtaID;
+    site.reportDate = [self.reportDateFormat stringFromDate:[NSDate date]];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     

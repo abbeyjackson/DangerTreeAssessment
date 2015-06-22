@@ -67,7 +67,8 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)goToSiteReview:(id)sender {
+- (IBAction)submitTreeReport:(id)sender {
+    NSLog(@"site button pressed");
     [self saveTree];
     [self submitReportAlert];
 }
@@ -114,19 +115,13 @@
 }
 
 -(void)updateLabels{
-    
-    RLMResults *results = [Tree allObjects];
-    Tree *tree = [results lastObject];
-    
-    // all trees:
-    
     UILabel *latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 20)];
     latitudePlaceholder.text = @"Latitude";
     latitudePlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:latitudePlaceholder];
     
     self.latitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 50)];
-    self.latitudeLabel.text = tree.lat;
+    self.latitudeLabel.text = self.tree.lat;
     self.latitudeLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.latitudeLabel];
     
@@ -136,7 +131,7 @@
     [self.scrollView addSubview:longitudePlaceholder];
     
     self.longitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 150, 200, 50)];
-    self.longitudeLabel.text = tree.lon;
+    self.longitudeLabel.text = self.tree.lon;
     self.longitudeLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.longitudeLabel];
     
@@ -146,7 +141,7 @@
     [self.scrollView addSubview:speciesPlaceholder];
     
     self.speciesLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 180, 200, 50)];
-    self.speciesLabel.text = tree.species;
+    self.speciesLabel.text = self.tree.species;
     self.speciesLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.speciesLabel];
     
@@ -156,7 +151,7 @@
     [self.scrollView addSubview:treeClassPlaceholder];
 
     self.treeClassLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 210, 200, 50)];
-    self.treeClassLabel.text = tree.treeClass;
+    self.treeClassLabel.text = self.tree.treeClass;
     self.treeClassLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.treeClassLabel];
     
@@ -166,12 +161,12 @@
     [self.scrollView addSubview:wildLifePlaceholder];
     
     self.wildlifeValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 240, 200, 50)];
-    self.wildlifeValueLabel.text = tree.wildLifeValue;
+    self.wildlifeValueLabel.text = self.tree.wildLifeValue;
     self.wildlifeValueLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.wildlifeValueLabel];
 
 
-    if ([tree.site.lod isEqualToString:kLODType1]){
+    if ([self.tree.site.lod isEqualToString:kLODType1]){
         
         UILabel *insecurePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         insecurePlaceholder.text = @"Insecure";
@@ -179,7 +174,7 @@
         [self.scrollView addSubview:insecurePlaceholder];
         
         self.insecureLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 50)];
-        self.insecureLabel.text = tree.insecure;
+        self.insecureLabel.text = self.tree.insecure;
         self.insecureLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.insecureLabel];
         
@@ -189,7 +184,7 @@
         [self.scrollView addSubview:unstablePlaceholder];
         
         self.unstableLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 300, 200, 50)];
-        self.unstableLabel.text = tree.unstable;
+        self.unstableLabel.text = self.tree.unstable;
         self.unstableLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.unstableLabel];
         
@@ -199,12 +194,12 @@
         [self.scrollView addSubview:leaningPlaceholder];
         
         self.leaningLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 330, 200, 50)];
-        self.leaningLabel.text = tree.leaning;
+        self.leaningLabel.text = self.tree.leaning;
         self.leaningLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.leaningLabel];
         
         
-    }else if ([tree.site.lod isEqualToString:kLODType23]){
+    }else if ([self.tree.site.lod isEqualToString:kLODType23]){
         
         UILabel *hazardousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         hazardousPlaceholder.text = @"Hazardous Top";
@@ -212,7 +207,7 @@
         [self.scrollView addSubview:hazardousPlaceholder];
 
         self.hazardousTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 50)];
-        self.hazardousTopLabel.text = tree.hazardousTop;
+        self.hazardousTopLabel.text = self.tree.hazardousTop;
         self.hazardousTopLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.hazardousTopLabel];
         
@@ -222,7 +217,7 @@
         [self.scrollView addSubview:deadLimbsPlaceholder];
         
         self.deadLimbsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 300, 200, 50)];
-        self.deadLimbsLabel.text = tree.deadLimbs;
+        self.deadLimbsLabel.text = self.tree.deadLimbs;
         self.deadLimbsLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.deadLimbsLabel];
         
@@ -232,7 +227,7 @@
         [self.scrollView addSubview:witchesPlaceholder];
         
         self.witchesBroomLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 330, 200, 50)];
-        self.witchesBroomLabel.text = tree.witchesBroom;
+        self.witchesBroomLabel.text = self.tree.witchesBroom;
         self.witchesBroomLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.witchesBroomLabel];
         
@@ -242,7 +237,7 @@
         [self.scrollView addSubview:splitPlaceholder];
         
         self.splitTrunkLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 360, 200, 50)];
-        self.splitTrunkLabel.text = tree.splitTrunk;
+        self.splitTrunkLabel.text = self.tree.splitTrunk;
         self.splitTrunkLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.splitTrunkLabel];
         
@@ -252,7 +247,7 @@
         [self.scrollView addSubview:stemPlaceholder];
         
         self.stemDamageLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 390, 200, 50)];
-        self.stemDamageLabel.text = tree.stemDamage;
+        self.stemDamageLabel.text = self.tree.stemDamage;
         self.stemDamageLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.stemDamageLabel];
         
@@ -262,7 +257,7 @@
         [self.scrollView addSubview:sloughingPlaceholder];
         
         self.sloughingBarkLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 420, 200, 50)];
-        self.sloughingBarkLabel.text = tree.sloughingBark;
+        self.sloughingBarkLabel.text = self.tree.sloughingBark;
         self.sloughingBarkLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.sloughingBarkLabel];
         
@@ -272,7 +267,7 @@
         [self.scrollView addSubview:cankersPlaceholder];
         
         self.cankersLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 450, 200, 50)];
-        self.cankersLabel.text = tree.cankers;
+        self.cankersLabel.text = self.tree.cankers;
         self.cankersLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.cankersLabel];
         
@@ -282,7 +277,7 @@
         [self.scrollView addSubview:conksPlaceholder];
         
         self.conksMushroomsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 480, 200, 50)];
-        self.conksMushroomsLabel.text = tree.conksMushrooms;
+        self.conksMushroomsLabel.text = self.tree.conksMushrooms;
         self.conksMushroomsLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.conksMushroomsLabel];
         
@@ -292,7 +287,7 @@
         [self.scrollView addSubview:treeLeanPlaceholder];
         
         self.treeLeanLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 510, 200, 50)];
-        self.treeLeanLabel.text = tree.treeLean;
+        self.treeLeanLabel.text = self.tree.treeLean;
         self.treeLeanLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.treeLeanLabel];
         
@@ -302,12 +297,12 @@
         [self.scrollView addSubview:rootPlaceholder];
         
         self.rootInspectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 540, 200, 50)];
-        self.rootInspectionLabel.text = tree.rootInspection;
+        self.rootInspectionLabel.text = self.tree.rootInspection;
         self.rootInspectionLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.rootInspectionLabel];
 
         
-    }else if ([tree.site.lod isEqualToString:kLODType4]){
+    }else if ([self.tree.site.lod isEqualToString:kLODType4]){
         
         UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 20)];
         ratingPlaceholder.text = @"Rating";
@@ -315,7 +310,7 @@
         [self.scrollView addSubview:ratingPlaceholder];
         
         self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 270, 200, 50)];
-        self.ratingLabel.text = tree.rating;
+        self.ratingLabel.text = self.tree.rating;
         self.ratingLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.ratingLabel];
     }

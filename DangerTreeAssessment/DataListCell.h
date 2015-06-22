@@ -1,5 +1,5 @@
 //
-//  SiteReportCell.h
+//  DataListCell.h
 //  DangerTreeAssessment
 //
 //  Created by Abegael Jackson on 2015-06-16.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Site;
 
-@interface SiteReportCell : UITableViewCell
+@interface DataListCell : UITableViewCell
+
+@property (nonatomic, strong) Site *object;
 
 @end

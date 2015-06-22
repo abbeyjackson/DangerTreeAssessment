@@ -8,10 +8,9 @@
 
 #import "DataTableViewController.h"
 #import "SitePractice.h"
+#import "DataListCell.h"
 
 @interface DataTableViewController ()
-
-@property (nonatomic) NSArray *sitesArray;
 
 @end
 
@@ -19,20 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    
-    self.sitesArray = @[[[SitePractice alloc] initWithLocation:@"Prince George Fire"],
-                        [[SitePractice alloc] initWithLocation:@"Another place"]];
+    [self makeSitesArray];
 }
 #pragma mark - Table view data source
 
+-(void)makeSitesArray{
+    self.sitesArray = [Site allObjects];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -42,11 +34,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    DataListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    SitePractice *object = self.sitesArray[indexPath.row];
+    cell.object = [self.sitesArray objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = object.location;
     
     return cell;
 }

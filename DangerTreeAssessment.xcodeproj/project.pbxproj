@@ -16,7 +16,7 @@
 		F648E85F1B30A096007ADB73 /* SiteReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E85E1B30A096007ADB73 /* SiteReviewViewController.m */; };
 		F648E8621B30A09F007ADB73 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8611B30A09F007ADB73 /* WelcomeViewController.m */; };
 		F648E8651B30A0BD007ADB73 /* DataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8641B30A0BD007ADB73 /* DataTableViewController.m */; };
-		F648E8681B30A165007ADB73 /* SiteReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8671B30A165007ADB73 /* SiteReportCell.m */; };
+		F648E8681B30A165007ADB73 /* DataListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8671B30A165007ADB73 /* DataListCell.m */; };
 		F648E86E1B30A258007ADB73 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E86D1B30A258007ADB73 /* Tree.m */; };
 		F648E8711B30A40D007ADB73 /* Site.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8701B30A40D007ADB73 /* Site.m */; };
 		F648E8741B30C5E2007ADB73 /* TreeLOD23ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8731B30C5E2007ADB73 /* TreeLOD23ViewController.m */; };
@@ -74,8 +74,8 @@
 		F648E8611B30A09F007ADB73 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		F648E8631B30A0BD007ADB73 /* DataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTableViewController.h; sourceTree = "<group>"; };
 		F648E8641B30A0BD007ADB73 /* DataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTableViewController.m; sourceTree = "<group>"; };
-		F648E8661B30A165007ADB73 /* SiteReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteReportCell.h; sourceTree = "<group>"; };
-		F648E8671B30A165007ADB73 /* SiteReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteReportCell.m; sourceTree = "<group>"; };
+		F648E8661B30A165007ADB73 /* DataListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataListCell.h; sourceTree = "<group>"; };
+		F648E8671B30A165007ADB73 /* DataListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataListCell.m; sourceTree = "<group>"; };
 		F648E86C1B30A258007ADB73 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
 		F648E86D1B30A258007ADB73 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
 		F648E86F1B30A40D007ADB73 /* Site.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Site.h; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 		F678F62C1B2F63BE00A8EAA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F648E8661B30A165007ADB73 /* SiteReportCell.h */,
-				F648E8671B30A165007ADB73 /* SiteReportCell.m */,
+				F648E8661B30A165007ADB73 /* DataListCell.h */,
+				F648E8671B30A165007ADB73 /* DataListCell.m */,
 				F648E8911B327E43007ADB73 /* TreeClassCollectionViewCell.h */,
 				F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */,
 				F6DF60671B33571300339B57 /* TreeSpeciesCollectionViewCell.h */,
@@ -424,7 +424,7 @@
 				F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */,
 				F648E8741B30C5E2007ADB73 /* TreeLOD23ViewController.m in Sources */,
 				F648E85F1B30A096007ADB73 /* SiteReviewViewController.m in Sources */,
-				F648E8681B30A165007ADB73 /* SiteReportCell.m in Sources */,
+				F648E8681B30A165007ADB73 /* DataListCell.m in Sources */,
 				F648E8591B30A07D007ADB73 /* TreeManagementViewController.m in Sources */,
 				F648E8561B30A072007ADB73 /* TreeLOD1ViewController.m in Sources */,
 				F648E85C1B30A08B007ADB73 /* TreeReviewViewController.m in Sources */,

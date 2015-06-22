@@ -121,7 +121,6 @@
 
 
 - (IBAction)saveNewTreeButton:(id)sender {
-    NSLog(@"button pressed");
     self.tree = [self createTree];
     if ([self.site.lod isEqualToString: kLODType1]) {
         TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
@@ -130,7 +129,6 @@
         [self.navigationController pushViewController:destination animated:YES];
     }
     if ([self.site.lod isEqualToString: kLODType23]) {
-       
         TreeLOD23ViewController *destination =  [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD23"];
         [destination setTree:self.tree];
         [destination setSite:self.site];
@@ -151,12 +149,6 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showTreeLOD1"]) {
-    }
-    if ([[segue identifier] isEqualToString:@"showTreeLOD23"]) {
-    }
-    if ([[segue identifier] isEqualToString:@"showTreeLOD4"]) {
-    }
     if ([[segue identifier] isEqualToString:@"showSpecies"]) {
         [[segue destinationViewController] setDelegate:self];
     }

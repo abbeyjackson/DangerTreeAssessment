@@ -40,6 +40,7 @@ extern NSString* const kLODType4;
 @property RLMArray<Tree> *trees;
 @property NSString *siteID;
 @property NSString *formattedDtaID;
+@property NSString *reportDate;
 
 
 // Site properties
