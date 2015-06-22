@@ -173,6 +173,7 @@
                     }
                 }
             }
+            // else no previous report by DTA, first instance with site number 01 will be used
         }
     }
     

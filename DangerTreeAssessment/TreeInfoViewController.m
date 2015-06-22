@@ -39,27 +39,38 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
--(int)setPrimaryID{
-    return (arc4random() % 9000 + 1000);
+-(NSString*)setTreeNum{
+    RLMResults *results = [Tree allObjects];
+    Tree *tree = [results lastObject];
+    NSString *newTreeNum = @"001";
+    if (results.count > 0) {
+        if ([tree.site.siteID isEqualToString:self.site.siteID]) {
+            int newTreeNumber = [[tree.treeID substringFromIndex:[tree.treeID length] -3] intValue] + 1;
+            newTreeNum = [NSString stringWithFormat:@"%03d", newTreeNumber];
+        }
+        // else newTreeID should be 001
+    }
+    return newTreeNum;
 }
 
 -(Tree*)createTree{
     
    
-    self.tree = [[Tree alloc]init];
-    self.tree.site = self.site;
-    self.tree.lat = self.latitudeField.text;
-    self.tree.lon = self.longitudeField.text;
-    self.tree.species = [self.speciesField.text substringToIndex:3];
-    self.tree.treeClass = [self.classField.text substringToIndex:3];
-    self.tree.wildLifeValue = self.wildlifeValueField.text;
-    self.tree.id = [self setPrimaryID];
+    Tree *tree = [[Tree alloc]init];
+    tree.site = self.site;
+    tree.lat = self.latitudeField.text;
+    tree.lon = self.longitudeField.text;
+    tree.species = [self.speciesField.text substringToIndex:3];
+    tree.treeClass = [self.classField.text substringToIndex:3];
+    tree.wildLifeValue = self.wildlifeValueField.text;
+    tree.treeNumber = [self setTreeNum];
+    tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,tree.treeNumber];
     
     RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
-    [realm addObject:self.tree];
-    [self.site.trees insertObject:self.tree atIndex:0];
+    [realm addObject:tree];
+    [self.site.trees insertObject:tree atIndex:0];
     [realm commitWriteTransaction];
     
     
