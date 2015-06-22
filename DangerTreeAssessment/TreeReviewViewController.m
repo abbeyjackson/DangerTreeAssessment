@@ -103,13 +103,15 @@
 
 }
 
+#pragma mark - Scroll View
+
 -(void)createScrollView{
         self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         self.scrollView.showsVerticalScrollIndicator=YES;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 780);
 }
 
 #pragma mark - Update Labels
@@ -350,10 +352,10 @@
     commentsPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:commentsPlaceholder];
     
-    self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 50)];
+    self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 633, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
     self.commentsLabel.numberOfLines = 0;
-    self.commentsLabel.font = [UIFont systemFontOfSize:20];
+    self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
 
 
