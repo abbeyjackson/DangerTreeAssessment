@@ -24,7 +24,6 @@
 @property (nonatomic) IBOutlet UILabel *speciesLabel;
 @property (nonatomic) IBOutlet UILabel *treeClassLabel;
 @property (nonatomic) IBOutlet UILabel *wildlifeValueLabel;
-@property (nonatomic) IBOutlet UILabel *commentsLabel;
 
 //LOD1 trees:
 @property (nonatomic) IBOutlet UILabel *insecureLabel;
@@ -48,8 +47,8 @@
 
 //Management (all trees)
 @property (nonatomic) IBOutlet UILabel *isDangerousLabel;
-@property (nonatomic) IBOutlet UILabel *management;
-@property (nonatomic) IBOutlet UILabel *comments;
+@property (nonatomic) IBOutlet UILabel *managementLabel;
+@property (nonatomic) IBOutlet UILabel *commentsLabel;
 
 
 @end
@@ -318,6 +317,47 @@
         self.ratingLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.ratingLabel];
     }
+    
+    
+    UILabel *isDangerousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 20)];
+    isDangerousPlaceholder.text = @"Is Dangerous";
+    isDangerousPlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:isDangerousPlaceholder];
+    
+    self.isDangerousLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 50)];
+    
+    if (self.tree.isDangerous){
+        self.isDangerousLabel.text = @"YES";
+    } else if (!self.tree.isDangerous){
+        self.isDangerousLabel.text = @"NO";
+    }
+    
+    self.isDangerousLabel.font = [UIFont systemFontOfSize:20];
+    [self.scrollView addSubview:self.isDangerousLabel];
+    
+    UILabel *managementPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 20)];
+    managementPlaceholder.text = @"Management";
+    managementPlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:managementPlaceholder];
+    
+    self.managementLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 50)];
+    self.managementLabel.text = self.tree.management;
+    self.managementLabel.font = [UIFont systemFontOfSize:20];
+    [self.scrollView addSubview:self.managementLabel];
+    
+    UILabel *commentsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 20)];
+    commentsPlaceholder.text = @"Comments";
+    commentsPlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:commentsPlaceholder];
+    
+    self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 50)];
+    self.commentsLabel.text = self.tree.comments;
+    self.commentsLabel.numberOfLines = 0;
+    self.commentsLabel.font = [UIFont systemFontOfSize:20];
+    [self.scrollView addSubview:self.commentsLabel];
+
+
+
     
 }
 
