@@ -25,6 +25,7 @@
 		F648E8901B327C5E007ADB73 /* TreeClassCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E88F1B327C5E007ADB73 /* TreeClassCollectionViewController.m */; };
 		F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */; };
 		F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629EC81B34F15D00FF4E10 /* Placeholder.m */; };
+		F6629F101B38C85300FF4E10 /* SiteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */; };
 		F678F62F1B2F671E00A8EAA5 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F62E1B2F671E00A8EAA5 /* Review.storyboard */; };
 		F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */; };
 		F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6321B2F684A00A8EAA5 /* Realm.framework */; };
@@ -92,6 +93,8 @@
 		F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClassCollectionViewCell.m; sourceTree = "<group>"; };
 		F6629EC71B34F15D00FF4E10 /* Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Placeholder.h; sourceTree = "<group>"; };
 		F6629EC81B34F15D00FF4E10 /* Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Placeholder.m; sourceTree = "<group>"; };
+		F6629F0E1B38C85300FF4E10 /* SiteWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteWindowController.h; sourceTree = "<group>"; };
+		F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteWindowController.m; sourceTree = "<group>"; };
 		F678F62E1B2F671E00A8EAA5 /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assessment.storyboard; sourceTree = "<group>"; };
 		F678F6321B2F684A00A8EAA5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				F648E85B1B30A08B007ADB73 /* TreeReviewViewController.m */,
 				F648E85D1B30A096007ADB73 /* SiteReviewViewController.h */,
 				F648E85E1B30A096007ADB73 /* SiteReviewViewController.m */,
+				F6629F0E1B38C85300FF4E10 /* SiteWindowController.h */,
+				F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				F6DF60781B337AA100339B57 /* FuelCollectionViewController.m in Sources */,
 				F6B912A01B2F602A00245ED5 /* AppDelegate.m in Sources */,
 				F648E8621B30A09F007ADB73 /* WelcomeViewController.m in Sources */,
+				F6629F101B38C85300FF4E10 /* SiteWindowController.m in Sources */,
 				F6DF606F1B3379EA00339B57 /* Fuel.m in Sources */,
 				F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */,
 				F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */,

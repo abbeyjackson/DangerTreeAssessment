@@ -245,7 +245,7 @@
         <!--Site Window-->
         <scene sceneID="jmY-QS-muP">
             <objects>
-                <viewController title="Site Window" id="7I5-Oq-Elp" customClass="SiteWindowViewController" sceneMemberID="viewController">
+                <viewController title="Site Window" id="7I5-Oq-Elp" customClass="SiteWindowController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q9I-m0-ZPg"/>
                         <viewControllerLayoutGuide type="bottom" id="YW8-lZ-RoV"/>
