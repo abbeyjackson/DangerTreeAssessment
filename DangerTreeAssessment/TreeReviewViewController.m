@@ -121,9 +121,10 @@
         self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         self.scrollView.showsVerticalScrollIndicator=YES;
         self.scrollView.scrollEnabled=YES;
+        self.scrollView.alwaysBounceVertical=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 10000);
+
 }
 
 #pragma mark - Update Labels
