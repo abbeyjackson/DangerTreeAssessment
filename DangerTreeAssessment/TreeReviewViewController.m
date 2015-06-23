@@ -630,6 +630,133 @@
                                         multiplier:1.0
                                         constant:-35]];
         
+    }else if ([self.tree.site.lod isEqualToString:kLODType4]){
+        
+        // isDangerousPlaceholderLabel contraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousPlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousPlaceholder
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.ratingLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-13]];
+        // isDangerousLabel constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.isDangerousPlaceholder
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-3]];
+        
+        // managementPlaceholder constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementPlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementPlaceholder
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.isDangerousLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:0]];
+        // managementLabel constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.managementLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.managementPlaceholder
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-3]];
+        
+        // commentsPlaceholder constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsPlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsPlaceholder
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.managementLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:0]];
+        // commentsLabel constraints + extra constraint due to keep long comments on screen
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.commentsPlaceholder
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:-3]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeTrailing
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeTrailing
+                                        multiplier:1.0
+                                        constant:-35]];
     }
 }
 
