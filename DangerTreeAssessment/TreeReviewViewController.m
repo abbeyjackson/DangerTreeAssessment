@@ -207,8 +207,6 @@
         self.leaningLabel.text = self.tree.leaning;
         self.leaningLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.leaningLabel];
-        self.leaningLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        
         
         
         
@@ -378,26 +376,6 @@
 -(void)updateContraints{
     if ([self.tree.site.lod isEqualToString:kLODType1]){
         
-        // leaning label constraints
-        
-        [self.scrollView addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.leaningLabel
-                                        attribute:NSLayoutAttributeLeading
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:self.scrollView
-                                        attribute:NSLayoutAttributeLeading
-                                        multiplier:1.0
-                                        constant:35]];
-        
-        [self.scrollView addConstraint:[NSLayoutConstraint
-                                        constraintWithItem:self.leaningLabel
-                                        attribute:NSLayoutAttributeTop
-                                        relatedBy:NSLayoutRelationEqual
-                                        toItem:self.scrollView
-                                        attribute:NSLayoutAttributeTop
-                                        multiplier:1.0
-                                        constant:345]];
-    
         // isDangerousPlaceholderLabel contraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
@@ -416,7 +394,7 @@
                                         toItem:self.leaningLabel
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
-                                        constant:0]];
+                                        constant:-13]];
         // isDangerousLabel constraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
@@ -523,6 +501,11 @@
                                         attribute:NSLayoutAttributeTrailing
                                         multiplier:1.0
                                         constant:-35]];
+        
+    }else if ([self.tree.site.lod isEqualToString:@"kLODType23"]){
+        
+        
+        
         
     }
 }
