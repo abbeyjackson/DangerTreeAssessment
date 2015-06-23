@@ -54,6 +54,8 @@
 @property (nonatomic) IBOutlet UILabel *managementPlaceholder;
 @property (nonatomic) IBOutlet UILabel *commentsPlaceholder;
 
+@property (nonatomic) IBOutlet UILabel *latitudePlaceholder;
+
 
 @end
 
@@ -64,7 +66,12 @@
     // Do any additional setup after loading the view.
     [self createScrollView];
     [self updateLabels];
-    [self updateContraints];
+    [self updateLabelContraints];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    //testing for the content size
+    NSLog(@"Scoll view content size: (%f, %f)", self.scrollView.contentSize.width, self.scrollView.contentSize.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,12 +118,12 @@
 #pragma mark - Scroll View
 
 -(void)createScrollView{
-        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 600)];
+        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         self.scrollView.showsVerticalScrollIndicator=YES;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
-        self.scrollView.contentSize = CGSizeMake(320, 780);
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 10000);
 }
 
 #pragma mark - Update Labels
@@ -125,10 +132,11 @@
     
     // all trees:
     
-    UILabel *latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 20)];
-    latitudePlaceholder.text = @"Latitude";
-    latitudePlaceholder.font = [UIFont systemFontOfSize:10];
-    [self.scrollView addSubview:latitudePlaceholder];
+    self.latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 20)];
+    self.latitudePlaceholder.text = @"Latitude";
+    self.latitudePlaceholder.font = [UIFont systemFontOfSize:10];
+    [self.scrollView addSubview:self.latitudePlaceholder];
+    self.latitudePlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.latitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 50)];
     self.latitudeLabel.text = self.tree.lat;
@@ -363,7 +371,7 @@
     
     self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 632, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
-    self.commentsLabel.numberOfLines = 0;
+    self.commentsLabel.numberOfLines = 5;
     self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
     self.commentsLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -373,8 +381,28 @@
 
 #pragma mark - Constraints
 
--(void)updateContraints{
+-(void)updateLabelContraints{
     if ([self.tree.site.lod isEqualToString:kLODType1]){
+        
+        // scrollView constraints
+        
+//        [self.scrollView addConstraint:[NSLayoutConstraint
+//                                        constraintWithItem:self.latitudePlaceholder
+//                                        attribute:NSLayoutAttributeTop
+//                                        relatedBy:NSLayoutRelationEqual
+//                                        toItem:self.scrollView
+//                                        attribute:NSLayoutAttributeTop
+//                                        multiplier:1.0
+//                                        constant:50]];
+//        
+//        [self.scrollView addConstraint:[NSLayoutConstraint
+//                                        constraintWithItem:self.commentsPlaceholder
+//                                        attribute:NSLayoutAttributeBottom
+//                                        relatedBy:NSLayoutRelationEqual
+//                                        toItem:self.scrollView
+//                                        attribute:NSLayoutAttributeBottom
+//                                        multiplier:1.0
+//                                        constant:50]];
         
         // isDangerousPlaceholderLabel contraints
         
@@ -503,6 +531,35 @@
                                         constant:-35]];
         
     }else if ([self.tree.site.lod isEqualToString:kLODType23]){
+        
+        // scrollView constraints
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.latitudePlaceholder
+                                        attribute:NSLayoutAttributeTop
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeTop
+                                        multiplier:1.0
+                                        constant:120]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.latitudePlaceholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:50]];
         
         // isDangerousPlaceholderLabel contraints
         
