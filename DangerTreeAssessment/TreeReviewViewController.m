@@ -118,7 +118,7 @@
 #pragma mark - Scroll View
 
 -(void)createScrollView{
-        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 75)];
         self.scrollView.showsVerticalScrollIndicator=YES;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.alwaysBounceVertical=YES;
