@@ -385,26 +385,6 @@
 -(void)updateLabelContraints{
     if ([self.tree.site.lod isEqualToString:kLODType1]){
         
-        // scrollView constraints
-        
-//        [self.scrollView addConstraint:[NSLayoutConstraint
-//                                        constraintWithItem:self.latitudePlaceholder
-//                                        attribute:NSLayoutAttributeTop
-//                                        relatedBy:NSLayoutRelationEqual
-//                                        toItem:self.scrollView
-//                                        attribute:NSLayoutAttributeTop
-//                                        multiplier:1.0
-//                                        constant:50]];
-//        
-//        [self.scrollView addConstraint:[NSLayoutConstraint
-//                                        constraintWithItem:self.commentsPlaceholder
-//                                        attribute:NSLayoutAttributeBottom
-//                                        relatedBy:NSLayoutRelationEqual
-//                                        toItem:self.scrollView
-//                                        attribute:NSLayoutAttributeBottom
-//                                        multiplier:1.0
-//                                        constant:50]];
-        
         // isDangerousPlaceholderLabel contraints
         
         [self.scrollView addConstraint:[NSLayoutConstraint
