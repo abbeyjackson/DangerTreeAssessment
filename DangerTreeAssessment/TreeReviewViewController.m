@@ -668,6 +668,16 @@
                                         multiplier:1.0
                                         constant:-35]];
         
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeWidth
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                        attribute:NSLayoutAttributeNotAnAttribute
+                                        multiplier:1.0
+                                        constant:320]];
+        
+        
     }else if ([self.tree.site.lod isEqualToString:kLODType4]){
         
         // isDangerousPlaceholderLabel contraints
