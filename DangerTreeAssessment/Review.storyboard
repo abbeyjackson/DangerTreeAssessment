@@ -221,5 +221,24 @@
             </objects>
             <point key="canvasLocation" x="44" y="373"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Bfj-43-M0r">
+            <objects>
+                <navigationController storyboardIdentifier="SiteReviewNC" id="bGl-Ep-ArZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hcf-dL-5jN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VAU-R7-7pg" kind="relationship" relationship="rootViewController" id="lG8-en-n9y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MW1-9W-0Vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="1121"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lG8-en-n9y"/>
+    </inferredMetricsTieBreakers>
 </document>

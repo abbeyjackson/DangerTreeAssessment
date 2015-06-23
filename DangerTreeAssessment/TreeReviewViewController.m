@@ -112,6 +112,7 @@
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
+        [self.view sendSubviewToBack:self.scrollView];
 }
 
 -(void)updateLabels{

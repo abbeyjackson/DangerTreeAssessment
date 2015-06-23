@@ -26,6 +26,7 @@
 		F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */; };
 		F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629EC81B34F15D00FF4E10 /* Placeholder.m */; };
 		F6629F101B38C85300FF4E10 /* SiteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */; };
+		F6629F131B38E4FB00FF4E10 /* TreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629F121B38E4FB00FF4E10 /* TreeWindowController.m */; };
 		F678F62F1B2F671E00A8EAA5 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F62E1B2F671E00A8EAA5 /* Review.storyboard */; };
 		F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */; };
 		F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6321B2F684A00A8EAA5 /* Realm.framework */; };
@@ -95,6 +96,8 @@
 		F6629EC81B34F15D00FF4E10 /* Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Placeholder.m; sourceTree = "<group>"; };
 		F6629F0E1B38C85300FF4E10 /* SiteWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteWindowController.h; sourceTree = "<group>"; };
 		F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteWindowController.m; sourceTree = "<group>"; };
+		F6629F111B38E4FB00FF4E10 /* TreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeWindowController.h; sourceTree = "<group>"; };
+		F6629F121B38E4FB00FF4E10 /* TreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeWindowController.m; sourceTree = "<group>"; };
 		F678F62E1B2F671E00A8EAA5 /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assessment.storyboard; sourceTree = "<group>"; };
 		F678F6321B2F684A00A8EAA5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				F648E85E1B30A096007ADB73 /* SiteReviewViewController.m */,
 				F6629F0E1B38C85300FF4E10 /* SiteWindowController.h */,
 				F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */,
+				F6629F111B38E4FB00FF4E10 /* TreeWindowController.h */,
+				F6629F121B38E4FB00FF4E10 /* TreeWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F648E8711B30A40D007ADB73 /* Site.m in Sources */,
+				F6629F131B38E4FB00FF4E10 /* TreeWindowController.m in Sources */,
 				F648E86E1B30A258007ADB73 /* Tree.m in Sources */,
 				F6DF60661B33565D00339B57 /* TreeSpeciesCollectionViewController.m in Sources */,
 				F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */,
