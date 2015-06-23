@@ -18,6 +18,7 @@
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Tree *tree;
 
+-(void)resetTree;
 
 @property (weak, nonatomic) IBOutlet UITextField *latitudeField;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeField;

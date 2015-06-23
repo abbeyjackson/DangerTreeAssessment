@@ -18,6 +18,11 @@
 
 @interface TreeInfoViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *latitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *speciesField;
+@property (weak, nonatomic) IBOutlet UITextField *classField;
+@property (weak, nonatomic) IBOutlet UITextField *wildlifeValueField;
 
 @end
 
@@ -26,16 +31,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    self.tree = [[Tree alloc]init];
+    [self configureTextFields];
+    [self resetTree];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     self.navigationItem.hidesBackButton = YES;
     
-    [self checkIfNewTree];
-    [self configureTextFields];
+//    [self checkIfNewTree];
+}
+
+-(void)resetTree{
+    
+    self.tree = [[Tree alloc]init];
+    
 }
 
 -(void)checkIfNewTree{
