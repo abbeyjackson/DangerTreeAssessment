@@ -27,8 +27,6 @@
 		F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629EC81B34F15D00FF4E10 /* Placeholder.m */; };
 		F6629F101B38C85300FF4E10 /* SiteWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */; };
 		F6629F131B38E4FB00FF4E10 /* TreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629F121B38E4FB00FF4E10 /* TreeWindowController.m */; };
-		F678F62F1B2F671E00A8EAA5 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F62E1B2F671E00A8EAA5 /* Review.storyboard */; };
-		F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */; };
 		F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6321B2F684A00A8EAA5 /* Realm.framework */; };
 		F678F6351B2F689A00A8EAA5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6341B2F689A00A8EAA5 /* libc++.dylib */; };
 		F6B722821B2FBC32002FF6DF /* Paperwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B722801B2FBC32002FF6DF /* Paperwork.jpg */; };
@@ -98,8 +96,6 @@
 		F6629F0F1B38C85300FF4E10 /* SiteWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteWindowController.m; sourceTree = "<group>"; };
 		F6629F111B38E4FB00FF4E10 /* TreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeWindowController.h; sourceTree = "<group>"; };
 		F6629F121B38E4FB00FF4E10 /* TreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeWindowController.m; sourceTree = "<group>"; };
-		F678F62E1B2F671E00A8EAA5 /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
-		F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Assessment.storyboard; sourceTree = "<group>"; };
 		F678F6321B2F684A00A8EAA5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		F678F6341B2F689A00A8EAA5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		F6B722801B2FBC32002FF6DF /* Paperwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Paperwork.jpg; sourceTree = "<group>"; };
@@ -168,8 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				F6B912A71B2F602A00245ED5 /* WelcomeData.storyboard */,
-				F678F6301B2F678C00A8EAA5 /* Assessment.storyboard */,
-				F678F62E1B2F671E00A8EAA5 /* Review.storyboard */,
 				F6B912AC1B2F602A00245ED5 /* LaunchScreen.xib */,
 			);
 			name = Storyboards;
@@ -394,10 +388,8 @@
 			files = (
 				F6B912A91B2F602A00245ED5 /* WelcomeData.storyboard in Resources */,
 				F6B912AE1B2F602A00245ED5 /* LaunchScreen.xib in Resources */,
-				F678F62F1B2F671E00A8EAA5 /* Review.storyboard in Resources */,
 				F6B912AB1B2F602A00245ED5 /* Images.xcassets in Resources */,
 				F6B722831B2FBC32002FF6DF /* Storyboard.jpg in Resources */,
-				F678F6311B2F678C00A8EAA5 /* Assessment.storyboard in Resources */,
 				F6B722821B2FBC32002FF6DF /* Paperwork.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

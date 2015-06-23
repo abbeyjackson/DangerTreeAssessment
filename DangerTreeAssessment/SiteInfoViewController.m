@@ -129,11 +129,13 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
-    TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
     Site *site = [self createSite];
+    TreeInfoViewController *destination = vc.viewControllers.firstObject;
     [destination setSite:site];
-    [self showViewController:destination sender:self];
+//    [self showViewController:destination sender:self];
+    [self.tabBarController setSelectedIndex:1];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(NSString*)setSiteID{
