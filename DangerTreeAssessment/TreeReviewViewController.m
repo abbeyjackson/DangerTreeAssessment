@@ -502,7 +502,7 @@
                                         multiplier:1.0
                                         constant:-35]];
         
-    }else if ([self.tree.site.lod isEqualToString:@"kLODType23"]){
+    }else if ([self.tree.site.lod isEqualToString:kLODType23]){
         
         // isDangerousPlaceholderLabel contraints
         
