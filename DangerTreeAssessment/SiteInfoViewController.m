@@ -133,16 +133,25 @@
     Site *site = [self createSite];
     TreeInfoViewController *destination = vc.viewControllers.firstObject;
     [destination setSite:site];
-//    [self showViewController:destination sender:self];
     [self.tabBarController setSelectedIndex:1];
     [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+-(void)makeDtaID{
+    NSString *firstString = [[self.dtaNameField.text substringWithRange:NSMakeRange(0, 3)]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *secondString = [[self.dtaNameField.text substringFromIndex: [self.dtaNameField.text length]- 3]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    self.dtaID = [[NSString stringWithFormat:@"%@%@", firstString, secondString ] uppercaseString];
 }
 
 -(NSString*)setSiteID{
     
     NSString *dateString = [self.dateFormat stringFromDate:[NSDate date]];
-    self.dtaID = [[NSString stringWithFormat:@"%@%@", [self.dtaNameField.text substringWithRange:NSMakeRange(0, 3)] , [self.dtaNameField.text substringFromIndex: [self.dtaNameField.text length]- 3]] uppercaseString];
+
+    [self makeDtaID];
+    
     NSString *newSiteID = [NSString stringWithFormat:@"%@%@01", dateString, self.dtaID];
+    
     NSString *currentDateAndDtaID = [NSString stringWithFormat:@"%@%@",dateString, self.dtaID];
     
     RLMResults *results = [Site allObjects];

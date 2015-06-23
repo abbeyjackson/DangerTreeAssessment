@@ -14,6 +14,7 @@
 #import "TreeSpecies.h"
 #import "Tree.h"
 #import "Site.h"
+#import "SiteInfoViewController.h"
 
 @interface TreeInfoViewController ()
 
@@ -29,18 +30,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self configureTextFields];
     
     self.tree = [[Tree alloc]init];
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     self.navigationItem.hidesBackButton = YES;
+    
+    [self checkIfNewTree];
 }
 
+-(void)checkIfNewTree{
+    
+    if (self.site == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Start New Site", nil];
+
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // dismiss alert
+    }
+    if (buttonIndex == 1) {
+        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+        SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
+        [destination performSegueWithIdentifier:@"addSite" sender:self];
+        [self.tabBarController setSelectedIndex:0];
+    }
+    
+}
+    
+    
 -(NSString*)setTreeNum{
     RLMResults *results = [Tree allObjects];
     Tree *tree = [results lastObject];

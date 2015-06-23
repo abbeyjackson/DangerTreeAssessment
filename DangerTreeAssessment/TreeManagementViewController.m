@@ -47,7 +47,7 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     [UIView animateWithDuration:0.2 animations:^{
             CGRect frameUp = self.view.frame;
-            frameUp.origin.y -=240;
+            frameUp.origin.y -=140;
             self.view.frame = frameUp;
     }];
 }

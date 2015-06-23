@@ -2068,9 +2068,16 @@
                                 <color key="textColor" red="0.83224826389999995" green="0.0" blue="0.0083653599910000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spo-hP-0ei">
+                                <rect key="frame" x="529" y="72" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="spo-hP-0ei" secondAttribute="trailing" constant="9" id="03b-Cz-CyO"/>
                             <constraint firstItem="kcO-G6-4DW" firstAttribute="leading" secondItem="Es2-Wo-veq" secondAttribute="leading" constant="35" id="2JW-Kj-0tA"/>
                             <constraint firstItem="HOW-Ih-Dcb" firstAttribute="top" secondItem="Igl-8v-4vm" secondAttribute="bottom" constant="17" id="5Hr-Bd-tCW"/>
                             <constraint firstItem="mRT-bu-pkb" firstAttribute="leading" secondItem="Es2-Wo-veq" secondAttribute="leading" constant="35" id="7br-c6-8un"/>
@@ -2102,6 +2109,7 @@
                             <constraint firstItem="K0A-Aq-PAj" firstAttribute="top" secondItem="nqn-cM-U5n" secondAttribute="bottom" constant="17" id="rGk-UE-bZY"/>
                             <constraint firstItem="5j4-Id-Wfp" firstAttribute="top" secondItem="Gru-se-Yrd" secondAttribute="bottom" id="rXe-ND-veO"/>
                             <constraint firstItem="F41-RD-sVO" firstAttribute="top" secondItem="HOW-Ih-Dcb" secondAttribute="bottom" id="sTg-Yn-82h"/>
+                            <constraint firstItem="spo-hP-0ei" firstAttribute="top" secondItem="Qeq-AN-3sq" secondAttribute="bottom" constant="8" id="tHP-n2-cNf"/>
                             <constraint firstItem="kcO-G6-4DW" firstAttribute="top" secondItem="6IW-JP-1am" secondAttribute="bottom" constant="17" id="wbB-2n-g3y"/>
                         </constraints>
                     </view>
