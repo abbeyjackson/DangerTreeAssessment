@@ -23,22 +23,19 @@ static const int kTableHeaderHeight = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self makeSitesArray];
+    // Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSite) sender:self];
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSite)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController setNavigationBarHidden: YES animated:YES];
     
     [self updateHeaderView];
+    
 }
 
--(void)addSite{
-    [self performSegueWithIdentifier:@"addSite" sender:self];
-}
 
 - (BOOL)prefersStatusBarHidden{
     return YES;
@@ -60,13 +57,14 @@ static const int kTableHeaderHeight = 100;
     frame.origin.y = self.tableView.contentOffset.y;
     self.tableHeader.frame = frame;
     
-    if (self.tableView.contentOffset.y < 0) {
-        CGRect frame = self.tableHeader.frame;
-        frame.origin.y = self.tableView.contentOffset.y;
-        frame.size.height = 0 - self.tableView.contentOffset.y;
-        self.tableHeader.frame = frame;
-    }
+//    if (self.tableView.contentOffset.y < 0) {
+//        CGRect frame = self.tableHeader.frame;
+//        frame.origin.y = self.tableView.contentOffset.y;
+//        frame.size.height = 0 - self.tableView.contentOffset.y;
+//        self.tableHeader.frame = frame;
+//    }
 }
+
 
 #pragma mark - Table view data source
 

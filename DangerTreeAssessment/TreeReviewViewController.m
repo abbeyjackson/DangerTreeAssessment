@@ -99,12 +99,14 @@
         UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
         TreeInfoViewController *destination = vc.viewControllers.firstObject;
         [destination setSite:self.site];
+        [destination setTree:nil];
         destination.latitudeField.text = nil;
         destination.longitudeField.text = nil;
         destination.speciesField.text = nil;
         destination.classField.text = nil;
         destination.wildlifeValueField.text = nil;
         [self.tabBarController setSelectedIndex:1];
+//        [self.navigationController showViewController:destination sender:self];
         [self.navigationController popToRootViewControllerAnimated:NO];
 
     }
