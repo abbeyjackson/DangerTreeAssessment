@@ -32,15 +32,20 @@
     [super viewDidLoad];
     
     [self configureTextFields];
-    
-    self.tree = [[Tree alloc]init];
+    [self resetTree];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     self.navigationItem.hidesBackButton = YES;
     
-    [self checkIfNewTree];
+//    [self checkIfNewTree];
+}
+
+-(void)resetTree{
+    
+    self.tree = [[Tree alloc]init];
+    
 }
 
 -(void)checkIfNewTree{
