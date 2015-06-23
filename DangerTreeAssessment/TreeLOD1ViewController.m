@@ -10,6 +10,7 @@
 #import "Placeholder.h"
 #import "Tree.h"
 #import "Site.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;

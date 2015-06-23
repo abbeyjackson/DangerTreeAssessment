@@ -10,6 +10,7 @@
 #import "SitePractice.h"
 #import "DataListCell.h"
 #import "SiteReviewViewController.h"
+#import "UIColor+CustomColours.h"
 
 @interface DataTableViewController ()
 
@@ -20,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self makeSitesArray];
+    
 }
+
 #pragma mark - Table view data source
 
 -(void)makeSitesArray{

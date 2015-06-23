@@ -15,6 +15,8 @@
 #import "Tree.h"
 #import "Site.h"
 #import "SiteInfoViewController.h"
+#import "UIColor+CustomColours.h"
+#import "DataTableViewController.h"
 
 @interface TreeInfoViewController ()
 
@@ -37,9 +39,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [self checkIfNewTree];
     self.navigationItem.hidesBackButton = YES;
     
-//    [self checkIfNewTree];
 }
 
 -(void)resetTree{
@@ -59,7 +61,8 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        // dismiss alert
+        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+        [self.tabBarController setSelectedIndex:0];
     }
     if (buttonIndex == 1) {
         UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
@@ -100,6 +103,13 @@
 }
 
 -(void)configureTextFields{
+    
+    self.latitudeField.text = nil;
+    self.longitudeField.text = nil;
+    self.speciesField.text = nil;
+    self.classField.text = nil;
+    self.wildlifeValueField.text = nil;
+    
     [self textFieldShouldBeginEditing:self.speciesField];
     [self textFieldShouldBeginEditing:self.classField];
     [self textFieldShouldBeginEditing:self.wildlifeValueField];
