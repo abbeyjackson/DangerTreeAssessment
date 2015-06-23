@@ -111,12 +111,12 @@
 #pragma mark - Scroll View
 
 -(void)createScrollView{
-        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 600)];
         self.scrollView.showsVerticalScrollIndicator=YES;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 780);
+        self.scrollView.contentSize = CGSizeMake(320, 780);
 }
 
 #pragma mark - Update Labels
@@ -495,7 +495,7 @@
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
                                         constant:0]];
-        // commentsLabel constraints
+        // commentsLabel constraints + extra constraint due to keep long comments on screen
         
         [self.scrollView addConstraint:[NSLayoutConstraint
                                         constraintWithItem:self.commentsLabel
@@ -514,6 +514,15 @@
                                         attribute:NSLayoutAttributeBottom
                                         multiplier:1.0
                                         constant:-3]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeTrailing
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeTrailing
+                                        multiplier:1.0
+                                        constant:-35]];
         
     }
 }
