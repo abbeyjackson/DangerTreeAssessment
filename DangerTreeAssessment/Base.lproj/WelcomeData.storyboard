@@ -77,6 +77,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forest-fire" id="DWz-vM-JF1">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="O0o-rT-nkF" customClass="DataListCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -170,13 +174,11 @@
                             <outlet property="delegate" destination="0kF-1T-DS2" id="9Hq-Oj-uRs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Existing Sites" id="qCu-ON-DLd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZN7-mY-2FJ">
-                            <connections>
-                                <segue destination="XfO-oH-hse" kind="show" identifier="addSite" id="fdB-OG-WEb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Existing Sites" id="qCu-ON-DLd"/>
+                    <connections>
+                        <outlet property="tableHeader" destination="DWz-vM-JF1" id="lLo-Ro-9ub"/>
+                        <segue destination="XfO-oH-hse" kind="show" identifier="addSite" id="0pk-s0-hJa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8KH-u8-LKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2150,6 +2152,7 @@
     <resources>
         <image name="fire2" width="800" height="600"/>
         <image name="first" width="30" height="30"/>
+        <image name="forest-fire" width="699" height="273"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

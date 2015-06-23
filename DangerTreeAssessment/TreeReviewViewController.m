@@ -94,10 +94,19 @@
         // dismiss alert
     }
     if (buttonIndex == 1) {
-        UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
-        TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+        
+        
+        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
+        TreeInfoViewController *destination = vc.viewControllers.firstObject;
         [destination setSite:self.site];
-        [self showViewController:destination sender:self];
+        destination.latitudeField.text = nil;
+        destination.longitudeField.text = nil;
+        destination.speciesField.text = nil;
+        destination.classField.text = nil;
+        destination.wildlifeValueField.text = nil;
+        [self.tabBarController setSelectedIndex:1];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+
     }
     if (buttonIndex == 2) {
         [self performSegueWithIdentifier:@"showSiteReview" sender:self];

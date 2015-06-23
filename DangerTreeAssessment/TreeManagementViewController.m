@@ -122,18 +122,17 @@
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
-    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
-    TreeReviewViewController *destination = [navigationController.viewControllers firstObject];
-    [destination setTree:self.tree];
-    [destination setSite:self.site];
-
-    [self showViewController:navigationController sender:self];
+    [self performSegueWithIdentifier:@"showTreeReview" sender:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
+    if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
+        [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
+    }
 }
 
 @end

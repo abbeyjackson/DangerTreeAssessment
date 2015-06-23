@@ -19,4 +19,10 @@
 @property (nonatomic, strong) Tree *tree;
 
 
+@property (weak, nonatomic) IBOutlet UITextField *latitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeField;
+@property (weak, nonatomic) IBOutlet UITextField *speciesField;
+@property (weak, nonatomic) IBOutlet UITextField *classField;
+@property (weak, nonatomic) IBOutlet UITextField *wildlifeValueField;
+
 @end
