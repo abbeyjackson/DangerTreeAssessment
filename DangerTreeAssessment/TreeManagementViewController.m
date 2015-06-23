@@ -123,6 +123,13 @@
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
     [self performSegueWithIdentifier:@"showTreeReview" sender:self];
+    
+    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
+    TreeReviewViewController *destination = vc.viewControllers.firstObject;
+    [destination setSite:self.site];
+    [self.tabBarController setSelectedIndex:1];
+    //        [self.navigationController showViewController:destination sender:self];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark - Navigation

@@ -692,7 +692,7 @@
                         <outlet property="commentsTextView" destination="fVu-ys-ocb" id="n7N-Qo-x21"/>
                         <outlet property="managementField" destination="uog-Wb-46R" id="jBV-ML-4uh"/>
                         <outlet property="safeDangerousControl" destination="du8-sZ-Wfh" id="ott-gG-NpE"/>
-                        <segue destination="oEO-cr-9CU" kind="show" identifier="showTreeReview" id="d5N-26-j2h"/>
+                        <segue destination="fmg-Ln-jdm" kind="show" identifier="showTreeReview" id="d5N-26-j2h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ppv-sr-Jq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1845,7 +1845,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgZ-sv-bTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4340" y="1420"/>
+            <point key="canvasLocation" x="5152" y="1420"/>
         </scene>
         <!--Site Review-->
         <scene sceneID="CC8-u0-tg5">
@@ -2157,7 +2157,6 @@
                                     <outlet property="fireNumberLabel" destination="Nc0-lS-IiT" id="Rox-z6-Hvq"/>
                                     <outlet property="reportDateLabel" destination="2Qe-wR-x7P" id="wUk-MS-1Aw"/>
                                     <outlet property="siteLocationLabel" destination="hGA-jW-Arx" id="5Jg-z8-8Ly"/>
-                                    <segue destination="XfO-oH-hse" kind="show" identifier="addSite" trigger="accessoryAction" id="wlz-wq-uOe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2167,7 +2166,13 @@
                             <outlet property="delegate" destination="ehV-sH-aiU" id="Ki3-Ky-tgf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="33W-hZ-SA0"/>
+                    <navigationItem key="navigationItem" title="Title" id="EON-KG-W9w">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wm7-r4-2ej">
+                            <connections>
+                                <segue destination="XfO-oH-hse" kind="show" id="b2x-4X-6vP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableHeader" destination="MWt-aP-F0l" id="8mX-iK-ekw"/>
                     </connections>
@@ -2175,6 +2180,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m21-PK-i0K" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2444" y="-1366"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GSS-J4-aRp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fmg-Ln-jdm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VCc-Ss-MEv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oEO-cr-9CU" kind="relationship" relationship="rootViewController" id="NXP-xG-adq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mV3-z4-tga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4340" y="1420"/>
         </scene>
     </scenes>
     <resources>
