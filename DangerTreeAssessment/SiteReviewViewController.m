@@ -10,8 +10,9 @@
 #import "SiteInfoViewController.h"
 #import "UIColor+CustomColours.h"
 #import "Site.h"
+#import <MessageUI/MessageUI.h>
 
-@interface SiteReviewViewController ()
+@interface SiteReviewViewController ()<MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dtaNameLabel;
@@ -47,6 +48,29 @@
     [siteInfo setSite:site];
 }
 
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)sendEmailAsCSV:(id)sender {
+    if ( [MFMailComposeViewController canSendMail] )
+    {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.mailComposeDelegate = self;
+        
+        [mailComposer setMessageBody:@"Hi,\nHere is my house contents. Could you please give me a quote for insurance?\n Thank you!" isHTML:NO];
+        
+        [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
+        
+        [self presentViewController:mailComposer animated:YES completion:nil];
+    }
+}
+
+
 -(void)checkIfSiteExistsAndIsComplete{
     
     if (self.site == nil) {
@@ -66,6 +90,8 @@
     
     [self configureLabels];
 }
+
+
 
 -(void)checkIfTreeExistsAndIsComplete{
     if (self.tree || self.treeStarted) {
