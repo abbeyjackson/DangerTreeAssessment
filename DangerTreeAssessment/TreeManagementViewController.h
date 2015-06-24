@@ -16,6 +16,7 @@
 @property (nonatomic,strong) Tree *tree;
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Placeholder *placeholder;
+@property (nonatomic) BOOL isDangerousSet;
 
 
 @end

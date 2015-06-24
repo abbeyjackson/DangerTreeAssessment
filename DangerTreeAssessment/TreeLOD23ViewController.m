@@ -10,6 +10,8 @@
 #import "Tree.h"
 #import "Site.h"
 #import "Placeholder.h"
+#import "UIColor+CustomColours.h"
+#import "TreeManagementViewController.h"
 
 @interface TreeLOD23ViewController ()
 
@@ -23,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *conksMushroomsControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *treeLeanControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *rootInspectionControl;
+@property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
 
 @end
 
@@ -35,25 +38,25 @@
 }
 
 -(void)setupSegmentedControls{
-    self.hazardousTopControl.selectedSegmentIndex = 1;
+    self.hazardousTopControl.selectedSegmentIndex = -1;
     self.placeholder.hazardousTop = @"--";
-    self.deadLimbsControl.selectedSegmentIndex = 1;
+    self.deadLimbsControl.selectedSegmentIndex = -1;
     self.placeholder.deadLimbs = @"--";
-    self.witchesBroomControl.selectedSegmentIndex = 1;
+    self.witchesBroomControl.selectedSegmentIndex = -1;
     self.placeholder.witchesBroom = @"--";
-    self.splitTrunkControl.selectedSegmentIndex = 1;
+    self.splitTrunkControl.selectedSegmentIndex = -1;
     self.placeholder.splitTrunk = @"--";
-    self.stemDamageControl.selectedSegmentIndex = 1;
+    self.stemDamageControl.selectedSegmentIndex = -1;
     self.placeholder.stemDamage = @"--";
-    self.sloughingBarkControl.selectedSegmentIndex = 1;
+    self.sloughingBarkControl.selectedSegmentIndex = -1;
     self.placeholder.sloughingBark = @"--";
-    self.cankersControl.selectedSegmentIndex = 1;
+    self.cankersControl.selectedSegmentIndex = -1;
     self.placeholder.cankers = @"--";
-    self.conksMushroomsControl.selectedSegmentIndex = 1;
+    self.conksMushroomsControl.selectedSegmentIndex = -1;
     self.placeholder.conksMushrooms = @"--";
-    self.treeLeanControl.selectedSegmentIndex = 1;
+    self.treeLeanControl.selectedSegmentIndex = -1;
     self.placeholder.treeLean = @"--";
-    self.rootInspectionControl.selectedSegmentIndex = 1;
+    self.rootInspectionControl.selectedSegmentIndex = -1;
     self.placeholder.rootInspection = @"--";
 }
 
@@ -69,6 +72,7 @@
         result = @"Safe";
     }
     else if(control.selectedSegmentIndex == 1){
+        control.selectedSegmentIndex = -1;
         result = @"-";
     }
     else if(control.selectedSegmentIndex == 2){
@@ -127,6 +131,15 @@
     self.tree.rootInspection = self.placeholder.rootInspection;
 }
 
+-(BOOL)setDangerous{
+    for (UISegmentedControl *control in self.allSegmentedControls) {
+        if (control.selectedSegmentIndex == 2) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
     [self saveLOD23];
@@ -137,6 +150,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
+        if ([self setDangerous]) {
+            [[segue destinationViewController] setIsDangerousSet:YES];
+        }
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];
     }

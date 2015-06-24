@@ -25,15 +25,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)viewExistingSite:(id)sender {
+- (IBAction)goToDataList:(id)sender {
     [self.tabBarController setSelectedIndex:1];
 }
 
 - (IBAction)startNewSite:(id)sender {
-    
-    UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
-    SiteInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"SiteInformation"];
-    [self showViewController:destination sender:self];
+    [self.tabBarController setSelectedIndex:3];
+//    UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
+//    SiteInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"SiteInformation"];
+//    [self showViewController:destination sender:self];
 }
 
 

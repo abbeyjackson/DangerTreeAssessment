@@ -10,6 +10,8 @@
 #import "Site.h"
 #import "TreeInfoViewController.h"
 #import "Fuel.h"
+#import "UIColor+CustomColours.h"
+#import "SiteReviewViewController.h"
 
 @interface SiteInfoViewController ()
 
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *activityField;
 
 @property (strong, nonatomic) NSDateFormatter *dateFormat;
+@property (strong, nonatomic) NSDateFormatter *reportDateFormat;
 @property (strong, nonatomic) NSString *dtaID;
 
 @end
@@ -30,18 +33,121 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureTextFields];
-    self.dateFormat = [[NSDateFormatter alloc] init];
-    [self.dateFormat setDateFormat:@"yyMMdd"];
+    [self configureDateFormats];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    self.navigationController.navigationItem.hidesBackButton = YES;
+-(void)configureDateFormats{
+    
+    self.dateFormat = [[NSDateFormatter alloc] init];
+    [self.dateFormat setDateFormat:@"yyMMdd"];
+    
+    
+    self.reportDateFormat = [[NSDateFormatter alloc] init];
+    [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
 }
+
+//-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+//    
+//}
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
+    if (self.treeStarted) {
+        [self alertIfTreeExistsAndIsComplete];
+        [self configureTextFields];
+    }
+    if (!self.isNewSite || !self.site) {
+        [self checkIfSiteIsOpen];
+        [self configureTextFields];
+    }
+    if (!self.site && self.isNewSite){
+        [self configureTextFields];
+    }
 }
+
+
+-(void)alertIfTreeExistsAndIsComplete{
+        UIAlertView *openTreeAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Last tree report not complete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
+        openTreeAlert.tag = 0;
+        [openTreeAlert show];
+}
+
+-(void)checkIfSiteIsOpen{
+    if (self.site){
+        if (self.site.isReportComplete) {
+            self.isNewSite = YES;
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"Go To Current Tree" otherButtonTitles:@"Submit Site Report", @"View Site List", nil];
+            alert.tag = 1;
+            [alert show];
+        }
+    }
+    else {
+        RLMResults *results = [Site allObjects];
+        
+        if (results.count > 0) {
+            Site *mostRecentSite = [results lastObject];
+            if (mostRecentSite) {
+                if (mostRecentSite.isReportComplete) {
+                    self.isNewSite = YES;
+                }
+                else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"Go To Current Tree" otherButtonTitles:@"Submit Site Report", @"View Site List", nil];
+                    alert.tag = 1;
+                    [alert show];
+                }
+            }
+        }
+        else {
+            self.isNewSite = YES;
+        }
+
+        
+        
+        
+//        if (!self.treeStarted && self.isNewSite){
+//            UIAlertView *openSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Can't make new site, your current site is open" delegate:self cancelButtonTitle:@"Submit Site Report" otherButtonTitles:@"Make New Tree", nil];
+//            openSiteAlert.tag = 2;
+//            [openSiteAlert show];
+//        }
+        
+        
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 0){
+        if (buttonIndex == 0) {
+            // dismiss alert
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+    }
+    else if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:3];
+        }
+        if (buttonIndex == 2) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+    }
+    if (alertView.tag == 2){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:3];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+    }
+}
+
+
+
 
 -(void)configureTextFields{
     self.locationField.delegate = self;
@@ -119,21 +225,51 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
-    TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
-    Site *site = [self createSite];
-    [destination setSite:site];
-    [self showViewController:destination sender:self];
+    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
+    self.site = [[Site alloc]init];
+    self.site = [self createSite];
+    TreeInfoViewController *destination = vc.viewControllers.firstObject;
+    [destination setSite:self.site];
+    [self.tabBarController setSelectedIndex:2];
+    
+    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
+    [siteReview setSite:self.site];
+    
 }
 
--(NSString*)setSiteID{
+-(void)makeDtaID{
+    NSString *firstString = [[self.dtaNameField.text substringWithRange:NSMakeRange(0, 3)]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *secondString = [[self.dtaNameField.text substringFromIndex: [self.dtaNameField.text length]- 3]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    self.dtaID = [[NSString stringWithFormat:@"%@%@", firstString, secondString ] uppercaseString];
+}
+
+-(int)setSiteNumberForArray{
+    RLMResults *results = [Site allObjects];
+    int number;
+    if (results.count > 0){
+        Site *site = [results lastObject];
+        number = site.numberForArray + 1;
+        return number;
+    }
+    else {
+        return 1;
+    }
+}
+
+-(NSString*)setSiteId{
     
     NSString *dateString = [self.dateFormat stringFromDate:[NSDate date]];
-    self.dtaID = [[NSString stringWithFormat:@"%@%@", [self.dtaNameField.text substringWithRange:NSMakeRange(0, 3)] , [self.dtaNameField.text substringFromIndex: [self.dtaNameField.text length]- 3]] uppercaseString];
+
+    [self makeDtaID];
+    
     NSString *newSiteID = [NSString stringWithFormat:@"%@%@01", dateString, self.dtaID];
+    
     NSString *currentDateAndDtaID = [NSString stringWithFormat:@"%@%@",dateString, self.dtaID];
     
     RLMResults *results = [Site allObjects];
+    
     
     if (results.count > 0) {
         Site *site = [results lastObject];
@@ -181,25 +317,26 @@
 }
 
 -(Site*)createSite{
-    Site *site = [[Site alloc] init];
-    site.fireNumber = self.fireNumberField.text;
-    site.dtaName = self.dtaNameField.text;
-    site.dtaUnit = self.dtaUnitField.text;
-    site.fuel = [self.fuelField.text substringToIndex:3];
-    site.location = self.locationField.text;
-    site.bui = self.buiField.text;
-    site.lod = self.lodField.text;
-    site.activity = self.activityField.text;
-    site.siteID = [self setSiteID];
-    site.formattedDtaID = self.dtaID;
+    self.site.fireNumber = self.fireNumberField.text;
+    self.site.dtaName = self.dtaNameField.text;
+    self.site.dtaUnit = self.dtaUnitField.text;
+    self.site.fuel = [self.fuelField.text substringToIndex:3];
+    self.site.location = self.locationField.text;
+    self.site.bui = self.buiField.text;
+    self.site.lod = self.lodField.text;
+    self.site.activity = self.activityField.text;
+    self.site.siteID = [self setSiteId];
+    self.site.formattedDtaID = self.dtaID;
+    self.site.reportDate = [self.reportDateFormat stringFromDate:[NSDate date]];
+    self.site.numberForArray = [self setSiteNumberForArray];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
-    [realm addObject:site];
+    [realm addObject:self.site];
     [realm commitWriteTransaction];
     
-    return site;
+    return self.site;
 }
 
 

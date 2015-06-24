@@ -9,6 +9,7 @@
 #import "TreeLOD4ViewController.h"
 #import "Tree.h"
 #import "Site.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeLOD4ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *ratingField;
@@ -19,21 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureTextFields];
 }
 
--(void)configureTextFields{
-    [self textFieldShouldBeginEditing:self.ratingField.text];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return NO;
-}
 - (IBAction)ratingActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self

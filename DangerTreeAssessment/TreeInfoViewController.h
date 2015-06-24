@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "TreeClassCollectionViewController.h"
 #import "TreeSpeciesCollectionViewController.h"
+#import <CoreLocation/CoreLocation.h>
 @class Tree;
 @class Site;
 
 
-@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate, UIActionSheetDelegate>
+@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate, UIActionSheetDelegate,CLLocationManagerDelegate>
 
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Tree *tree;
 
+-(void)resetTree;
 
 @end

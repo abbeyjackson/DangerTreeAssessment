@@ -13,6 +13,7 @@
 #import "TreeInfoViewController.h"
 #import "Site.h"
 #import "SiteInfoViewController.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeReviewViewController ()
 
@@ -80,14 +81,32 @@
 
 - (IBAction)submitTreeReport:(id)sender {
     [self saveTree];
+    [self closeTreeIsOpen];
     [self submitReportAlert];
 }
+
+-(void)closeTreeIsOpen{
+    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
+    [siteReview setTreeStarted:NO];
+    
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setTreeStarted:NO];
+}
+
+//-(void)clearTreeFromTreeInfoViewController{
+//    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+//    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+//    [siteInfo setTreeStarted:NO];
+//}
 
 -(void)saveTree{
     RLMRealm *realm = self.site.realm;
     
     [realm beginWriteTransaction];
     [realm addObject:self.tree];
+    self.tree.isComplete = YES;
     [self.site.trees addObject:self.tree];
     [realm commitWriteTransaction];
 }
@@ -95,7 +114,6 @@
 
 -(void)submitReportAlert{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tree Report Complete" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"New Tree", @"Submit Report", nil];
-    // optional - add more buttons:
     [alert show];
 }
 
@@ -104,10 +122,12 @@
         // dismiss alert
     }
     if (buttonIndex == 1) {
-        UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
-        TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
+        TreeInfoViewController *destination = vc.viewControllers.firstObject;
+        [destination resetTree];
         [destination setSite:self.site];
-        [self showViewController:destination sender:self];
+        [self.tabBarController setSelectedIndex:2];
+        [self.navigationController popToRootViewControllerAnimated:NO];
     }
     if (buttonIndex == 2) {
         [self performSegueWithIdentifier:@"showSiteReview" sender:self];
@@ -125,6 +145,8 @@
         self.scrollView.alwaysBounceVertical=YES;
         self.scrollView.userInteractionEnabled=YES;
         [self.view addSubview:self.scrollView];
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
+        [self.view sendSubviewToBack:self.scrollView];
 
 }
 
@@ -169,7 +191,7 @@
     treeClassPlaceholder.text = @"Tree Class";
     treeClassPlaceholder.font = [UIFont systemFontOfSize:10];
     [self.scrollView addSubview:treeClassPlaceholder];
-
+    
     self.treeClassLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 170, 200, 50)];
     self.treeClassLabel.text = self.tree.treeClass;
     self.treeClassLabel.font = [UIFont systemFontOfSize:20];
@@ -184,8 +206,8 @@
     self.wildlifeValueLabel.text = self.tree.wildLifeValue;
     self.wildlifeValueLabel.font = [UIFont systemFontOfSize:20];
     [self.scrollView addSubview:self.wildlifeValueLabel];
-
-
+    
+    
     if ([self.tree.site.lod isEqualToString:kLODType1]){
         
         UILabel *insecurePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 20)];
@@ -226,7 +248,7 @@
         hazardousPlaceholder.text = @"Hazardous Top";
         hazardousPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:hazardousPlaceholder];
-
+        
         self.hazardousTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 50)];
         self.hazardousTopLabel.text = self.tree.hazardousTop;
         self.hazardousTopLabel.font = [UIFont systemFontOfSize:20];
@@ -376,10 +398,9 @@
     self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
     self.commentsLabel.translatesAutoresizingMaskIntoConstraints = NO;
-
+    
     
 }
-
 #pragma mark - Constraints
 
 -(void)updateLabelContraints{

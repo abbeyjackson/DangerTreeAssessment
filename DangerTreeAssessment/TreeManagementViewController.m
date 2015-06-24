@@ -11,6 +11,7 @@
 #import "Tree.h"
 #import "Site.h"
 #import "Placeholder.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
@@ -29,9 +30,14 @@
 }
 
 -(void)setupSegmentedControls{
-    self.safeDangerousControl.selectedSegmentIndex = 0;
+    if (self.isDangerousSet) {
+        self.safeDangerousControl.selectedSegmentIndex = 1;
+    }
+    else {
+        self.safeDangerousControl.selectedSegmentIndex = 0;
+    }
 }
-    
+
 -(void)configureTextFields{
     self.commentsTextView.delegate = self;
 }
@@ -47,7 +53,7 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     [UIView animateWithDuration:0.2 animations:^{
             CGRect frameUp = self.view.frame;
-            frameUp.origin.y -=240;
+            frameUp.origin.y -=140;
             self.view.frame = frameUp;
     }];
 }
@@ -69,18 +75,12 @@
     self.commentsTextView.clipsToBounds = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
-        // Safe
         self.placeholder.isDangerous = NO;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
-        // Dangerous
         self.placeholder.isDangerous = YES;
     }
     else {
@@ -118,22 +118,22 @@
 -(void)saveTreeMgt{
     self.tree.isDangerous = self.placeholder.isDangerous;
     self.tree.management = self.managementField.text;
-    self.tree.comments = self.commentsTextView.text;}
+    self.tree.comments = self.commentsTextView.text;
+}
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
-    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
-    TreeReviewViewController *destination = [navigationController.viewControllers firstObject];
-    [destination setTree:self.tree];
-    [destination setSite:self.site];
-
-    [self showViewController:navigationController sender:self];
+   
+    [self performSegueWithIdentifier:@"showTreeReview" sender:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
+        [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
+    }
 }
 
 @end

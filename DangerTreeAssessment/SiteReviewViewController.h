@@ -10,12 +10,11 @@
 @class Tree;
 @class Site;
 
-
 @interface SiteReviewViewController : UIViewController
 
-@property (nonatomic,strong) Tree *tree;
-@property (nonatomic, strong) Site *site;
-
-
+@property (nonatomic) Tree *tree;
+@property (nonatomic) Site *site;
+@property (nonatomic) BOOL shouldSubmitReport;
+@property (nonatomic) BOOL treeStarted;
 
 @end

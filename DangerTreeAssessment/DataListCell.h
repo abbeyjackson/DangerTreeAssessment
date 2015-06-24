@@ -1,5 +1,5 @@
 //
-//  DataTableViewController.h
+//  DataListCell.h
 //  DangerTreeAssessment
 //
 //  Created by Abegael Jackson on 2015-06-16.
@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Site.h"
+@class Site;
 
-@interface DataTableViewController : UITableViewController
+@interface DataListCell : UITableViewCell
 
-@property (nonatomic, strong) RLMResults *sitesArray;
+@property (nonatomic, strong) Site *object;
+@property (weak, nonatomic) IBOutlet UILabel *reportNotCompleteStar;
 
 @end

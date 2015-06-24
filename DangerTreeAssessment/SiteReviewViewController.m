@@ -8,7 +8,7 @@
 
 #import "SiteReviewViewController.h"
 #import "SiteInfoViewController.h"
-
+#import "UIColor+CustomColours.h"
 #import "Site.h"
 
 @interface SiteReviewViewController ()
@@ -28,39 +28,88 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self displayLabels];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)displayLabels{
-    RLMResults *results = [Site allObjects];
-//    NSLog(@"All objects in Realm are:%@", results);
-
-    Site *site = [results lastObject];
-//    NSLog(@"FireNumber: %@", site.fireNumber);
     
-    self.fireNumberLabel.text = site.fireNumber;
-    self.dtaNameLabel.text = site.dtaName;
-    self.unitLabel.text = site.fuel;
-    self.locationLabel.text = site.location;
-    self.buiLabel.text = site.bui;
-    self.lodLabel.text = site.lod;
-    self.activityLabel.text = site.activity;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewWillAppear:(BOOL)animated{
+    [self checkIfSiteExistsAndIsComplete];
 }
-*/
+
+- (IBAction)submitReport:(id)sender {
+    [self checkIfTreeExistsAndIsComplete];
+}
+
+-(void)resetSite{
+    
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    Site *site = [[Site alloc]init];
+    [siteInfo setSite:site];
+}
+
+-(void)checkIfSiteExistsAndIsComplete{
+    
+    if (self.site == nil) {
+        RLMResults *results = [Site allObjects];
+        Site *mostRecentSite = [results lastObject];
+        if (mostRecentSite) {
+            if (!mostRecentSite.isReportComplete) {
+                self.site = mostRecentSite;
+            }
+            else{
+                UIAlertView *noSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"No current site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
+                noSiteAlert.tag = 0;
+                [noSiteAlert show];
+            }
+        }
+    }
+    
+    [self configureLabels];
+}
+
+-(void)checkIfTreeExistsAndIsComplete{
+    if (self.tree || self.treeStarted) {
+        if (!self.tree.isComplete) {
+            UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Last tree report not complete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
+            noTreeAlert.tag = 1;
+            [noTreeAlert show];
+        }
+    }
+    RLMRealm *realm = self.site.realm;
+    [realm beginWriteTransaction];
+    self.site.isReportComplete = YES;
+    [realm commitWriteTransaction];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 0) {
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:1];
+        }
+    }
+    else if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            // dismiss alert
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+    }
+}
+
+
+- (void)configureLabels{
+    self.fireNumberLabel.text = self.site.fireNumber;
+    self.dtaNameLabel.text = self.site.dtaName;
+    self.unitLabel.text = self.site.fuel;
+    self.locationLabel.text = self.site.location;
+    self.buiLabel.text = self.site.bui;
+    self.lodLabel.text = self.site.lod;
+    self.activityLabel.text = self.site.activity;
+}
+
 
 @end
