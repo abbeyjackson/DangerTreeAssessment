@@ -159,6 +159,7 @@
     self.latitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 120, 200, 20)];
     self.latitudePlaceholder.text = @"Latitude";
     self.latitudePlaceholder.font = [UIFont systemFontOfSize:10];
+    self.latitudePlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:self.latitudePlaceholder];
     self.latitudePlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -170,6 +171,7 @@
     UILabel *longitudePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 110, 200, 20)];
     longitudePlaceholder.text = @"Longitude";
     longitudePlaceholder.font = [UIFont systemFontOfSize:10];
+    longitudePlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:longitudePlaceholder];
     
     self.longitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 110, 200, 50)];
@@ -180,6 +182,7 @@
     UILabel *speciesPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 140, 200, 20)];
     speciesPlaceholder.text = @"Species";
     speciesPlaceholder.font = [UIFont systemFontOfSize:10];
+    speciesPlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:speciesPlaceholder];
     
     self.speciesLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 140, 200, 50)];
@@ -190,6 +193,7 @@
     UILabel *treeClassPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 170, 200, 20)];
     treeClassPlaceholder.text = @"Tree Class";
     treeClassPlaceholder.font = [UIFont systemFontOfSize:10];
+    treeClassPlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:treeClassPlaceholder];
     
     self.treeClassLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 170, 200, 50)];
@@ -200,6 +204,7 @@
     UILabel *wildLifePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 200, 200, 20)];
     wildLifePlaceholder.text = @"Wildlife Value";
     wildLifePlaceholder.font = [UIFont systemFontOfSize:10];
+    wildLifePlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:wildLifePlaceholder];
     
     self.wildlifeValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 200, 200, 50)];
@@ -213,6 +218,7 @@
         UILabel *insecurePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 20)];
         insecurePlaceholder.text = @"Insecure";
         insecurePlaceholder.font = [UIFont systemFontOfSize:10];
+        insecurePlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:insecurePlaceholder];
         
         self.insecureLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 50)];
@@ -223,6 +229,7 @@
         UILabel *unstablePlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 260, 200, 20)];
         unstablePlaceholder.text = @"Unstable";
         unstablePlaceholder.font = [UIFont systemFontOfSize:10];
+        unstablePlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:unstablePlaceholder];
         
         self.unstableLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 260, 200, 50)];
@@ -233,6 +240,7 @@
         UILabel *leaningPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 290, 200, 20)];
         leaningPlaceholder.text = @"Leaning";
         leaningPlaceholder.font = [UIFont systemFontOfSize:10];
+        leaningPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:leaningPlaceholder];
         
         self.leaningLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 290, 200, 50)];
@@ -247,6 +255,7 @@
         UILabel *hazardousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 20)];
         hazardousPlaceholder.text = @"Hazardous Top";
         hazardousPlaceholder.font = [UIFont systemFontOfSize:10];
+        hazardousPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:hazardousPlaceholder];
         
         self.hazardousTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 50)];
@@ -257,6 +266,7 @@
         UILabel *deadLimbsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 260, 200, 20)];
         deadLimbsPlaceholder.text = @"Dead Limbs";
         deadLimbsPlaceholder.font = [UIFont systemFontOfSize:10];
+        deadLimbsPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:deadLimbsPlaceholder];
         
         self.deadLimbsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 260, 200, 50)];
@@ -267,6 +277,7 @@
         UILabel *witchesPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 290, 200, 20)];
         witchesPlaceholder.text = @"Witches Broom";
         witchesPlaceholder.font = [UIFont systemFontOfSize:10];
+        witchesPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:witchesPlaceholder];
         
         self.witchesBroomLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 290, 200, 50)];
@@ -277,6 +288,7 @@
         UILabel *splitPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 320, 200, 20)];
         splitPlaceholder.text = @"Split Trunk";
         splitPlaceholder.font = [UIFont systemFontOfSize:10];
+        splitPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:splitPlaceholder];
         
         self.splitTrunkLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 320, 200, 50)];
@@ -287,6 +299,7 @@
         UILabel *stemPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 350, 200, 20)];
         stemPlaceholder.text = @"Stem Damage";
         stemPlaceholder.font = [UIFont systemFontOfSize:10];
+        stemPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:stemPlaceholder];
         
         self.stemDamageLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 350, 200, 50)];
@@ -297,6 +310,7 @@
         UILabel *sloughingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 380, 200, 20)];
         sloughingPlaceholder.text = @"Sloughing Bark";
         sloughingPlaceholder.font = [UIFont systemFontOfSize:10];
+        sloughingPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:sloughingPlaceholder];
         
         self.sloughingBarkLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 380, 200, 50)];
@@ -307,6 +321,7 @@
         UILabel *cankersPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 410, 200, 20)];
         cankersPlaceholder.text = @"Cankers";
         cankersPlaceholder.font = [UIFont systemFontOfSize:10];
+        cankersPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:cankersPlaceholder];
         
         self.cankersLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 410, 200, 50)];
@@ -317,6 +332,7 @@
         UILabel *conksPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 440, 200, 20)];
         conksPlaceholder.text = @"Conks Mushrooms";
         conksPlaceholder.font = [UIFont systemFontOfSize:10];
+        conksPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:conksPlaceholder];
         
         self.conksMushroomsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 440, 200, 50)];
@@ -327,6 +343,7 @@
         UILabel *treeLeanPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 470, 200, 20)];
         treeLeanPlaceholder.text = @"Tree Lean";
         treeLeanPlaceholder.font = [UIFont systemFontOfSize:10];
+        treeLeanPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:treeLeanPlaceholder];
         
         self.treeLeanLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 470, 200, 50)];
@@ -337,6 +354,7 @@
         UILabel *rootPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 500, 200, 20)];
         rootPlaceholder.text = @"Root Inspection";
         rootPlaceholder.font = [UIFont systemFontOfSize:10];
+        rootPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:rootPlaceholder];
         
         self.rootInspectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 500, 200, 50)];
@@ -349,6 +367,7 @@
         UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 20)];
         ratingPlaceholder.text = @"Rating";
         ratingPlaceholder.font = [UIFont systemFontOfSize:10];
+        ratingPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:ratingPlaceholder];
         
         self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 50)];
@@ -361,6 +380,7 @@
     self.isDangerousPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 20)];
     self.isDangerousPlaceholder.text = @"Is Dangerous";
     self.isDangerousPlaceholder.font = [UIFont systemFontOfSize:10];
+    self.isDangerousPlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:self.isDangerousPlaceholder];
     self.isDangerousPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -377,6 +397,7 @@
     self.managementPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 20)];
     self.managementPlaceholder.text = @"Management";
     self.managementPlaceholder.font = [UIFont systemFontOfSize:10];
+    self.managementPlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:self.managementPlaceholder];
     self.managementPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -389,12 +410,14 @@
     self.commentsPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 630, 200, 20)];
     self.commentsPlaceholder.text = @"Comments";
     self.commentsPlaceholder.font = [UIFont systemFontOfSize:10];
+    self.commentsPlaceholder.textColor = [UIColor redColor];
     [self.scrollView addSubview:self.commentsPlaceholder];
     self.commentsPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 632, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
     self.commentsLabel.numberOfLines = 0;
+    self.commentsLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
     self.commentsLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -552,6 +575,15 @@
                                         attribute:NSLayoutAttributeTrailing
                                         multiplier:1.0
                                         constant:-35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeWidth
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                        attribute:NSLayoutAttributeNotAnAttribute
+                                        multiplier:1.0
+                                        constant:300]];
         // last item constraint
         
         [self.scrollView addConstraint:[NSLayoutConstraint
@@ -869,6 +901,16 @@
                                         attribute:NSLayoutAttributeTrailing
                                         multiplier:1.0
                                         constant:-35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeWidth
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                        attribute:NSLayoutAttributeNotAnAttribute
+                                        multiplier:1.0
+                                        constant:300]];
+        
         // last item constraint
         
         [self.scrollView addConstraint:[NSLayoutConstraint
