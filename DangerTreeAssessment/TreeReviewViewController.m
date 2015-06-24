@@ -118,8 +118,9 @@
 #pragma mark - Scroll View
 
 -(void)createScrollView{
-        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 75)];
+        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60)];
         self.scrollView.showsVerticalScrollIndicator=YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.alwaysBounceVertical=YES;
         self.scrollView.userInteractionEnabled=YES;
@@ -320,7 +321,6 @@
         self.rootInspectionLabel.text = self.tree.rootInspection;
         self.rootInspectionLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.rootInspectionLabel];
-
         
     }else if ([self.tree.site.lod isEqualToString:kLODType4]){
         
@@ -403,16 +403,6 @@
                                     attribute:NSLayoutAttributeLeading
                                     multiplier:1.0
                                     constant:35]];
-    
-    [self.scrollView addConstraint:[NSLayoutConstraint
-                                    constraintWithItem:self.commentsLabel
-                                    attribute:NSLayoutAttributeBottom
-                                    relatedBy:NSLayoutRelationEqual
-                                    toItem:self.scrollView
-                                    attribute:NSLayoutAttributeBottom
-                                    multiplier:1.0
-                                    constant:50]];
-    
     
     if ([self.tree.site.lod isEqualToString:kLODType1]){
         
@@ -541,6 +531,16 @@
                                         attribute:NSLayoutAttributeTrailing
                                         multiplier:1.0
                                         constant:-35]];
+        // last item constraint
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:50]];
         
     }else if ([self.tree.site.lod isEqualToString:kLODType23]){
         
@@ -678,6 +678,47 @@
                                         attribute:NSLayoutAttributeNotAnAttribute
                                         multiplier:1.0
                                         constant:320]];
+        // last item constraint
+        
+        UILabel *placeholder = [[UILabel alloc] initWithFrame:CGRectMake(35, self.view.frame.size.height + 50, 200, 200)];
+        [self.scrollView addSubview:placeholder];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:placeholder
+                                        attribute:NSLayoutAttributeBottom
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:200]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:placeholder
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0
+                                        constant:35]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:placeholder
+                                        attribute:NSLayoutAttributeWidth
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                        attribute:NSLayoutAttributeNotAnAttribute
+                                        multiplier:1.0
+                                        constant:50]];
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:placeholder
+                                        attribute:NSLayoutAttributeHeight
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                        attribute:NSLayoutAttributeNotAnAttribute
+                                        multiplier:1.0
+                                        constant:200]];
+
         
         
     }else if ([self.tree.site.lod isEqualToString:kLODType4]){
@@ -807,6 +848,17 @@
                                         attribute:NSLayoutAttributeTrailing
                                         multiplier:1.0
                                         constant:-35]];
+        // last item constraint
+        
+        [self.scrollView addConstraint:[NSLayoutConstraint
+                                        constraintWithItem:self.commentsLabel
+                                        attribute:NSLayoutAttributeBottom
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:self.scrollView
+                                        attribute:NSLayoutAttributeBottom
+                                        multiplier:1.0
+                                        constant:50]];
+        
     }
 }
 
