@@ -26,6 +26,7 @@
     [super viewDidLoad];
     [self configureTextFields];
     [self setupSegmentedControls];
+    [self configureCommentBox];
     self.placeholder = [[Placeholder alloc]init];
 }
 
