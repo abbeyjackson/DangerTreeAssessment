@@ -77,6 +77,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="iS1-LH-mzN">
+                            <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forest-fire" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-ou-uhH">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="OeM-ou-uhH" secondAttribute="bottom" id="GYP-uU-gQz"/>
+                                <constraint firstItem="OeM-ou-uhH" firstAttribute="top" secondItem="iS1-LH-mzN" secondAttribute="top" id="WW9-Sm-FYR"/>
+                                <constraint firstItem="OeM-ou-uhH" firstAttribute="leading" secondItem="iS1-LH-mzN" secondAttribute="leading" id="uwq-l8-D9r"/>
+                                <constraint firstAttribute="trailing" secondItem="OeM-ou-uhH" secondAttribute="trailing" id="yLa-HD-LSf"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="O0o-rT-nkF" customClass="DataListCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -202,11 +218,13 @@
             </objects>
             <point key="canvasLocation" x="3116" y="-2202"/>
         </scene>
-        <!--Site List-->
+        <!--Navigation Controller-->
         <scene sceneID="4qz-zx-R18">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1xV-9n-HLY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Site List" image="first" id="AYt-HL-KvR"/>
+                    <tabBarItem key="tabBarItem" title="" image="List-32" id="AYt-HL-KvR">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tol-gs-hfm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -221,7 +239,7 @@
             </objects>
             <point key="canvasLocation" x="1684" y="-1366"/>
         </scene>
-        <!--Site Information-->
+        <!--Start New Site-->
         <scene sceneID="jA4-W7-Fzm">
             <objects>
                 <viewController storyboardIdentifier="SiteInformation" id="XfO-oH-hse" customClass="SiteInfoViewController" sceneMemberID="viewController">
@@ -345,6 +363,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Save Site and Add Tree">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -458,7 +477,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Site Information" id="yXB-dp-u4Y"/>
+                    <navigationItem key="navigationItem" title="Start New Site" id="yXB-dp-u4Y"/>
                     <connections>
                         <outlet property="activityField" destination="PpQ-fR-kCb" id="tr4-hh-Gr7"/>
                         <outlet property="buiField" destination="DZo-Qo-mwC" id="ABu-qq-hoN"/>
@@ -576,7 +595,8 @@
                                     <constraint firstAttribute="width" constant="175" id="NPl-yR-cjb"/>
                                     <constraint firstAttribute="height" constant="40" id="k3g-TH-n6y"/>
                                 </constraints>
-                                <state key="normal" title="Save Tree Assessment">
+                                <state key="normal" title="Go To Management">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -694,6 +714,7 @@
                                     <constraint firstAttribute="width" constant="175" id="q61-ze-MYA"/>
                                 </constraints>
                                 <state key="normal" title="Make Tree Report">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -908,7 +929,8 @@
                                     <constraint firstAttribute="width" constant="175" id="lLm-Ra-9v7"/>
                                     <constraint firstAttribute="height" constant="40" id="z6s-Do-MhT"/>
                                 </constraints>
-                                <state key="normal" title="Save Tree Assessment">
+                                <state key="normal" title="Go To Management">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1043,6 +1065,9 @@
                         <outlet property="insecureControl" destination="T5F-XB-4On" id="oBL-IB-Fkd"/>
                         <outlet property="leaningControl" destination="e0X-2B-oIB" id="QPI-Tt-kBg"/>
                         <outlet property="unstableControl" destination="v04-tK-Fae" id="v8Q-ZE-2mK"/>
+                        <outletCollection property="allSegmentedControls" destination="e0X-2B-oIB" id="1dQ-q8-431"/>
+                        <outletCollection property="allSegmentedControls" destination="v04-tK-Fae" id="6vl-Pa-wXf"/>
+                        <outletCollection property="allSegmentedControls" destination="T5F-XB-4On" id="t1x-TN-z5P"/>
                         <segue destination="h7Y-Tr-tew" kind="show" identifier="showTreeMgt" id="itN-vF-kmg"/>
                     </connections>
                 </viewController>
@@ -1205,7 +1230,8 @@
                                     <constraint firstAttribute="width" constant="175" id="XDt-NB-Y8g"/>
                                     <constraint firstAttribute="height" constant="40" id="pYB-vx-Htj"/>
                                 </constraints>
-                                <state key="normal" title="Save Tree Assessment">
+                                <state key="normal" title="Go To Management">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1528,6 +1554,16 @@
                         <outlet property="stemDamageControl" destination="j7o-Hg-8FN" id="UzO-0N-ltG"/>
                         <outlet property="treeLeanControl" destination="jd0-8G-ZVY" id="vtk-2t-BG0"/>
                         <outlet property="witchesBroomControl" destination="Gsu-Lw-zbW" id="PeS-Sk-gSd"/>
+                        <outletCollection property="allSegmentedControls" destination="g1c-xS-0Fd" id="zql-1X-c33"/>
+                        <outletCollection property="allSegmentedControls" destination="vYI-DG-t2b" id="mkK-rY-cx3"/>
+                        <outletCollection property="allSegmentedControls" destination="Gsu-Lw-zbW" id="wXa-JI-m7c"/>
+                        <outletCollection property="allSegmentedControls" destination="F0a-eh-U3e" id="59C-ow-92V"/>
+                        <outletCollection property="allSegmentedControls" destination="j7o-Hg-8FN" id="Qm3-ed-wQ6"/>
+                        <outletCollection property="allSegmentedControls" destination="a8a-mK-awd" id="NEh-IA-tpy"/>
+                        <outletCollection property="allSegmentedControls" destination="tQM-az-Yuw" id="6oT-wy-KYt"/>
+                        <outletCollection property="allSegmentedControls" destination="uFD-9y-3ut" id="7rs-t1-aeE"/>
+                        <outletCollection property="allSegmentedControls" destination="jd0-8G-ZVY" id="IKV-vl-gEH"/>
+                        <outletCollection property="allSegmentedControls" destination="6P8-xJ-KyF" id="Qf0-Hw-1sI"/>
                         <segue destination="h7Y-Tr-tew" kind="show" identifier="showTreeMgt" id="K2J-mq-3RE"/>
                     </connections>
                 </viewController>
@@ -1535,7 +1571,7 @@
             </objects>
             <point key="canvasLocation" x="4340" y="-278"/>
         </scene>
-        <!--Tree Information-->
+        <!--Add New Tree-->
         <scene sceneID="EvM-NB-c3D">
             <objects>
                 <viewController storyboardIdentifier="TreeInformation" id="5nM-QV-4Dp" customClass="TreeInfoViewController" sceneMemberID="viewController">
@@ -1622,7 +1658,8 @@
                                     <constraint firstAttribute="width" constant="175" id="axf-s3-jUu"/>
                                     <constraint firstAttribute="height" constant="40" id="l6L-gj-amD"/>
                                 </constraints>
-                                <state key="normal" title="Save New Tree">
+                                <state key="normal" title="Go To Assessment">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1737,7 +1774,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Tree Information" id="62G-Er-PKF"/>
+                    <navigationItem key="navigationItem" title="Add New Tree" id="62G-Er-PKF"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="classField" destination="OR0-md-BJj" id="uAj-ej-hJG"/>
@@ -1904,11 +1941,13 @@
             </objects>
             <point key="canvasLocation" x="5372" y="-1242"/>
         </scene>
-        <!--Current Tree-->
+        <!--Navigation Controller-->
         <scene sceneID="1pU-Yf-0Ql">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gu9-Bw-o7a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Current Tree" image="second" id="XXk-eI-qbY"/>
+                    <tabBarItem key="tabBarItem" title="" image="Tree-32" id="XXk-eI-qbY">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yzr-le-ioX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1923,7 +1962,7 @@
             </objects>
             <point key="canvasLocation" x="3568" y="-1366"/>
         </scene>
-        <!--Tree Review-->
+        <!--Tree Report-->
         <scene sceneID="AmF-pr-bWW">
             <objects>
                 <viewController id="oEO-cr-9CU" customClass="TreeReviewViewController" sceneMemberID="viewController">
@@ -1934,24 +1973,15 @@
                     <view key="view" contentMode="scaleToFill" id="cWy-Jo-ltk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pz3-QH-p0Y">
-                                <rect key="frame" x="517" y="64" width="67" height="30"/>
-                                <state key="normal" title="Save Tree">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitTreeReport:" destination="oEO-cr-9CU" eventType="touchUpInside" id="ruO-jz-lsg"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Pz3-QH-p0Y" firstAttribute="top" secondItem="8Sm-hm-D97" secondAttribute="bottom" id="DTz-EP-Flm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Pz3-QH-p0Y" secondAttribute="trailing" id="hvr-6p-Tll"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tree Review" id="RLq-94-duj"/>
+                    <navigationItem key="navigationItem" title="Tree Report" id="RLq-94-duj">
+                        <barButtonItem key="rightBarButtonItem" title="Save Tree" id="vNp-3r-6Rl">
+                            <connections>
+                                <action selector="submitTreeReport:" destination="oEO-cr-9CU" id="KtQ-B1-7GW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="7cn-K0-WVH" kind="show" identifier="showSiteReview" id="FG5-Yz-b43"/>
                     </connections>
@@ -1960,7 +1990,7 @@
             </objects>
             <point key="canvasLocation" x="4340" y="1420"/>
         </scene>
-        <!--Site Review-->
+        <!--Site Report-->
         <scene sceneID="CC8-u0-tg5">
             <objects>
                 <viewController storyboardIdentifier="SiteReview" id="7cn-K0-WVH" customClass="SiteReviewViewController" sceneMemberID="viewController">
@@ -2068,16 +2098,9 @@
                                 <color key="textColor" red="0.83224826389999995" green="0.0" blue="0.0083653599910000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spo-hP-0ei">
-                                <rect key="frame" x="529" y="72" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="spo-hP-0ei" secondAttribute="trailing" constant="9" id="03b-Cz-CyO"/>
                             <constraint firstItem="kcO-G6-4DW" firstAttribute="leading" secondItem="Es2-Wo-veq" secondAttribute="leading" constant="35" id="2JW-Kj-0tA"/>
                             <constraint firstItem="HOW-Ih-Dcb" firstAttribute="top" secondItem="Igl-8v-4vm" secondAttribute="bottom" constant="17" id="5Hr-Bd-tCW"/>
                             <constraint firstItem="mRT-bu-pkb" firstAttribute="leading" secondItem="Es2-Wo-veq" secondAttribute="leading" constant="35" id="7br-c6-8un"/>
@@ -2109,11 +2132,12 @@
                             <constraint firstItem="K0A-Aq-PAj" firstAttribute="top" secondItem="nqn-cM-U5n" secondAttribute="bottom" constant="17" id="rGk-UE-bZY"/>
                             <constraint firstItem="5j4-Id-Wfp" firstAttribute="top" secondItem="Gru-se-Yrd" secondAttribute="bottom" id="rXe-ND-veO"/>
                             <constraint firstItem="F41-RD-sVO" firstAttribute="top" secondItem="HOW-Ih-Dcb" secondAttribute="bottom" id="sTg-Yn-82h"/>
-                            <constraint firstItem="spo-hP-0ei" firstAttribute="top" secondItem="Qeq-AN-3sq" secondAttribute="bottom" constant="8" id="tHP-n2-cNf"/>
                             <constraint firstItem="kcO-G6-4DW" firstAttribute="top" secondItem="6IW-JP-1am" secondAttribute="bottom" constant="17" id="wbB-2n-g3y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Site Review" id="iYb-Ba-6Ec"/>
+                    <navigationItem key="navigationItem" title="Site Report" id="iYb-Ba-6Ec">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="7X4-PZ-GeT"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityLabel" destination="RQn-0S-d2v" id="Tjf-pc-ECC"/>
                         <outlet property="buiLabel" destination="F41-RD-sVO" id="CoR-o1-9gG"/>
@@ -2129,11 +2153,13 @@
             </objects>
             <point key="canvasLocation" x="2888" y="1446"/>
         </scene>
-        <!--Current Site-->
+        <!--Navigation Controller-->
         <scene sceneID="ZEx-mV-dWw">
             <objects>
                 <navigationController storyboardIdentifier="SiteReviewNC" id="wk6-G9-67l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Current Site" image="first" id="WQu-Vu-ouW"/>
+                    <tabBarItem key="tabBarItem" title="" image="Forest-32" id="WQu-Vu-ouW">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Xr-AH-bBM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2148,9 +2174,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Forest-32" width="32" height="32"/>
+        <image name="List-32" width="32" height="32"/>
+        <image name="Tree-32" width="32" height="32"/>
         <image name="fire2" width="800" height="600"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="forest-fire" width="690" height="273"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="P8m-No-5sT"/>

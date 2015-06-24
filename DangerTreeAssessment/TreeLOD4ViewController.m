@@ -9,6 +9,7 @@
 #import "TreeLOD4ViewController.h"
 #import "Tree.h"
 #import "Site.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeLOD4ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *ratingField;

@@ -11,6 +11,7 @@
 #import "Tree.h"
 #import "Site.h"
 #import "Placeholder.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
@@ -29,9 +30,14 @@
 }
 
 -(void)setupSegmentedControls{
-    self.safeDangerousControl.selectedSegmentIndex = 0;
+    if (self.isDangerousSet) {
+        self.safeDangerousControl.selectedSegmentIndex = 1;
+    }
+    else {
+        self.safeDangerousControl.selectedSegmentIndex = 0;
+    }
 }
-    
+
 -(void)configureTextFields{
     self.commentsTextView.delegate = self;
 }
@@ -122,18 +128,18 @@
 
 - (IBAction)makeTreeReportButton:(id)sender {
     [self saveTreeMgt];
-    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateInitialViewController];
-    TreeReviewViewController *destination = [navigationController.viewControllers firstObject];
-    [destination setTree:self.tree];
-    [destination setSite:self.site];
-
-    [self showViewController:navigationController sender:self];
+   
+    [self performSegueWithIdentifier:@"showTreeReview" sender:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
+        TreeReviewViewController *destination = [[TreeReviewViewController alloc]init];
+        [[segue destinationViewController] setTree:self.tree];
+        [[segue destinationViewController] setSite:self.site];
+    }
 }
 
 @end

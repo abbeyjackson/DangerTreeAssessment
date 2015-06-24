@@ -13,6 +13,7 @@
 #import "TreeInfoViewController.h"
 #import "Site.h"
 #import "SiteInfoViewController.h"
+#import "UIColor+CustomColours.h"
 
 @interface TreeReviewViewController ()
 
@@ -94,10 +95,12 @@
         // dismiss alert
     }
     if (buttonIndex == 1) {
-        UIStoryboard *assessment = [UIStoryboard storyboardWithName:@"Assessment" bundle:nil];
-        TreeInfoViewController *destination = [assessment instantiateViewControllerWithIdentifier:@"TreeInformation"];
+        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
+        TreeInfoViewController *destination = vc.viewControllers.firstObject;
+        [destination resetTree];
         [destination setSite:self.site];
-        [self showViewController:destination sender:self];
+        [self.tabBarController setSelectedIndex:1];
+        [self.navigationController popToRootViewControllerAnimated:NO];
     }
     if (buttonIndex == 2) {
         [self performSegueWithIdentifier:@"showSiteReview" sender:self];

@@ -15,6 +15,8 @@
 #import "Tree.h"
 #import "Site.h"
 #import "SiteInfoViewController.h"
+#import "UIColor+CustomColours.h"
+#import "DataTableViewController.h"
 
 @interface TreeInfoViewController ()
 
@@ -32,21 +34,26 @@
     [super viewDidLoad];
     
     [self configureTextFields];
-    
-    self.tree = [[Tree alloc]init];
+    [self resetTree];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [self checkIfNewTree];
     self.navigationItem.hidesBackButton = YES;
     
-    [self checkIfNewTree];
+}
+
+-(void)resetTree{
+    
+    self.tree = [[Tree alloc]init];
+    
 }
 
 -(void)checkIfNewTree{
     
     if (self.site == nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Start New Site", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
 
         [alert show];
     }
@@ -54,7 +61,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        // dismiss alert
+        [self.tabBarController setSelectedIndex:0];
     }
     if (buttonIndex == 1) {
         UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
@@ -95,6 +102,13 @@
 }
 
 -(void)configureTextFields{
+    
+    self.latitudeField.text = nil;
+    self.longitudeField.text = nil;
+    self.speciesField.text = nil;
+    self.classField.text = nil;
+    self.wildlifeValueField.text = nil;
+    
     [self textFieldShouldBeginEditing:self.speciesField];
     [self textFieldShouldBeginEditing:self.classField];
     [self textFieldShouldBeginEditing:self.wildlifeValueField];

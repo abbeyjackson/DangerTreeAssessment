@@ -1,13 +1,13 @@
 //
-//  SiteWindowController.h
+//  TabBarController.h
 //  DangerTreeAssessment
 //
-//  Created by Abegael Jackson on 2015-06-22.
+//  Created by Abegael Jackson on 2015-06-23.
 //  Copyright (c) 2015 Abbey Jackson & Alain Kahwaji. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SiteWindowController : UIViewController
+@interface TabBarController : UITabBarController
 
 @end
