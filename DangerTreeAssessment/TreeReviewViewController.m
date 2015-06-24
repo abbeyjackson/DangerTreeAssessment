@@ -324,12 +324,12 @@
         
     }else if ([self.tree.site.lod isEqualToString:kLODType4]){
         
-        UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 530, 200, 20)];
+        UILabel *ratingPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 20)];
         ratingPlaceholder.text = @"Rating";
         ratingPlaceholder.font = [UIFont systemFontOfSize:10];
         [self.scrollView addSubview:ratingPlaceholder];
         
-        self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 530, 200, 50)];
+        self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 50)];
         self.ratingLabel.text = self.tree.rating;
         self.ratingLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.ratingLabel];
