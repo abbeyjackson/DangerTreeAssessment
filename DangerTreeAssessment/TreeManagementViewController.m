@@ -75,18 +75,12 @@
     self.commentsTextView.clipsToBounds = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
-        // Safe
         self.placeholder.isDangerous = NO;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
-        // Dangerous
         self.placeholder.isDangerous = YES;
     }
     else {
@@ -137,7 +131,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeReview"]) {
-        TreeReviewViewController *destination = [[TreeReviewViewController alloc]init];
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];
     }

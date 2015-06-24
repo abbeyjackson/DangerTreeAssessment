@@ -20,21 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureTextFields];
 }
 
--(void)configureTextFields{
-    [self textFieldShouldBeginEditing:self.ratingField.text];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return NO;
-}
 - (IBAction)ratingActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self

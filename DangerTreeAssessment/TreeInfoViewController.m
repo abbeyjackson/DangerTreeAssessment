@@ -120,10 +120,7 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
-            UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-            SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
-            [destination performSegueWithIdentifier:@"addSite" sender:self];
-            [self.tabBarController setSelectedIndex:0];
+            [self.tabBarController setSelectedIndex:1];
         } 
     }
     if (alertView.tag == 1) {
@@ -131,9 +128,7 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
-            //        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-            //        SiteReviewViewController *destination = [navigationController.viewControllers firstObject];
-            [self.tabBarController setSelectedIndex:2];
+            [self.tabBarController setSelectedIndex:3];
         }
     }
 }

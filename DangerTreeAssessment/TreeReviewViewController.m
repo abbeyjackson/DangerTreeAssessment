@@ -95,7 +95,7 @@
         // dismiss alert
     }
     if (buttonIndex == 1) {
-        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
+        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
         TreeInfoViewController *destination = vc.viewControllers.firstObject;
         [destination resetTree];
         [destination setSite:self.site];

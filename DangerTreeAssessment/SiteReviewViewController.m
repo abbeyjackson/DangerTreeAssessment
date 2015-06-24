@@ -79,10 +79,7 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
-            UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-            SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
-            [destination performSegueWithIdentifier:@"addSite" sender:self];
-            [self.tabBarController setSelectedIndex:0];
+            [self.tabBarController setSelectedIndex:1];
         }
     }
     else if (alertView.tag == 1){
@@ -90,7 +87,7 @@
             // dismiss alert
         }
         if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:1];
+            [self.tabBarController setSelectedIndex:2];
         }
     }
 }

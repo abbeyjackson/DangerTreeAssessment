@@ -35,17 +35,15 @@
     // Return the number of rows in the section.
     return self.sitesArray.count;
 }
-- (IBAction)addNewSite:(id)sender {
-    UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-    SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
-    [destination performSegueWithIdentifier:@"addSite" sender:self];
-    [self.tabBarController setSelectedIndex:0];
-}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DataListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.object = self.sitesArray[indexPath.row];
+    if (!cell.object.isReportComplete) {
+        cell.reportNotCompleteStar.text = @"★";
+    }
+    else cell.reportNotCompleteStar.text = @"";
     return cell;
 }
 

@@ -47,9 +47,6 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
-//    self.navigationController.navigationItem.hidesBackButton = YES;
-}
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
@@ -88,14 +85,14 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        [self.tabBarController setSelectedIndex:1];
-    }
-    if (buttonIndex == 1) {
-//        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-//        SiteReviewViewController *destination = [navigationController.viewControllers firstObject];
         [self.tabBarController setSelectedIndex:2];
     }
-    
+    if (buttonIndex == 1) {
+        [self.tabBarController setSelectedIndex:3];
+    }
+    if (buttonIndex == 2) {
+        [self.tabBarController setSelectedIndex:0];
+    }
 }
 
 
@@ -177,13 +174,13 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
+    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
     self.site = [self createSite];
     TreeInfoViewController *destination = vc.viewControllers.firstObject;
     [destination setSite:self.site];
-    [self.tabBarController setSelectedIndex:1];
+    [self.tabBarController setSelectedIndex:2];
     
-    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:2];
+    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
     SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
     [siteReview setSite:self.site];
     

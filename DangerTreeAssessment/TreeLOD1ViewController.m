@@ -35,15 +35,11 @@
 
 -(void)setupSegmentedControls{
     
-//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-//    
-//    [[[segmentedControl subviews] objectAtIndex:0] setTintColor:newSelectedTintColor];
-    
-    self.insecureControl.selectedSegmentIndex = 1;
+    self.insecureControl.selectedSegmentIndex = -1;
     self.placeholder.insecure = @"--";
-    self.unstableControl.selectedSegmentIndex = 1;
+    self.unstableControl.selectedSegmentIndex = -1;
     self.placeholder.unstable = @"--";
-    self.leaningControl.selectedSegmentIndex = 1;
+    self.leaningControl.selectedSegmentIndex = -1;
     self.placeholder.leaning = @"--";
 }
 
@@ -54,6 +50,7 @@
         result = @"Safe";
     }
     else if(control.selectedSegmentIndex == 1){
+        control.selectedSegmentIndex = -1;
         result = @"-";
     }
     else if(control.selectedSegmentIndex == 2){
