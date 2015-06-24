@@ -522,7 +522,7 @@
                                         toItem:self.scrollView
                                         attribute:NSLayoutAttributeTop
                                         multiplier:1.0
-                                        constant:120]];
+                                        constant:80]];
         
         [self.scrollView addConstraint:[NSLayoutConstraint
                                         constraintWithItem:self.latitudePlaceholder
