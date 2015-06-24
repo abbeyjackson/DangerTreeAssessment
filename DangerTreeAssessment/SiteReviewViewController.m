@@ -131,13 +131,13 @@
         
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
         
-//        [mailComposer addAttachmentData:[self generateCsvFromInsurentoryData]  mimeType:@"cvs" fileName:[NSString stringWithFormat:@"Insurentory csv"]];
+//        [mailComposer addAttachmentData:[self generateSiteAndTreeDataAsCSV]  mimeType:@"cvs" fileName:[NSString stringWithFormat:@"Insurentory csv"]];
         
         [self presentViewController:mailComposer animated:YES completion:nil];
     }
 }
-
-//- (NSData *)generateCsvFromInsurentoryData {
+//
+//- (NSData *)generateSiteAndTreeDataAsCSV {
 //    
 //    NSOutputStream *outputStream = [[NSOutputStream alloc] initToMemory];
 //    CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
