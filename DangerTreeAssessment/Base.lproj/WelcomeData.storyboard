@@ -1064,6 +1064,8 @@
                         <outlet property="leaningControl" destination="e0X-2B-oIB" id="QPI-Tt-kBg"/>
                         <outlet property="unstableControl" destination="v04-tK-Fae" id="v8Q-ZE-2mK"/>
                         <outletCollection property="allSegmentedControls" destination="e0X-2B-oIB" id="1dQ-q8-431"/>
+                        <outletCollection property="allSegmentedControls" destination="v04-tK-Fae" id="6vl-Pa-wXf"/>
+                        <outletCollection property="allSegmentedControls" destination="T5F-XB-4On" id="t1x-TN-z5P"/>
                         <segue destination="h7Y-Tr-tew" kind="show" identifier="showTreeMgt" id="itN-vF-kmg"/>
                     </connections>
                 </viewController>
@@ -2172,7 +2174,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K2J-mq-3RE"/>
+        <segue reference="itN-vF-kmg"/>
         <segue reference="FG5-Yz-b43"/>
     </inferredMetricsTieBreakers>
 </document>

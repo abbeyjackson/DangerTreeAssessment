@@ -28,6 +28,7 @@
 		F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6321B2F684A00A8EAA5 /* Realm.framework */; };
 		F678F6351B2F689A00A8EAA5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F678F6341B2F689A00A8EAA5 /* libc++.dylib */; };
 		F68418C11B39F06C0024B575 /* UIColor+CustomColours.m in Sources */ = {isa = PBXBuildFile; fileRef = F68418C01B39F06C0024B575 /* UIColor+CustomColours.m */; };
+		F68418C41B3A2C280024B575 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F68418C31B3A2C280024B575 /* TabBarController.m */; };
 		F6B722821B2FBC32002FF6DF /* Paperwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B722801B2FBC32002FF6DF /* Paperwork.jpg */; };
 		F6B722831B2FBC32002FF6DF /* Storyboard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B722811B2FBC32002FF6DF /* Storyboard.jpg */; };
 		F6B9129D1B2F602A00245ED5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9129C1B2F602A00245ED5 /* main.m */; };
@@ -95,6 +96,8 @@
 		F678F6341B2F689A00A8EAA5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		F68418BF1B39F06C0024B575 /* UIColor+CustomColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColours.h"; sourceTree = "<group>"; };
 		F68418C01B39F06C0024B575 /* UIColor+CustomColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColours.m"; sourceTree = "<group>"; };
+		F68418C21B3A2C280024B575 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		F68418C31B3A2C280024B575 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		F6B722801B2FBC32002FF6DF /* Paperwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Paperwork.jpg; sourceTree = "<group>"; };
 		F6B722811B2FBC32002FF6DF /* Storyboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Storyboard.jpg; sourceTree = "<group>"; };
 		F6B912971B2F602A00245ED5 /* DangerTreeAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DangerTreeAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +291,8 @@
 				F6DF606E1B3379EA00339B57 /* Fuel.m */,
 				F6629EC71B34F15D00FF4E10 /* Placeholder.h */,
 				F6629EC81B34F15D00FF4E10 /* Placeholder.m */,
+				F68418C21B3A2C280024B575 /* TabBarController.h */,
+				F68418C31B3A2C280024B575 /* TabBarController.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				F648E85F1B30A096007ADB73 /* SiteReviewViewController.m in Sources */,
 				F648E8681B30A165007ADB73 /* DataListCell.m in Sources */,
 				F648E8591B30A07D007ADB73 /* TreeManagementViewController.m in Sources */,
+				F68418C41B3A2C280024B575 /* TabBarController.m in Sources */,
 				F648E8561B30A072007ADB73 /* TreeLOD1ViewController.m in Sources */,
 				F648E85C1B30A08B007ADB73 /* TreeReviewViewController.m in Sources */,
 				F6DF60691B33571300339B57 /* TreeSpeciesCollectionViewCell.m in Sources */,
