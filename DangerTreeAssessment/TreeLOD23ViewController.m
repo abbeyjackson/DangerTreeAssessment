@@ -11,6 +11,7 @@
 #import "Site.h"
 #import "Placeholder.h"
 #import "UIColor+CustomColours.h"
+#import "TreeManagementViewController.h"
 
 @interface TreeLOD23ViewController ()
 
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *conksMushroomsControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *treeLeanControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *rootInspectionControl;
+@property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
 
 @end
 
@@ -128,6 +130,15 @@
     self.tree.rootInspection = self.placeholder.rootInspection;
 }
 
+-(BOOL)setDangerous{
+    for (UISegmentedControl *control in self.allSegmentedControls) {
+        if (control.selectedSegmentIndex == 2) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
     [self saveLOD23];
@@ -138,6 +149,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
+        if ([self setDangerous]) {
+            [[segue destinationViewController] setIsDangerousSet:YES];
+        }
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];
     }

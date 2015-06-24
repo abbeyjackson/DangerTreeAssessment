@@ -22,6 +22,8 @@
     [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor redColor]}];
+    [[UISegmentedControl appearance] setTintColor:[UIColor redColor]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

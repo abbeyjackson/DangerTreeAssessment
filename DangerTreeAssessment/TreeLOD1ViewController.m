@@ -11,11 +11,13 @@
 #import "Tree.h"
 #import "Site.h"
 #import "UIColor+CustomColours.h"
+#import "TreeManagementViewController.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *unstableControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *leaningControl;
+@property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
 
 @end
 
@@ -32,6 +34,11 @@
 }
 
 -(void)setupSegmentedControls{
+    
+//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//    
+//    [[[segmentedControl subviews] objectAtIndex:0] setTintColor:newSelectedTintColor];
+    
     self.insecureControl.selectedSegmentIndex = 1;
     self.placeholder.insecure = @"--";
     self.unstableControl.selectedSegmentIndex = 1;
@@ -70,6 +77,15 @@
     }
 }
 
+-(BOOL)isDangerous{
+    for (UISegmentedControl *control in self.allSegmentedControls) {
+        if (control.selectedSegmentIndex == 2) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 -(void)saveLOD1{
     self.tree.insecure = self.placeholder.insecure;
     self.tree.unstable = self.placeholder.unstable;
@@ -87,6 +103,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
+        if ([self isDangerous]) {
+            [[segue destinationViewController] setIsDangerousSet:YES];
+        }
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];
     }

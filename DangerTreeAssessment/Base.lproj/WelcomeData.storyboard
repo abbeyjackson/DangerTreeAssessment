@@ -1063,6 +1063,7 @@
                         <outlet property="insecureControl" destination="T5F-XB-4On" id="oBL-IB-Fkd"/>
                         <outlet property="leaningControl" destination="e0X-2B-oIB" id="QPI-Tt-kBg"/>
                         <outlet property="unstableControl" destination="v04-tK-Fae" id="v8Q-ZE-2mK"/>
+                        <outletCollection property="allSegmentedControls" destination="e0X-2B-oIB" id="1dQ-q8-431"/>
                         <segue destination="h7Y-Tr-tew" kind="show" identifier="showTreeMgt" id="itN-vF-kmg"/>
                     </connections>
                 </viewController>
@@ -1549,6 +1550,16 @@
                         <outlet property="stemDamageControl" destination="j7o-Hg-8FN" id="UzO-0N-ltG"/>
                         <outlet property="treeLeanControl" destination="jd0-8G-ZVY" id="vtk-2t-BG0"/>
                         <outlet property="witchesBroomControl" destination="Gsu-Lw-zbW" id="PeS-Sk-gSd"/>
+                        <outletCollection property="allSegmentedControls" destination="g1c-xS-0Fd" id="zql-1X-c33"/>
+                        <outletCollection property="allSegmentedControls" destination="vYI-DG-t2b" id="mkK-rY-cx3"/>
+                        <outletCollection property="allSegmentedControls" destination="Gsu-Lw-zbW" id="wXa-JI-m7c"/>
+                        <outletCollection property="allSegmentedControls" destination="F0a-eh-U3e" id="59C-ow-92V"/>
+                        <outletCollection property="allSegmentedControls" destination="j7o-Hg-8FN" id="Qm3-ed-wQ6"/>
+                        <outletCollection property="allSegmentedControls" destination="a8a-mK-awd" id="NEh-IA-tpy"/>
+                        <outletCollection property="allSegmentedControls" destination="tQM-az-Yuw" id="6oT-wy-KYt"/>
+                        <outletCollection property="allSegmentedControls" destination="uFD-9y-3ut" id="7rs-t1-aeE"/>
+                        <outletCollection property="allSegmentedControls" destination="jd0-8G-ZVY" id="IKV-vl-gEH"/>
+                        <outletCollection property="allSegmentedControls" destination="6P8-xJ-KyF" id="Qf0-Hw-1sI"/>
                         <segue destination="h7Y-Tr-tew" kind="show" identifier="showTreeMgt" id="K2J-mq-3RE"/>
                     </connections>
                 </viewController>
@@ -2161,7 +2172,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RvY-1h-q7G"/>
+        <segue reference="K2J-mq-3RE"/>
         <segue reference="FG5-Yz-b43"/>
     </inferredMetricsTieBreakers>
 </document>

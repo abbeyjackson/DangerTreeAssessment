@@ -30,9 +30,14 @@
 }
 
 -(void)setupSegmentedControls{
-    self.safeDangerousControl.selectedSegmentIndex = 0;
+    if (self.isDangerousSet) {
+        self.safeDangerousControl.selectedSegmentIndex = 1;
+    }
+    else {
+        self.safeDangerousControl.selectedSegmentIndex = 0;
+    }
 }
-    
+
 -(void)configureTextFields{
     self.commentsTextView.delegate = self;
 }
