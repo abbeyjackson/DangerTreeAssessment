@@ -119,13 +119,6 @@
 
 #pragma mark - Email Client
 
-- (void)mailComposeController:(MFMailComposeViewController *)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError *)error {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)sendEmailAsCSV{
     if ( [MFMailComposeViewController canSendMail] )
     {
@@ -164,6 +157,53 @@
 //    return bufferOutput;
 //}
 
+# pragma mark - If pressed cancel
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    
+    //if result is possible
+    if(result == MFMailComposeResultSent || result == MFMailComposeResultSaved || result == MFMailComposeResultCancelled){
+        
+        //test result and show alert
+        switch (result) {
+            case MFMailComposeResultCancelled:
+                [self emailNotSuccessfulAlert];
+                break;
+            case MFMailComposeResultSaved:
+                [self emailNotSuccessfulAlert];
+                break;
+                //message was sent
+            case MFMailComposeResultSent:
+                [self markSendReportComplete];
+                break;
+            case MFMailComposeResultFailed:
+                [self emailNotSuccessfulAlert];
+                break;
+            default:
+                break;
+        }
+    }
+    //else exists error
+    else if(error != nil){
+        [self emailNotSuccessfulAlert];
+    }
+    
+    //dismiss view
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)emailNotSuccessfulAlert{
+    UIAlertView *submitUnsuccessfulAlert = [[UIAlertView alloc] initWithTitle:@"Message not sent!" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    submitUnsuccessfulAlert.tag = 3;
+    [submitUnsuccessfulAlert show];
+}
+
+-(void)markSendReportComplete{
+    RLMRealm *realm = self.site.realm;
+    [realm beginWriteTransaction];
+    self.site.isReportComplete = YES;
+    [realm commitWriteTransaction];
+}
 
 
 
