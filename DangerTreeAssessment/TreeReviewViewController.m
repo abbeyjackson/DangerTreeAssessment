@@ -370,8 +370,10 @@
         ratingPlaceholder.textColor = [UIColor redColor];
         [self.scrollView addSubview:ratingPlaceholder];
         
-        self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 200, 50)];
+        self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 230, 300, 50)];
         self.ratingLabel.text = self.tree.rating;
+        self.ratingLabel.numberOfLines = 0;
+        self.ratingLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.ratingLabel.font = [UIFont systemFontOfSize:20];
         [self.scrollView addSubview:self.ratingLabel];
     }
@@ -404,6 +406,8 @@
     self.managementLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 600, 200, 50)];
     self.managementLabel.text = self.tree.management;
     self.managementLabel.font = [UIFont systemFontOfSize:20];
+    self.managementLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.managementLabel.numberOfLines = 0;
     [self.scrollView addSubview:self.managementLabel];
     self.managementLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
