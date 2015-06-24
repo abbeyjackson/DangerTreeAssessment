@@ -49,28 +49,6 @@
 }
 
 
-- (void)mailComposeController:(MFMailComposeViewController *)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError *)error {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)sendEmailAsCSV:(id)sender {
-    if ( [MFMailComposeViewController canSendMail] )
-    {
-        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
-        mailComposer.mailComposeDelegate = self;
-        
-        [mailComposer setMessageBody:@"Hi,\nHere is my house contents. Could you please give me a quote for insurance?\n Thank you!" isHTML:NO];
-        
-        [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
-        
-        [self presentViewController:mailComposer animated:YES completion:nil];
-    }
-}
-
-
 -(void)checkIfSiteExistsAndIsComplete{
     
     if (self.site == nil) {
