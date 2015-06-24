@@ -11,6 +11,7 @@
 #import "TreeInfoViewController.h"
 #import "Fuel.h"
 #import "UIColor+CustomColours.h"
+#import "SiteReviewViewController.h"
 
 @interface SiteInfoViewController ()
 
@@ -135,7 +136,13 @@
     TreeInfoViewController *destination = vc.viewControllers.firstObject;
     [destination setSite:site];
     [self.tabBarController setSelectedIndex:1];
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    
+    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:2];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
+    [siteReview setSite:site];
+//
+//    [self.tabBarController setSelectedIndex:2];
+    
 }
 
 -(void)makeDtaID{

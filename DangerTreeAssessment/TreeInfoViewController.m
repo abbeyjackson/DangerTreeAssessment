@@ -53,7 +53,7 @@
 -(void)checkIfNewTree{
     
     if (self.site == nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Start New Site", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
 
         [alert show];
     }

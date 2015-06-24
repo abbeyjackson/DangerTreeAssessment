@@ -32,6 +32,32 @@
     [self displayLabels];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self checkIfSiteExists];
+}
+
+-(void)checkIfSiteExists{
+    
+    if (self.site == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"No current site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
+        
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self.tabBarController setSelectedIndex:0];
+    }
+    if (buttonIndex == 1) {
+        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+        SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
+        [destination performSegueWithIdentifier:@"addSite" sender:self];
+        [self.tabBarController setSelectedIndex:0];
+    }
+    
+}
+
 - (void)displayLabels{
     self.fireNumberLabel.text = self.site.fireNumber;
     self.dtaNameLabel.text = self.site.dtaName;

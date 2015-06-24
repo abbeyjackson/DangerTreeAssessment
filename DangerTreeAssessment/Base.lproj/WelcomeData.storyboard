@@ -239,7 +239,7 @@
             </objects>
             <point key="canvasLocation" x="1684" y="-1366"/>
         </scene>
-        <!--Site Information-->
+        <!--Start New Site-->
         <scene sceneID="jA4-W7-Fzm">
             <objects>
                 <viewController storyboardIdentifier="SiteInformation" id="XfO-oH-hse" customClass="SiteInfoViewController" sceneMemberID="viewController">
@@ -477,7 +477,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Site Information" id="yXB-dp-u4Y"/>
+                    <navigationItem key="navigationItem" title="Start New Site" id="yXB-dp-u4Y"/>
                     <connections>
                         <outlet property="activityField" destination="PpQ-fR-kCb" id="tr4-hh-Gr7"/>
                         <outlet property="buiField" destination="DZo-Qo-mwC" id="ABu-qq-hoN"/>
