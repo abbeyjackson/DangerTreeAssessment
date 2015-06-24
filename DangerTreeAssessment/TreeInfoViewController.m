@@ -18,7 +18,9 @@
 #import "UIColor+CustomColours.h"
 #import "DataTableViewController.h"
 
-@interface TreeInfoViewController ()
+@interface TreeInfoViewController (){
+    CLLocationManager *locationManager;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *latitudeField;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeField;
@@ -33,15 +35,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    locationManager = [[CLLocationManager alloc] init];
+    
     [self configureTextFields];
     [self resetTree];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self checkIfNewTree];
+    [self checkIfSiteExists];
+    [self getCurrentLocation];
     self.navigationItem.hidesBackButton = YES;
     
+}
+
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)getCurrentLocation{
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+    
+    [locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location, you will have to enter GPS manually" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        if ([self.latitudeField.text isEqualToString:@""]) {
+            self.latitudeField.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        }
+        if ([self.longitudeField.text isEqualToString:@""]) {
+            self.longitudeField.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        }
+        if (![self.latitudeField.text isEqualToString:@""] && ![self.longitudeField.text isEqualToString:@""]) {
+            [locationManager stopUpdatingLocation];
+        }
+        
+    }
 }
 
 -(void)resetTree{
@@ -50,26 +93,49 @@
     
 }
 
--(void)checkIfNewTree{
-    
-    if (self.site == nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
+-(void)checkIfSiteExists{
 
-        [alert show];
+    if (self.site == nil) {
+        RLMResults *results = [Site allObjects];
+        Site *mostRecentSite = [results lastObject];
+        
+        if (mostRecentSite.isReportComplete) {
+            UIAlertView *makeNewSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
+            makeNewSiteAlert.tag = 0;
+            [makeNewSiteAlert show];
+        }
+        else if (!mostRecentSite.isReportComplete){
+            UIAlertView *previousSiteNotCompleteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", nil];
+            
+            previousSiteNotCompleteAlert.tag = 1;
+            [previousSiteNotCompleteAlert show];
+        }
     }
 }
 
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [self.tabBarController setSelectedIndex:0];
+    if(alertView.tag == 0){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+            SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
+            [destination performSegueWithIdentifier:@"addSite" sender:self];
+            [self.tabBarController setSelectedIndex:0];
+        } 
     }
-    if (buttonIndex == 1) {
-        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-        SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
-        [destination performSegueWithIdentifier:@"addSite" sender:self];
-        [self.tabBarController setSelectedIndex:0];
+    if (alertView.tag == 1) {
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            //        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+            //        SiteReviewViewController *destination = [navigationController.viewControllers firstObject];
+            [self.tabBarController setSelectedIndex:2];
+        }
     }
-    
 }
     
     

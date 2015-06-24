@@ -79,6 +79,7 @@
     
     [realm beginWriteTransaction];
     [realm addObject:self.tree];
+    self.tree.isComplete = YES;
     [self.site.trees addObject:self.tree];
     [realm commitWriteTransaction];
 }
@@ -86,7 +87,6 @@
 
 -(void)submitReportAlert{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tree Report Complete" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"New Tree", @"Submit Report", nil];
-    // optional - add more buttons:
     [alert show];
 }
 

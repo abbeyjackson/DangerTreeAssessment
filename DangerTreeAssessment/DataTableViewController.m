@@ -11,6 +11,7 @@
 #import "DataListCell.h"
 #import "SiteReviewViewController.h"
 #import "UIColor+CustomColours.h"
+#import "SiteInfoViewController.h"
 
 @interface DataTableViewController ()
 
@@ -33,6 +34,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return self.sitesArray.count;
+}
+- (IBAction)addNewSite:(id)sender {
+    UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+    SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
+    [destination performSegueWithIdentifier:@"addSite" sender:self];
+    [self.tabBarController setSelectedIndex:0];
 }
 
 

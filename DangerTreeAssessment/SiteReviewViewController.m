@@ -29,36 +29,74 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self displayLabels];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self checkIfSiteExists];
+    [self checkIfSiteExistsAndIsComplete];
 }
 
--(void)checkIfSiteExists{
+- (IBAction)submitReport:(id)sender {
+    [self checkIfTreeExistsAndIsComplete];
+}
+
+-(void)checkIfSiteExistsAndIsComplete{
     
     if (self.site == nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"No current site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
-        
-        [alert show];
+        RLMResults *results = [Site allObjects];
+        Site *mostRecentSite = [results lastObject];
+        if (mostRecentSite) {
+            if (!mostRecentSite.isReportComplete) {
+                self.site = mostRecentSite;
+            }
+            else{
+                UIAlertView *noSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"No current site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
+                noSiteAlert.tag = 0;
+                [noSiteAlert show];
+            }
+        }
     }
+    
+    [self configureLabels];
+}
+
+-(void)checkIfTreeExistsAndIsComplete{
+    if (self.tree) {
+        if (!self.tree.isComplete) {
+            UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Last tree report not complete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
+            noTreeAlert.tag = 1;
+            [noTreeAlert show];
+        }
+    }
+    RLMRealm *realm = self.site.realm;
+    [realm beginWriteTransaction];
+    self.site.isReportComplete = YES;
+    [realm commitWriteTransaction];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [self.tabBarController setSelectedIndex:0];
+    if (alertView.tag == 0) {
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+            SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
+            [destination performSegueWithIdentifier:@"addSite" sender:self];
+            [self.tabBarController setSelectedIndex:0];
+        }
     }
-    if (buttonIndex == 1) {
-        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
-        SiteInfoViewController *destination = [navigationController.viewControllers firstObject];
-        [destination performSegueWithIdentifier:@"addSite" sender:self];
-        [self.tabBarController setSelectedIndex:0];
+    else if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            // dismiss alert
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:1];
+        }
     }
-    
 }
 
-- (void)displayLabels{
+
+- (void)configureLabels{
     self.fireNumberLabel.text = self.site.fireNumber;
     self.dtaNameLabel.text = self.site.dtaName;
     self.unitLabel.text = self.site.fuel;

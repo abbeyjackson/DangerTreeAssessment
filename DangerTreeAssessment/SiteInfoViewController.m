@@ -33,7 +33,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureTextFields];
     [self configureDateFormats];
 }
 
@@ -47,13 +46,60 @@
     [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated{
-    self.navigationController.navigationItem.hidesBackButton = YES;
+//    self.navigationController.navigationItem.hidesBackButton = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
+    if (!self.isNewSite) {
+        [self checkIfSiteIsOpen];
+        [self configureTextFields];
+    }
 }
+
+-(void)checkIfSiteIsOpen{
+    if (self.site){
+        if (self.site.isReportComplete) {
+            self.site = [[Site alloc]init];
+            self.isNewSite = YES;
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"Go To Current Tree" otherButtonTitles:@"Submit Site Report", @"View Site List", nil];
+            [alert show];
+        }
+    }
+    else {
+        RLMResults *results = [Site allObjects];
+        Site *mostRecentSite = [results lastObject];
+        if (mostRecentSite) {
+            if (mostRecentSite.isReportComplete) {
+                self.site = [[Site alloc]init];
+                self.isNewSite = YES;
+            }
+            else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"Go To Current Tree" otherButtonTitles:@"Submit Site Report", @"View Site List", nil];
+                [alert show];
+            }
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self.tabBarController setSelectedIndex:1];
+    }
+    if (buttonIndex == 1) {
+//        UINavigationController *navigationController = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:0];
+//        SiteReviewViewController *destination = [navigationController.viewControllers firstObject];
+        [self.tabBarController setSelectedIndex:2];
+    }
+    
+}
+
+
+
 
 -(void)configureTextFields{
     self.locationField.delegate = self;
@@ -132,16 +178,14 @@
 
 - (IBAction)addNewTree:(id)sender {
     UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:1];
-    Site *site = [self createSite];
+    self.site = [self createSite];
     TreeInfoViewController *destination = vc.viewControllers.firstObject;
-    [destination setSite:site];
+    [destination setSite:self.site];
     [self.tabBarController setSelectedIndex:1];
     
     UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:2];
     SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
-    [siteReview setSite:site];
-//
-//    [self.tabBarController setSelectedIndex:2];
+    [siteReview setSite:self.site];
     
 }
 
@@ -210,26 +254,25 @@
 }
 
 -(Site*)createSite{
-    Site *site = [[Site alloc] init];
-    site.fireNumber = self.fireNumberField.text;
-    site.dtaName = self.dtaNameField.text;
-    site.dtaUnit = self.dtaUnitField.text;
-    site.fuel = [self.fuelField.text substringToIndex:3];
-    site.location = self.locationField.text;
-    site.bui = self.buiField.text;
-    site.lod = self.lodField.text;
-    site.activity = self.activityField.text;
-    site.siteID = [self setSiteID];
-    site.formattedDtaID = self.dtaID;
-    site.reportDate = [self.reportDateFormat stringFromDate:[NSDate date]];
+    self.site.fireNumber = self.fireNumberField.text;
+    self.site.dtaName = self.dtaNameField.text;
+    self.site.dtaUnit = self.dtaUnitField.text;
+    self.site.fuel = [self.fuelField.text substringToIndex:3];
+    self.site.location = self.locationField.text;
+    self.site.bui = self.buiField.text;
+    self.site.lod = self.lodField.text;
+    self.site.activity = self.activityField.text;
+    self.site.siteID = [self setSiteID];
+    self.site.formattedDtaID = self.dtaID;
+    self.site.reportDate = [self.reportDateFormat stringFromDate:[NSDate date]];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
-    [realm addObject:site];
+    [realm addObject:self.site];
     [realm commitWriteTransaction];
     
-    return site;
+    return self.site;
 }
 
 

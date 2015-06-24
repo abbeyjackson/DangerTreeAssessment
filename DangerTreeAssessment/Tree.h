@@ -35,6 +35,7 @@ extern NSString* const kOther;
 @property Site *site;
 @property NSString *treeNumber;
 @property NSString *treeID;
+@property BOOL isComplete;
 
 
 // tree properties for all trees:

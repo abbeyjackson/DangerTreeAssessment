@@ -189,10 +189,13 @@
                     <navigationItem key="navigationItem" title="Existing Sites" id="qCu-ON-DLd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZN7-mY-2FJ">
                             <connections>
-                                <segue destination="XfO-oH-hse" kind="show" identifier="addSite" id="fdB-OG-WEb"/>
+                                <action selector="addNewSite:" destination="0kF-1T-DS2" id="TJx-KF-zsm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="XfO-oH-hse" kind="show" identifier="addSite" id="TBf-H9-Mgc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8KH-u8-LKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2136,7 +2139,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Site Report" id="iYb-Ba-6Ec">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="7X4-PZ-GeT"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="7X4-PZ-GeT">
+                            <connections>
+                                <action selector="submitReport:" destination="7cn-K0-WVH" id="MBw-nP-4r6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityLabel" destination="RQn-0S-d2v" id="Tjf-pc-ECC"/>
