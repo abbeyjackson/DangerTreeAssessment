@@ -2085,7 +2085,7 @@
                     <navigationItem key="navigationItem" title="Site Report" id="iYb-Ba-6Ec">
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="7X4-PZ-GeT">
                             <connections>
-                                <action selector="submitReport:" destination="7cn-K0-WVH" id="MBw-nP-4r6"/>
+                                <action selector="sendEmailAsCSV:" destination="7cn-K0-WVH" id="I9s-M0-81K"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

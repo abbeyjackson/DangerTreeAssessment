@@ -10,8 +10,9 @@
 #import "SiteInfoViewController.h"
 #import "UIColor+CustomColours.h"
 #import "Site.h"
+#import <MessageUI/MessageUI.h>
 
-@interface SiteReviewViewController ()
+@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dtaNameLabel;
@@ -100,7 +101,6 @@
     }
 }
 
-
 - (void)configureLabels{
     self.fireNumberLabel.text = self.site.fireNumber;
     self.dtaNameLabel.text = self.site.dtaName;
@@ -110,6 +110,56 @@
     self.lodLabel.text = self.site.lod;
     self.activityLabel.text = self.site.activity;
 }
+
+#pragma mark - Email Client
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)sendEmailAsCSV:(id)sender {
+    if ( [MFMailComposeViewController canSendMail] )
+    {
+        MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+        mailComposer.mailComposeDelegate = self;
+        
+        [mailComposer setMessageBody:@"Hi,\nHere is my house contents. Could you please give me a quote for insurance?\n Thank you!" isHTML:NO];
+        
+        [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
+        
+//        [mailComposer addAttachmentData:[self generateCsvFromInsurentoryData]  mimeType:@"cvs" fileName:[NSString stringWithFormat:@"Insurentory csv"]];
+        
+        [self presentViewController:mailComposer animated:YES completion:nil];
+    }
+}
+
+//- (NSData *)generateCsvFromInsurentoryData {
+//    
+//    NSOutputStream *outputStream = [[NSOutputStream alloc] initToMemory];
+//    CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
+//    
+//    [csvWriter writeLineOfFields:@[self.insurentory.name, self.insurentory.timeStamp, self.insurentory.totalValue]];
+//    [csvWriter writeLineOfFields:@[ @"Asset Name", @"Asset Value"]];
+//    //[csvWriter finishLine];
+//    
+//    for (Asset *asset in self.insurentory.assets) {
+//        //[csvWriter writeLineOfFields: @[asset.name, asset.value]];
+//        [csvWriter writeField:asset.name];
+//        [csvWriter writeField:asset.value];
+//        [csvWriter finishLine];
+//    }
+//    
+//    [csvWriter closeStream];
+//    
+//    NSData *bufferOutput = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+//    return bufferOutput;
+//}
+
+
+
 
 
 @end

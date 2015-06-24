@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5B71A9C1B3B4CFF00FF2BD5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */; };
 		B5CC76491B3382570059DE13 /* SitePractice.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CC76481B3382570059DE13 /* SitePractice.m */; };
 		F648E8501B30A053007ADB73 /* SiteInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */; };
 		F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8521B30A062007ADB73 /* TreeInfoViewController.m */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B5CC76471B3382570059DE13 /* SitePractice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePractice.h; sourceTree = "<group>"; };
 		B5CC76481B3382570059DE13 /* SitePractice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePractice.m; sourceTree = "<group>"; };
 		F648E84E1B30A053007ADB73 /* SiteInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteInfoViewController.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B71A9C1B3B4CFF00FF2BD5 /* MessageUI.framework in Frameworks */,
 				F678F6351B2F689A00A8EAA5 /* libc++.dylib in Frameworks */,
 				F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */,
 			);
@@ -178,6 +181,7 @@
 		F6B9128E1B2F602A00245ED5 = {
 			isa = PBXGroup;
 			children = (
+				B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */,
 				F6B912991B2F602A00245ED5 /* DangerTreeAssessment */,
 				F6B912B61B2F602A00245ED5 /* DangerTreeAssessmentTests */,
 				F6B912981B2F602A00245ED5 /* Products */,
