@@ -218,11 +218,13 @@
             </objects>
             <point key="canvasLocation" x="3116" y="-2202"/>
         </scene>
-        <!--Site List-->
+        <!--Navigation Controller-->
         <scene sceneID="4qz-zx-R18">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1xV-9n-HLY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Site List" image="first" id="AYt-HL-KvR"/>
+                    <tabBarItem key="tabBarItem" title="" image="List-32" id="AYt-HL-KvR">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tol-gs-hfm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1939,11 +1941,13 @@
             </objects>
             <point key="canvasLocation" x="5372" y="-1242"/>
         </scene>
-        <!--Current Tree-->
+        <!--Navigation Controller-->
         <scene sceneID="1pU-Yf-0Ql">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gu9-Bw-o7a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Current Tree" image="second" id="XXk-eI-qbY"/>
+                    <tabBarItem key="tabBarItem" title="" image="Tree-32" id="XXk-eI-qbY">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yzr-le-ioX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2149,11 +2153,13 @@
             </objects>
             <point key="canvasLocation" x="2888" y="1446"/>
         </scene>
-        <!--Current Site-->
+        <!--Navigation Controller-->
         <scene sceneID="ZEx-mV-dWw">
             <objects>
                 <navigationController storyboardIdentifier="SiteReviewNC" id="wk6-G9-67l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Current Site" image="first" id="WQu-Vu-ouW"/>
+                    <tabBarItem key="tabBarItem" title="" image="Forest-32" id="WQu-Vu-ouW">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Xr-AH-bBM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2168,13 +2174,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Forest-32" width="32" height="32"/>
+        <image name="List-32" width="32" height="32"/>
+        <image name="Tree-32" width="32" height="32"/>
         <image name="fire2" width="800" height="600"/>
-        <image name="first" width="30" height="30"/>
         <image name="forest-fire" width="690" height="273"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="P8m-No-5sT"/>
         <segue reference="itN-vF-kmg"/>
-        <segue reference="FG5-Yz-b43"/>
     </inferredMetricsTieBreakers>
 </document>
