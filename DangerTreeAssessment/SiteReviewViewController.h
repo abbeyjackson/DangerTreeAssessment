@@ -15,5 +15,6 @@
 @property (nonatomic) Tree *tree;
 @property (nonatomic) Site *site;
 @property (nonatomic) BOOL shouldSubmitReport;
+@property (nonatomic) BOOL treeStarted;
 
 @end

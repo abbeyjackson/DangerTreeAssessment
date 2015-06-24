@@ -25,10 +25,15 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 -(void)makeSitesArray{
-    self.sitesArray = [Site allObjects];
+//    self.sitesArray = [Site allObjects];
+    self.sitesArray = [[Site allObjects] sortedResultsUsingProperty:@"numberForArray" ascending:NO];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -56,7 +61,7 @@
     Site *site = self.sitesArray[indexPath.row];
     destination.site = site;
     
-    [self.tabBarController setSelectedIndex:2];    
+    [self.tabBarController setSelectedIndex:3];
 }
 
 @end

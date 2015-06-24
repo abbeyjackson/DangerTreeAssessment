@@ -71,8 +71,25 @@
 - (IBAction)submitTreeReport:(id)sender {
     NSLog(@"site button pressed");
     [self saveTree];
+    [self closeTreeIsOpen];
     [self submitReportAlert];
 }
+
+-(void)closeTreeIsOpen{
+    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
+    [siteReview setTreeStarted:NO];
+    
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setTreeStarted:NO];
+}
+
+//-(void)clearTreeFromTreeInfoViewController{
+//    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+//    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+//    [siteInfo setTreeStarted:NO];
+//}
 
 -(void)saveTree{
     RLMRealm *realm = self.site.realm;
@@ -99,7 +116,7 @@
         TreeInfoViewController *destination = vc.viewControllers.firstObject;
         [destination resetTree];
         [destination setSite:self.site];
-        [self.tabBarController setSelectedIndex:1];
+        [self.tabBarController setSelectedIndex:2];
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
     if (buttonIndex == 2) {

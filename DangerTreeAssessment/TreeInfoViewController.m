@@ -17,6 +17,7 @@
 #import "SiteInfoViewController.h"
 #import "UIColor+CustomColours.h"
 #import "DataTableViewController.h"
+#import "SiteReviewViewController.h"
 
 @interface TreeInfoViewController (){
     CLLocationManager *locationManager;
@@ -37,8 +38,6 @@
     
     locationManager = [[CLLocationManager alloc] init];
     
-    [self configureTextFields];
-    [self resetTree];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -110,6 +109,10 @@
             previousSiteNotCompleteAlert.tag = 1;
             [previousSiteNotCompleteAlert show];
         }
+    }
+    else if (self.tree == nil){
+        [self resetTree];
+        [self configureTextFields];
     }
 }
 
@@ -220,8 +223,20 @@
 }
 
 
+-(void)setTreeIsOpen{
+    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
+    [siteReview setTreeStarted:YES];
+    
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setTreeStarted:YES];
+}
+
+
 - (IBAction)saveNewTreeButton:(id)sender {
     self.tree = [self createTree];
+    [self setTreeIsOpen];
     if ([self.site.lod isEqualToString: kLODType1]) {
         TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
         [destination setTree:self.tree];

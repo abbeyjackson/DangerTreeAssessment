@@ -39,6 +39,14 @@
     [self checkIfTreeExistsAndIsComplete];
 }
 
+-(void)resetSite{
+    
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    Site *site = [[Site alloc]init];
+    [siteInfo setSite:site];
+}
+
 -(void)checkIfSiteExistsAndIsComplete{
     
     if (self.site == nil) {
@@ -60,7 +68,7 @@
 }
 
 -(void)checkIfTreeExistsAndIsComplete{
-    if (self.tree) {
+    if (self.tree || self.treeStarted) {
         if (!self.tree.isComplete) {
             UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Last tree report not complete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
             noTreeAlert.tag = 1;

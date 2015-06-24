@@ -41,6 +41,7 @@ extern NSString* const kLODType4;
 @property NSString *siteID;
 @property NSString *formattedDtaID;
 @property NSString *reportDate;
+@property int numberForArray;
 
 
 // Site properties
