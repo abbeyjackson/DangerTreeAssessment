@@ -38,6 +38,7 @@
 
 - (IBAction)submitReport:(id)sender {
     [self checkIfTreeExistsAndIsComplete];
+    [self sendEmailAsCSV];
 }
 
 -(void)resetSite{
@@ -120,7 +121,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)sendEmailAsCSV:(id)sender {
+- (void)sendEmailAsCSV{
     if ( [MFMailComposeViewController canSendMail] )
     {
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
