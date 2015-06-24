@@ -118,9 +118,9 @@
 #pragma mark - Scroll View
 
 -(void)createScrollView{
-        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60)];
-        self.scrollView.showsVerticalScrollIndicator=YES;
-    self.scrollView.showsHorizontalScrollIndicator = NO;
+        self.scrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 50, self.view.frame.size.height - 60)];
+        self.scrollView.showsVerticalScrollIndicator= NO;
+        self.scrollView.showsHorizontalScrollIndicator = NO;
         self.scrollView.scrollEnabled=YES;
         self.scrollView.alwaysBounceVertical=YES;
         self.scrollView.userInteractionEnabled=YES;
@@ -372,7 +372,7 @@
     
     self.commentsLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 632, 300, 50)];
     self.commentsLabel.text = self.tree.comments;
-    self.commentsLabel.numberOfLines = 5;
+    self.commentsLabel.numberOfLines = 0;
     self.commentsLabel.font = [UIFont systemFontOfSize:12];
     [self.scrollView addSubview:self.commentsLabel];
     self.commentsLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -677,7 +677,7 @@
                                         toItem:nil
                                         attribute:NSLayoutAttributeNotAnAttribute
                                         multiplier:1.0
-                                        constant:320]];
+                                        constant:300]];
         // last item constraint
         
         UILabel *placeholder = [[UILabel alloc] initWithFrame:CGRectMake(35, self.view.frame.size.height + 50, 200, 200)];
