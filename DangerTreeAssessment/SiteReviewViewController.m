@@ -125,15 +125,44 @@
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
         
-        [mailComposer setMessageBody:@"Hi,\nThis is the data I've collected for the day.\nThank you!" isHTML:NO];
+        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@/nFire Number: %@/nSite Location: %@/nSite ID: %@/nDTA Name: %@/nDTA Unit: %@/nNumber Of Trees: %lu/nFuel: %@/nBUI: %@/nLOD: %@/nActivity: %@/n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.siteID, self.site.dtaName, self.site.dtaUnit, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
+        
+        [mailComposer setMessageBody:messageBodyString isHTML:NO];
         
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
         
-//        [mailComposer addAttachmentData:[self generateSiteAndTreeDataAsCSV]  mimeType:@"cvs" fileName:[NSString stringWithFormat:@"Insurentory csv"]];
+//        [mailComposer addAttachmentData:[self generateSiteAndTreeDataAsCSV]  mimeType:@"cvs" fileName:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
         
         [self presentViewController:mailComposer animated:YES completion:nil];
     }
 }
+
+
+//-(void)generateSiteAndTreeDataAsCSV{
+//    
+//    NSArray *csvArray = [[NSArray arrayWithObjects:<#(id), ...#>, nil
+//    
+//
+//    NSString *csvString = [csvArray componentsJoinedByString:@","];
+//    NSLog(@"csvString:%@",csvString);
+//    
+//    // Create .csv file and save in Documents Directory.
+//    
+//    //create instance of NSFileManager
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    
+//    //create an array and store result of our search for the documents directory in it
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    
+//    //create NSString object, that holds our exact path to the documents directory
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSLog(@"Document Dir: %@",documentsDirectory);
+//    
+//    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.csv", @"userdata"]]; //add our file to the path
+//    [fileManager createFileAtPath:fullPath contents:[csvString dataUsingEncoding:NSUTF8StringEncoding] attributes:nil]; //finally save the path (file)
+//}
+
+
 //
 //- (NSData *)generateSiteAndTreeDataAsCSV {
 //    
