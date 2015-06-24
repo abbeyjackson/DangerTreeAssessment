@@ -12,7 +12,9 @@
 #import "Site.h"
 #import <MessageUI/MessageUI.h>
 
+
 @interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dtaNameLabel;
@@ -49,6 +51,7 @@
     [siteInfo setSite:site];
 }
 
+
 -(void)checkIfSiteExistsAndIsComplete{
     
     if (self.site == nil) {
@@ -68,6 +71,8 @@
     
     [self configureLabels];
 }
+
+
 
 -(void)checkIfTreeExistsAndIsComplete{
     if (self.tree || self.treeStarted) {

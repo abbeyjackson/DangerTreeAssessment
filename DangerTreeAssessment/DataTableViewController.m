@@ -54,7 +54,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:2];
+    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
 
     SiteReviewViewController *destination = (SiteReviewViewController *)[navController.viewControllers firstObject];
     

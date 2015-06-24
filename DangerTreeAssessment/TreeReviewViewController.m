@@ -131,6 +131,7 @@
     }
     if (buttonIndex == 2) {
         [self performSegueWithIdentifier:@"showSiteReview" sender:self];
+        [self.tabBarController setSelectedIndex:3];
     }
 
 }

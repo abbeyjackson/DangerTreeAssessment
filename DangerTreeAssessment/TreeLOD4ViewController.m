@@ -49,10 +49,10 @@
     if (buttonIndex == 2) {
         self.ratingField.text = kClass2NoDefects;
     }
-    if (buttonIndex == 1) {
+    if (buttonIndex == 3) {
         self.ratingField.text = kClass2LowFailure;
     }
-    if (buttonIndex == 2) {
+    if (buttonIndex == 4) {
         self.ratingField.text = kClass3NoDefects;
     }
 }
