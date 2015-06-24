@@ -2136,7 +2136,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Site Report" id="iYb-Ba-6Ec">
-                        <barButtonItem key="rightBarButtonItem" title="Send Report" id="7X4-PZ-GeT"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="7X4-PZ-GeT"/>
                     </navigationItem>
                     <connections>
                         <outlet property="activityLabel" destination="RQn-0S-d2v" id="Tjf-pc-ECC"/>

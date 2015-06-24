@@ -43,10 +43,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SiteReviewViewController *srvc = [[UIStoryboard storyboardWithName:@"Review" bundle:nil] instantiateViewControllerWithIdentifier:@"SiteReview"];
+    
+    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:2];
+
+    SiteReviewViewController *destination = (SiteReviewViewController *)[navController.viewControllers firstObject];
+    
     Site *site = self.sitesArray[indexPath.row];
-    srvc.site = site;
-    [self showViewController:srvc sender:self];
+    destination.site = site;
+    
+    [self.tabBarController setSelectedIndex:2];    
 }
 
 @end
