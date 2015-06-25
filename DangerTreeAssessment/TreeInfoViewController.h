@@ -19,6 +19,7 @@
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Tree *tree;
 @property (nonatomic, strong) Site *lastSite;
+@property (nonatomic) BOOL isNewTree;
 
 -(void)initializeNewTree;
 

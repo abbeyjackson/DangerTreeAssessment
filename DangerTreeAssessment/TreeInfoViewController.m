@@ -57,7 +57,13 @@
             [self configureTextFields];
         }
         else {
-            // let user edit current tree
+            if (self.isNewTree == YES) {
+                // let user edit current tree
+            }
+            else {
+                [self initializeNewTree];
+                [self configureTextFields];
+            }
         }
     }
     else if (self.site){
@@ -70,6 +76,8 @@
         else if (self.site.isReportComplete == NO) {
             // let user continue new tree
             NSLog(@"got to this point");
+            [self initializeNewTree];
+            [self configureTextFields];
         }
     }
     else if (!self.site){
@@ -175,6 +183,7 @@
     
     self.tree = [[Tree alloc]init];
     
+    self.isNewTree = YES;
 }
 
 -(void)resetSite{

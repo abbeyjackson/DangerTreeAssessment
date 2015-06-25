@@ -89,10 +89,6 @@
             [noTreeAlert show];
         }
     }
-    RLMRealm *realm = self.site.realm;
-    [realm beginWriteTransaction];
-    self.site.isReportComplete = YES;
-    [realm commitWriteTransaction];
 }
 
 //-(void)resetTree{
