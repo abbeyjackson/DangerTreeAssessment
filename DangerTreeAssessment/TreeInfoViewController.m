@@ -42,7 +42,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self checkIfSiteExists];
     [self checkIfNewTree];
     [self getCurrentLocation];
     self.navigationItem.hidesBackButton = YES;
@@ -59,9 +58,35 @@
             // let user edit current tree
         }
     }
+    else if (self.site){
+        if (self.site.isReportComplete) {
+            // no site, let user choose to make new site or go to site list
+            UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+            noCurrentSite.tag = 0;
+            [noCurrentSite show];
+        }
+    }
+    else if (!self.site){
+        // no site, let user choose to make new site or go to site list
+        UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+        noCurrentSite.tag = 0;
+        [noCurrentSite show];
+    }
     else {
+        // let user make new tree
         [self initializeNewTree];
         [self configureTextFields];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 0){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:1];
+        }
     }
 }
 
@@ -108,36 +133,11 @@
     
 }
 
--(void)checkIfSiteExists{
-
-}
-
 -(void)resetSite{
     
     UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
     SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
     [siteInfo initializeNewSite];
-}
-
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if(alertView.tag == 0){
-        if (buttonIndex == 0) {
-            [self.tabBarController setSelectedIndex:0];
-        }
-        if (buttonIndex == 1) {
-            [self resetSite];
-            [self.tabBarController setSelectedIndex:1];
-        }
-    }
-    if (alertView.tag == 1) {
-        if (buttonIndex == 0) {
-            [self.tabBarController setSelectedIndex:0];
-        }
-        if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:3];
-        }
-    }
 }
     
     
