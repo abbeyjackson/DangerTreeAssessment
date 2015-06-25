@@ -10,10 +10,15 @@
 #import "SiteInfoViewController.h"
 #import "UIColor+CustomColours.h"
 #import "Site.h"
+#import "Tree.h"
 #import <MessageUI/MessageUI.h>
+#import "CHCSVParser.h"
 
 
-@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>
+@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>{
+    NSArray *csvArray;
+    NSMutableString *strOutput;
+}
 
 
 @property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
@@ -31,7 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self generateCSVFile];
+    NSLog(@"Array: %@", csvArray);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -40,7 +46,7 @@
 
 - (IBAction)submitReport:(id)sender {
     [self checkIfTreeExistsAndIsComplete];
-    [self sendEmailAsCSV];
+    [self sendEmailWithCSV];
 }
 
 -(void)resetSite{
@@ -119,29 +125,61 @@
 
 #pragma mark - Email Client
 
-- (void)sendEmailAsCSV{
+- (void)sendEmailWithCSV{
     if ( [MFMailComposeViewController canSendMail] )
     {
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
         
-        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@/nFire Number: %@/nSite Location: %@/nSite ID: %@/nDTA Name: %@/nDTA Unit: %@/nNumber Of Trees: %lu/nFuel: %@/nBUI: %@/nLOD: %@/nActivity: %@/n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.siteID, self.site.dtaName, self.site.dtaUnit, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
+        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nSite ID: %@\nDTA Name: %@\nDTA Unit: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.siteID, self.site.dtaName, self.site.dtaUnit, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
         
         [mailComposer setMessageBody:messageBodyString isHTML:NO];
         
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
         
-//        [mailComposer addAttachmentData:[self generateSiteAndTreeDataAsCSV]  mimeType:@"cvs" fileName:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
+        
+        NSString *reportNameString = [NSString stringWithFormat:@"SiteReport-%@-%@.csv",self.site.reportDate, self.site.formattedDtaID];
+        [mailComposer addAttachmentData:[self generateCSVFile]  mimeType:@"cvs" fileName:reportNameString];
         
         [self presentViewController:mailComposer animated:YES completion:nil];
     }
 }
 
 
-//-(void)generateSiteAndTreeDataAsCSV{
-//    
-//    NSArray *csvArray = [[NSArray arrayWithObjects:<#(id), ...#>, nil
-//    
+-(NSData *)generateCSVFile{
+    
+    NSOutputStream *outputStream = [[NSOutputStream alloc] initToMemory];
+    
+    
+    CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
+    
+//    [[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:reportNameString]];
+    
+    
+    NSArray *headingsArray = [NSArray arrayWithObjects: @"Fire Number", @"Site ID", @"Tree ID", @"Latitude", @"Longitude", @"Species", @"Class", @"Wildlife Value", @"Insecure", @"Unstable", @"Recent Lean", @"Hazardous Top", @"Dead Limbs", @"Witches Broom", @"Split Trunk", @"Stem Damage", @"Sloughing Bark", @"Cankers", @"Conks / Mushrooms", @"Tree Lean", @"Root Inspection", @"Rating", @"Is Dangerous", @"Management", @"Comments", nil];
+    
+    [csvWriter writeLineOfFields:headingsArray];
+
+    RLMArray *treesArray = self.site.trees;
+    
+    for (Tree *tree in treesArray) {
+        
+        NSArray *singleTreeArray = [NSArray arrayWithObjects: tree.site.fireNumber, tree.site.siteID, tree.treeID, tree.lat, tree.lon, tree.species, tree.treeClass, tree.wildLifeValue, tree.insecure, tree.unstable, tree.leaning, tree.hazardousTop, tree.deadLimbs, tree.witchesBroom, tree.splitTrunk, tree.stemDamage, tree.sloughingBark, tree.cankers, tree.conksMushrooms, tree.treeLean, tree.rootInspection, tree.rating, tree.isDangerous, tree.management, tree.comments, nil];
+        
+        [csvWriter writeLineOfFields:singleTreeArray];
+    }
+    
+    
+    [csvWriter closeStream];
+    
+    NSData *bufferOutput = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+    
+    return bufferOutput;
+
+}
+
+
+//-(void)generateCsvFile{
 //
 //    NSString *csvString = [csvArray componentsJoinedByString:@","];
 //    NSLog(@"csvString:%@",csvString);
@@ -163,28 +201,6 @@
 //}
 
 
-//
-//- (NSData *)generateSiteAndTreeDataAsCSV {
-//    
-//    NSOutputStream *outputStream = [[NSOutputStream alloc] initToMemory];
-//    CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
-//    
-//    [csvWriter writeLineOfFields:@[self.insurentory.name, self.insurentory.timeStamp, self.insurentory.totalValue]];
-//    [csvWriter writeLineOfFields:@[ @"Asset Name", @"Asset Value"]];
-//    //[csvWriter finishLine];
-//    
-//    for (Asset *asset in self.insurentory.assets) {
-//        //[csvWriter writeLineOfFields: @[asset.name, asset.value]];
-//        [csvWriter writeField:asset.name];
-//        [csvWriter writeField:asset.value];
-//        [csvWriter finishLine];
-//    }
-//    
-//    [csvWriter closeStream];
-//    
-//    NSData *bufferOutput = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
-//    return bufferOutput;
-//}
 
 # pragma mark - If pressed cancel
 

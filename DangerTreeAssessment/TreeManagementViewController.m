@@ -28,6 +28,9 @@
     [self setupSegmentedControls];
     [self configureCommentBox];
     self.placeholder = [[Placeholder alloc]init];
+    if (self.isDangerousSet) {
+        self.placeholder.isDangerous = self.isDangerousSet;
+    }
 }
 
 -(void)setupSegmentedControls{
