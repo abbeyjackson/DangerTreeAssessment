@@ -33,6 +33,10 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+}
+
 -(void)setupSegmentedControls{
     if (self.isDangerousSet) {
         self.safeDangerousControl.selectedSegmentIndex = 1;

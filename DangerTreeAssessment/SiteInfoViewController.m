@@ -46,108 +46,73 @@
     [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
 }
 
-//-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-//    
-//}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.hidesBackButton = YES;
-    if (self.treeStarted) {
-        [self alertIfTreeExistsAndIsComplete];
-        [self configureTextFields];
-        [self initializeNewSite];
-    }
-    if (!self.isNewSite || !self.site) {
-        [self checkIfSiteIsOpen];
-        [self configureTextFields];
-        [self initializeNewSite];
-    }
-    if (!self.site && self.isNewSite){
-        [self configureTextFields];
-        [self initializeNewSite];
-    }
+    [self checkIfNewSite];
 }
 
-
--(void)alertIfTreeExistsAndIsComplete{
-        UIAlertView *openTreeAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Last tree report not complete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
-        openTreeAlert.tag = 0;
-        [openTreeAlert show];
-}
-
--(void)checkIfSiteIsOpen{
-    if (self.site){
+-(void)checkIfNewSite{
+    if (self.site) {
         if (self.site.isReportComplete) {
-            self.isNewSite = YES;
+            // let user make new site
+            [self initializeNewSite];
+            [self configureTextFields];
+        }
+        else if (self.site.siteID == nil){
+            // let user continue current site
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"Go To Current Tree" otherButtonTitles:@"Submit Site Report", @"View Site List", nil];
-            alert.tag = 1;
-            [alert show];
+            // user should close site before making a new one or can add new tree
+            UIAlertView *currentSiteOpen = [[UIAlertView alloc] initWithTitle:@"Current Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", @"Make New Site", @"Add New Tree", nil];
+            currentSiteOpen.tag = 0;
+            [currentSiteOpen show];
         }
     }
     else {
-        RLMResults *results = [Site allObjects];
-        
-        if (results.count > 0) {
-            Site *mostRecentSite = [results lastObject];
-            if (mostRecentSite) {
-                if (mostRecentSite.isReportComplete) {
-                    self.isNewSite = YES;
-                }
-                else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"Go To Current Tree" otherButtonTitles:@"Submit Site Report", @"View Site List", nil];
-                    alert.tag = 1;
-                    [alert show];
-                }
+        RLMResults *sites = [Site allObjects];
+        Site *site = [sites lastObject];
+        if (site) {
+            if (!site.isReportComplete) {
+                // user should close site before making a new one or can add new tree
+                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", @"Make New Site", @"Add New Tree", nil];
+                lastSiteOpen.tag = 0;
+                [lastSiteOpen show];
+            }
+            else {
+                // let user make new site
+                [self initializeNewSite];
+                [self configureTextFields];
             }
         }
         else {
-            self.isNewSite = YES;
+            // let user make new site
+            [self initializeNewSite];
+            [self configureTextFields];
         }
-
-        
-        
-        
-//        if (!self.treeStarted && self.isNewSite){
-//            UIAlertView *openSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Can't make new site, your current site is open" delegate:self cancelButtonTitle:@"Submit Site Report" otherButtonTitles:@"Make New Tree", nil];
-//            openSiteAlert.tag = 2;
-//            [openSiteAlert show];
-//        }
-        
-        
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0){
         if (buttonIndex == 0) {
-            // dismiss alert
-        }
-        if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:2];
-        }
-    }
-    else if (alertView.tag == 1){
-        if (buttonIndex == 0) {
-            [self.tabBarController setSelectedIndex:2];
+            [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
             [self.tabBarController setSelectedIndex:3];
         }
         if (buttonIndex == 2) {
-            [self.tabBarController setSelectedIndex:0];
+            [self initializeNewSite];
+            [self configureTextFields];
+            [self.tabBarController setSelectedIndex:1];
         }
-    }
-    if (alertView.tag == 2){
-        if (buttonIndex == 0) {
-            [self.tabBarController setSelectedIndex:3];
-        }
-        if (buttonIndex == 1) {
+        if (buttonIndex == 3) {
             [self.tabBarController setSelectedIndex:2];
         }
     }
 }
+
 
 -(void)initializeNewSite{
     

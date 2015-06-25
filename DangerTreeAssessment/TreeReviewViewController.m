@@ -81,19 +81,19 @@
 
 - (IBAction)submitTreeReport:(id)sender {
     [self saveTree];
-    [self closeTreeIsOpen];
+//    [self closeTreeIsOpen];
     [self submitReportAlert];
 }
 
--(void)closeTreeIsOpen{
-    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
-    [siteReview setTreeStarted:NO];
-    
-    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-    [siteInfo setTreeStarted:NO];
-}
+//-(void)closeTreeIsOpen{
+//    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+//    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
+//    [siteReview setTreeStarted:NO];
+//    
+//    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+//    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+//    [siteInfo setTreeStarted:NO];
+//}
 
 //-(void)clearTreeFromTreeInfoViewController{
 //    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];

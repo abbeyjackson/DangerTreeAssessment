@@ -65,6 +65,9 @@
             noCurrentSite.tag = 0;
             [noCurrentSite show];
         }
+        else {
+            // let user continue new tree
+        }
     }
     else if (!self.site){
         RLMResults *sites = [Site allObjects];
@@ -77,12 +80,18 @@
                 [noCurrentSite show];
             }
             else {
-                // no site, let user choose to make new site or go to site list
+                // last site open, let user choose to add new tree, go to site report or go to site list
                 NSString *alertString = [NSString stringWithFormat:@"Do you want to add to %@?", site.siteID];
-                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
-                noCurrentSite.tag = 0;
-                [noCurrentSite show];
+                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Add New Tree", @"Make New Site", nil];
+                lastSiteOpen.tag = 1;
+                [lastSiteOpen show];
             }
+        }
+        else {
+            // no site, let user choose to make new site or go to site list
+            UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+            noCurrentSite.tag = 0;
+            [noCurrentSite show];
         }
     }
     else {
@@ -92,12 +101,31 @@
     }
 }
 
+-(void)setCurrentSite{
+    RLMResults *sites = [Site allObjects];
+    Site *site = [sites lastObject];
+    self.site = site;
+}
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0){
         if (buttonIndex == 0) {
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:1];
+        }
+    }
+    if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self initializeNewTree];
+            [self setCurrentSite];
+            [self.tabBarController setSelectedIndex:2];
+        }
+        if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:1];
         }
     }
@@ -247,7 +275,7 @@
     
     UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
     SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-    [siteInfo setTreeStarted:YES];
+//    [siteInfo setTreeStarted:YES];
 }
 
 

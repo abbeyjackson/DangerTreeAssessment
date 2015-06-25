@@ -301,7 +301,7 @@
                                     <constraint firstAttribute="height" constant="30" id="n53-UN-6yo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Level Of Disturbance" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYp-lT-JO8">
                                 <rect key="frame" x="51" y="423" width="498" height="30"/>
