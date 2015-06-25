@@ -50,8 +50,6 @@
 }
 
 -(void)checkIfNewTree{
-    RLMResults *trees = [Tree allObjects];
-    Tree *lastTree = [trees lastObject];
     if (self.tree) {
         if (self.tree.isComplete) {
             [self initializeNewTree];

@@ -22,6 +22,24 @@
     [super viewDidLoad];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self checkIfNewTree];
+}
+
+
+-(void)checkIfNewTree{
+    if (self.tree) {
+        if (self.tree.isComplete) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Current Tree" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"Submit Report", nil];
+            [alert show];
+        }
+        else {
+            // let user edit current tree
+        }
+    }
+    else {
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -12,6 +12,7 @@
 #import "Site.h"
 #import "UIColor+CustomColours.h"
 #import "TreeManagementViewController.h"
+#import "TreeInfoViewController.h"
 
 @interface TreeLOD1ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
@@ -29,8 +30,39 @@
     [self setupSegmentedControls];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+-(void)viewWillAppear:(BOOL)animated{
+    [self checkIfNewTree];
+}
+
+
+-(void)checkIfNewTree{
+    if (self.tree) {
+        if (self.tree.isComplete) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Current Tree" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"Submit Report", nil];
+            [alert show];
+        }
+        else {
+            // let user edit current tree
+        }
+    }
+    else {
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self.tabBarController setSelectedIndex:0];
+    }
+    if (buttonIndex == 1) {
+        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
+        TreeInfoViewController *destination = vc.viewControllers.firstObject;
+        [destination setSite:self.site];
+        [self.tabBarController setSelectedIndex:2];
+    }
+    if (buttonIndex == 2) {
+        [self.tabBarController setSelectedIndex:3];
+    }
+    
 }
 
 -(void)setupSegmentedControls{
