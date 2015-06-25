@@ -101,7 +101,8 @@
 - (void)configureLabels{
     self.fireNumberLabel.text = self.site.fireNumber;
     self.dtaNameLabel.text = self.site.dtaName;
-    self.unitLabel.text = self.site.fuel;
+    self.unitLabel.text = self.site.dtaName;
+    self.fuelLabel.text = self.site.fuel;
     self.locationLabel.text = self.site.location;
     self.buiLabel.text = self.site.bui;
     self.lodLabel.text = self.site.lod;

@@ -55,12 +55,12 @@
 
 -(void)checkIfNewSite{
     if (self.site) {
-        if (self.site.isReportComplete) {
+        if (self.site.isReportComplete == YES) {
             // let user make new site
             [self initializeNewSite];
             [self configureTextFields];
         }
-        else if (self.site.siteID == nil){
+        else if (self.isNewSite == YES){
             // let user continue current site
         }
         else {
@@ -117,6 +117,7 @@
 -(void)initializeNewSite{
     
     self.site = [[Site alloc]init];
+    self.isNewSite = YES;
 }
 
 
