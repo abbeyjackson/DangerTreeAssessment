@@ -242,7 +242,7 @@
                 break;
                 //message was sent
             case MFMailComposeResultSent:
-                [self markSendReportComplete];
+                [self emailSuccessfulAlert];
                 break;
             case MFMailComposeResultFailed:
                 [self emailNotSuccessfulAlert];
@@ -267,6 +267,7 @@
 }
 
 -(void)emailSuccessfulAlert{
+    [self markSendReportComplete];
     UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your message was sent" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"New Site", nil];
     successfulAlert.tag = 2;
     [successfulAlert show];
@@ -277,6 +278,7 @@
     [realm beginWriteTransaction];
     self.site.isReportComplete = YES;
     [realm commitWriteTransaction];
+    NSLog(@"success");
 }
 
 
