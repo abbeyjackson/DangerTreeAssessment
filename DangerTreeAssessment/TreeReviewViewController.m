@@ -588,7 +588,7 @@
                                         toItem:nil
                                         attribute:NSLayoutAttributeNotAnAttribute
                                         multiplier:1.0
-                                        constant:300]];
+                                        constant:240]];
         // last item constraint
         
         [self.scrollView addConstraint:[NSLayoutConstraint
@@ -735,7 +735,7 @@
                                         toItem:nil
                                         attribute:NSLayoutAttributeNotAnAttribute
                                         multiplier:1.0
-                                        constant:300]];
+                                        constant:240]];
         // last item constraint
         
         UILabel *placeholder = [[UILabel alloc] initWithFrame:CGRectMake(35, self.view.frame.size.height, 200, 200)];
@@ -914,7 +914,7 @@
                                         toItem:nil
                                         attribute:NSLayoutAttributeNotAnAttribute
                                         multiplier:1.0
-                                        constant:300]];
+                                        constant:240]];
         
         // last item constraint
         
