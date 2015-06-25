@@ -18,6 +18,7 @@
 @interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>{
     NSArray *csvArray;
     NSMutableString *strOutput;
+    NSArray *singleTreeArray;
 }
 
 
@@ -153,9 +154,6 @@
     
     CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
     
-//    [[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:reportNameString]];
-    
-    
     NSArray *headingsArray = [NSArray arrayWithObjects: @"Fire Number", @"Site ID", @"Tree ID", @"Latitude", @"Longitude", @"Species", @"Class", @"Wildlife Value", @"Insecure", @"Unstable", @"Recent Lean", @"Hazardous Top", @"Dead Limbs", @"Witches Broom", @"Split Trunk", @"Stem Damage", @"Sloughing Bark", @"Cankers", @"Conks / Mushrooms", @"Tree Lean", @"Root Inspection", @"Rating", @"Is Dangerous", @"Management", @"Comments", nil];
     
     [csvWriter writeLineOfFields:headingsArray];
@@ -164,8 +162,40 @@
     
     for (Tree *tree in treesArray) {
         
-        NSArray *singleTreeArray = [NSArray arrayWithObjects: tree.site.fireNumber, tree.site.siteID, tree.treeID, tree.lat, tree.lon, tree.species, tree.treeClass, tree.wildLifeValue, tree.insecure, tree.unstable, tree.leaning, tree.hazardousTop, tree.deadLimbs, tree.witchesBroom, tree.splitTrunk, tree.stemDamage, tree.sloughingBark, tree.cankers, tree.conksMushrooms, tree.treeLean, tree.rootInspection, tree.rating, tree.isDangerous, tree.management, tree.comments, nil];
+        NSString *fireNumber = tree.site.fireNumber;
+        NSString *siteID = tree.site.siteID;
+        NSString *treeID = tree.treeID;
+        NSString *lat = tree.lat;
+        NSString *lon = tree.lon;
+        NSString *species = tree.species;
+        NSString *treeClass = tree.treeClass;
+        NSString *wildLifeValue = tree.wildLifeValue;
+        NSString *insecure = tree.insecure;
+        NSString *unstable = tree.unstable;
+        NSString *leaning = tree.leaning;
+        NSString *hazardousTop = tree.hazardousTop;
+        NSString *deadLimbs = tree.deadLimbs;
+        NSString *witchesBroom = tree.witchesBroom;
+        NSString *splitTrunk = tree.splitTrunk;
+        NSString *stemDamage = tree.stemDamage;
+        NSString *sloughingBark = tree.sloughingBark;
+        NSString *cankers = tree.cankers;
+        NSString *conksMushrooms = tree.conksMushrooms;
+        NSString *treeLean = tree.treeLean;
+        NSString *rootInspection = tree.rootInspection;
+        NSString *rating = tree.rating;
+        NSString *isDangerous;
+        if (tree.isDangerous) {
+            NSString *isDangerous = @"YES";
+        }
+        else {
+             NSString *isDangerous = @"NO";
+        }
+        NSString *management = tree.management;
+        NSString *comments = tree.comments;
         
+        singleTreeArray = [[NSArray alloc] initWithObjects: fireNumber, siteID, treeID, lat, lon, species, treeClass, wildLifeValue, insecure, unstable, leaning, hazardousTop, deadLimbs, witchesBroom, splitTrunk, stemDamage, sloughingBark, cankers, conksMushrooms, treeLean, rootInspection, rating, isDangerous, management, comments, nil];
+        NSLog(@"%@", [singleTreeArray objectAtIndex:0]);
         [csvWriter writeLineOfFields:singleTreeArray];
     }
     
