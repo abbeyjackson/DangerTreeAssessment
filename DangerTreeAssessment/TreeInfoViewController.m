@@ -67,10 +67,23 @@
         }
     }
     else if (!self.site){
-        // no site, let user choose to make new site or go to site list
-        UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
-        noCurrentSite.tag = 0;
-        [noCurrentSite show];
+        RLMResults *sites = [Site allObjects];
+        Site *site = [sites lastObject];
+        if (site){
+            if (site.isReportComplete) {
+                // no site, let user choose to make new site or go to site list
+                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+                noCurrentSite.tag = 0;
+                [noCurrentSite show];
+            }
+            else {
+                // no site, let user choose to make new site or go to site list
+                NSString *alertString = [NSString stringWithFormat:@"Do you want to add to %@?", site.siteID];
+                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+                noCurrentSite.tag = 0;
+                [noCurrentSite show];
+            }
+        }
     }
     else {
         // let user make new tree
