@@ -42,6 +42,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [super viewWillAppear:animated];
+    
     [self checkIfNewTree];
     [self getCurrentLocation];
     self.navigationItem.hidesBackButton = YES;
@@ -59,14 +61,15 @@
         }
     }
     else if (self.site){
-        if (self.site.isReportComplete) {
+        if (self.site.isReportComplete == YES) {
             // no site, let user choose to make new site or go to site list
             UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
             noCurrentSite.tag = 0;
             [noCurrentSite show];
         }
-        else {
+        else if (self.site.isReportComplete == NO) {
             // let user continue new tree
+            NSLog(@"got to this point");
         }
     }
     else if (!self.site){

@@ -82,7 +82,7 @@
 
 
 -(void)checkIfTreeExistsAndIsComplete{
-    if (self.tree || self.treeStarted) {
+    if (self.tree) {
         if (!self.tree.isComplete) {
             UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Last Tree Open" message:@"Can't submit site report with open tree" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
             noTreeAlert.tag = 1;

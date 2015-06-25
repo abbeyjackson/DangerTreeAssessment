@@ -31,7 +31,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [self checkIfNewTree];
+    
+    [super viewWillAppear:animated];
 }
 
 

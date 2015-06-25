@@ -70,10 +70,6 @@
     [self updateLabelContraints];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    //testing for the content size
-    NSLog(@"Scoll view content size: (%f, %f)", self.scrollView.contentSize.width, self.scrollView.contentSize.height);
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

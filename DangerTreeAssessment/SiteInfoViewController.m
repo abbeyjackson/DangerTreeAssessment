@@ -36,6 +36,7 @@
     [self configureDateFormats];
 }
 
+
 -(void)configureDateFormats{
     
     self.dateFormat = [[NSDateFormatter alloc] init];
@@ -46,9 +47,8 @@
     [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
 }
 
-
-
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationItem.hidesBackButton = YES;
     [self checkIfNewSite];
 }
