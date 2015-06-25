@@ -55,13 +55,16 @@
     if (self.treeStarted) {
         [self alertIfTreeExistsAndIsComplete];
         [self configureTextFields];
+        [self initializeNewSite];
     }
     if (!self.isNewSite || !self.site) {
         [self checkIfSiteIsOpen];
         [self configureTextFields];
+        [self initializeNewSite];
     }
     if (!self.site && self.isNewSite){
         [self configureTextFields];
+        [self initializeNewSite];
     }
 }
 
@@ -146,7 +149,10 @@
     }
 }
 
-
+-(void)initializeNewSite{
+    
+    self.site = [[Site alloc]init];
+}
 
 
 -(void)configureTextFields{
@@ -155,11 +161,6 @@
     self.activityField.delegate = self;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
@@ -226,7 +227,6 @@
 
 - (IBAction)addNewTree:(id)sender {
     UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
-    self.site = [[Site alloc]init];
     self.site = [self createSite];
     TreeInfoViewController *destination = vc.viewControllers.firstObject;
     [destination setSite:self.site];

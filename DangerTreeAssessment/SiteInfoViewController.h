@@ -18,4 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *lodField;
 
+
+-(void)initializeNewSite;
+
 @end

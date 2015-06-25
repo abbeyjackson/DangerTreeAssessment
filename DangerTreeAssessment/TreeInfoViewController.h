@@ -19,6 +19,6 @@
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, strong) Tree *tree;
 
--(void)resetTree;
+-(void)initializeNewTree;
 
 @end

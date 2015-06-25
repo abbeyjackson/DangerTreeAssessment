@@ -43,11 +43,29 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [self checkIfSiteExists];
+    [self checkIfNewTree];
     [self getCurrentLocation];
     self.navigationItem.hidesBackButton = YES;
     
 }
 
+-(void)checkIfNewTree{
+    RLMResults *trees = [Tree allObjects];
+    Tree *lastTree = [trees lastObject];
+    if (self.tree) {
+        if (self.tree.isComplete) {
+            [self initializeNewTree];
+            [self configureTextFields];
+        }
+        else {
+            // let user edit current tree
+        }
+    }
+    else {
+        [self initializeNewTree];
+        [self configureTextFields];
+    }
+}
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -86,7 +104,7 @@
     }
 }
 
--(void)resetTree{
+-(void)initializeNewTree{
     
     self.tree = [[Tree alloc]init];
     
@@ -94,26 +112,13 @@
 
 -(void)checkIfSiteExists{
 
-    if (self.site == nil) {
-        RLMResults *results = [Site allObjects];
-        Site *mostRecentSite = [results lastObject];
-        
-        if (mostRecentSite.isReportComplete) {
-            UIAlertView *makeNewSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must start a site first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
-            makeNewSiteAlert.tag = 0;
-            [makeNewSiteAlert show];
-        }
-        else if (!mostRecentSite.isReportComplete){
-            UIAlertView *previousSiteNotCompleteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Must submit last site report first" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", nil];
-            
-            previousSiteNotCompleteAlert.tag = 1;
-            [previousSiteNotCompleteAlert show];
-        }
-    }
-    else if (self.tree == nil){
-        [self resetTree];
-        [self configureTextFields];
-    }
+}
+
+-(void)resetSite{
+    
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo initializeNewSite];
 }
 
 
@@ -123,8 +128,9 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
+            [self resetSite];
             [self.tabBarController setSelectedIndex:1];
-        } 
+        }
     }
     if (alertView.tag == 1) {
         if (buttonIndex == 0) {

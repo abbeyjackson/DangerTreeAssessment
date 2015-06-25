@@ -13,6 +13,7 @@
 #import "Tree.h"
 #import <MessageUI/MessageUI.h>
 #import "CHCSVParser.h"
+#import "TreeInfoViewController.h"
 
 
 @interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>{
@@ -50,13 +51,12 @@
     [self sendEmailWithCSV];
 }
 
--(void)resetSite{
-    
-    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-    Site *site = [[Site alloc]init];
-    [siteInfo setSite:site];
-}
+//-(void)resetSite{
+//    
+//    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+//    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+//    [siteInfo initializeNewSite];
+//}
 
 
 -(void)checkIfSiteExistsAndIsComplete{
@@ -95,16 +95,32 @@
     [realm commitWriteTransaction];
 }
 
+//-(void)resetTree{
+//    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
+//    TreeInfoViewController *destination = vc.viewControllers.firstObject;
+//    [destination initializeNewTree];
+//}
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0) {
         if (buttonIndex == 0) {
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:1];        }
+    }
+    else if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+        if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:1];
         }
     }
-    else if (alertView.tag == 1){
+    else if (alertView.tag == 2){
         if (buttonIndex == 0) {
             // dismiss alert
         }
@@ -209,29 +225,6 @@
 }
 
 
-//-(void)generateCsvFile{
-//
-//    NSString *csvString = [csvArray componentsJoinedByString:@","];
-//    NSLog(@"csvString:%@",csvString);
-//    
-//    // Create .csv file and save in Documents Directory.
-//    
-//    //create instance of NSFileManager
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    
-//    //create an array and store result of our search for the documents directory in it
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    
-//    //create NSString object, that holds our exact path to the documents directory
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSLog(@"Document Dir: %@",documentsDirectory);
-//    
-//    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.csv", @"userdata"]]; //add our file to the path
-//    [fileManager createFileAtPath:fullPath contents:[csvString dataUsingEncoding:NSUTF8StringEncoding] attributes:nil]; //finally save the path (file)
-//}
-
-
-
 # pragma mark - If pressed cancel
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
@@ -271,6 +264,12 @@
     UIAlertView *submitUnsuccessfulAlert = [[UIAlertView alloc] initWithTitle:@"Message not sent!" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     submitUnsuccessfulAlert.tag = 3;
     [submitUnsuccessfulAlert show];
+}
+
+-(void)emailSuccessfulAlert{
+    UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your message was sent" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"New Site", nil];
+    successfulAlert.tag = 2;
+    [successfulAlert show];
 }
 
 -(void)markSendReportComplete{

@@ -124,7 +124,7 @@
     if (buttonIndex == 1) {
         UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
         TreeInfoViewController *destination = vc.viewControllers.firstObject;
-        [destination resetTree];
+//        [destination initializeNewTree];
         [destination setSite:self.site];
         [self.tabBarController setSelectedIndex:2];
         [self.navigationController popToRootViewControllerAnimated:NO];
