@@ -237,7 +237,7 @@
 
 -(void)emailSuccessfulAlert{
     [self markSendReportComplete];
-    UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your message was sent" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"New Site", nil];
+    UIAlertView *successfulAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your message was sent" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles: @"New Site", nil];
     successfulAlert.tag = 2;
     [successfulAlert show];
 }
@@ -273,9 +273,6 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:2];
-        }
-        if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:1];
         }
     }
