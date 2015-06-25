@@ -84,7 +84,7 @@
 -(void)checkIfTreeExistsAndIsComplete{
     if (self.tree || self.treeStarted) {
         if (!self.tree.isComplete) {
-            UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"Last tree report not complete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
+            UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Last Tree Open" message:@"Can't submit site report with open tree" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
             noTreeAlert.tag = 1;
             [noTreeAlert show];
         }
@@ -101,34 +101,6 @@
 //    [destination initializeNewTree];
 //}
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 0) {
-        if (buttonIndex == 0) {
-            [self.tabBarController setSelectedIndex:0];
-        }
-        if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:1];        }
-    }
-    else if (alertView.tag == 1){
-        if (buttonIndex == 0) {
-            [self.tabBarController setSelectedIndex:0];
-        }
-        if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:2];
-        }
-        if (buttonIndex == 2) {
-            [self.tabBarController setSelectedIndex:1];
-        }
-    }
-    else if (alertView.tag == 2){
-        if (buttonIndex == 0) {
-            // dismiss alert
-        }
-        if (buttonIndex == 1) {
-            [self.tabBarController setSelectedIndex:2];
-        }
-    }
-}
 
 - (void)configureLabels{
     self.fireNumberLabel.text = self.site.fireNumber;
@@ -281,6 +253,36 @@
     NSLog(@"success");
 }
 
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 0) {
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:1];
+        }
+    }
+    else if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+    }
+    else if (alertView.tag == 2){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+        if (buttonIndex == 2) {
+            [self.tabBarController setSelectedIndex:1];
+        }
+    }
+}
 
 
 
