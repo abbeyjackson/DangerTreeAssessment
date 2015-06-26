@@ -126,6 +126,10 @@
         if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:3];
         }
+    }if (alertView.tag ==2){
+        if (buttonIndex == 0){
+            [self.tabBarController setSelectedIndex:1];
+        }
     }
 }
 
@@ -217,6 +221,18 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
+    
+    if ([self.fireNumberField.text isEqual:@""] || [self.dtaNameField.text isEqual:@""] || [self.dtaUnitField.text isEqual:@""] || [self.fuelField.text isEqual:@""] || [self.locationField.text isEqual:@""] || [self.buiField.text isEqual:@""] || [self.activityField.text isEqual:@""]){
+
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                          message:@"Please fill in all fields."
+                                                         delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        av.tag = 2;
+        [av show];
+        
+    }else{
+
+    
     UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
     self.site = [self createSite];
     TreeInfoViewController *destination = vc.viewControllers.firstObject;
@@ -226,6 +242,7 @@
     UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
     SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
     [siteReview setSite:self.site];
+    }
     
 }
 
