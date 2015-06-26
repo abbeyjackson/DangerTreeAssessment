@@ -139,6 +139,10 @@
         if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:1];
         }
+    }if (alertView.tag ==2){
+        if (buttonIndex == 0){
+            [self.tabBarController setSelectedIndex:2];
+        }
     }
 }
 
@@ -294,27 +298,41 @@
 
 
 - (IBAction)saveNewTreeButton:(id)sender {
-    self.tree = [self createTree];
-    if ([self.site.lod isEqualToString: kLODType1]) {
-        TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
-        [destination setTree:self.tree];
-        [destination setSite:self.site];
-        [self.navigationController pushViewController:destination animated:YES];
-    }
-    if ([self.site.lod isEqualToString: kLODType23]) {
-        TreeLOD23ViewController *destination =  [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD23"];
-        [destination setTree:self.tree];
-        [destination setSite:self.site];
-        [self.navigationController pushViewController:destination animated:YES];
-    }
-    if ([self.site.lod isEqualToString: kLODType4]) {
-        TreeLOD4ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD4"];
-        [destination setTree:self.tree];
-        [destination setSite:self.site];
-        [self.navigationController pushViewController:destination animated:YES];
-    }
     
+    if ([self.latitudeField.text isEqual:@""] || [self.longitudeField.text isEqual:@""] || [self.speciesField.text isEqual:@""] || [self.classField.text isEqual:@""] || [self.wildlifeValueField.text isEqual:@""]){
+        
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                     message:@"Please fill in all fields."
+                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        av.tag = 2;
+        [av show];
+        
+    }else{
+    
+    
+        self.tree = [self createTree];
+        if ([self.site.lod isEqualToString: kLODType1]) {
+            TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
+            [destination setTree:self.tree];
+            [destination setSite:self.site];
+            [self.navigationController pushViewController:destination animated:YES];
+        }
+        if ([self.site.lod isEqualToString: kLODType23]) {
+            TreeLOD23ViewController *destination =  [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD23"];
+            [destination setTree:self.tree];
+            [destination setSite:self.site];
+            [self.navigationController pushViewController:destination animated:YES];
+        }
+        if ([self.site.lod isEqualToString: kLODType4]) {
+            TreeLOD4ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD4"];
+            [destination setTree:self.tree];
+            [destination setSite:self.site];
+            [self.navigationController pushViewController:destination animated:YES];
+        }
+    }
 }
+
+
 
 
 
