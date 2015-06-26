@@ -130,9 +130,19 @@
 }
 
 - (IBAction)makeTreeReportButton:(id)sender {
+    
+    if ([self.managementField.text isEqual:@""]){
+        
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                     message:@"Please fill in the management action field."
+                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+        
+    }else{
+    
     [self saveTreeMgt];
-   
     [self performSegueWithIdentifier:@"showTreeReview" sender:self];
+    }
 }
 
 #pragma mark - Navigation
