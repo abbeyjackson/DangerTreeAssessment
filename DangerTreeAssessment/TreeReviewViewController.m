@@ -397,9 +397,9 @@
     self.isDangerousPlaceholder.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.isDangerousLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 570, 200, 50)];
-    if (self.tree.isDangerous){
+    if ([[NSNumber numberWithBool:self.tree.isDangerous] isEqual:[NSNumber numberWithBool:YES]]){
         self.isDangerousLabel.text = @"YES";
-    } else if (!self.tree.isDangerous){
+    } else if ([[NSNumber numberWithBool:self.tree.isDangerous] isEqual:[NSNumber numberWithBool:NO]]){
         self.isDangerousLabel.text = @"NO";
     }
     self.isDangerousLabel.font = [UIFont systemFontOfSize:20];
