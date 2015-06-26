@@ -253,7 +253,7 @@
 -(void)resetSite{
         UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
         SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-        [siteInfo setIsNewSite:YES];
+        [siteInfo setIsNewSite:NO];
 }
 
 
