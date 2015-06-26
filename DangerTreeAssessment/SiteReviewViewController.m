@@ -51,13 +51,6 @@
     [self sendEmailWithCSV];
 }
 
-//-(void)resetSite{
-//    
-//    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-//    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-//    [siteInfo initializeNewSite];
-//}
-
 
 -(void)checkIfSiteExistsAndIsComplete{
     
@@ -90,12 +83,6 @@
         }
     }
 }
-
-//-(void)resetTree{
-//    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
-//    TreeInfoViewController *destination = vc.viewControllers.firstObject;
-//    [destination initializeNewTree];
-//}
 
 
 - (void)configureLabels{

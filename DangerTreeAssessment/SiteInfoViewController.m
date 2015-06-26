@@ -125,6 +125,15 @@
     self.locationField.delegate = self;
     self.buiField.delegate = self;
     self.activityField.delegate = self;
+    
+    self.fireNumberField.text = nil;
+    self.dtaNameField.text = nil;
+    self.dtaUnitField.text = nil;
+    self.fuelField.text = nil;
+    self.locationField.text = nil;
+    self.buiField.text = nil;
+    self.lodField.text = nil;
+    self.activityField.text = nil;
 }
 
 

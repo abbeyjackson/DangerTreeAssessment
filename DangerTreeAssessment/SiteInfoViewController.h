@@ -13,7 +13,7 @@
 @interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) Site *site;
-@property (nonatomic) BOOL isNewSite;
+@property (nonatomic, assign) BOOL isNewSite;
 @property (weak, nonatomic) IBOutlet UITextField *lodField;
 
 
