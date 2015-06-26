@@ -48,7 +48,6 @@
 
 - (IBAction)submitReport:(id)sender {
     [self checkIfTreeExistsAndIsComplete];
-    [self sendEmailWithCSV];
 }
 
 
@@ -75,12 +74,15 @@
 
 
 -(void)checkIfTreeExistsAndIsComplete{
-    if (self.tree) {
+    if (self.tree || self.treeOpen) {
         if (!self.tree.isComplete) {
             UIAlertView *noTreeAlert = [[UIAlertView alloc] initWithTitle:@"Last Tree Open" message:@"Can't submit site report with open tree" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Go To Current Tree", nil];
             noTreeAlert.tag = 1;
             [noTreeAlert show];
         }
+    }
+    else {
+        [self sendEmailWithCSV];
     }
 }
 

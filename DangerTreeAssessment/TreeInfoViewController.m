@@ -184,6 +184,19 @@
     self.tree = [[Tree alloc]init];
     
     self.isNewTree = YES;
+    
+    [self tellSiteAboutTree];
+}
+
+-(void)tellSiteAboutTree{
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setIsNewTree:YES];
+    
+    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteInfoViewController *)[reviewNavController.viewControllers firstObject];
+    [siteReview setTreeOpen:YES];
+    
 }
 
 -(void)resetSite{
@@ -280,20 +293,8 @@
 }
 
 
--(void)setTreeIsOpen{
-    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
-    [siteReview setTreeStarted:YES];
-    
-    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-//    [siteInfo setTreeStarted:YES];
-}
-
-
 - (IBAction)saveNewTreeButton:(id)sender {
     self.tree = [self createTree];
-    [self setTreeIsOpen];
     if ([self.site.lod isEqualToString: kLODType1]) {
         TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
         [destination setTree:self.tree];

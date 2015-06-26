@@ -62,6 +62,11 @@
         }
         else if (self.isNewSite == YES){
             // let user continue current site
+            if (self.isNewTree){
+                UIAlertView *lastTreeOpen = [[UIAlertView alloc] initWithTitle:@"Current Tree Open" message:@"Can not start new site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles: @"Go To Current Tree", @"View Site Report", nil];
+                lastTreeOpen.tag = 1;
+                [lastTreeOpen show];
+            }
         }
         else {
             // user should close site before making a new one or can add new tree
@@ -109,6 +114,17 @@
         }
         if (buttonIndex == 3) {
             [self.tabBarController setSelectedIndex:2];
+        }
+    }
+    if (alertView.tag == 1){
+        if (buttonIndex == 0) {
+            [self.tabBarController setSelectedIndex:0];
+        }
+        if (buttonIndex == 1) {
+            [self.tabBarController setSelectedIndex:2];
+        }
+        if (buttonIndex == 2) {
+            [self.tabBarController setSelectedIndex:3];
         }
     }
 }
