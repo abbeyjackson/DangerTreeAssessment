@@ -189,7 +189,6 @@
     
     self.isNewTree = YES;
     
-    [self tellSiteAboutTree];
 }
 
 -(void)tellSiteAboutTree{
@@ -236,6 +235,9 @@
     self.tree.treeNumber = [self setTreeNum];
     self.tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,self.tree.treeNumber];
 
+    
+    [self tellSiteAboutTree];
+    
     return self.tree;
 }
 
