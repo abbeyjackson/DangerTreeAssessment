@@ -133,8 +133,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
-        if ([self isDangerous]) {
-            [[segue destinationViewController] setIsDangerousSet:YES];
+        if ([[NSNumber numberWithBool:self.isDangerous] isEqual:[NSNumber numberWithBool:YES]]) {
+            [[segue destinationViewController] setIsDangerousSet:@1];
         }
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];

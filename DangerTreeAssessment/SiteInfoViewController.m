@@ -49,13 +49,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationItem.hidesBackButton = YES;
+//    self.navigationItem.hidesBackButton = YES;
     [self checkIfNewSite];
 }
 
 -(void)checkIfNewSite{
     if (self.site) {
-        if (self.site.isReportComplete == YES) {
+        if ([[NSNumber numberWithBool:self.site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
             // let user make new site
             [self initializeNewSite];
             [self configureTextFields];
@@ -79,7 +79,7 @@
         RLMResults *sites = [Site allObjects];
         Site *site = [sites lastObject];
         if (site) {
-            if (!site.isReportComplete) {
+            if ([[NSNumber numberWithBool:site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
                 // user should close site before making a new one or can add new tree
                 UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", @"Make New Site", @"Add New Tree", nil];
                 lastSiteOpen.tag = 0;
@@ -337,6 +337,7 @@
     self.site.formattedDtaID = self.dtaID;
     self.site.reportDate = [self.reportDateFormat stringFromDate:[NSDate date]];
     self.site.numberForArray = [self setSiteNumberForArray];
+    self.site.isReportComplete = 0;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     

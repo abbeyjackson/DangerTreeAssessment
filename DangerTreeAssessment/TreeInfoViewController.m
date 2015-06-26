@@ -67,13 +67,13 @@
         }
     }
     else if (self.site){
-        if (self.site.isReportComplete == YES) {
+        if ([[NSNumber numberWithBool:self.site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
             // no site, let user choose to make new site or go to site list
             UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
             noCurrentSite.tag = 0;
             [noCurrentSite show];
         }
-        else if (self.site.isReportComplete == NO) {
+        else if ([[NSNumber numberWithBool:self.site.isReportComplete] isEqual:[NSNumber numberWithBool:NO]]) {
             // let user continue new tree
             NSLog(@"got to this point");
             [self initializeNewTree];
@@ -84,7 +84,7 @@
         RLMResults *sites = [Site allObjects];
         Site *site = [sites lastObject];
         if (site){
-            if (site.isReportComplete) {
+            if ([[NSNumber numberWithBool:site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
                 // no site, let user choose to make new site or go to site list
                 UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
                 noCurrentSite.tag = 0;

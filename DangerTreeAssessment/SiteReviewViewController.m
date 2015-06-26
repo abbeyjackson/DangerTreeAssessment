@@ -57,7 +57,7 @@
         RLMResults *results = [Site allObjects];
         Site *mostRecentSite = [results lastObject];
         if (mostRecentSite) {
-            if (!mostRecentSite.isReportComplete) {
+            if ([[NSNumber numberWithBool:mostRecentSite.isReportComplete] isEqual:[NSNumber numberWithBool:NO]]) {
                 self.site = mostRecentSite;
             }
             else{
@@ -159,11 +159,11 @@
         NSString *rootInspection = tree.rootInspection;
         NSString *rating = tree.rating;
         NSString *isDangerous;
-        if (tree.isDangerous) {
-            NSString *isDangerous = @"YES";
+        if ([[NSNumber numberWithBool:tree.isDangerous] isEqual:[NSNumber numberWithBool:NO]]) {
+            isDangerous = @"YES";
         }
         else {
-             NSString *isDangerous = @"NO";
+            isDangerous = @"NO";
         }
         NSString *management = tree.management;
         NSString *comments = tree.comments;
@@ -234,7 +234,7 @@
 -(void)markSendReportComplete{
     RLMRealm *realm = self.site.realm;
     [realm beginWriteTransaction];
-    self.site.isReportComplete = YES;
+    self.site.isReportComplete = 2;
     [realm commitWriteTransaction];
     [self resetSite];
 }

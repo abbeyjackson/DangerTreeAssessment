@@ -32,13 +32,5 @@ NSString* const kO1b = @"k01b";
 
 @implementation Site
 
-+ (NSDictionary *)defaultPropertyValues
-{
-    return @{@"isReportComplete" : @"NO"};
-}
-
-//+ (NSString *)primaryKey {
-//    return @"id";
-//}
 
 @end
