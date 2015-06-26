@@ -101,7 +101,7 @@
 - (void)configureLabels{
     self.fireNumberLabel.text = self.site.fireNumber;
     self.dtaNameLabel.text = self.site.dtaName;
-    self.unitLabel.text = self.site.dtaName;
+    self.unitLabel.text = self.site.dtaUnit;
     self.fuelLabel.text = self.site.fuel;
     self.locationLabel.text = self.site.location;
     self.buiLabel.text = self.site.bui;
@@ -247,7 +247,13 @@
     [realm beginWriteTransaction];
     self.site.isReportComplete = YES;
     [realm commitWriteTransaction];
-    NSLog(@"success");
+    [self resetSite];
+}
+
+-(void)resetSite{
+        UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+        SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+        [siteInfo setIsNewSite:YES];
 }
 
 
@@ -257,6 +263,7 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
+            [self resetSite];
             [self.tabBarController setSelectedIndex:1];
         }
     }
@@ -265,6 +272,7 @@
             
         }
         if (buttonIndex == 1) {
+            [self resetSite];
             [self.tabBarController setSelectedIndex:2];
         }
     }
@@ -273,6 +281,7 @@
             [self.tabBarController setSelectedIndex:0];
         }
         if (buttonIndex == 1) {
+            [self resetSite];
             [self.tabBarController setSelectedIndex:1];
         }
     }
