@@ -198,7 +198,7 @@
     [siteInfo setIsNewTree:YES];
     
     UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-    SiteReviewViewController *siteReview = (SiteInfoViewController *)[reviewNavController.viewControllers firstObject];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
     [siteReview setTreeOpen:YES];
     
 }

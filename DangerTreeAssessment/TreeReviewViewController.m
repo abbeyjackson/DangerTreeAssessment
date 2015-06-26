@@ -105,6 +105,18 @@
     self.tree.isComplete = YES;
     [self.site.trees addObject:self.tree];
     [realm commitWriteTransaction];
+    
+    [self tellSiteTreeIsClosed];
+}
+
+-(void)tellSiteTreeIsClosed{
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setIsNewTree:NO];
+    
+    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
+    [siteReview setTreeOpen:NO];
 }
 
 

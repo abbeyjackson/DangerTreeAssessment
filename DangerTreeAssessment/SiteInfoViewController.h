@@ -15,7 +15,7 @@
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, assign) BOOL isNewSite;
 @property (weak, nonatomic) IBOutlet UITextField *lodField;
-@property (nonatomic, assign) BOOL *isNewTree;
+@property (nonatomic, assign) BOOL isNewTree;
 
 -(void)initializeNewSite;
 
