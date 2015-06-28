@@ -98,7 +98,7 @@
             else if ([mostRecentSite.reportDate isEqualToString:[dateFormat stringFromDate:[NSDate date]]]){
                 // last site open, let user choose to add new tree, go to site report or go to site list
                 NSString *alertString = [NSString stringWithFormat:@"Do you want to add to %@?", mostRecentSite.siteID];
-                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Add New Tree", @"Make New Site", nil];
+                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Add New Tree", @"Make New Site", @"Submit Site Report", nil];
                 lastSiteOpen.tag = 1;
                 [lastSiteOpen show];
             }
@@ -145,6 +145,9 @@
         }
         if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:1];
+        }
+        if (buttonIndex == 3) {
+            [self.tabBarController setSelectedIndex:3];
         }
     }if (alertView.tag ==2){
         if (buttonIndex == 0){
