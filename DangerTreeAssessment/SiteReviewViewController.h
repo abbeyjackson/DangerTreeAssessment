@@ -14,6 +14,6 @@
 
 @property (nonatomic) Tree *tree;
 @property (nonatomic) Site *site;
-@property (nonatomic) BOOL treeOpen;
+@property (nonatomic, assign) BOOL treeOpen;
 
 @end

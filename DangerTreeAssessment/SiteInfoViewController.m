@@ -77,9 +77,9 @@
     }
     else {
         RLMResults *sites = [Site allObjects];
-        Site *site = [sites lastObject];
-        if (site) {
-            if ([[NSNumber numberWithBool:site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
+        Site *mostRecentsite = [sites lastObject];
+        if (mostRecentsite) {
+            if ([[NSNumber numberWithBool:mostRecentsite.isReportComplete] isEqual:[NSNumber numberWithBool:NO]]) {
                 // user should close site before making a new one or can add new tree
                 UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", @"Make New Site", @"Add New Tree", nil];
                 lastSiteOpen.tag = 0;
@@ -138,6 +138,7 @@
     
     self.site = [[Site alloc]init];
     self.isNewSite = YES;
+    
 }
 
 
@@ -344,6 +345,8 @@
     [realm beginWriteTransaction];
     [realm addObject:self.site];
     [realm commitWriteTransaction];
+    
+    self.isNewSite = NO;
     
     return self.site;
 }

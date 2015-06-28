@@ -59,6 +59,7 @@
         else {
             if (self.isNewTree == YES) {
                 // let user edit current tree
+                self.tree.site = self.site;
             }
             else {
                 [self initializeNewTree];
@@ -82,20 +83,30 @@
     }
     else if (!self.site){
         RLMResults *sites = [Site allObjects];
-        Site *site = [sites lastObject];
-        if (site){
-            if ([[NSNumber numberWithBool:site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
+        Site *mostRecentSite = [sites lastObject];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MM-dd-yyyy"];
+        
+        if (mostRecentSite){
+            if ([[NSNumber numberWithBool:mostRecentSite.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
                 // no site, let user choose to make new site or go to site list
                 UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
                 noCurrentSite.tag = 0;
                 [noCurrentSite show];
             }
-            else {
+            else if ([mostRecentSite.reportDate isEqualToString:[dateFormat stringFromDate:[NSDate date]]]){
                 // last site open, let user choose to add new tree, go to site report or go to site list
-                NSString *alertString = [NSString stringWithFormat:@"Do you want to add to %@?", site.siteID];
+                NSString *alertString = [NSString stringWithFormat:@"Do you want to add to %@?", mostRecentSite.siteID];
                 UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Add New Tree", @"Make New Site", nil];
                 lastSiteOpen.tag = 1;
                 [lastSiteOpen show];
+            }
+            else {
+                // no site, let user choose to make new site or go to site list
+                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+                noCurrentSite.tag = 0;
+                [noCurrentSite show];
             }
         }
         else {
@@ -105,17 +116,13 @@
             [noCurrentSite show];
         }
     }
-    else {
-        // let user make new tree
-        [self initializeNewTree];
-        [self configureTextFields];
-    }
 }
 
 -(void)setCurrentSite{
     RLMResults *sites = [Site allObjects];
     Site *site = [sites lastObject];
     self.site = site;
+    self.tree.site = self.site;
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {

@@ -56,8 +56,13 @@
     if (self.site == nil) {
         RLMResults *results = [Site allObjects];
         Site *mostRecentSite = [results lastObject];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MM-dd-yyyy"];
+        
+        
         if (mostRecentSite) {
-            if ([[NSNumber numberWithBool:mostRecentSite.isReportComplete] isEqual:[NSNumber numberWithBool:NO]]) {
+            if ([[NSNumber numberWithBool:mostRecentSite.isReportComplete] isEqual:[NSNumber numberWithBool:NO]] && [mostRecentSite.reportDate isEqualToString:[dateFormat stringFromDate:[NSDate date]]]) {
                 self.site = mostRecentSite;
             }
             else{
@@ -65,6 +70,11 @@
                 noSiteAlert.tag = 0;
                 [noSiteAlert show];
             }
+        }
+        else{
+            UIAlertView *noSiteAlert = [[UIAlertView alloc] initWithTitle:@"Ooops!" message:@"No current site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Start New Site", nil];
+            noSiteAlert.tag = 0;
+            [noSiteAlert show];
         }
     }
     
@@ -234,15 +244,15 @@
 -(void)markSendReportComplete{
     RLMRealm *realm = self.site.realm;
     [realm beginWriteTransaction];
-    self.site.isReportComplete = 2;
+    self.site.isReportComplete = 1;
     [realm commitWriteTransaction];
     [self resetSite];
 }
 
 -(void)resetSite{
-        UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-        SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-        [siteInfo setIsNewSite:NO];
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setIsNewSite:NO];
 }
 
 
