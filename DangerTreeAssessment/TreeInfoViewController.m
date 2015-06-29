@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *speciesField;
 @property (weak, nonatomic) IBOutlet UITextField *classField;
 @property (weak, nonatomic) IBOutlet UITextField *wildlifeValueField;
+@property (weak, nonatomic) IBOutlet UILabel *siteLocationLabel;
 
 @end
 
@@ -50,6 +51,10 @@
     
 }
 
+-(void)setTitleLabel{
+    self.siteLocationLabel.text = [NSString stringWithFormat:@"Site: %@", self.site.location];
+}
+
 -(void)checkIfNewTree{
     if (self.tree) {
         if (self.tree.isComplete) {
@@ -60,6 +65,7 @@
             if (self.isNewTree == YES) {
                 // let user edit current tree
                 self.tree.site = self.site;
+                [self setTitleLabel];
             }
             else {
                 [self initializeNewTree];
@@ -123,6 +129,7 @@
     Site *site = [sites lastObject];
     self.site = site;
     self.tree.site = self.site;
+    [self setTitleLabel];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -149,7 +156,7 @@
         if (buttonIndex == 3) {
             [self.tabBarController setSelectedIndex:3];
         }
-    }if (alertView.tag ==2){
+    }if (alertView.tag == 2){
         if (buttonIndex == 0){
             [self.tabBarController setSelectedIndex:2];
         }
@@ -251,6 +258,7 @@
     return self.tree;
 }
 
+
 -(void)configureTextFields{
     
     self.latitudeField.text = nil;
@@ -262,6 +270,8 @@
     [self textFieldShouldBeginEditing:self.speciesField];
     [self textFieldShouldBeginEditing:self.classField];
     [self textFieldShouldBeginEditing:self.wildlifeValueField];
+    
+    [self setTitleLabel];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
