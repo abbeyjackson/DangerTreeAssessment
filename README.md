@@ -5,6 +5,9 @@ Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 #####* In Progress: Development began June 15, 2015 *
 
 
+![Screenshot1](DangerTreeAssessment/Screenshot1.jpg) ![Screenshot2](DangerTreeAssessment/Screenshot2.jpg) ![Screenshot3](DangerTreeAssessment/Screenshot3.jpg) ![Screenshot4](DangerTreeAssessment/Screenshot4.jpg)
+
+
 ###The Problem:
 Currently BC Wildfires uses an antiquated paper system for dangerous tree data collection. Hundreds of papers are submitted containing GPS coordinates and maps are drawn accordingly, indicating safe areas and dangerous areas. However, because this process is being done manually on paper, substantial delays in mapmaking exist which can be as long as several days on large fires. With delays like these, First Responders on the scene are subjected to additional dangers -- in an already very dangerous work environment -- due to the slow processing time of the information. We intend to solve this problem by digitizing the process efficiently and intuitively. We will create a mobile app which gathers not only more accurate information, but organizes that information such that it can be drawn on a map in a significantly shorter time frame. First responders will finally have an up-to-date map and complete information of danger areas. 
 
