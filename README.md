@@ -13,6 +13,3 @@ When there's a wildfire, firefighters work hard to contain the fire. Nonetheless
 ###The Innovation:
 We are developing a mobile app which will significantly accelerate the process of mapping dangerous areas by collecting and delivering the data digitally. In addition, Danger Tree Assessors currently focus on areas as a whole as opposed to marking individual trees -- leaving a significant margin of error. By utilizing the GPS technology on a mobile device, we will be able to accurately capture information for each tree within an area. This information will be transferred in a spreadsheet to the data centre at the end of the day (or earlier if wifi/data is available). The Geographic Information Specialists will easily convert our data into a map, reduce human error and accelerate the process in order to ensure a safe working environment. We will create a map that will be shared via AirDrop in-field, revolutionizing the current process by allowing for updates of  hazards and danger zones in real-time.
 
-![Paperwork](DangerTreeAssessment/Paperwork.jpg)
-from this ^^^^^ to this:
-![Paperwork](DangerTreeAssessment/Storyboard.jpg)
