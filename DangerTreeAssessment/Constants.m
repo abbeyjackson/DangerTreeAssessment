@@ -9,11 +9,11 @@
 #import "Constants.h"
 
 // alerts
-extern NSString* const kGoToTree = @"Go To Tree";
-extern NSString* const kAddNewTree = @"Add New Tree";
-extern NSString* const kSubmitSiteReport = @"Submit Site Report";
-extern NSString* const kStartNewSite = @"Start New Site";
-extern NSString* const kViewSiteList = @"View Site List";
+NSString* const kGoToTree = @"Go To Tree";
+NSString* const kAddNewTree = @"Add New Tree";
+NSString* const kSubmitSiteReport = @"Submit Site Report";
+NSString* const kStartNewSite = @"Start New Site";
+NSString* const kViewSiteList = @"View Site List";
 
 
 // wildlife tree value
