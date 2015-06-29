@@ -5,7 +5,7 @@ Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 #####* In Progress: Development began June 15, 2015 *
 
 
-![Screenshot1](DangerTreeAssessment/Screenshot1.jpg) ![Screenshot2](DangerTreeAssessment/Screenshot2.jpg) ![Screenshot3](DangerTreeAssessment/Screenshot3.jpg) ![Screenshot4](DangerTreeAssessment/Screenshot4.jpg)
+![Screenshot1](DangerTreeAssessment/Screenshot1.png) ![Screenshot2](DangerTreeAssessment/Screenshot2.png) ![Screenshot3](DangerTreeAssessment/Screenshot3.png) ![Screenshot4](DangerTreeAssessment/Screenshot4.png)
 
 
 ###The Problem:
