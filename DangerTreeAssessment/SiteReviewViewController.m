@@ -14,6 +14,7 @@
 #import <MessageUI/MessageUI.h>
 #import "CHCSVParser.h"
 #import "TreeInfoViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface SiteReviewViewController () <MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>{

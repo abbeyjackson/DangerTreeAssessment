@@ -10,6 +10,7 @@
 #import "Site.h"
 #import "FuelCollectionViewController.h"
 #import "Constants.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
 
