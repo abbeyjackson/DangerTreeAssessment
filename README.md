@@ -4,17 +4,17 @@ Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 
 #####* In Progress: Development began June 15, 2015 *
 
-
-![Screenshot1](DangerTreeAssessment/Screenshot1.png) ![Screenshot2](DangerTreeAssessment/Screenshot2.png) ![Screenshot3](DangerTreeAssessment/Screenshot3.png) ![Screenshot4](DangerTreeAssessment/Screenshot4.png)
-
+![Screengrab](DangerTreeAssessment/DTAscreengrab.gif) 
 
 ###The Problem:
-Currently BC Wildfires uses an antiquated paper system for dangerous tree data collection. Hundreds of papers are submitted containing GPS coordinates and maps are drawn accordingly, indicating safe areas and dangerous areas. However, because this process is being done manually on paper, substantial delays in mapmaking exist which can be as long as several days on large fires. With delays like these, First Responders on the scene are subjected to additional dangers -- in an already very dangerous work environment -- due to the slow processing time of the information. We intend to solve this problem by digitizing the process efficiently and intuitively. We will create a mobile app which gathers not only more accurate information, but organizes that information such that it can be drawn on a map in a significantly shorter time frame. First responders will finally have an up-to-date map and complete information of danger areas. 
+When there's a wildfire, firefighters work hard to contain the fire. Nonetheless, there are still hazards that exist all around the perimeter of the fire. The danger assessors assess these hazard, and determine which trees are dangerous and pose a threat to on-site workers. However, this assessment process is currently being done by paper where hundreds of paper reports must be processed each day. This process can take days on a larger fire -- putting all on-site workers at risk. Our app digitizes the data collection and sharing process and speeds it up significantly by 1) collecting data easily and intuitively and 2) exporting that data in a spreadsheet instead of shuffling through hundreds of papers. 
 
 
 ###The Innovation:
 We are developing a mobile app which will significantly accelerate the process of mapping dangerous areas by collecting and delivering the data digitally. In addition, Danger Tree Assessors currently focus on areas as a whole as opposed to marking individual trees -- leaving a significant margin of error. By utilizing the GPS technology on a mobile device, we will be able to accurately capture information for each tree within an area. This information will be transferred in a spreadsheet to the data centre at the end of the day (or earlier if wifi/data is available). The Geographic Information Specialists will easily convert our data into a map, reduce human error and accelerate the process in order to ensure a safe working environment. We will create a map that will be shared via AirDrop in-field, revolutionizing the current process by allowing for updates of  hazards and danger zones in real-time.
 
-![Paperwork](DangerTreeAssessment/Paperwork.jpg)
-from this ^^^^^ to this:
-![Paperwork](DangerTreeAssessment/Storyboard.jpg)
+
+###The Details and Attributions:
+Using REALM as a backend the Danger Tree Assessment app allows for on-site digital capture of everything that is currently being captured on paper, sticking to the step by step process currently in use. Additionally GPS is captured for each individual trees, allowing maps to be more accurate (in the current system GPS is captured only for the overall site location). This data is then exported via a CVS file using CHCVSParser. Icon assets are provided by icons8.com. Assessment information Copyright BCWildfires and is being used only for demonstration purposes.
+
+Logic checks are done to ensure trees are added to the correct site, new trees are not added without an associated site, and new sites are not created by accident when a site is already open. A user can leave their site reports open to submit later or can submit whilst in field and the email will be sent when their device finds a wifi or data connection.
