@@ -11,7 +11,7 @@
 #import "FuelCollectionViewController.h"
 #import "Constants.h"
 
-@interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate, UINavigationControllerDelegate>
+@interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) Site *site;
 @property (nonatomic, assign) BOOL isNewSite;

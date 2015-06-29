@@ -13,7 +13,10 @@
 #import "UIColor+CustomColours.h"
 #import "SiteReviewViewController.h"
 
-@interface SiteInfoViewController ()
+@interface SiteInfoViewController (){
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
@@ -34,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureDateFormats];
+    locationManager = [[CLLocationManager alloc] init];
 }
 
 
@@ -50,6 +54,24 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self checkIfNewSite];
+    [self getCurrentLocation];
+}
+
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)getCurrentLocation{
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+    
+    [locationManager startUpdatingLocation];
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    currentLocation = newLocation;
 }
 
 -(void)checkIfNewSite{
@@ -338,6 +360,8 @@
     self.site.reportDate = [self.reportDateFormat stringFromDate:[NSDate date]];
     self.site.numberForArray = [self setSiteNumberForArray];
     self.site.isReportComplete = 0;
+    self.site.commencementLat = [NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude];
+    self.site.commencementLon = [NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     

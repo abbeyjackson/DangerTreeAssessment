@@ -16,10 +16,12 @@
 #import "TreeInfoViewController.h"
 
 
-@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>{
+@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>{
     NSArray *csvArray;
     NSMutableString *strOutput;
     NSArray *singleTreeArray;
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
 }
 
 
@@ -38,13 +40,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self generateCSVFile];
+    locationManager = [[CLLocationManager alloc] init];
     NSLog(@"Array: %@", csvArray);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [self checkIfSiteExistsAndIsComplete];
 }
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)getCurrentLocation{
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+    
+    [locationManager startUpdatingLocation];
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    currentLocation = newLocation;
+}
+
 
 - (IBAction)submitReport:(id)sender {
     [self checkIfTreeExistsAndIsComplete];
@@ -115,8 +134,8 @@
     {
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
-        
-        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nSite ID: %@\nDTA Name: %@\nDTA Unit: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.siteID, self.site.dtaName, self.site.dtaUnit, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
+                
+        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination Latitude: %@,\nTermination Longitude: %@\nSite ID: %@\nDTA Name: %@\nDTA Unit: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, self.site.terminationLat, self.site.terminationLon, self.site.siteID, self.site.dtaName, self.site.dtaUnit, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
         
         [mailComposer setMessageBody:messageBodyString isHTML:NO];
         
@@ -242,9 +261,12 @@
 }
 
 -(void)markSendReportComplete{
+    
     RLMRealm *realm = self.site.realm;
     [realm beginWriteTransaction];
     self.site.isReportComplete = 1;
+    self.site.terminationLat = [NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude];
+    self.site.terminationLon = [NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude];
     [realm commitWriteTransaction];
     [self resetSite];
 }

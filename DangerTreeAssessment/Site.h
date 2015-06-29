@@ -30,6 +30,10 @@
 @property NSString* bui; 
 @property NSString* lod;
 @property NSString* activity;
+@property NSString* commencementLat;
+@property NSString* commencementLon;
+@property NSString* terminationLat;
+@property NSString* terminationLon;
 
 
 

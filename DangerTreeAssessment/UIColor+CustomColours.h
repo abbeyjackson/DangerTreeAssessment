@@ -10,12 +10,10 @@
 
 @interface UIColor (CustomColours)
 
-//+(UIColor*)flatWhiteColor;
-//+(UIColor*)blackColor;
-//+(UIColor*)flatBlueColor;
+
 +(UIColor*)redColor;
 +(UIColor*)lightGrayColor;
 
-//-(UIImage*)pixelImage;
+
 
 @end
