@@ -15,6 +15,6 @@ We are developing a mobile app which will significantly accelerate the process o
 
 
 ###The Details and Attributions:
-Using REALM as a backend the Danger Tree Assessment app allows for on-site digital capture of everything that is currently being captured on paper, sticking to the step by step process currently in use. Additionally GPS is captured for each individual trees, allowing maps to be more accurate (in the current system GPS is captured only for the overall site location). This data is then exported via a CVS file using CHCVSParser. Icon assets are provided by icons8.com.
+Using REALM as a backend the Danger Tree Assessment app allows for on-site digital capture of everything that is currently being captured on paper, sticking to the step by step process currently in use. Additionally GPS is captured for each individual trees, allowing maps to be more accurate (in the current system GPS is captured only for the overall site location). This data is then exported via a CVS file using CHCVSParser. Icon assets are provided by icons8.com. Assessment information Copyright BCWildfires and is being used only for demonstration purposes.
 
 Logic checks are done to ensure trees are added to the correct site, new trees are not added without an associated site, and new sites are not created by accident when a site is already open. A user can leave their site reports open to submit later or can submit whilst in field and the email will be sent when their device finds a wifi or data connection.
