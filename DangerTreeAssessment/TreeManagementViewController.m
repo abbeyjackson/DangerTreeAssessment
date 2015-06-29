@@ -64,6 +64,12 @@
             frameUp.origin.y -=140;
             self.view.frame = frameUp;
     }];
+    
+    if ([textView.text isEqualToString:@"Comments"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    [textView becomeFirstResponder];
 }
 
 
@@ -73,6 +79,12 @@
     }];
     
     [textView resignFirstResponder];
+    
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Comments";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    [textView resignFirstResponder];
 }
 
 
@@ -81,6 +93,9 @@
     [self.commentsTextView.layer setBorderWidth:.6];
     self.commentsTextView.layer.cornerRadius = 5.0;
     self.commentsTextView.clipsToBounds = YES;
+    
+    self.commentsTextView.text = @"Comments";
+    self.commentsTextView.textColor = [UIColor lightGrayColor];
 }
 
 

@@ -14,6 +14,7 @@
 //+(UIColor*)blackColor;
 //+(UIColor*)flatBlueColor;
 +(UIColor*)redColor;
++(UIColor*)lightGrayColor;
 
 //-(UIImage*)pixelImage;
 
