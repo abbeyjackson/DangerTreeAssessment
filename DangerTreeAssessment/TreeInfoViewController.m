@@ -76,7 +76,7 @@
     else if (self.site){
         if ([[NSNumber numberWithBool:self.site.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
             // no site, let user choose to make new site or go to site list
-            UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+            UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles:kStartNewSite, nil];
             noCurrentSite.tag = 0;
             [noCurrentSite show];
         }
@@ -97,27 +97,27 @@
         if (mostRecentSite){
             if ([[NSNumber numberWithBool:mostRecentSite.isReportComplete] isEqual:[NSNumber numberWithBool:YES]]) {
                 // no site, let user choose to make new site or go to site list
-                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles: kStartNewSite, nil];
                 noCurrentSite.tag = 0;
                 [noCurrentSite show];
             }
             else if ([mostRecentSite.reportDate isEqualToString:[dateFormat stringFromDate:[NSDate date]]]){
                 // last site open, let user choose to add new tree, go to site report or go to site list
                 NSString *alertString = [NSString stringWithFormat:@"Do you want to add to %@?", mostRecentSite.siteID];
-                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Add New Tree", @"Make New Site", @"Submit Site Report", nil];
+                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:alertString delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles: kAddNewTree, kStartNewSite, kSubmitSiteReport, nil];
                 lastSiteOpen.tag = 1;
                 [lastSiteOpen show];
             }
             else {
                 // no site, let user choose to make new site or go to site list
-                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+                UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles: kAddNewTree, nil];
                 noCurrentSite.tag = 0;
                 [noCurrentSite show];
             }
         }
         else {
             // no site, let user choose to make new site or go to site list
-            UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Make New Site", nil];
+            UIAlertView *noCurrentSite = [[UIAlertView alloc] initWithTitle:@"No Open Site" message:@"Can't make new tree without an open site" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles: kStartNewSite, nil];
             noCurrentSite.tag = 0;
             [noCurrentSite show];
         }

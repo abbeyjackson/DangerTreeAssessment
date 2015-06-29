@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TreeSpecies.h"
+#import "Constants.h"
 
 @protocol SpeciesDelegate <NSObject>
 

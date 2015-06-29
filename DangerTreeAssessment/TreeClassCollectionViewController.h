@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TreeClass.h"
+#import "Constants.h"
 
 @protocol ClassDelegate <NSObject>
 

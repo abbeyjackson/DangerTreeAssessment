@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Site.h"
 #import "FuelCollectionViewController.h"
+#import "Constants.h"
 
 @interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate, UINavigationControllerDelegate>
 

@@ -62,14 +62,14 @@
         else if (self.isNewSite == YES){
             // let user continue current site
             if (self.isNewTree){
-                UIAlertView *lastTreeOpen = [[UIAlertView alloc] initWithTitle:@"Current Tree Open" message:@"Can not start new site" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles: @"Go To Current Tree", @"View Site Report", nil];
+                UIAlertView *lastTreeOpen = [[UIAlertView alloc] initWithTitle:@"Current Tree Open" message:@"Can not start new site" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles: kGoToTree, kSubmitSiteReport, nil];
                 lastTreeOpen.tag = 1;
                 [lastTreeOpen show];
             }
         }
         else {
             // user should close site before making a new one or can add new tree
-            UIAlertView *currentSiteOpen = [[UIAlertView alloc] initWithTitle:@"Current Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", @"Make New Site", @"Add New Tree", nil];
+            UIAlertView *currentSiteOpen = [[UIAlertView alloc] initWithTitle:@"Current Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles:kSubmitSiteReport, kStartNewSite, kAddNewTree, nil];
             currentSiteOpen.tag = 0;
             [currentSiteOpen show];
         }
@@ -80,7 +80,7 @@
         if (mostRecentsite) {
             if ([[NSNumber numberWithBool:mostRecentsite.isReportComplete] isEqual:[NSNumber numberWithBool:NO]]) {
                 // user should close site before making a new one or can add new tree
-                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"Submit Site Report", @"Make New Site", @"Add New Tree", nil];
+                UIAlertView *lastSiteOpen = [[UIAlertView alloc] initWithTitle:@"Last Site Still Open" message:@"Should submit site before making new one" delegate:self cancelButtonTitle: kViewSiteList otherButtonTitles: kSubmitSiteReport, kStartNewSite, kAddNewTree, nil];
                 lastSiteOpen.tag = 0;
                 [lastSiteOpen show];
             }

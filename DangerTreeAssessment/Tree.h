@@ -10,25 +10,6 @@
 @class Site;
 
 
-// wildlife tree value
-extern NSString* const kL;
-extern NSString* const kM;
-extern NSString* const kH;
-
-// rating
-extern NSString* const kDangerous;
-extern NSString* const kClass1;
-extern NSString* const kClass2NoDefects;
-extern NSString* const kClass2LowFailure;
-extern NSString* const kClass3NoDefects;
-
-// management
-extern NSString* const kNoAction;
-extern NSString* const kFallTree;
-extern NSString* const kInstallNWZ;
-extern NSString* const kOther;
-
-
 @interface Tree : RLMObject
 
 // internal properties

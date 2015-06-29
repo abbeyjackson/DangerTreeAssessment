@@ -10,6 +10,7 @@
 #import "TreeClassCollectionViewController.h"
 #import "TreeSpeciesCollectionViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "Constants.h"
 @class Tree;
 @class Site;
 
