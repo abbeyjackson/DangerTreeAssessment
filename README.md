@@ -7,7 +7,7 @@ Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 ![Screengrab](DangerTreeAssessment/DTAscreengrab.gif) 
 
 ###The Problem:
-When there's a wildfire, firefighters work hard to contain the fire. Nonetheless, there are still hazards that exist all around the perimeter of the fire. The danger assessors assess these hazard, and determine which trees are dangerous and pose a threat to on-site workers. However, this assessment process is currently being done by paper where hundreds of paper reports must be processed each day. This process can take days on a larger fire -- putting all on-site workers at risk. Our app digitizes the data collection and sharing process and speeds it up significantly by 1) collecting data easily and intuitively and 2) exporting that data in a spreadsheet instead of shuffling through hundreds of papers. In collaboration with Alain Kahwaji.
+When there's a wildfire, firefighters work hard to contain the fire. Nonetheless, there are still hazards that exist all around the perimeter of the fire. The danger assessors assess these hazard, and determine which trees are dangerous and pose a threat to on-site workers. However, this assessment process is currently being done by paper where hundreds of paper reports must be processed each day. This process can take days on a larger fire -- putting all on-site workers at risk. Our app digitizes the data collection and sharing process and speeds it up significantly by 1) collecting data easily and intuitively and 2) exporting that data in a spreadsheet instead of shuffling through hundreds of papers. 
 
 
 ###The Innovation:
