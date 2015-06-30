@@ -1866,7 +1866,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="6fZ-t3-RiQ" kind="show" id="rmT-bg-6al"/>
+                        <segue destination="6fZ-t3-RiQ" kind="show" identifier="showSiteReview" id="rmT-bg-6al"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgZ-sv-bTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
