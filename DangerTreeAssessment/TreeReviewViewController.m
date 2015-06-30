@@ -188,10 +188,13 @@
     ReportLabel *management = [[ReportLabel alloc] initWithLabel:@"Management" andDetail:self.tree.management];
     ReportLabel *comments = [[ReportLabel alloc] initWithLabel:@"Comments" andDetail:self.tree.comments];
     
-    treeReviewObjects = [[NSArray alloc] initWithObjects:lat, lon, species, treeClass, wildLifeValue, insecure, unstable, leaning, hazardousTop, deadLimbs, witchesBroom, splitTrunk, stemDamage, sloughingBark, cankers, conksMushrooms, treeLean, rootInspection, rating, isDangerous, management, comments, nil];
-
-
-    
+    if ([self.tree.site.lod isEqualToString:kLODType1]){
+            treeReviewObjects = [[NSArray alloc] initWithObjects:lat, lon, species, treeClass, wildLifeValue, insecure, unstable, leaning, isDangerous, management, comments, nil];
+    }else if ([self.tree.site.lod isEqualToString:kLODType23]){
+            treeReviewObjects = [[NSArray alloc] initWithObjects:lat, lon, species, treeClass, wildLifeValue, hazardousTop, deadLimbs, witchesBroom, splitTrunk, stemDamage, sloughingBark, cankers, conksMushrooms, treeLean, rootInspection, isDangerous, management, comments, nil];
+    }else if ([self.tree.site.lod isEqualToString:kLODType4]){
+            treeReviewObjects = [[NSArray alloc] initWithObjects:lat, lon, species, treeClass, wildLifeValue, rating, isDangerous, management, comments, nil];
+    }
 }
 
 #pragma mark - TableView
