@@ -14,10 +14,9 @@
 #import "Site.h"
 #import "SiteInfoViewController.h"
 #import "UIColor+CustomColours.h"
+#import "ReportLabel.h"
 
 @interface TreeReviewViewController () <UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic) IBOutlet UIScrollView *scrollView;
 
 //all trees
 @property (nonatomic) IBOutlet UILabel *latitudeLabel;
@@ -61,12 +60,13 @@
 @end
 
 @implementation TreeReviewViewController{
-    NSMutableArray *treeReviewObjects;
+    NSArray *treeReviewObjects;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createTreeReportLabelArray];
 
 }
 
@@ -155,6 +155,45 @@
     }
 }
 
+-(void)createTreeReportLabelArray{
+    ReportLabel *lat = [[ReportLabel alloc] initWithLabel:@"Latitude" andDetail:self.tree.lat];
+    ReportLabel *lon = [[ReportLabel alloc] initWithLabel:@"Longitude" andDetail:self.tree.lon];
+    ReportLabel *species = [[ReportLabel alloc] initWithLabel:@"Species" andDetail:self.tree.species];
+    ReportLabel *treeClass = [[ReportLabel alloc] initWithLabel:@"Class" andDetail:self.tree.treeClass];
+    ReportLabel *wildLifeValue = [[ReportLabel alloc] initWithLabel:@"Wildlife Value" andDetail:self.tree.wildLifeValue];
+    
+    
+    // LOD 1
+    ReportLabel *insecure = [[ReportLabel alloc] initWithLabel:@"Insecure" andDetail:self.tree.insecure];
+    ReportLabel *unstable = [[ReportLabel alloc] initWithLabel:@"Unstable" andDetail:self.tree.unstable];
+    ReportLabel *leaning = [[ReportLabel alloc] initWithLabel:@"Leaning" andDetail:self.tree.leaning];
+    
+    // LOD 2
+    ReportLabel *hazardousTop = [[ReportLabel alloc] initWithLabel:@"Hazardous Top" andDetail:self.tree.hazardousTop];
+    ReportLabel *deadLimbs = [[ReportLabel alloc] initWithLabel:@"Dead Limbs" andDetail:self.tree.deadLimbs];
+    ReportLabel *witchesBroom = [[ReportLabel alloc] initWithLabel:@"Witches Broom" andDetail:self.tree.witchesBroom];
+    ReportLabel *splitTrunk = [[ReportLabel alloc] initWithLabel:@"Split Trunk" andDetail:self.tree.splitTrunk];
+    ReportLabel *stemDamage = [[ReportLabel alloc] initWithLabel:@"Stem Damage" andDetail:self.tree.stemDamage];
+    ReportLabel *sloughingBark = [[ReportLabel alloc] initWithLabel:@"Sloughing Bark" andDetail:self.tree.sloughingBark];
+    ReportLabel *cankers = [[ReportLabel alloc] initWithLabel:@"Cankers" andDetail:self.tree.cankers];
+    ReportLabel *conksMushrooms = [[ReportLabel alloc] initWithLabel:@"Conks Mushrooms" andDetail:self.tree.conksMushrooms];
+    ReportLabel *treeLean = [[ReportLabel alloc] initWithLabel:@"Tree Lean" andDetail:self.tree.treeLean];
+    ReportLabel *rootInspection = [[ReportLabel alloc] initWithLabel:@"Root Inspection" andDetail:self.tree.rootInspection];
+    
+    // LOD 4
+    ReportLabel *rating = [[ReportLabel alloc] initWithLabel:@"Rating" andDetail:self.tree.rating];
+    
+    // Management
+    ReportLabel *isDangerous = [[ReportLabel alloc] initWithLabel:@"Dangerous" andDetail:[[NSNumber numberWithBool:self.tree.isDangerous] stringValue]];
+    ReportLabel *management = [[ReportLabel alloc] initWithLabel:@"Management" andDetail:self.tree.management];
+    ReportLabel *comments = [[ReportLabel alloc] initWithLabel:@"Comments" andDetail:self.tree.comments];
+    
+    treeReviewObjects = [[NSArray alloc] initWithObjects:lat, lon, species, treeClass, wildLifeValue, insecure, unstable, leaning, hazardousTop, deadLimbs, witchesBroom, splitTrunk, stemDamage, sloughingBark, cankers, conksMushrooms, treeLean, rootInspection, rating, isDangerous, management, comments, nil];
+
+
+    
+}
+
 #pragma mark - TableView
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -164,6 +203,11 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    ReportLabel *reportLabel = treeReviewObjects[indexPath.row];
+    
+    cell.textLabel.text = reportLabel.label;
+    cell.detailTextLabel.text = reportLabel.detail;
     
     
     return cell;

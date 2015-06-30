@@ -67,7 +67,6 @@
     
     siteReviewObjects = [[NSArray alloc] initWithObjects:fireNumber, dtaName, dtaUnit, fuel, location, bui, lod, activity, nil];
     
-    
 }
 
 -(void)checkIfSiteExistsAndIsComplete{
@@ -305,9 +304,7 @@
     ReportLabel *reportlabel = siteReviewObjects[indexPath.row];
     
     cell.textLabel.text = reportlabel.label;
-    
     cell.detailTextLabel.text = reportlabel.detail;
-    
     
     return cell;
 }
