@@ -1892,10 +1892,10 @@
             </objects>
             <point key="canvasLocation" x="3236" y="356"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Site Review View Controller-->
         <scene sceneID="7yH-3l-rfI">
             <objects>
-                <tableViewController id="6fZ-t3-RiQ" sceneMemberID="viewController">
+                <tableViewController id="6fZ-t3-RiQ" customClass="SiteReviewViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VR4-Cb-IQQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

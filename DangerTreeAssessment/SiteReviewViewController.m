@@ -16,7 +16,7 @@
 #import "TreeInfoViewController.h"
 
 
-@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate>{
+@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>{
     NSArray *csvArray;
     NSMutableString *strOutput;
     NSArray *singleTreeArray;
@@ -34,7 +34,9 @@
 
 @end
 
-@implementation SiteReviewViewController
+@implementation SiteReviewViewController{
+    NSMutableArray *siteReviewObjects;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -284,6 +286,17 @@
             [self.tabBarController setSelectedIndex:1];
         }
     }
+}
+
+#pragma mark - TableView
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return siteReviewObjects.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return nil;
 }
 
 
