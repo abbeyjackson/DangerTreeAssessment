@@ -15,7 +15,7 @@
 #import "SiteInfoViewController.h"
 #import "UIColor+CustomColours.h"
 
-@interface TreeReviewViewController ()
+@interface TreeReviewViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) IBOutlet UIScrollView *scrollView;
 

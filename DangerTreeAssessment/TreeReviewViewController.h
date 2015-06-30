@@ -10,7 +10,7 @@
 @class Tree;
 @class Site;
 
-@interface TreeReviewViewController : UIViewController
+@interface TreeReviewViewController : UITableViewController
 
 @property (nonatomic,strong) Tree *tree;
 @property (nonatomic, strong) Site *site;

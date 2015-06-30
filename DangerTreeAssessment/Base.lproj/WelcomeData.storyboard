@@ -746,12 +746,49 @@
                         <outlet property="commentsTextView" destination="fVu-ys-ocb" id="n7N-Qo-x21"/>
                         <outlet property="managementField" destination="uog-Wb-46R" id="jBV-ML-4uh"/>
                         <outlet property="safeDangerousControl" destination="du8-sZ-Wfh" id="ott-gG-NpE"/>
-                        <segue destination="oEO-cr-9CU" kind="show" identifier="showTreeReview" id="d5N-26-j2h"/>
+                        <segue destination="PXh-Bm-YYH" kind="show" identifier="showTreeReview" id="4Gg-1y-mYO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ppv-sr-Jq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4340" y="620"/>
+        </scene>
+        <!--Tree Review View Controller-->
+        <scene sceneID="JuQ-k2-ojQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sQ-g2-xd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="PXh-Bm-YYH" customClass="TreeReviewViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="c8Q-ki-df5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="r8L-K9-wvX">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r8L-K9-wvX" id="Mif-bx-IyL">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PXh-Bm-YYH" id="Mqj-cf-VB8"/>
+                            <outlet property="delegate" destination="PXh-Bm-YYH" id="cbc-ab-n2F"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cXN-Gh-xaj">
+                        <barButtonItem key="rightBarButtonItem" title="Save Tree" id="nyI-bl-htw">
+                            <connections>
+                                <action selector="submitTreeReport:" destination="PXh-Bm-YYH" id="lSl-lC-hPi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="6fZ-t3-RiQ" kind="show" identifier="showSiteReview" id="ivF-He-Tqg"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="4340" y="1410"/>
         </scene>
         <!--LOD 1 Tree Assessment-->
         <scene sceneID="SCr-Gm-qUV">
@@ -1845,34 +1882,6 @@
             </objects>
             <point key="canvasLocation" x="3568" y="-1366"/>
         </scene>
-        <!--Tree Report-->
-        <scene sceneID="AmF-pr-bWW">
-            <objects>
-                <viewController id="oEO-cr-9CU" customClass="TreeReviewViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8Sm-hm-D97"/>
-                        <viewControllerLayoutGuide type="bottom" id="gzg-gu-3Ph"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cWy-Jo-ltk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Tree Report" id="RLq-94-duj">
-                        <barButtonItem key="rightBarButtonItem" title="Save Tree" id="vNp-3r-6Rl">
-                            <connections>
-                                <action selector="submitTreeReport:" destination="oEO-cr-9CU" id="KtQ-B1-7GW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="6fZ-t3-RiQ" kind="show" identifier="showSiteReview" id="rmT-bg-6al"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RgZ-sv-bTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4340" y="1420"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZEx-mV-dWw">
             <objects>
@@ -1964,6 +1973,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="itN-vF-kmg"/>
-        <segue reference="rmT-bg-6al"/>
+        <segue reference="ivF-He-Tqg"/>
     </inferredMetricsTieBreakers>
 </document>
