@@ -18,45 +18,6 @@
 
 @interface TreeReviewViewController () <UITableViewDataSource, UITableViewDelegate>
 
-//all trees
-@property (nonatomic) IBOutlet UILabel *latitudeLabel;
-@property (nonatomic) IBOutlet UILabel *longitudeLabel;
-@property (nonatomic) IBOutlet UILabel *speciesLabel;
-@property (nonatomic) IBOutlet UILabel *treeClassLabel;
-@property (nonatomic) IBOutlet UILabel *wildlifeValueLabel;
-
-//LOD1 trees:
-@property (nonatomic) IBOutlet UILabel *insecureLabel;
-@property (nonatomic) IBOutlet UILabel *unstableLabel;
-@property (nonatomic) IBOutlet UILabel *leaningLabel;
-
-//LOD23 trees:
-@property (nonatomic) IBOutlet UILabel *hazardousTopLabel;
-@property (nonatomic) IBOutlet UILabel *deadLimbsLabel;
-@property (nonatomic) IBOutlet UILabel *witchesBroomLabel;
-@property (nonatomic) IBOutlet UILabel *splitTrunkLabel;
-@property (nonatomic) IBOutlet UILabel *stemDamageLabel;
-@property (nonatomic) IBOutlet UILabel *sloughingBarkLabel;
-@property (nonatomic) IBOutlet UILabel *cankersLabel;
-@property (nonatomic) IBOutlet UILabel *conksMushroomsLabel;
-@property (nonatomic) IBOutlet UILabel *treeLeanLabel;
-@property (nonatomic) IBOutlet UILabel *rootInspectionLabel;
-
-//LOD4 trees:
-@property (nonatomic) IBOutlet UILabel *ratingLabel;
-
-//Management (all trees)
-@property (nonatomic) IBOutlet UILabel *isDangerousLabel;
-@property (nonatomic) IBOutlet UILabel *managementLabel;
-@property (nonatomic) IBOutlet UILabel *commentsLabel;
-
-@property (nonatomic) IBOutlet UILabel *isDangerousPlaceholder;
-@property (nonatomic) IBOutlet UILabel *managementPlaceholder;
-@property (nonatomic) IBOutlet UILabel *commentsPlaceholder;
-
-@property (nonatomic) IBOutlet UILabel *latitudePlaceholder;
-
-
 @end
 
 @implementation TreeReviewViewController{
