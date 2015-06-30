@@ -60,14 +60,14 @@
 
 @end
 
-@implementation TreeReviewViewController
+@implementation TreeReviewViewController{
+    NSMutableArray *treeReviewObjects;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createScrollView];
-    [self updateLabels];
-    [self updateLabelContraints];
+
 }
 
 
@@ -145,7 +145,6 @@
 
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -154,6 +153,20 @@
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];
     }
+}
+
+#pragma mark - TableView
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return treeReviewObjects.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    
+    return cell;
 }
 
 @end

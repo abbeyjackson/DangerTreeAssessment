@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B5B71A9C1B3B4CFF00FF2BD5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */; };
 		B5CC76491B3382570059DE13 /* SitePractice.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CC76481B3382570059DE13 /* SitePractice.m */; };
+		B5F606511B4331DE00B2D3B5 /* ReportLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F606501B4331DE00B2D3B5 /* ReportLabel.m */; };
 		F648E8501B30A053007ADB73 /* SiteInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */; };
 		F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8521B30A062007ADB73 /* TreeInfoViewController.m */; };
 		F648E8561B30A072007ADB73 /* TreeLOD1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8551B30A072007ADB73 /* TreeLOD1ViewController.m */; };
@@ -61,6 +62,8 @@
 		B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B5CC76471B3382570059DE13 /* SitePractice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePractice.h; sourceTree = "<group>"; };
 		B5CC76481B3382570059DE13 /* SitePractice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePractice.m; sourceTree = "<group>"; };
+		B5F6064F1B4331DE00B2D3B5 /* ReportLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportLabel.h; sourceTree = "<group>"; };
+		B5F606501B4331DE00B2D3B5 /* ReportLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportLabel.m; sourceTree = "<group>"; };
 		F648E84E1B30A053007ADB73 /* SiteInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteInfoViewController.h; sourceTree = "<group>"; };
 		F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteInfoViewController.m; sourceTree = "<group>"; };
 		F648E8511B30A062007ADB73 /* TreeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeInfoViewController.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				F6DF606E1B3379EA00339B57 /* Fuel.m */,
 				F6629EC71B34F15D00FF4E10 /* Placeholder.h */,
 				F6629EC81B34F15D00FF4E10 /* Placeholder.m */,
+				B5F6064F1B4331DE00B2D3B5 /* ReportLabel.h */,
+				B5F606501B4331DE00B2D3B5 /* ReportLabel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				F68418C11B39F06C0024B575 /* UIColor+CustomColours.m in Sources */,
 				F648E86E1B30A258007ADB73 /* Tree.m in Sources */,
 				F6DF60661B33565D00339B57 /* TreeSpeciesCollectionViewController.m in Sources */,
+				B5F606511B4331DE00B2D3B5 /* ReportLabel.m in Sources */,
 				F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */,
 				F648E8771B30C5EF007ADB73 /* TreeLOD4ViewController.m in Sources */,
 				F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */,

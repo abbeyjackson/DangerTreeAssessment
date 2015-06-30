@@ -298,6 +298,9 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    Site *site = singleTreeArray[indexPath.row];
+    
+    cell.detailTextLabel.text = singleTreeArray[indexPath.row];
     
     return cell;
 }
