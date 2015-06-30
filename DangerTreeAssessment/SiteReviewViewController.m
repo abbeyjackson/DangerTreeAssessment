@@ -14,6 +14,7 @@
 #import <MessageUI/MessageUI.h>
 #import "CHCSVParser.h"
 #import "TreeInfoViewController.h"
+#import "ReportLabel.h"
 
 
 @interface SiteReviewViewController () <MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>{
@@ -35,13 +36,14 @@
 @end
 
 @implementation SiteReviewViewController{
-    NSMutableArray *siteReviewObjects;
+    NSArray *siteReviewObjects;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self generateCSVFile];
     NSLog(@"Array: %@", csvArray);
+    [self createSiteReportLabelArray];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,6 +54,21 @@
     [self checkIfTreeExistsAndIsComplete];
 }
 
+
+-(void)createSiteReportLabelArray{
+    ReportLabel *fireNumber = [[ReportLabel alloc] initWithLabel:@"Fire Number" andDetail:self.site.fireNumber];
+    ReportLabel *dtaName = [[ReportLabel alloc] initWithLabel:@"DTA Name" andDetail:self.site.dtaName];
+    ReportLabel *dtaUnit = [[ReportLabel alloc] initWithLabel:@"DTA Unit" andDetail:self.site.dtaUnit];
+    ReportLabel *fuel = [[ReportLabel alloc] initWithLabel:@"Fuel" andDetail:self.site.fuel];
+    ReportLabel *location = [[ReportLabel alloc] initWithLabel:@"Location" andDetail:self.site.location];
+    ReportLabel *bui = [[ReportLabel alloc] initWithLabel:@"BUI" andDetail:self.site.bui];
+    ReportLabel *lod = [[ReportLabel alloc] initWithLabel:@"LOD" andDetail:self.site.lod];
+    ReportLabel *activity = [[ReportLabel alloc] initWithLabel:@"Activity" andDetail:self.site.activity];
+    
+    siteReviewObjects = [[NSArray alloc] initWithObjects:fireNumber, dtaName, dtaUnit, fuel, location, bui, lod, activity, nil];
+    
+    
+}
 
 -(void)checkIfSiteExistsAndIsComplete{
     
@@ -79,8 +96,6 @@
             [noSiteAlert show];
         }
     }
-    
-    [self configureLabels];
 }
 
 
@@ -98,17 +113,6 @@
     }
 }
 
-
-- (void)configureLabels{
-    self.fireNumberLabel.text = self.site.fireNumber;
-    self.dtaNameLabel.text = self.site.dtaName;
-    self.unitLabel.text = self.site.dtaUnit;
-    self.fuelLabel.text = self.site.fuel;
-    self.locationLabel.text = self.site.location;
-    self.buiLabel.text = self.site.bui;
-    self.lodLabel.text = self.site.lod;
-    self.activityLabel.text = self.site.activity;
-}
 
 #pragma mark - Email Client
 
@@ -298,9 +302,12 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    Site *site = singleTreeArray[indexPath.row];
+    ReportLabel *reportlabel = siteReviewObjects[indexPath.row];
     
-    cell.detailTextLabel.text = singleTreeArray[indexPath.row];
+    cell.textLabel.text = reportlabel.label;
+    
+    cell.detailTextLabel.text = reportlabel.detail;
+    
     
     return cell;
 }

@@ -10,4 +10,9 @@
 
 @interface ReportLabel : NSObject
 
+@property (nonatomic) NSString *label;
+@property (nonatomic) NSString *detail;
+
+-(instancetype)initWithLabel:(NSString*)label andDetail:(NSString*)detail;
+
 @end
