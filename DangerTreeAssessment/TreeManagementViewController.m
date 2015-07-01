@@ -101,13 +101,13 @@
 
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
-        self.placeholder.isDangerous = @0;
+        self.placeholder.isDangerous = 0;
     }
     else if(self.safeDangerousControl.selectedSegmentIndex == 1){
-        self.placeholder.isDangerous = @1;
+        self.placeholder.isDangerous = 1;
     }
     else {
-        self.placeholder.isDangerous = @0;
+        self.placeholder.isDangerous = 0;
     }
 }
 

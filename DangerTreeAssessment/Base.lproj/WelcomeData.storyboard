@@ -1555,11 +1555,9 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ife-Lt-DmV">
                                 <rect key="frame" x="35" y="64" width="530" height="27.5"/>
-                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-VT-ijr">
                                 <rect key="frame" x="35" y="116.5" width="530" height="28"/>
-                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvM-lq-7Tf">
                                 <rect key="frame" x="35" y="174.5" width="530" height="27.5"/>
