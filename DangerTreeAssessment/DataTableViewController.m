@@ -25,6 +25,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     [self.tableView reloadData];
 }
 
@@ -58,7 +59,7 @@
     SiteReviewViewController *destination = (SiteReviewViewController *)[navController.viewControllers firstObject];
     
     Site *site = self.sitesArray[indexPath.row];
-    destination.site = site;
+    [destination setSite:site];
     
     [self.tabBarController setSelectedIndex:3];
 }

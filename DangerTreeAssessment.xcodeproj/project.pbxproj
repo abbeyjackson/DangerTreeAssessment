@@ -38,6 +38,7 @@
 		F6B912AB1B2F602A00245ED5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B912AA1B2F602A00245ED5 /* Images.xcassets */; };
 		F6B912AE1B2F602A00245ED5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B912AC1B2F602A00245ED5 /* LaunchScreen.xib */; };
 		F6B912BA1B2F602A00245ED5 /* DangerTreeAssessmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B912B91B2F602A00245ED5 /* DangerTreeAssessmentTests.m */; };
+		F6BA83101B4474A20006EE29 /* ReportLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BA830F1B4474A20006EE29 /* ReportLabel.m */; };
 		F6DF60661B33565D00339B57 /* TreeSpeciesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF60651B33565D00339B57 /* TreeSpeciesCollectionViewController.m */; };
 		F6DF60691B33571300339B57 /* TreeSpeciesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF60681B33571300339B57 /* TreeSpeciesCollectionViewCell.m */; };
 		F6DF606C1B3357A500339B57 /* TreeSpecies.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DF606B1B3357A500339B57 /* TreeSpecies.m */; };
@@ -113,6 +114,8 @@
 		F6B912B31B2F602A00245ED5 /* DangerTreeAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangerTreeAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B912B81B2F602A00245ED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B912B91B2F602A00245ED5 /* DangerTreeAssessmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DangerTreeAssessmentTests.m; sourceTree = "<group>"; };
+		F6BA830E1B4474A20006EE29 /* ReportLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportLabel.h; sourceTree = "<group>"; };
+		F6BA830F1B4474A20006EE29 /* ReportLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportLabel.m; sourceTree = "<group>"; };
 		F6DF60641B33565D00339B57 /* TreeSpeciesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeSpeciesCollectionViewController.h; sourceTree = "<group>"; };
 		F6DF60651B33565D00339B57 /* TreeSpeciesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeSpeciesCollectionViewController.m; sourceTree = "<group>"; };
 		F6DF60671B33571300339B57 /* TreeSpeciesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeSpeciesCollectionViewCell.h; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 		F6B912C41B2F626700245ED5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F6BA830E1B4474A20006EE29 /* ReportLabel.h */,
+				F6BA830F1B4474A20006EE29 /* ReportLabel.m */,
 				F659531D1B3B8ECD0028F289 /* CHCSVParser.h */,
 				F659531E1B3B8ECD0028F289 /* CHCSVParser.m */,
 				F6B9129E1B2F602A00245ED5 /* AppDelegate.h */,
@@ -418,6 +423,7 @@
 				F68418C11B39F06C0024B575 /* UIColor+CustomColours.m in Sources */,
 				F648E86E1B30A258007ADB73 /* Tree.m in Sources */,
 				F6DF60661B33565D00339B57 /* TreeSpeciesCollectionViewController.m in Sources */,
+				F6BA83101B4474A20006EE29 /* ReportLabel.m in Sources */,
 				F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */,
 				F648E8771B30C5EF007ADB73 /* TreeLOD4ViewController.m in Sources */,
 				F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */,

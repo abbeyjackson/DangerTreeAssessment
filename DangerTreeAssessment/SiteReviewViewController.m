@@ -35,13 +35,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.separatorColor = [UIColor clearColor];
     locationManager = [[CLLocationManager alloc] init];
     NSLog(@"Array: %@", csvArray);
-    [self createSiteReportLabelArray];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     [self checkIfSiteExistsAndIsComplete];
+    [self createSiteReportLabelArray];
+    [self.tableView reloadData];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -67,6 +70,7 @@
 
 
 -(void)createSiteReportLabelArray{
+    
     ReportLabel *fireNumber = [[ReportLabel alloc] initWithLabel:@"Fire Number" andDetail:self.site.fireNumber];
     ReportLabel *dtaName = [[ReportLabel alloc] initWithLabel:@"DTA Name" andDetail:self.site.dtaName];
     ReportLabel *dtaUnit = [[ReportLabel alloc] initWithLabel:@"DTA Unit" andDetail:self.site.dtaUnit];
