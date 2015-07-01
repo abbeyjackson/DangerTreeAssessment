@@ -43,6 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self checkIfSiteExistsAndIsComplete];
+    [self.tableView setContentInset:UIEdgeInsetsMake(25,0,0,0)];
     [self createSiteReportLabelArray];
     [self.tableView reloadData];
 }

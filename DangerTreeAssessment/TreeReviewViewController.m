@@ -32,9 +32,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    
+    [self.tableView setContentInset:UIEdgeInsetsMake(25,0,0,0)];
     [self createTreeReportLabelArray];
-
+    [self.tableView reloadData];
 }
 
 
