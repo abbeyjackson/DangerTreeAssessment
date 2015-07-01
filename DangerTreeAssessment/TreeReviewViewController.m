@@ -145,7 +145,15 @@
     ReportLabel *rating = [[ReportLabel alloc] initWithLabel:@"Rating" andDetail:self.tree.rating];
     
     // Management
-    ReportLabel *isDangerous = [[ReportLabel alloc] initWithLabel:@"Dangerous" andDetail:[[NSNumber numberWithBool:self.tree.isDangerous] stringValue]];
+    //handling the bool
+    NSString *boolValue;
+    if (self.tree.isDangerous == 1){
+        boolValue = @"YES";
+    }else if (self.tree.isDangerous == 0){
+        boolValue = @"NO";
+    }
+    
+    ReportLabel *isDangerous = [[ReportLabel alloc] initWithLabel:@"Dangerous" andDetail:boolValue];
     ReportLabel *management = [[ReportLabel alloc] initWithLabel:@"Management" andDetail:self.tree.management];
     ReportLabel *comments = [[ReportLabel alloc] initWithLabel:@"Comments" andDetail:self.tree.comments];
     
