@@ -15,25 +15,19 @@
 #import "CHCSVParser.h"
 #import "TreeInfoViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "ReportLabel.h"
 
 
-@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>{
+@interface SiteReviewViewController () <MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>{
+
     NSArray *csvArray;
     NSMutableString *strOutput;
     NSArray *singleTreeArray;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
+    NSArray *siteReviewObjects;
+
 }
-
-
-@property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dtaNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fuelLabel;
-@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *buiLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lodLabel;
-@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 
 @end
 
@@ -43,6 +37,7 @@
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
     NSLog(@"Array: %@", csvArray);
+    [self createSiteReportLabelArray];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -71,6 +66,20 @@
 }
 
 
+-(void)createSiteReportLabelArray{
+    ReportLabel *fireNumber = [[ReportLabel alloc] initWithLabel:@"Fire Number" andDetail:self.site.fireNumber];
+    ReportLabel *dtaName = [[ReportLabel alloc] initWithLabel:@"DTA Name" andDetail:self.site.dtaName];
+    ReportLabel *dtaUnit = [[ReportLabel alloc] initWithLabel:@"DTA Unit" andDetail:self.site.dtaUnit];
+    ReportLabel *fuel = [[ReportLabel alloc] initWithLabel:@"Fuel" andDetail:self.site.fuel];
+    ReportLabel *location = [[ReportLabel alloc] initWithLabel:@"Location" andDetail:self.site.location];
+    ReportLabel *bui = [[ReportLabel alloc] initWithLabel:@"BUI" andDetail:self.site.bui];
+    ReportLabel *lod = [[ReportLabel alloc] initWithLabel:@"LOD" andDetail:self.site.lod];
+    ReportLabel *activity = [[ReportLabel alloc] initWithLabel:@"Activity" andDetail:self.site.activity];
+    
+    siteReviewObjects = [[NSArray alloc] initWithObjects:fireNumber, dtaName, dtaUnit, fuel, location, bui, lod, activity, nil];
+    
+}
+
 -(void)checkIfSiteExistsAndIsComplete{
     
     if (self.site == nil) {
@@ -97,8 +106,6 @@
             [noSiteAlert show];
         }
     }
-    
-    [self configureLabels];
 }
 
 
@@ -116,17 +123,6 @@
     }
 }
 
-
-- (void)configureLabels{
-    self.fireNumberLabel.text = self.site.fireNumber;
-    self.dtaNameLabel.text = self.site.dtaName;
-    self.unitLabel.text = self.site.dtaUnit;
-    self.fuelLabel.text = self.site.fuel;
-    self.locationLabel.text = self.site.location;
-    self.buiLabel.text = self.site.bui;
-    self.lodLabel.text = self.site.lod;
-    self.activityLabel.text = self.site.activity;
-}
 
 #pragma mark - Email Client
 
@@ -307,6 +303,24 @@
             [self.tabBarController setSelectedIndex:1];
         }
     }
+}
+
+#pragma mark - TableView
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return siteReviewObjects.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    ReportLabel *reportlabel = siteReviewObjects[indexPath.row];
+    
+    cell.textLabel.text = reportlabel.label;
+    cell.detailTextLabel.text = reportlabel.detail;
+    
+    return cell;
 }
 
 

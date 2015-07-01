@@ -11,7 +11,7 @@
 @class Tree;
 @class Site;
 
-@interface SiteReviewViewController : UIViewController
+@interface SiteReviewViewController : UITableViewController
 
 @property (nonatomic) Tree *tree;
 @property (nonatomic) Site *site;
