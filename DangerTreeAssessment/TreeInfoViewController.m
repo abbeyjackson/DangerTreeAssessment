@@ -7,20 +7,27 @@
 //
 
 #import "TreeInfoViewController.h"
+
+#import "Constants.h"
+#import "UIColor+CustomColours.h"
+
+#import "Site.h"
+#import "SiteInfoViewController.h"
+#import "SiteReviewViewController.h"
+#import "Tree.h"
+#import "TreeClass.h"
 #import "TreeLOD1ViewController.h"
 #import "TreeLOD23ViewController.h"
 #import "TreeLOD4ViewController.h"
-#import "TreeClass.h"
 #import "TreeSpecies.h"
-#import "Tree.h"
-#import "Site.h"
-#import "SiteInfoViewController.h"
-#import "UIColor+CustomColours.h"
-#import "DataTableViewController.h"
-#import "SiteReviewViewController.h"
 
-@interface TreeInfoViewController (){
+#import <CoreLocation/CoreLocation.h>
+
+
+@interface TreeInfoViewController ()<CLLocationManagerDelegate, UIActionSheetDelegate>{
+    
     CLLocationManager *locationManager;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *latitudeField;
@@ -32,28 +39,60 @@
 
 @end
 
+
 @implementation TreeInfoViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     locationManager = [[CLLocationManager alloc] init];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
     [super viewWillAppear:animated];
-    
     [self checkIfNewTree];
     [self getCurrentLocation];
     self.navigationItem.hidesBackButton = YES;
+}
+
+
+#pragma mark - Setup
+
+-(void)configureTextFields{
+    self.latitudeField.text = nil;
+    self.longitudeField.text = nil;
+    self.speciesField.text = nil;
+    self.classField.text = nil;
+    self.wildlifeValueField.text = nil;
     
+    [self textFieldShouldBeginEditing:self.speciesField];
+    [self textFieldShouldBeginEditing:self.classField];
+    [self textFieldShouldBeginEditing:self.wildlifeValueField];
+    
+    [self setTitleLabel];
 }
 
 -(void)setTitleLabel{
     self.siteLocationLabel.text = [NSString stringWithFormat:@"Site: %@", self.site.location];
 }
+
+-(void)setCurrentSite{
+    RLMResults *sites = [Site allObjects];
+    Site *site = [sites lastObject];
+    self.site = site;
+    self.tree.site = self.site;
+    [self setTitleLabel];
+}
+
+-(void)initializeNewTree{
+    self.tree = [[Tree alloc]init];
+    self.isNewTree = YES;
+}
+
+
+#pragma mark - Analysis
 
 -(void)checkIfNewTree{
     if (self.tree) {
@@ -124,13 +163,8 @@
     }
 }
 
--(void)setCurrentSite{
-    RLMResults *sites = [Site allObjects];
-    Site *site = [sites lastObject];
-    self.site = site;
-    self.tree.site = self.site;
-    [self setTitleLabel];
-}
+
+#pragma mark - Alerts
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0){
@@ -163,27 +197,30 @@
     }
 }
 
-#pragma mark - CLLocationManagerDelegate
+
+#pragma mark - Gestures
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+
+#pragma mark - CLLocation Manager
 
 - (void)getCurrentLocation{
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager requestWhenInUseAuthorization];
-    
     [locationManager startUpdatingLocation];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location, you will have to enter GPS manually" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
@@ -196,97 +233,11 @@
         if (![self.latitudeField.text isEqualToString:@""] && ![self.longitudeField.text isEqualToString:@""]) {
             [locationManager stopUpdatingLocation];
         }
-        
     }
 }
 
--(void)initializeNewTree{
-    
-    self.tree = [[Tree alloc]init];
-    
-    self.isNewTree = YES;
-    
-}
 
--(void)tellSiteAboutTree{
-    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-    [siteInfo setIsNewTree:YES];
-    
-    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
-    [siteReview setTreeOpen:YES];
-    
-}
-
--(void)resetSite{
-    
-    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
-    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
-    [siteInfo initializeNewSite];
-}
-    
-    
--(NSString*)setTreeNum{
-    RLMResults *results = [Tree allObjects];
-    Tree *tree = [results lastObject];
-    NSString *newTreeNum = @"001";
-    if (results.count > 0) {
-        if ([tree.site.siteID isEqualToString:self.site.siteID]) {
-            int newTreeNumber = [[tree.treeID substringFromIndex:[tree.treeID length] -3] intValue] + 1;
-            newTreeNum = [NSString stringWithFormat:@"%03d", newTreeNumber];
-        }
-        // else newTreeID should be 001
-    }
-    return newTreeNum;
-}
-
--(Tree*)createTree{
-    
-    self.tree.site = self.site;
-    self.tree.lat = self.latitudeField.text;
-    self.tree.lon = self.longitudeField.text;
-    self.tree.species = [self.speciesField.text substringToIndex:3];
-    self.tree.treeClass = [self.classField.text substringToIndex:3];
-    self.tree.wildLifeValue = self.wildlifeValueField.text;
-    self.tree.treeNumber = [self setTreeNum];
-    self.tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,self.tree.treeNumber];
-
-    
-    [self tellSiteAboutTree];
-    
-    return self.tree;
-}
-
-
--(void)configureTextFields{
-    
-    self.latitudeField.text = nil;
-    self.longitudeField.text = nil;
-    self.speciesField.text = nil;
-    self.classField.text = nil;
-    self.wildlifeValueField.text = nil;
-    
-    [self textFieldShouldBeginEditing:self.speciesField];
-    [self textFieldShouldBeginEditing:self.classField];
-    [self textFieldShouldBeginEditing:self.wildlifeValueField];
-    
-    [self setTitleLabel];
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return NO;
-}
-
+#pragma mark - IBActions
 
 - (IBAction)wildlifeValueActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -294,44 +245,19 @@
                                                     cancelButtonTitle:@"Select Wildlife Value"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:kH, kM, kL, nil];
-    
     [actionSheet showInView:self.view];
 }
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        self.wildlifeValueField.text = kH;
-    }
-    if (buttonIndex == 1) {
-        self.wildlifeValueField.text = kM;
-    }
-    if (buttonIndex == 2) {
-        self.wildlifeValueField.text = kL;
-    }
-}
-
--(void)selectClass:(TreeClass *)class{
-    self.classField.text = class.numAndInfo;
-}
-
--(void)selectSpecies:(TreeSpecies *)species{
-    self.speciesField.text = [NSString stringWithFormat:@"%@ - %@", species.abbreviation, species.name];
-}
-
 
 - (IBAction)saveNewTreeButton:(id)sender {
     
     if ([self.latitudeField.text isEqual:@""] || [self.longitudeField.text isEqual:@""] || [self.speciesField.text isEqual:@""] || [self.classField.text isEqual:@""] || [self.wildlifeValueField.text isEqual:@""]){
-        
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
-                                                     message:@"Please fill in all fields."
-                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        av.tag = 2;
-        [av show];
-        
-    }else{
-    
-    
+        UIAlertView *fieldsMandatory = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                                  message:@"Please fill in all fields."
+                                                                 delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        fieldsMandatory.tag = 2;
+        [fieldsMandatory show];
+    }
+    else{
         self.tree = [self createTree];
         if ([self.site.lod isEqualToString: kLODType1]) {
             TreeLOD1ViewController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"TreeLOD1"];
@@ -355,11 +281,91 @@
 }
 
 
+#pragma mark - Action Sheet
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        self.wildlifeValueField.text = kH;
+    }
+    if (buttonIndex == 1) {
+        self.wildlifeValueField.text = kM;
+    }
+    if (buttonIndex == 2) {
+        self.wildlifeValueField.text = kL;
+    }
+}
+
+
+#pragma mark - Class and Species Delegates
+
+-(void)selectClass:(TreeClass *)class{
+    self.classField.text = class.numAndInfo;
+}
+
+-(void)selectSpecies:(TreeSpecies *)species{
+    self.speciesField.text = [NSString stringWithFormat:@"%@ - %@", species.abbreviation, species.name];
+}
+
+
+#pragma mark - TextField Delegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return NO;
+}
+
+
+#pragma mark - Save Data
+
+-(NSString*)setTreeNum{
+    RLMResults *results = [Tree allObjects];
+    Tree *tree = [results lastObject];
+    NSString *newTreeNum = @"001";
+    if (results.count > 0) {
+        if ([tree.site.siteID isEqualToString:self.site.siteID]) {
+            int newTreeNumber = [[tree.treeID substringFromIndex:[tree.treeID length] -3] intValue] + 1;
+            newTreeNum = [NSString stringWithFormat:@"%03d", newTreeNumber];
+        }
+        // else newTreeID should be 001
+    }
+    return newTreeNum;
+}
+
+-(Tree*)createTree{
+    self.tree.site = self.site;
+    self.tree.lat = self.latitudeField.text;
+    self.tree.lon = self.longitudeField.text;
+    self.tree.species = [self.speciesField.text substringToIndex:3];
+    self.tree.treeClass = [self.classField.text substringToIndex:3];
+    self.tree.wildLifeValue = self.wildlifeValueField.text;
+    self.tree.treeNumber = [self setTreeNum];
+    self.tree.treeID = [NSString stringWithFormat:@"%@-%@", self.site.siteID,self.tree.treeNumber];
+    
+    [self tellSiteAboutTree];
+    
+    return self.tree;
+}
+
+
+#pragma mark - Pass Data
+
+-(void)tellSiteAboutTree{
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo setIsNewTree:YES];
+    
+    UINavigationController *reviewNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+    SiteReviewViewController *siteReview = (SiteReviewViewController *)[reviewNavController.viewControllers firstObject];
+    [siteReview setIsTreeOpen:YES];
+}
+
+-(void)resetSite{
+    UINavigationController *infoNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    SiteInfoViewController *siteInfo = (SiteInfoViewController *)[infoNavController.viewControllers firstObject];
+    [siteInfo initializeNewSite];
+}
 
 
 #pragma mark - Navigation
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showSpecies"]) {
@@ -371,8 +377,8 @@
 }
 
 
-
 - (IBAction)unwindToTreeInfo:(UIStoryboardSegue*)sender{
 }
+
 
 @end

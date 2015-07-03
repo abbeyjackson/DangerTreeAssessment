@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class Site;
+
 
 @interface DataListCell : UITableViewCell
 
+
 @property (nonatomic, strong) Site *object;
+
 @property (weak, nonatomic) IBOutlet UILabel *reportNotCompleteStar;
+
 
 @end

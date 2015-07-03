@@ -7,26 +7,34 @@
 //
 
 #import "TreeLOD4ViewController.h"
-#import "Tree.h"
-#import "Site.h"
+
+#import "Constants.h"
 #import "UIColor+CustomColours.h"
 
-@interface TreeLOD4ViewController ()
+#import "Site.h"
+#import "Tree.h"
+
+
+@interface TreeLOD4ViewController ()<UIActionSheetDelegate>
+
+
 @property (weak, nonatomic) IBOutlet UITextField *ratingField;
+
 
 @end
 
+
 @implementation TreeLOD4ViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-}
 
+#pragma mark - Analysis
 
 -(void)checkIfNewTree{
     if (self.tree) {
@@ -42,10 +50,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
+
+#pragma mark - IBActions
 
 - (IBAction)ratingActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -53,10 +59,17 @@
                                                     cancelButtonTitle:@"Select Rating"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles: kDangerous, kClass1, kClass2NoDefects, kClass2LowFailure, kClass3NoDefects, nil];
-    
     [actionSheet showInView:self.view];
     
 }
+
+- (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self saveLOD4];
+    [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
+}
+
+
+#pragma mark - Action Sheet
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
@@ -76,14 +89,13 @@
     }
 }
 
+
+#pragma mark - Save Data
+
 -(void)saveLOD4{
-    self.tree.rating = self.ratingField.text;    
+    self.tree.rating = self.ratingField.text;
 }
 
-- (IBAction)saveTreeAssessmentButton:(id)sender {
-    [self saveLOD4];
-    [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
-}
 
 #pragma mark - Navigation
 

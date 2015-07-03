@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "Site.h"
-#import "Constants.h"
+
 
 @interface DataTableViewController : UITableViewController
 
-@property (nonatomic, strong) RLMResults *sitesArray;
+
+@property (strong, nonatomic) RLMResults *sitesArray;
+
 
 @end

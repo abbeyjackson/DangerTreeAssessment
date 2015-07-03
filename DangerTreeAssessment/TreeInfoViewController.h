@@ -7,21 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "TreeClassCollectionViewController.h"
 #import "TreeSpeciesCollectionViewController.h"
-#import <CoreLocation/CoreLocation.h>
-#import "Constants.h"
-@class Tree;
+
 @class Site;
+@class Tree;
 
 
-@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate, UIActionSheetDelegate,CLLocationManagerDelegate>
+@interface TreeInfoViewController : UIViewController <ClassDelegate, SpeciesDelegate>
 
-@property (nonatomic, strong) Site *site;
-@property (nonatomic, strong) Tree *tree;
-@property (nonatomic, strong) Site *lastSite;
-@property (nonatomic) BOOL isNewTree;
+
+@property (strong, nonatomic) Site *lastSite;
+@property (strong, nonatomic) Site *site;
+@property (strong, nonatomic) Tree *tree;
+
+@property (assign, nonatomic) BOOL isNewTree;
+
 
 -(void)initializeNewTree;
+
 
 @end

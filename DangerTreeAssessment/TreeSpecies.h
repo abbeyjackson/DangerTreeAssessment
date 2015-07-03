@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface TreeSpecies : NSObject
+
 
 @property (nonatomic, strong) NSString *abbreviation;
 @property (nonatomic, strong) NSString *name;
+
 
 -(instancetype)initWithAbbreviation:(NSString*)abbreviation andName:(NSString*)name;
 

@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface Fuel : NSObject
 
-@property (nonatomic, strong) NSString *abbreviation;
-@property (nonatomic, strong) NSString *name;
+
+@property (strong, nonatomic)  NSString *abbreviation;
+@property (strong, nonatomic)  NSString *name;
+
 
 -(instancetype)initWithAbbreviation:(NSString*)abbreviation andName:(NSString*)name;
 

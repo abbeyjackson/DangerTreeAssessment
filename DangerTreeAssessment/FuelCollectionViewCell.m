@@ -7,27 +7,37 @@
 //
 
 #import "FuelCollectionViewCell.h"
+
 #import "Fuel.h"
 
+
 @interface FuelCollectionViewCell()
+
 
 @property (weak, nonatomic) IBOutlet UILabel *abbreviationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
+
 @end
+
 
 @implementation FuelCollectionViewCell
 
+
+#pragma mark - Custom Accessors
+
 - (void)setObject:(Fuel*)object {
     _object = object;
-    
     [self configureCells];
 }
+
+
+#pragma mark - Setup
 
 -(void)configureCells{
     self.abbreviationLabel.text = self.object.abbreviation;
     self.infoLabel.text = self.object.name;
-    
 }
+
 
 @end

@@ -7,13 +7,18 @@
 //
 
 #import "TreeLOD23ViewController.h"
-#import "Tree.h"
-#import "Site.h"
-#import "Placeholder.h"
+
+#import "Constants.h"
 #import "UIColor+CustomColours.h"
+
+#import "Placeholder.h"
+#import "Site.h"
+#import "Tree.h"
 #import "TreeManagementViewController.h"
 
+
 @interface TreeLOD23ViewController ()
+
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hazardousTopControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *deadLimbsControl;
@@ -25,39 +30,26 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *conksMushroomsControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *treeLeanControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *rootInspectionControl;
+
 @property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
+
 
 @end
 
+
 @implementation TreeLOD23ViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.placeholder = [[Placeholder alloc]init];
     [self setupSegmentedControls];
-
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-
 }
 
 
--(void)checkIfNewTree{
-    if (self.tree) {
-        if (self.tree.isComplete) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Current Tree" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"Submit Report", nil];
-            [alert show];
-        }
-        else {
-            // let user edit current tree
-        }
-    }
-    else {
-    }
-}
+#pragma mark - Setup
 
 -(void)setupSegmentedControls{
     self.hazardousTopControl.selectedSegmentIndex = -1;
@@ -82,30 +74,25 @@
     self.placeholder.rootInspection = @"--";
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
--(IBAction)segmentControlValueChanged:(id)sender {
-    UISegmentedControl* control = (UISegmentedControl*)sender;
-    NSString *result;
-    if(control.selectedSegmentIndex == 0){
-        result = @"Safe";
-    }
-    else if(control.selectedSegmentIndex == 1){
-        control.selectedSegmentIndex = -1;
-        result = @"-";
-    }
-    else if(control.selectedSegmentIndex == 2){
-        result = @"Dangerous";
+#pragma mark - Analysis
+
+-(void)checkIfNewTree{
+    if (self.tree) {
+        if (self.tree.isComplete) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Current Tree" message:@"What would you like to do next?" delegate:self cancelButtonTitle:@"View Site List" otherButtonTitles:@"New Tree", @"Submit Report", nil];
+            [alert show];
+        }
+        else {
+            // let user edit current tree
+        }
     }
     else {
-        result = nil;
     }
-    [self setResult:result forSegmentControl:control];
 }
 
+
+#pragma mark - General Methods
 
 -(void)setResult:(NSString*)result forSegmentControl:(UISegmentedControl*)control {
     if (control == self.hazardousTopControl) {
@@ -140,6 +127,45 @@
     }
 }
 
+-(BOOL)setDangerous{
+    for (UISegmentedControl *control in self.allSegmentedControls) {
+        if (control.selectedSegmentIndex == 2) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+#pragma mark - IBActions
+
+-(IBAction)segmentControlValueChanged:(id)sender {
+    UISegmentedControl* control = (UISegmentedControl*)sender;
+    NSString *result;
+    if(control.selectedSegmentIndex == 0){
+        result = @"Safe";
+    }
+    else if(control.selectedSegmentIndex == 1){
+        control.selectedSegmentIndex = -1;
+        result = @"-";
+    }
+    else if(control.selectedSegmentIndex == 2){
+        result = @"Dangerous";
+    }
+    else {
+        result = nil;
+    }
+    [self setResult:result forSegmentControl:control];
+}
+
+- (IBAction)saveTreeAssessmentButton:(id)sender {
+    [self saveLOD23];
+    [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
+}
+
+
+#pragma mark - Save Data
+
 -(void)saveLOD23{
     self.tree.hazardousTop = self.placeholder.hazardousTop;
     self.tree.deadLimbs = self.placeholder.deadLimbs;
@@ -153,20 +179,6 @@
     self.tree.rootInspection = self.placeholder.rootInspection;
 }
 
--(BOOL)setDangerous{
-    for (UISegmentedControl *control in self.allSegmentedControls) {
-        if (control.selectedSegmentIndex == 2) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
-
-- (IBAction)saveTreeAssessmentButton:(id)sender {
-    [self saveLOD23];
-    [self performSegueWithIdentifier:@"showTreeMgt" sender: self];
-}
 
 #pragma mark - Navigation
 

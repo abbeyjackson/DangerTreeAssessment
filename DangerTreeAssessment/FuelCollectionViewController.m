@@ -7,33 +7,39 @@
 //
 
 #import "FuelCollectionViewController.h"
+
+#import "Constants.h"
+
 #import "Fuel.h"
 #import "FuelCollectionViewCell.h"
+
 #import <QuartzCore/QuartzCore.h>
+
 
 @interface FuelCollectionViewController ()
 
-@property (nonatomic, strong) NSArray *array;
+@property (strong, nonatomic) NSArray *array;
 
 @end
 
+
 @implementation FuelCollectionViewController
+
 
 static NSString * const reuseIdentifier = @"Cell";
 
+
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.array = [[NSArray alloc]initWithArray:[self makeArray]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+#pragma mark - Setup
 
 -(NSArray*)makeArray{
-    
     Fuel *c1 = [[Fuel alloc] initWithAbbreviation:@"C-1" andName:@"Spruce-lichen woodland"];
     Fuel *c2 = [[Fuel alloc] initWithAbbreviation:@"C-2" andName:@"Boreal spruce"];
     Fuel *c3 = [[Fuel alloc] initWithAbbreviation:@"C-3" andName:@"Mature jack or loodgepole pine"];
@@ -57,29 +63,23 @@ static NSString * const reuseIdentifier = @"Cell";
     return array;
 }
 
-#pragma mark <UICollectionViewDataSource>
+
+#pragma mark - Collection View
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {    return self.array.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FuelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
     cell.object = self.array[indexPath.item];
-    
     cell.layer.borderWidth = 1.0f;
     cell.layer.borderColor = [UIColor darkGrayColor].CGColor;
-
-    
     return cell;
 }
-
-#pragma mark <UICollectionViewDelegate>
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     Fuel *fuel = self.array[indexPath.item];

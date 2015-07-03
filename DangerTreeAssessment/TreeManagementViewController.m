@@ -7,20 +7,32 @@
 //
 
 #import "TreeManagementViewController.h"
-#import "TreeReviewViewController.h"
-#import "Tree.h"
-#import "Site.h"
-#import "Placeholder.h"
+
+#import "Constants.h"
 #import "UIColor+CustomColours.h"
 
+
+#import "Placeholder.h"
+#import "Site.h"
+#import "Tree.h"
+#import "TreeReviewViewController.h"
+
+
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
+
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
 @property (weak, nonatomic) IBOutlet UITextField *managementField;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
 
+
 @end
 
+
 @implementation TreeManagementViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,9 +45,8 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
+
+#pragma mark - Setup
 
 -(void)setupSegmentedControls{
     if (self.isDangerousSet) {
@@ -50,44 +61,6 @@
     self.commentsTextView.delegate = self;
 }
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
-}
-
-#pragma TextField Delegate
-
-
--(void)textViewDidBeginEditing:(UITextView *)textView{
-    [UIView animateWithDuration:0.2 animations:^{
-            CGRect frameUp = self.view.frame;
-            frameUp.origin.y -=140;
-            self.view.frame = frameUp;
-    }];
-    
-    if ([textView.text isEqualToString:@"Comments"]) {
-        textView.text = @"";
-        textView.textColor = [UIColor blackColor];
-    }
-    [textView becomeFirstResponder];
-}
-
-
--(void)textViewDidEndEditing:(UITextView *)textView{
-    [UIView animateWithDuration:0.2 animations:^{
-        self.view.frame = [[UIScreen mainScreen] bounds];
-    }];
-    
-    [textView resignFirstResponder];
-    
-    if ([textView.text isEqualToString:@""]) {
-        textView.text = @"Comments";
-        textView.textColor = [UIColor lightGrayColor];
-    }
-    [textView resignFirstResponder];
-}
-
-
 -(void)configureCommentBox{
     [self.commentsTextView.layer setBorderColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] CGColor]];
     [self.commentsTextView.layer setBorderWidth:.6];
@@ -98,6 +71,15 @@
     self.commentsTextView.textColor = [UIColor lightGrayColor];
 }
 
+
+#pragma mark - Gestures
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+
+#pragma mark - IBActions
 
 - (IBAction)safeDangerousControl:(id)sender{
     if(self.safeDangerousControl.selectedSegmentIndex == 0){
@@ -117,11 +99,24 @@
                                                     cancelButtonTitle:@"Select Management Action"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:kNoAction, kFallTree, kInstallNWZ, kOther, nil];
-    
     [actionSheet showInView:self.view];
-    
-    
 }
+
+- (IBAction)makeTreeReportButton:(id)sender {
+    if ([self.managementField.text isEqual:@""]){
+        UIAlertView *fieldsMandatory = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+                                                     message:@"Please fill in the management action field."
+                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [fieldsMandatory show];
+    }
+    else{
+        [self saveTreeMgt];
+        [self performSegueWithIdentifier:@"showTreeReview" sender:self];
+    }
+}
+
+
+#pragma mark - Action Sheet
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
@@ -138,27 +133,44 @@
     }
 }
 
+
+#pragma mark - TextField Delegate
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect frameUp = self.view.frame;
+        frameUp.origin.y -=140;
+        self.view.frame = frameUp;
+    }];
+    
+    if ([textView.text isEqualToString:@"Comments"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    [textView becomeFirstResponder];
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.frame = [[UIScreen mainScreen] bounds];
+    }];
+    
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Comments";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    [textView resignFirstResponder];
+}
+
+
+#pragma mark - Save Data
+
 -(void)saveTreeMgt{
     self.tree.isDangerous = self.placeholder.isDangerous;
     self.tree.management = self.managementField.text;
     self.tree.comments = self.commentsTextView.text;
 }
 
-- (IBAction)makeTreeReportButton:(id)sender {
-    
-    if ([self.managementField.text isEqual:@""]){
-        
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
-                                                     message:@"Please fill in the management action field."
-                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [av show];
-        
-    }else{
-    
-    [self saveTreeMgt];
-    [self performSegueWithIdentifier:@"showTreeReview" sender:self];
-    }
-}
 
 #pragma mark - Navigation
 
@@ -168,5 +180,6 @@
         [[segue destinationViewController] setSite:self.site];
     }
 }
+
 
 @end

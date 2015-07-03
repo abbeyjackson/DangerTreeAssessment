@@ -7,14 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import <UIKit/UIKit.h>
+
 
 @interface TreeClass : NSObject
 
-@property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) NSString *numAndInfo;
+
 @property (nonatomic, strong) NSString *details;
+@property (nonatomic, strong) NSString *numAndInfo;
+
+@property (nonatomic, strong) UIImage *image;
+
 
 -(instancetype)initWithImage:(UIImage *)image numAndInfo:(NSString*)numAndInfo;
+
 
 @end

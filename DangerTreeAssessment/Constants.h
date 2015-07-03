@@ -11,14 +11,13 @@
 #ifndef DangerTreeAssessment_Constants_h
 #define DangerTreeAssessment_Constants_h
 
+
 // alerts
 extern NSString* const kGoToTree;
 extern NSString* const kAddNewTree;
 extern NSString* const kSubmitSiteReport;
 extern NSString* const kStartNewSite;
 extern NSString* const kViewSiteList;
-
-
 
 // wildlife tree value
 extern NSString* const kL;
@@ -38,10 +37,10 @@ extern NSString* const kFallTree;
 extern NSString* const kInstallNWZ;
 extern NSString* const kOther;
 
-
 // lod types
 extern NSString* const kLODType1;
 extern NSString* const kLODType23;
 extern NSString* const kLODType4;
+
 
 #endif

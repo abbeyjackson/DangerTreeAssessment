@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface UIColor (CustomColours)
 
 
 +(UIColor*)redColor;
-+(UIColor*)lightGrayColor;
 
++(UIColor*)lightGrayColor;
 
 
 @end

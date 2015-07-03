@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Constants.h"
+
 @class Fuel;
+
 
 @protocol FuelDelegate <NSObject>
 
@@ -16,10 +17,11 @@
 
 @end
 
+
 @interface FuelCollectionViewController : UICollectionViewController
 
-@property (nonatomic, weak) id<FuelDelegate> delegate;
 
+@property (weak, nonatomic) id<FuelDelegate> delegate;
 
 
 @end

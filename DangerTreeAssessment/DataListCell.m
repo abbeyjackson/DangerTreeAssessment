@@ -7,27 +7,34 @@
 //
 
 #import "DataListCell.h"
+
 #import "Site.h"
 
+
 @interface DataListCell()
+
 
 @property (weak, nonatomic) IBOutlet UILabel *reportDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fireNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *siteLocationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dtaNameLabel;
 
+
 @end
+
 
 @implementation DataListCell
 
 
+#pragma mark - Custom Accessors
+
 - (void)setObject:(Site*)object {
     _object = object;
-    
     [self configure];
 }
 
-#pragma mark - General methods -
+
+#pragma mark - Setup
 
 - (void)configure {
     self.reportDateLabel.text = self.object.reportDate;
@@ -35,5 +42,6 @@
     self.siteLocationLabel.text = self.object.location;
     self.dtaNameLabel.text = self.object.dtaName;
 }
+
 
 @end

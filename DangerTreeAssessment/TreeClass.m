@@ -7,13 +7,20 @@
 //
 
 #import "TreeClass.h"
+
 #import <UIKit/UIKit.h>
+
 
 @interface TreeClass()
 
+
 @end
 
+
 @implementation TreeClass
+
+
+#pragma mark - Lifecycle
 
 -(instancetype)initWithImage:(UIImage *)image numAndInfo:(NSString*)numAndInfo{
     self = [super init];
@@ -23,5 +30,6 @@
     }
     return self;
 }
+
 
 @end

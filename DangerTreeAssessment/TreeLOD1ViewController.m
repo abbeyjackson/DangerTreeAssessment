@@ -7,22 +7,34 @@
 //
 
 #import "TreeLOD1ViewController.h"
-#import "Placeholder.h"
-#import "Tree.h"
-#import "Site.h"
+
+#import "Constants.h"
 #import "UIColor+CustomColours.h"
-#import "TreeManagementViewController.h"
+
+#import "Placeholder.h"
+#import "Site.h"
+#import "Tree.h"
 #import "TreeInfoViewController.h"
+#import "TreeManagementViewController.h"
+
 
 @interface TreeLOD1ViewController ()
+
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *unstableControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *leaningControl;
+
 @property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
+
 
 @end
 
+
 @implementation TreeLOD1ViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,11 +42,20 @@
     [self setupSegmentedControls];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
+
+#pragma mark - Setup
+
+-(void)setupSegmentedControls{
+    self.insecureControl.selectedSegmentIndex = -1;
+    self.placeholder.insecure = @"--";
+    self.unstableControl.selectedSegmentIndex = -1;
+    self.placeholder.unstable = @"--";
+    self.leaningControl.selectedSegmentIndex = -1;
+    self.placeholder.leaning = @"--";
 }
 
+
+#pragma mark - Analysis
 
 -(void)checkIfNewTree{
     if (self.tree) {
@@ -50,6 +71,9 @@
     }
 }
 
+
+#pragma mark - Alerts
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         [self.tabBarController setSelectedIndex:0];
@@ -63,37 +87,10 @@
     if (buttonIndex == 2) {
         [self.tabBarController setSelectedIndex:3];
     }
-    
 }
 
--(void)setupSegmentedControls{
-    
-    self.insecureControl.selectedSegmentIndex = -1;
-    self.placeholder.insecure = @"--";
-    self.unstableControl.selectedSegmentIndex = -1;
-    self.placeholder.unstable = @"--";
-    self.leaningControl.selectedSegmentIndex = -1;
-    self.placeholder.leaning = @"--";
-}
 
--(IBAction)segmentControlValueChanged:(id)sender {
-    UISegmentedControl* control = (UISegmentedControl*)sender;
-    NSString *result;
-    if(control.selectedSegmentIndex == 0){
-        result = @"Safe";
-    }
-    else if(control.selectedSegmentIndex == 1){
-        control.selectedSegmentIndex = -1;
-        result = @"-";
-    }
-    else if(control.selectedSegmentIndex == 2){
-        result = @"Dangerous";
-    }
-    else {
-        result = nil;
-    }
-    [self setResult:result forSegmentControl:control];
-}
+#pragma mark - General Methods
 
 -(void)setResult:(NSString*)result forSegmentControl:(UISegmentedControl*)control {
     if (control == self.insecureControl) {
@@ -116,10 +113,26 @@
     return NO;
 }
 
--(void)saveLOD1{
-    self.tree.insecure = self.placeholder.insecure;
-    self.tree.unstable = self.placeholder.unstable;
-    self.tree.leaning = self.placeholder.leaning;
+
+#pragma mark - IBActions
+
+-(IBAction)segmentControlValueChanged:(id)sender {
+    UISegmentedControl* control = (UISegmentedControl*)sender;
+    NSString *result;
+    if(control.selectedSegmentIndex == 0){
+        result = @"Safe";
+    }
+    else if(control.selectedSegmentIndex == 1){
+        control.selectedSegmentIndex = -1;
+        result = @"-";
+    }
+    else if(control.selectedSegmentIndex == 2){
+        result = @"Dangerous";
+    }
+    else {
+        result = nil;
+    }
+    [self setResult:result forSegmentControl:control];
 }
 
 - (IBAction)saveTreeAssessmentButton:(id)sender {
@@ -128,14 +141,24 @@
 }
 
 
+#pragma mark - Save Data
+
+-(void)saveLOD1{
+    self.tree.insecure = self.placeholder.insecure;
+    self.tree.unstable = self.placeholder.unstable;
+    self.tree.leaning = self.placeholder.leaning;
+}
+
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([[segue identifier] isEqualToString:@"showTreeMgt"]) {
+        
         if ([[NSNumber numberWithBool:self.isDangerous] isEqual:[NSNumber numberWithBool:YES]]) {
             [[segue destinationViewController] setIsDangerousSet:1];
         }
+        
         [[segue destinationViewController] setTree:self.tree];
         [[segue destinationViewController] setSite:self.site];
     }

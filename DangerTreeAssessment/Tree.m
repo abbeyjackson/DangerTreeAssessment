@@ -8,12 +8,13 @@
 
 #import "Tree.h"
 
+
 @implementation Tree
 
 
-+ (NSDictionary *)defaultPropertyValues
-{
++ (NSDictionary *)defaultPropertyValues{
     return @{@"insecure" : @" ", @"unstable": @" ", @"leaning" : @" ", @"hazardousTop" : @" ", @"deadLimbs" : @" ", @"witchesBroom" : @" ", @"splitTrunk" : @" ", @"stemDamage" : @" ", @"sloughingBark" : @" ", @"cankers" : @" ", @"conksMushrooms" : @" ", @"treeLean" : @" ", @"rootInspection" : @" ", @"rating" : @" ", @"isDangerous" : @0, @"management" : @" ", @"comments" : @" "};
 }
+
 
 @end

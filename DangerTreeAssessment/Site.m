@@ -11,9 +11,10 @@
 
 @implementation Site
 
-+ (NSDictionary *)defaultPropertyValues
-{
+
++ (NSDictionary *)defaultPropertyValues{
     return @{@"terminationLat" : @" ", @"terminationLon": @" "};
 }
+
 
 @end

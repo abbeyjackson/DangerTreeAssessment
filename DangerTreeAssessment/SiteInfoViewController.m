@@ -7,16 +7,26 @@
 //
 
 #import "SiteInfoViewController.h"
-#import "Site.h"
-#import "TreeInfoViewController.h"
-#import "Fuel.h"
-#import "UIColor+CustomColours.h"
-#import "SiteReviewViewController.h"
 
-@interface SiteInfoViewController (){
+#import "Constants.h"
+#import "UIColor+CustomColours.h"
+
+#import "Fuel.h"
+#import "FuelCollectionViewController.h"
+#import "Site.h"
+#import "SiteReviewViewController.h"
+#import "TreeInfoViewController.h"
+
+#import <CoreLocation/CoreLocation.h>
+
+
+@interface SiteInfoViewController () <CLLocationManagerDelegate, FuelDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UITextFieldDelegate>{
+    
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
+    
 }
+
 
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
@@ -28,27 +38,22 @@
 
 @property (strong, nonatomic) NSDateFormatter *dateFormat;
 @property (strong, nonatomic) NSDateFormatter *reportDateFormat;
+
 @property (strong, nonatomic) NSString *dtaID;
+
 
 @end
 
+
 @implementation SiteInfoViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureDateFormats];
     locationManager = [[CLLocationManager alloc] init];
-}
-
-
--(void)configureDateFormats{
-    
-    self.dateFormat = [[NSDateFormatter alloc] init];
-    [self.dateFormat setDateFormat:@"yyMMdd"];
-    
-    
-    self.reportDateFormat = [[NSDateFormatter alloc] init];
-    [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -58,21 +63,38 @@
 }
 
 
-#pragma mark - CLLocationManagerDelegate
+#pragma mark - Setup
 
-- (void)getCurrentLocation{
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager requestWhenInUseAuthorization];
+-(void)configureDateFormats{
+    self.dateFormat = [[NSDateFormatter alloc] init];
+    [self.dateFormat setDateFormat:@"yyMMdd"];
     
-    [locationManager startUpdatingLocation];
+    self.reportDateFormat = [[NSDateFormatter alloc] init];
+    [self.reportDateFormat setDateFormat:@"MM-dd-yyyy"];
+}
+
+-(void)configureTextFields{
+    self.locationField.delegate = self;
+    self.buiField.delegate = self;
+    self.activityField.delegate = self;
+    
+    self.fireNumberField.text = nil;
+    self.dtaNameField.text = nil;
+    self.dtaUnitField.text = nil;
+    self.fuelField.text = nil;
+    self.locationField.text = nil;
+    self.buiField.text = nil;
+    self.lodField.text = nil;
+    self.activityField.text = nil;
+}
+
+-(void)initializeNewSite{
+    self.site = [[Site alloc]init];
+    self.isNewSite = YES;
 }
 
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    currentLocation = newLocation;
-}
+#pragma mark - Analysis
 
 -(void)checkIfNewSite{
     if (self.site) {
@@ -120,8 +142,12 @@
     }
 }
 
+
+#pragma mark - Alerts
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0){
+        // currentSiteOpen & lastSiteOpen
         if (buttonIndex == 0) {
             [self.tabBarController setSelectedIndex:0];
         }
@@ -138,6 +164,7 @@
         }
     }
     if (alertView.tag == 1){
+        // lastTreeOpen
         if (buttonIndex == 0) {
             [self.tabBarController setSelectedIndex:0];
         }
@@ -147,7 +174,9 @@
         if (buttonIndex == 2) {
             [self.tabBarController setSelectedIndex:3];
         }
-    }if (alertView.tag ==2){
+    }
+    if (alertView.tag == 2){
+        // fieldsMandatory
         if (buttonIndex == 0){
             [self.tabBarController setSelectedIndex:1];
         }
@@ -155,35 +184,43 @@
 }
 
 
--(void)initializeNewSite{
-    
-    self.site = [[Site alloc]init];
-    self.isNewSite = YES;
-    
-}
-
-
--(void)configureTextFields{
-    self.locationField.delegate = self;
-    self.buiField.delegate = self;
-    self.activityField.delegate = self;
-    
-    self.fireNumberField.text = nil;
-    self.dtaNameField.text = nil;
-    self.dtaUnitField.text = nil;
-    self.fuelField.text = nil;
-    self.locationField.text = nil;
-    self.buiField.text = nil;
-    self.lodField.text = nil;
-    self.activityField.text = nil;
-}
-
+#pragma mark - Gestures
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
 
-#pragma TextField Delegate
+
+#pragma mark - Action Sheet
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        self.lodField.text = kLODType1;
+    }
+    if (buttonIndex == 1) {
+        self.lodField.text = kLODType23;
+    }
+    if (buttonIndex == 2) {
+        self.lodField.text = kLODType4;
+    }
+}
+
+
+#pragma mark - CLLocation Manager
+
+- (void)getCurrentLocation{
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    currentLocation = newLocation;
+}
+
+
+#pragma mark - TextField Delegate
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     [UIView animateWithDuration:0.2 animations:^{
@@ -200,15 +237,12 @@
     }];
 }
 
-
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     [UIView animateWithDuration:0.2 animations:^{
         self.view.frame = [[UIScreen mainScreen] bounds];
     }];
-    
     [textField resignFirstResponder];
 }
-
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -216,57 +250,50 @@
 }
 
 
+#pragma mark - Fuel Delegate
+
+-(void)selectFuelType:(Fuel *)fuel{
+    self.fuelField.text = [NSString stringWithFormat:@"%@ - %@", fuel.abbreviation, fuel.name];
+}
+
+
+#pragma mark - IBActions
+
 - (IBAction)lodActionSheet:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"Select Level Of Disturbance"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:kLODType1, kLODType23, kLODType4, nil];
-    
     [actionSheet showInView:self.view];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        self.lodField.text = kLODType1;
-    }
-    if (buttonIndex == 1) {
-        self.lodField.text = kLODType23;
-    }
-    if (buttonIndex == 2) {
-        self.lodField.text = kLODType4;
-    }
-}
-
--(void)selectFuelType:(Fuel *)fuel{
-    self.fuelField.text = [NSString stringWithFormat:@"%@ - %@", fuel.abbreviation, fuel.name];
-}
-
 - (IBAction)addNewTree:(id)sender {
-    
     if ([self.fireNumberField.text isEqual:@""] || [self.dtaNameField.text isEqual:@""] || [self.dtaUnitField.text isEqual:@""] || [self.fuelField.text isEqual:@""] || [self.locationField.text isEqual:@""] || [self.buiField.text isEqual:@""] || [self.activityField.text isEqual:@""]){
-
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Entry Error"
+        
+        UIAlertView *fieldsMandatory = [[UIAlertView alloc] initWithTitle:@"Entry Error"
                                                           message:@"Please fill in all fields."
                                                          delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        av.tag = 2;
-        [av show];
+        fieldsMandatory.tag = 2;
+        [fieldsMandatory show];
         
-    }else{
-
-    
-    UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
-    self.site = [self createSite];
-    TreeInfoViewController *destination = vc.viewControllers.firstObject;
-    [destination setSite:self.site];
-    [self.tabBarController setSelectedIndex:2];
-    
-    UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-    SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
-    [siteReview setSite:self.site];
+    }
+    else{
+        UINavigationController *vc = (UINavigationController*)[[self.tabBarController viewControllers] objectAtIndex:2];
+        self.site = [self createSite];
+        TreeInfoViewController *destination = vc.viewControllers.firstObject;
+        [destination setSite:self.site];
+        [self.tabBarController setSelectedIndex:2];
+        
+        UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+        SiteReviewViewController *siteReview = (SiteReviewViewController *)[navController.viewControllers firstObject];
+        [siteReview setSite:self.site];
     }
     
 }
+
+
+#pragma mark - Save Data
 
 -(void)makeDtaID{
     NSString *firstString = [[self.dtaNameField.text substringWithRange:NSMakeRange(0, 3)]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -289,35 +316,30 @@
 }
 
 -(NSString*)setSiteId{
-    
     NSString *dateString = [self.dateFormat stringFromDate:[NSDate date]];
-
     [self makeDtaID];
-    
     NSString *newSiteID = [NSString stringWithFormat:@"%@%@01", dateString, self.dtaID];
-    
     NSString *currentDateAndDtaID = [NSString stringWithFormat:@"%@%@",dateString, self.dtaID];
     
     RLMResults *results = [Site allObjects];
-    
-    
     if (results.count > 0) {
         Site *site = [results lastObject];
         NSString *lastSiteID = [NSString stringWithFormat:@"%@",site.siteID];
         NSString *lastDateAndDtaID = [lastSiteID substringWithRange:NSMakeRange(0, 12)];
         
-        // Check date and DTA to begin new day and count or continue count if same day
         if ([lastDateAndDtaID isEqualToString:currentDateAndDtaID]) {
             NSString *lastIDNum = [lastSiteID substringFromIndex:[lastSiteID length] - 2];
             int newID = [lastIDNum intValue] + 1;
             if (newID < 10) {
+                // make ID two digits
                 newSiteID = [NSString stringWithFormat:@"%@%@%02d", dateString, self.dtaID, newID];
             }
             else {
                 newSiteID = [NSString stringWithFormat:@"%@%@%d", dateString, self.dtaID, newID];
             }
         }
-        else { // If a different date or DTA find last report by DTA
+        else {
+            // If a different date or DTA find last report by DTA
             NSString *pred = [NSString stringWithFormat:@"formattedDtaID = '%@'",self.dtaID];
             RLMResults *newDtaResults = [Site objectsWhere:pred];
             site = [newDtaResults lastObject];
@@ -341,8 +363,6 @@
             // else no previous report by DTA, first instance with site number 01 will be used
         }
     }
-    
-    
     return newSiteID;
 }
 
@@ -383,7 +403,6 @@
     }
     
 }
-
 
 - (IBAction)unwindToSiteInfo:(UIStoryboardSegue*)sender{
 }

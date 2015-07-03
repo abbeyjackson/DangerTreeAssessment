@@ -8,13 +8,13 @@
 
 #import "Constants.h"
 
+
 // alerts
 NSString* const kGoToTree = @"Go To Tree";
 NSString* const kAddNewTree = @"Add New Tree";
 NSString* const kSubmitSiteReport = @"Submit Current Site";
 NSString* const kStartNewSite = @"Start New Site";
 NSString* const kViewSiteList = @"View Site List";
-
 
 // wildlife tree value
 NSString* const kL = @"LOW";

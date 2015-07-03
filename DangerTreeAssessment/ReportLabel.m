@@ -8,15 +8,20 @@
 
 #import "ReportLabel.h"
 
+
 @implementation ReportLabel
+
+
+#pragma mark - Lifecycle
 
 -(instancetype)initWithLabel:(NSString*)label andDetail:(NSString*)detail{
     self = [super init];
     if (self) {
-        _label = label;
         _detail = detail;
+        _label = label;
     }
     return self;
 }
+
 
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class Fuel;
+
 
 @interface FuelCollectionViewCell : UICollectionViewCell
 
+
 @property (nonatomic, strong) Fuel *object;
+
 
 @end

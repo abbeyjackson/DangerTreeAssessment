@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Constants.h"
-@class Tree;
-@class Site;
+
 @class Placeholder;
+@class Site;
+@class Tree;
+
 
 @interface TreeLOD23ViewController : UIViewController
 
-@property (nonatomic,strong) Tree *tree;
-@property (nonatomic, strong) Site *site;
-@property (nonatomic, strong) Placeholder *placeholder;
+
+@property (strong, nonatomic) Site *site;
+@property (strong, nonatomic) Placeholder *placeholder;
+@property (strong, nonatomic) Tree *tree;
 
 
 @end

@@ -7,33 +7,41 @@
 //
 
 #import "TreeSpeciesCollectionViewController.h"
+
+#import "Constants.h"
+
+#import "TreeSpecies.h"
 #import "TreeSpeciesCollectionViewCell.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 
 @interface TreeSpeciesCollectionViewController ()
 
-@property (nonatomic, strong) NSArray *array;
+
+@property (strong, nonatomic) NSArray *array;
+
 
 @end
 
+
 @implementation TreeSpeciesCollectionViewController
+
 
 static NSString * const reuseIdentifier = @"Cell";
 
+
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.array = [[NSArray alloc]initWithArray:[self makeArray]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+#pragma mark - Setup
 
 -(NSArray*)makeArray{
-    
     TreeSpecies *fd = [[TreeSpecies alloc] initWithAbbreviation:@"Fd" andName:@"Douglas-Fir"];
     TreeSpecies *lw = [[TreeSpecies alloc] initWithAbbreviation:@"Lw" andName:@"Western larch"];
     TreeSpecies *pl = [[TreeSpecies alloc] initWithAbbreviation:@"Pl" andName:@"Lodgepole pine"];
@@ -60,12 +68,11 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - Collection View
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.array.count;
@@ -73,25 +80,17 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TreeSpeciesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
     cell.object = self.array[indexPath.item];
-    
     cell.layer.borderWidth = 1.0f;
     cell.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    
-    
     return cell;
 }
-
-#pragma mark <UICollectionViewDelegate>
-
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     TreeSpecies *species = self.array[indexPath.item];
     [self.delegate selectSpecies:species];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 
 @end

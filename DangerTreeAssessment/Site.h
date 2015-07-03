@@ -7,10 +7,12 @@
 //
 
 #import <Realm/Realm.h>
+
 #import "Tree.h"
 
 
 @interface Site : RLMObject
+
 
 // internal properties
 @property BOOL isReportComplete;
@@ -19,7 +21,6 @@
 @property NSString *formattedDtaID;
 @property NSString *reportDate;
 @property int numberForArray;
-
 
 // Site properties
 @property NSString* fireNumber;
@@ -36,10 +37,7 @@
 @property NSString* terminationLon;
 
 
-
-
 @end
 
-// This protocol enables typed collections. i.e.:
-// RLMArray<Site>
+
 RLM_ARRAY_TYPE(Site)

@@ -8,8 +8,11 @@
 
 #import "TreeSpecies.h"
 
+
 @implementation TreeSpecies
 
+
+#pragma mark - Lifecycle
 
 -(instancetype)initWithAbbreviation:(NSString*)abbreviation andName:(NSString*)name{
     self = [super init];
@@ -19,5 +22,6 @@
     }
     return self;
 }
+
 
 @end

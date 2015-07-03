@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Constants.h"
-@class Tree;
+
 @class Site;
+@class Tree;
+
 
 @interface SiteReviewViewController : UITableViewController
 
-@property (nonatomic) Tree *tree;
-@property (nonatomic) Site *site;
-@property (nonatomic, assign) BOOL treeOpen;
+
+@property (strong, nonatomic) Site *site;
+@property (strong, nonatomic) Tree *tree;
+
+@property (assign, nonatomic) BOOL isTreeOpen;
+
 
 @end

@@ -7,21 +7,23 @@
 //
 
 #import "DataTableViewController.h"
-#import "DataListCell.h"
-#import "SiteReviewViewController.h"
+
+#import "Constants.h"
 #import "UIColor+CustomColours.h"
+
+#import "DataListCell.h"
 #import "SiteInfoViewController.h"
+#import "SiteReviewViewController.h"
 
-@interface DataTableViewController ()
-
-@end
 
 @implementation DataTableViewController
+
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self makeSitesArray];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -29,39 +31,41 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
+
+#pragma mark - Setup
 
 -(void)makeSitesArray{
-//    self.sitesArray = [Site allObjects];
     self.sitesArray = [[Site allObjects] sortedResultsUsingProperty:@"numberForArray" ascending:NO];
 }
 
+
+#pragma mark - Table View
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return self.sitesArray.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DataListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.object = self.sitesArray[indexPath.row];
+    
     if (!cell.object.isReportComplete) {
         cell.reportNotCompleteStar.text = @"★";
     }
-    else cell.reportNotCompleteStar.text = @"";
+    else {
+        cell.reportNotCompleteStar.text = @"";
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UINavigationController *navController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-
     SiteReviewViewController *destination = (SiteReviewViewController *)[navController.viewControllers firstObject];
-    
     Site *site = self.sitesArray[indexPath.row];
     [destination setSite:site];
-    
     [self.tabBarController setSelectedIndex:3];
 }
+
 
 @end

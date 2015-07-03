@@ -8,7 +8,11 @@
 
 #import "Fuel.h"
 
+
 @implementation Fuel
+
+
+#pragma mark - Lifecycle
 
 -(instancetype)initWithAbbreviation:(NSString*)abbreviation andName:(NSString*)name{
     self = [super init];
@@ -18,5 +22,6 @@
     }
     return self;
 }
+
 
 @end

@@ -7,17 +7,18 @@
 //
 
 #import <Realm/Realm.h>
+
 @class Site;
 
 
 @interface Tree : RLMObject
+
 
 // internal properties
 @property Site *site;
 @property NSString *treeNumber;
 @property NSString *treeID;
 @property BOOL isComplete;
-
 
 // tree properties for all trees:
 @property NSString* lat;
@@ -54,6 +55,5 @@
 
 @end
 
-// This protocol enables typed collections. i.e.:
-// RLMArray<Tree>
+
 RLM_ARRAY_TYPE(Tree)

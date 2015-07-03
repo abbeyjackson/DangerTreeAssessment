@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class TreeClass;
+
 
 @interface TreeClassCollectionViewCell : UICollectionViewCell
 
+
 @property (nonatomic, strong) TreeClass *object;
+
 
 @end

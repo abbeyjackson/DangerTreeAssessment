@@ -7,27 +7,36 @@
 //
 
 #import "TreeSpeciesCollectionViewCell.h"
+
 #import "TreeSpecies.h"
 
+
 @interface TreeSpeciesCollectionViewCell()
+
 
 @property (weak, nonatomic) IBOutlet UILabel *abbreviationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
+
 @end
+
 
 @implementation TreeSpeciesCollectionViewCell
 
+
+#pragma mark - Custom Accessors
+
 - (void)setObject:(TreeSpecies*)object {
     _object = object;
-    
     [self configureCells];
 }
+
+
+#pragma mark - Setup
 
 -(void)configureCells{
     self.abbreviationLabel.text = self.object.abbreviation;
     self.infoLabel.text = self.object.name;
-
 }
 
 

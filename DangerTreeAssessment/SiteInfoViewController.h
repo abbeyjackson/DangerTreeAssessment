@@ -7,18 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Site.h"
-#import "FuelCollectionViewController.h"
-#import "Constants.h"
-#import <CoreLocation/CoreLocation.h>
 
-@interface SiteInfoViewController : UIViewController <FuelDelegate, UIActionSheetDelegate, UITextFieldDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
+@class Site;
 
-@property (nonatomic, strong) Site *site;
-@property (nonatomic, assign) BOOL isNewSite;
+
+@interface SiteInfoViewController : UIViewController
+
+
+@property (strong, nonatomic) Site *site;
+
+@property (assign, nonatomic) BOOL isNewSite;
+@property (assign, nonatomic) BOOL isNewTree;
+
 @property (weak, nonatomic) IBOutlet UITextField *lodField;
-@property (nonatomic, assign) BOOL isNewTree;
+
 
 -(void)initializeNewSite;
+
 
 @end
