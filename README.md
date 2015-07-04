@@ -2,6 +2,9 @@
 ###Saving BC's Wildfire Firefighters and First Responders 
 Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 
+** To try the app out, contact [Abbey](http://ca.linkedin.com/in/earthabbey) for an invite.**
+
+
 ![Screengrab](DangerTreeAssessment/DTAscreengrab.gif) 
 
 ###The Problem:
