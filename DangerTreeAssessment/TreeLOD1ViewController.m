@@ -20,13 +20,11 @@
 
 @interface TreeLOD1ViewController ()
 
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *insecureControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *unstableControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *leaningControl;
 
 @property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
-
 
 @end
 

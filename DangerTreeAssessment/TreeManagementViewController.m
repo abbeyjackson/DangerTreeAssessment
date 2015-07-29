@@ -11,7 +11,6 @@
 #import "Constants.h"
 #import "UIColor+CustomColours.h"
 
-
 #import "Placeholder.h"
 #import "Site.h"
 #import "Tree.h"
@@ -20,11 +19,9 @@
 
 @interface TreeManagementViewController ()<UIActionSheetDelegate, UITextViewDelegate>
 
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *safeDangerousControl;
 @property (weak, nonatomic) IBOutlet UITextField *managementField;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
-
 
 @end
 

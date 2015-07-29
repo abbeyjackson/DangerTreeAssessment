@@ -17,9 +17,7 @@
 
 @interface TreeLOD4ViewController ()<UIActionSheetDelegate>
 
-
 @property (weak, nonatomic) IBOutlet UITextField *ratingField;
-
 
 @end
 

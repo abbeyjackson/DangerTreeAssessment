@@ -18,9 +18,7 @@
 
 @interface TreeSpeciesCollectionViewController ()
 
-
 @property (strong, nonatomic) NSArray *array;
-
 
 @end
 

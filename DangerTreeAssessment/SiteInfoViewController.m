@@ -27,7 +27,6 @@
     
 }
 
-
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaUnitField;
@@ -40,7 +39,6 @@
 @property (strong, nonatomic) NSDateFormatter *reportDateFormat;
 
 @property (strong, nonatomic) NSString *dtaID;
-
 
 @end
 

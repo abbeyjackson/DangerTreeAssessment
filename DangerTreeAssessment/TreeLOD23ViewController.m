@@ -19,7 +19,6 @@
 
 @interface TreeLOD23ViewController ()
 
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hazardousTopControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *deadLimbsControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *witchesBroomControl;
@@ -32,7 +31,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *rootInspectionControl;
 
 @property (strong, nonatomic) IBOutletCollection(UISegmentedControl) NSArray *allSegmentedControls;
-
 
 @end
 
