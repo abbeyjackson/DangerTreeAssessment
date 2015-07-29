@@ -52,6 +52,7 @@
     [self checkIfSiteExistsAndSendEmail];
     [self.tableView setContentInset:UIEdgeInsetsMake(25,0,0,0)];
     [self createSiteReportLabelArray];
+    [self getCurrentLocation];
     [self.tableView reloadData];
 }
 
@@ -220,6 +221,12 @@
 
 - (IBAction)submitReport:(id)sender {
     [self checkIfTreeExistsAndIsComplete];
+    
+    RLMRealm *realm = self.site.realm;
+    [realm beginWriteTransaction];
+    self.site.terminationLat = [NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude];
+    self.site.terminationLon = [NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude];
+    [realm commitWriteTransaction];
 }
 
 
@@ -244,7 +251,7 @@
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
                 
-        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination-Latitude: %f,\nTermination-Longitude: %f\nSite-ID: %@\nDTA Name: %@\nDTA Call Sign: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, self.site.siteID, self.site.dtaName, self.site.dtaCallSign, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
+        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination Latitude: %f,\nTermination Longitude: %f\nSite ID: %@\nDTA Name: %@\nDTA Call Sign: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, self.site.siteID, self.site.dtaName, self.site.dtaCallSign, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
         
         [mailComposer setMessageBody:messageBodyString isHTML:NO];
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
