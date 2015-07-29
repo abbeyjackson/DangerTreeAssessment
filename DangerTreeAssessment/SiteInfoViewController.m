@@ -29,7 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *fireNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *dtaNameField;
-@property (weak, nonatomic) IBOutlet UITextField *dtaUnitField;
+@property (weak, nonatomic) IBOutlet UITextField *dtaCallSignField;
 @property (weak, nonatomic) IBOutlet UITextField *fuelField;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
 @property (weak, nonatomic) IBOutlet UITextField *buiField;
@@ -78,7 +78,7 @@
     
     self.fireNumberField.text = nil;
     self.dtaNameField.text = nil;
-    self.dtaUnitField.text = nil;
+    self.dtaCallSignField.text = nil;
     self.fuelField.text = nil;
     self.locationField.text = nil;
     self.buiField.text = nil;
@@ -267,7 +267,7 @@
 }
 
 - (IBAction)addNewTree:(id)sender {
-    if ([self.fireNumberField.text isEqual:@""] || [self.dtaNameField.text isEqual:@""] || [self.dtaUnitField.text isEqual:@""] || [self.fuelField.text isEqual:@""] || [self.locationField.text isEqual:@""] || [self.buiField.text isEqual:@""] || [self.activityField.text isEqual:@""]){
+    if ([self.fireNumberField.text isEqual:@""] || [self.dtaNameField.text isEqual:@""] || [self.dtaCallSignField.text isEqual:@""] || [self.fuelField.text isEqual:@""] || [self.locationField.text isEqual:@""] || [self.buiField.text isEqual:@""] || [self.activityField.text isEqual:@""]){
         
         UIAlertView *fieldsMandatory = [[UIAlertView alloc] initWithTitle:@"Entry Error"
                                                           message:@"Please fill in all fields."
@@ -367,7 +367,7 @@
 -(Site*)createSite{
     self.site.fireNumber = self.fireNumberField.text;
     self.site.dtaName = self.dtaNameField.text;
-    self.site.dtaUnit = self.dtaUnitField.text;
+    self.site.dtaCallSign = self.dtaCallSignField.text;
     self.site.fuel = [self.fuelField.text substringToIndex:3];
     self.site.location = self.locationField.text;
     self.site.bui = self.buiField.text;

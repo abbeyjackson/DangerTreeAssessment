@@ -25,7 +25,7 @@
 // Site properties
 @property NSString* fireNumber;
 @property NSString* dtaName;
-@property NSString* dtaUnit;
+@property NSString* dtaCallSign;
 @property NSString* fuel;
 @property NSString* location;
 @property NSString* bui; 

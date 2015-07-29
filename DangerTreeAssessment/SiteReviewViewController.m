@@ -61,14 +61,14 @@
 -(void)createSiteReportLabelArray{
     ReportLabel *fireNumber = [[ReportLabel alloc] initWithLabel:@"Fire Number" andDetail:self.site.fireNumber];
     ReportLabel *dtaName = [[ReportLabel alloc] initWithLabel:@"DTA Name" andDetail:self.site.dtaName];
-    ReportLabel *dtaUnit = [[ReportLabel alloc] initWithLabel:@"DTA Unit" andDetail:self.site.dtaUnit];
+    ReportLabel *dtaCallSign = [[ReportLabel alloc] initWithLabel:@"DTA Call Sign" andDetail:self.site.dtaCallSign];
     ReportLabel *fuel = [[ReportLabel alloc] initWithLabel:@"Fuel" andDetail:self.site.fuel];
     ReportLabel *location = [[ReportLabel alloc] initWithLabel:@"Location" andDetail:self.site.location];
     ReportLabel *bui = [[ReportLabel alloc] initWithLabel:@"BUI" andDetail:self.site.bui];
     ReportLabel *lod = [[ReportLabel alloc] initWithLabel:@"LOD" andDetail:self.site.lod];
     ReportLabel *activity = [[ReportLabel alloc] initWithLabel:@"Activity" andDetail:self.site.activity];
     
-    self.siteReviewObjects = [[NSArray alloc] initWithObjects:fireNumber, dtaName, dtaUnit, fuel, location, bui, lod, activity, nil];
+    self.siteReviewObjects = [[NSArray alloc] initWithObjects:fireNumber, dtaName, dtaCallSign, fuel, location, bui, lod, activity, nil];
 }
 
 
@@ -244,7 +244,7 @@
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
                 
-        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination Latitude: %f,\nTermination Longitude: %f\nSite ID: %@\nDTA Name: %@\nDTA Unit: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, self.site.siteID, self.site.dtaName, self.site.dtaUnit, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
+        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination Latitude: %f,\nTermination Longitude: %f\nSite ID: %@\nDTA Name: %@\nDTA Call Sign: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, self.site.siteID, self.site.dtaName, self.site.dtaCallSign, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
         
         [mailComposer setMessageBody:messageBodyString isHTML:NO];
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];

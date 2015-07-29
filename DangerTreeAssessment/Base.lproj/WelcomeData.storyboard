@@ -207,7 +207,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xyO-os-ZHh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Call Sign" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xyO-os-ZHh">
                                 <rect key="frame" x="51" y="186" width="498" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Lds-5l-Rpk"/>
@@ -411,8 +411,8 @@
                     <connections>
                         <outlet property="activityField" destination="PpQ-fR-kCb" id="tr4-hh-Gr7"/>
                         <outlet property="buiField" destination="DZo-Qo-mwC" id="ABu-qq-hoN"/>
+                        <outlet property="dtaCallSignField" destination="xyO-os-ZHh" id="cMx-GF-Wwm"/>
                         <outlet property="dtaNameField" destination="V7c-fx-5Tr" id="CvO-08-Pex"/>
-                        <outlet property="dtaUnitField" destination="xyO-os-ZHh" id="FfS-sA-Mld"/>
                         <outlet property="fireNumberField" destination="aXZ-OV-zBl" id="JRi-2o-OYD"/>
                         <outlet property="fuelField" destination="XYz-K6-8pp" id="trY-f1-5gz"/>
                         <outlet property="locationField" destination="efC-wZ-lFa" id="hBT-mK-94A"/>
