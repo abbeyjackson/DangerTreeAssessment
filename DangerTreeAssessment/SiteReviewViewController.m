@@ -169,7 +169,7 @@
 -(NSData *)generateCSVFile{
     NSOutputStream *outputStream = [[NSOutputStream alloc] initToMemory];
     CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
-    NSArray *headingsArray = [NSArray arrayWithObjects: @"Fire Number", @"Site ID", @"Tree ID", @"Latitude", @"Longitude", @"Species", @"Class", @"Wildlife Value", @"Insecure", @"Unstable", @"Recent Lean", @"Hazardous Top", @"Dead Limbs", @"Witches Broom", @"Split Trunk", @"Stem Damage", @"Sloughing Bark", @"Cankers", @"Conks / Mushrooms", @"Tree Lean", @"Root Inspection", @"Rating", @"Is Dangerous", @"Management", @"Comments", nil];
+    NSArray *headingsArray = [NSArray arrayWithObjects: @"Fire-Number", @"Site-ID", @"Tree-ID", @"Latitude", @"Longitude", @"Species", @"Class", @"Wildlife-Value", @"Insecure", @"Unstable", @"Recent-Lean", @"Hazardous-Top", @"Dead-Limbs", @"Witches-Broom", @"Split-Trunk", @"Stem-Damage", @"Sloughing-Bark", @"Cankers", @"Conks/Mushrooms", @"Tree-Lean", @"Root-Inspection", @"Rating", @"Is-Dangerous", @"Management", @"Comments", nil];
     [csvWriter writeLineOfFields:headingsArray];
     
     RLMArray *treesArray = self.site.trees;
@@ -244,7 +244,7 @@
         MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
         mailComposer.mailComposeDelegate = self;
                 
-        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination Latitude: %f,\nTermination Longitude: %f\nSite ID: %@\nDTA Name: %@\nDTA Call Sign: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, self.site.siteID, self.site.dtaName, self.site.dtaCallSign, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
+        NSString *messageBodyString = [NSString stringWithFormat:@"Report Date: %@\nFire Number: %@\nSite Location: %@\nCommencement Latitude: %@\nCommencement Longitude: %@\nTermination-Latitude: %f,\nTermination-Longitude: %f\nSite-ID: %@\nDTA Name: %@\nDTA Call Sign: %@\nNumber Of Trees: %lu\nFuel: %@\nBUI: %@\nLOD: %@\nActivity: %@\n", self.site.reportDate, self.site.fireNumber, self.site.location, self.site.commencementLat, self.site.commencementLon, currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, self.site.siteID, self.site.dtaName, self.site.dtaCallSign, (unsigned long)self.site.trees.count, self.site.fuel, self.site.bui, self.site.lod, self.site.activity];
         
         [mailComposer setMessageBody:messageBodyString isHTML:NO];
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
