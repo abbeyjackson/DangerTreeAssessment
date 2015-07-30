@@ -2042,6 +2042,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="lDo-Zr-ptZ"/>
                     <connections>
+                        <outlet property="doneButton" destination="sBp-BO-ChV" id="yxW-Ai-yjw"/>
                         <outlet property="pleaseSignLabel" destination="EGc-aA-IvC" id="QzH-ca-oOk"/>
                         <outlet property="signatureView" destination="97Z-Wi-i1u" id="23G-Ib-05L"/>
                     </connections>
