@@ -20,5 +20,7 @@
 
 @property (assign, nonatomic) BOOL isTreeOpen;
 
+@property (strong, nonatomic) UIImage *image;
+
 
 @end

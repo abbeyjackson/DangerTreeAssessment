@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8008F3C5C1F1788D62D37B9E /* libPods-DangerTreeAssessment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE3143711C2B2906051A7C1 /* libPods-DangerTreeAssessment.a */; };
 		B5B71A9C1B3B4CFF00FF2BD5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */; };
 		F648E8501B30A053007ADB73 /* SiteInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */; };
 		F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8521B30A062007ADB73 /* TreeInfoViewController.m */; };
@@ -23,6 +24,8 @@
 		F648E88D1B32380D007ADB73 /* TreeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E88C1B32380D007ADB73 /* TreeClass.m */; };
 		F648E8901B327C5E007ADB73 /* TreeClassCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E88F1B327C5E007ADB73 /* TreeClassCollectionViewController.m */; };
 		F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */; };
+		F658E6891B69AF8900537B75 /* SignatureCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F658E6881B69AF8900537B75 /* SignatureCaptureViewController.m */; };
+		F658E68C1B69E57100537B75 /* SignatureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F658E68B1B69E57100537B75 /* SignatureViewCell.m */; };
 		F659531F1B3B8ECD0028F289 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F659531E1B3B8ECD0028F289 /* CHCSVParser.m */; };
 		F6629EC91B34F15D00FF4E10 /* Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = F6629EC81B34F15D00FF4E10 /* Placeholder.m */; };
 		F66F4EDA1B40DE9100AE0082 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F66F4ED91B40DE9100AE0082 /* Constants.m */; };
@@ -58,6 +61,9 @@
 
 /* Begin PBXFileReference section */
 		B5B71A9B1B3B4CFF00FF2BD5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		DFE3143711C2B2906051A7C1 /* libPods-DangerTreeAssessment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DangerTreeAssessment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F557C721B04F43CABEE444D7 /* Pods-DangerTreeAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DangerTreeAssessment.release.xcconfig"; path = "Pods/Target Support Files/Pods-DangerTreeAssessment/Pods-DangerTreeAssessment.release.xcconfig"; sourceTree = "<group>"; };
+		F63E19B457DF1279136B7EBC /* Pods-DangerTreeAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DangerTreeAssessment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DangerTreeAssessment/Pods-DangerTreeAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		F648E84E1B30A053007ADB73 /* SiteInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteInfoViewController.h; sourceTree = "<group>"; };
 		F648E84F1B30A053007ADB73 /* SiteInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteInfoViewController.m; sourceTree = "<group>"; };
 		F648E8511B30A062007ADB73 /* TreeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeInfoViewController.h; sourceTree = "<group>"; };
@@ -88,6 +94,10 @@
 		F648E88F1B327C5E007ADB73 /* TreeClassCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClassCollectionViewController.m; sourceTree = "<group>"; };
 		F648E8911B327E43007ADB73 /* TreeClassCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeClassCollectionViewCell.h; sourceTree = "<group>"; };
 		F648E8921B327E43007ADB73 /* TreeClassCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClassCollectionViewCell.m; sourceTree = "<group>"; };
+		F658E6871B69AF8900537B75 /* SignatureCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureCaptureViewController.h; sourceTree = "<group>"; };
+		F658E6881B69AF8900537B75 /* SignatureCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureCaptureViewController.m; sourceTree = "<group>"; };
+		F658E68A1B69E57100537B75 /* SignatureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureViewCell.h; sourceTree = "<group>"; };
+		F658E68B1B69E57100537B75 /* SignatureViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureViewCell.m; sourceTree = "<group>"; };
 		F659531D1B3B8ECD0028F289 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
 		F659531E1B3B8ECD0028F289 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		F6629EC71B34F15D00FF4E10 /* Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Placeholder.h; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 				B5B71A9C1B3B4CFF00FF2BD5 /* MessageUI.framework in Frameworks */,
 				F678F6351B2F689A00A8EAA5 /* libc++.dylib in Frameworks */,
 				F678F6331B2F684A00A8EAA5 /* Realm.framework in Frameworks */,
+				8008F3C5C1F1788D62D37B9E /* libPods-DangerTreeAssessment.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +159,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		298BE63BB4E732FAA25176F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F63E19B457DF1279136B7EBC /* Pods-DangerTreeAssessment.debug.xcconfig */,
+				F557C721B04F43CABEE444D7 /* Pods-DangerTreeAssessment.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E6340A2735284CADAC7F9D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFE3143711C2B2906051A7C1 /* libPods-DangerTreeAssessment.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F678F62C1B2F63BE00A8EAA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +187,8 @@
 				F6DF60681B33571300339B57 /* TreeSpeciesCollectionViewCell.m */,
 				F6DF60731B337A2D00339B57 /* FuelCollectionViewCell.h */,
 				F6DF60741B337A2D00339B57 /* FuelCollectionViewCell.m */,
+				F658E68A1B69E57100537B75 /* SignatureViewCell.h */,
+				F658E68B1B69E57100537B75 /* SignatureViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -188,6 +218,8 @@
 				F6B912991B2F602A00245ED5 /* DangerTreeAssessment */,
 				F6B912B61B2F602A00245ED5 /* DangerTreeAssessmentTests */,
 				F6B912981B2F602A00245ED5 /* Products */,
+				298BE63BB4E732FAA25176F7 /* Pods */,
+				9E6340A2735284CADAC7F9D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +300,8 @@
 				F648E85B1B30A08B007ADB73 /* TreeReviewViewController.m */,
 				F648E85D1B30A096007ADB73 /* SiteReviewViewController.h */,
 				F648E85E1B30A096007ADB73 /* SiteReviewViewController.m */,
+				F658E6871B69AF8900537B75 /* SignatureCaptureViewController.h */,
+				F658E6881B69AF8900537B75 /* SignatureCaptureViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -317,9 +351,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6B912BD1B2F602A00245ED5 /* Build configuration list for PBXNativeTarget "DangerTreeAssessment" */;
 			buildPhases = (
+				6E128180E8D0B683BAB314A8 /* Check Pods Manifest.lock */,
 				F6B912931B2F602A00245ED5 /* Sources */,
 				F6B912941B2F602A00245ED5 /* Frameworks */,
 				F6B912951B2F602A00245ED5 /* Resources */,
+				E53A484B14602B686AA48AFD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -408,6 +444,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6E128180E8D0B683BAB314A8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E53A484B14602B686AA48AFD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DangerTreeAssessment/Pods-DangerTreeAssessment-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6B912931B2F602A00245ED5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -428,9 +497,11 @@
 				F66F4EDA1B40DE9100AE0082 /* Constants.m in Sources */,
 				F6DF60781B337AA100339B57 /* FuelCollectionViewController.m in Sources */,
 				F6B912A01B2F602A00245ED5 /* AppDelegate.m in Sources */,
+				F658E6891B69AF8900537B75 /* SignatureCaptureViewController.m in Sources */,
 				F6DF606F1B3379EA00339B57 /* Fuel.m in Sources */,
 				F648E8931B327E43007ADB73 /* TreeClassCollectionViewCell.m in Sources */,
 				F648E8531B30A062007ADB73 /* TreeInfoViewController.m in Sources */,
+				F658E68C1B69E57100537B75 /* SignatureViewCell.m in Sources */,
 				F648E8741B30C5E2007ADB73 /* TreeLOD23ViewController.m in Sources */,
 				F648E85F1B30A096007ADB73 /* SiteReviewViewController.m in Sources */,
 				F648E8681B30A165007ADB73 /* DataListCell.m in Sources */,
@@ -564,6 +635,7 @@
 		};
 		F6B912BE1B2F602A00245ED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F63E19B457DF1279136B7EBC /* Pods-DangerTreeAssessment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -580,6 +652,7 @@
 		};
 		F6B912BF1B2F602A00245ED5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F557C721B04F43CABEE444D7 /* Pods-DangerTreeAssessment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

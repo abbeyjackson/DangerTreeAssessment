@@ -12,6 +12,7 @@
 
 @interface SignatureCaptureViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet SignatureView *signatureView;
+@property (weak, nonatomic) IBOutlet SignatureView *signatureView;
+
 
 @end

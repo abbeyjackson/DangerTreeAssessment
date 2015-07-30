@@ -13,6 +13,7 @@
 
 #import "CHCSVParser.h"
 #import "ReportLabel.h"
+#import "SignatureCaptureViewController.h"
 #import "Site.h"
 #import "SiteInfoViewController.h"
 #import "Tree.h"
@@ -20,6 +21,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <MessageUI/MessageUI.h>
+#import <SignatureView/SignatureView.h>
 
 
 @interface SiteReviewViewController () <CLLocationManagerDelegate, MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>{
@@ -34,6 +36,8 @@
 @property (strong, nonatomic) NSArray *siteReviewObjects;
 @property (strong, nonatomic) NSMutableString *strOutput;
 
+
+
 @end
 
 
@@ -45,7 +49,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.separatorColor = [UIColor clearColor];
-    locationManager = [[CLLocationManager alloc] init];}
+    locationManager = [[CLLocationManager alloc] init];
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -290,16 +295,37 @@
 
 #pragma mark - TableView
 
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.siteReviewObjects.count;
 }
 
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    ReportLabel *reportlabel = self.siteReviewObjects[indexPath.row];
-    cell.textLabel.text = reportlabel.label;
-    cell.detailTextLabel.text = reportlabel.detail;
-    return cell;
+    
+    if ([self isLast:indexPath table:tableView]) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SignatureCapture" forIndexPath:indexPath];
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        ReportLabel *reportlabel = self.siteReviewObjects[indexPath.row];
+        cell.textLabel.text = reportlabel.label;
+        cell.detailTextLabel.text = reportlabel.detail;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self isLast:indexPath table:tableView]) {
+        [self performSegueWithIdentifier:@"showSignatureCapture" sender:self];
+    }
+}
+
+
+-(BOOL)isLast:(NSIndexPath *)indexPath table:(UITableView *)tableView {
+    return (indexPath.row == ([tableView numberOfRowsInSection:0] - 1));
 }
 
 
@@ -325,6 +351,31 @@
     [siteInfo setIsNewSite:NO];
 }
 
+
+#pragma mark - Navigation
+
+
+- (IBAction)unwindToSiteReview:(UIStoryboardSegue*)sender{
+    
+    
+    SignatureCaptureViewController *sourceVC = sender.sourceViewController;
+    self.image = [sourceVC.signatureView signatureImage];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
+    CGFloat centerX = [self.view viewWithTag:1].bounds.size.width/2;
+    CGFloat centerY = [self.view viewWithTag:1].bounds.size.height/2;
+    
+    UIImageView *signatureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 135, screenWidth)];
+    
+    signatureImageView.center = CGPointMake(centerX, centerY + 75);
+    signatureImageView.transform = CGAffineTransformMakeRotation( ( 90 * M_PI ) / 180 );
+    [[self.view viewWithTag:1] addSubview:signatureImageView];
+    
+    signatureImageView.image = self.image;
+
+}
 
 
 @end

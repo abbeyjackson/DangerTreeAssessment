@@ -12,22 +12,35 @@
 
 @interface SignatureCaptureViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UILabel *pleaseSignLabel;
+
 @end
 
 @implementation SignatureCaptureViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.title = @"Signature View";
-    
-    [self.signatureView setLineWidth:2.0];
-    self.signatureView.foregroundLineColor = [UIColor colorWithRed:0.204 green:0.596 blue:0.859 alpha:1.000];
+    self.doneButton.transform = CGAffineTransformMakeRotation( ( 270 * M_PI ) / 180 );
+    self.pleaseSignLabel.transform = CGAffineTransformMakeRotation( ( 270 * M_PI ) / 180 );
+    self.signatureView.layer.borderWidth = 2.0;
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

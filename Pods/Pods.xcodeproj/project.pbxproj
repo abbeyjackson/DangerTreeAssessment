@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50926F4F15E9D60500892A1ECA780E59 /* PBXContainerItemProxy */ = {
+		18571FA3E5A3F519ED3C14948530D588 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -193,7 +193,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				622F0D0EEE34EFF96CE4BF381F1C255D /* PBXTargetDependency */,
+				910BA9D438BDD4A544E3F1A3379C822B /* PBXTargetDependency */,
 			);
 			name = "Pods-DangerTreeAssessment";
 			productName = "Pods-DangerTreeAssessment";
@@ -248,11 +248,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		622F0D0EEE34EFF96CE4BF381F1C255D /* PBXTargetDependency */ = {
+		910BA9D438BDD4A544E3F1A3379C822B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SignatureView;
 			target = 3C68CBB57971002A5A623ABA4B2A5615 /* SignatureView */;
-			targetProxy = 50926F4F15E9D60500892A1ECA780E59 /* PBXContainerItemProxy */;
+			targetProxy = 18571FA3E5A3F519ED3C14948530D588 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
