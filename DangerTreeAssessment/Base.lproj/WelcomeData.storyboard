@@ -1983,6 +1983,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="submitButton" destination="hYi-Zg-WGO" id="bdD-Eq-AtL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvw-qG-bYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

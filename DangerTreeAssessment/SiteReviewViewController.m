@@ -31,6 +31,8 @@
     
 }
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitButton;
+
 @property (strong, nonatomic) NSArray *csvArray;
 @property (strong, nonatomic) NSArray *singleTreeArray;
 @property (strong, nonatomic) NSArray *siteReviewObjects;
@@ -50,6 +52,7 @@
     [super viewDidLoad];
     self.tableView.separatorColor = [UIColor clearColor];
     locationManager = [[CLLocationManager alloc] init];
+    self.submitButton.enabled = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -172,6 +175,15 @@
 
 #pragma mark - General Methods
 
+- (UIImage*)rotateUIImage:(UIImage*)sourceImage clockwise:(BOOL)clockwise{
+    CGSize size = sourceImage.size;
+    UIGraphicsBeginImageContext(CGSizeMake(size.height, size.width));
+    [[UIImage imageWithCGImage:[sourceImage CGImage] scale:1.0 orientation:clockwise ? UIImageOrientationRight : UIImageOrientationLeft] drawInRect:CGRectMake(0,0,size.height ,size.width)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 -(NSData *)generateCSVFile{
     NSOutputStream *outputStream = [[NSOutputStream alloc] initToMemory];
     CHCSVWriter *csvWriter = [[CHCSVWriter alloc] initWithOutputStream:outputStream encoding:NSUTF8StringEncoding delimiter:','];
@@ -261,6 +273,9 @@
         [mailComposer setMessageBody:messageBodyString isHTML:NO];
         [mailComposer setSubject:[NSString stringWithFormat:@"%@ - %@", self.site.fireNumber, self.site.dtaName]];
         NSString *reportNameString = [NSString stringWithFormat:@"SiteReport-%@-%@.csv",self.site.reportDate, self.site.formattedDtaID];
+        NSData *myImageData = UIImagePNGRepresentation(self.image);
+        
+        [mailComposer addAttachmentData:myImageData mimeType:@"image/png" fileName:[NSString stringWithFormat:@"Signature-%@-%@.png",self.site.reportDate, self.site.formattedDtaID]];
         [mailComposer addAttachmentData:[self generateCSVFile]  mimeType:@"cvs" fileName:reportNameString];
         
         [self presentViewController:mailComposer animated:YES completion:nil];
@@ -295,12 +310,9 @@
 
 #pragma mark - TableView
 
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.siteReviewObjects.count;
 }
-
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -322,7 +334,6 @@
         [self performSegueWithIdentifier:@"showSignatureCapture" sender:self];
     }
 }
-
 
 -(BOOL)isLast:(NSIndexPath *)indexPath table:(UITableView *)tableView {
     return (indexPath.row == ([tableView numberOfRowsInSection:0] - 1));
@@ -354,27 +365,24 @@
 
 #pragma mark - Navigation
 
-
 - (IBAction)unwindToSiteReview:(UIStoryboardSegue*)sender{
-    
-    
     SignatureCaptureViewController *sourceVC = sender.sourceViewController;
     self.image = [sourceVC.signatureView signatureImage];
+    self.image = [self rotateUIImage:self.image clockwise:YES];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
-    
     CGFloat centerX = [self.view viewWithTag:1].bounds.size.width/2;
     CGFloat centerY = [self.view viewWithTag:1].bounds.size.height/2;
     
-    UIImageView *signatureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 135, screenWidth)];
+    UIImageView *signatureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 135)];
     
     signatureImageView.center = CGPointMake(centerX, centerY + 75);
-    signatureImageView.transform = CGAffineTransformMakeRotation( ( 90 * M_PI ) / 180 );
     [[self.view viewWithTag:1] addSubview:signatureImageView];
     
     signatureImageView.image = self.image;
-
+    
+    self.submitButton.enabled = YES;
 }
 
 
