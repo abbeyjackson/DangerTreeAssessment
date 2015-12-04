@@ -2,6 +2,7 @@
 ###Saving BC's Wildfire Firefighters and First Responders 
 Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 
+“This app takes BCWildfire's current paper based assessment process for dangerous trees during wildfires and brings it into the modern age. Data is collected in the app and then emailed as a CSV file for easy import into databases and spreadsheets that are used to create the official maps, thus eliminating hours of daily data entry, reducing human error, and giving more accurate data due to the ability to easily capture GPS coordinates for every tree assessed.”
 ** To try the app out, contact [Abbey](http://ca.linkedin.com/in/earthabbey) for an invite.**
 
 
