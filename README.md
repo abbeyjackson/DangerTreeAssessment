@@ -1,4 +1,7 @@
+Note: This is a prototype app I built when I had very little experience. A new MVP is currently being developed in Swift with a more standard UI and backend implementation.
+
 # Danger Tree Assessment
+
 ###Saving BC's Wildfire Firefighters and First Responders 
 Abbey Jackson (@earthabbey) & Alain Kahwaji (@codinglegend)
 
